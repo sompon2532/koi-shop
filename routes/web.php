@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/admin', function() {
 	return "Hello world";
 })
