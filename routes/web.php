@@ -12,7 +12,7 @@
 */
 
 Route::get('/admin', function() {
-	return "hello";
+	return "Hello world";
 })
 
 Route::get('/', function () {
