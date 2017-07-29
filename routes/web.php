@@ -12,11 +12,35 @@
 */
 
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Backoffice'], function() {
-	Route::get('/', [
-		'as'   => 'admin::index',
-		'uses' => 'AdminController@getIndex'
-	]);
+Route::group(['prefix' => 'admin'], function() {
+	Route::namespace('Backoffice')->group(function() {
+		Route::get('/', [
+			'as'   => 'get::admin.index',
+			'uses' => 'AdminController@getIndex'
+		]);
+	});
+	
+	Route::namespace('Admin')->group(function() {
+		Route::get('login', [
+			'as' => 'get::admin.login',
+			'uses' => 'LoginController@showLoginForm'
+		]);
+
+		Route::post('login', [
+			'as' => 'post::admin.login',
+			'uses' => 'LoginController@login'
+		]);
+
+		Route::get('register', [
+			'as' => 'get::admin.register',
+			'uses' => 'RegisterController@showRegistrationForm'
+		]);
+
+		Route::post('register', [
+			'as' => 'post::admin.register',
+			'uses' => 'RegisterController@register'
+		]);
+	});
 });
 
 Route::get('/', function () {
