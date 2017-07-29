@@ -12,10 +12,17 @@
 */
 
 
-Route::get('/admin', function() {
-	return "Hello world";
-})
+Route::group(['prefix' => 'admin', 'namespace' => 'Backoffice'], function() {
+	Route::get('/', [
+		'as'   => 'admin::index',
+		'uses' => 'AdminController@getIndex'
+	]);
+});
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
