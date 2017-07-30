@@ -13,31 +13,31 @@
 
 
 Route::group(['prefix' => 'admin'], function() {
-	Route::namespace('Backoffice')->group(function() {
+	Route::middleware('auth:admin')->namespace('Backoffice')->group(function() {
 		Route::get('/', [
 			'as'   => 'get::admin.index',
 			'uses' => 'AdminController@getIndex'
 		]);
+
+		Route::resource('/category', 'CategoryController');
 	});
 	
 	Route::namespace('Admin')->group(function() {
 		Route::get('login', [
-			'as' => 'get::admin.login',
+			'as'   => 'admin.login',
 			'uses' => 'LoginController@showLoginForm'
 		]);
 
 		Route::post('login', [
-			'as' => 'post::admin.login',
 			'uses' => 'LoginController@login'
 		]);
 
 		Route::get('register', [
-			'as' => 'get::admin.register',
+			'as'   => 'admin.register',
 			'uses' => 'RegisterController@showRegistrationForm'
 		]);
 
 		Route::post('register', [
-			'as' => 'post::admin.register',
 			'uses' => 'RegisterController@register'
 		]);
 	});
