@@ -19,6 +19,8 @@ Route::group(['prefix' => 'admin'], function() {
 			'uses' => 'AdminController@getIndex'
 		]);
 
+		Route::resource('/item', 'ItemController');
+
 		Route::resource('/category', 'CategoryController');
 	});
 	

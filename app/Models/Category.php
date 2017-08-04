@@ -12,7 +12,7 @@ class Category extends Model
     /**
      * @var string
      */
-	public $translationModel = App\Models\CategoryTranslation::class;
+	public $translationModel = CategoryTranslation::class;
 	
     /**
      * @var array
@@ -22,5 +22,9 @@ class Category extends Model
     /**
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['status'];
+
+    public function scopeActive($query) {
+        return $query->where('status', 1);
+    }
 }

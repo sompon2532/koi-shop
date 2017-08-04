@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Backoffice;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 
-class CategoryController extends Controller
+class ItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-
-        return view('backoffice.category.index', compact('categories'));
+        //
     }
 
     /**
@@ -27,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backoffice.category.create');
+        //
     }
 
     /**
@@ -38,7 +35,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
+        //
     }
 
     /**
@@ -58,9 +55,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        return view('backoffice.category.update', compact('category'));
+        //
     }
 
     /**
@@ -70,9 +67,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        $category->update($request->all());
+        //
     }
 
     /**
