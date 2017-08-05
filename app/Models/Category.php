@@ -24,6 +24,10 @@ class Category extends Model
      */
     protected $fillable = ['status'];
 
+    /**
+     * @param $query
+     * @return mixed
+     */
     public function scopeActive($query) {
         return $query->where('status', 1);
     }

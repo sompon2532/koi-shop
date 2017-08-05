@@ -1,15 +1,15 @@
 @extends('layouts.backoffice.main')
 
-@section('title', 'Admin | Category')
+@section('title', 'Admin | Strain')
 
 @section('head')
     <h1>
-        Category
+        Strain
         <small>create</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-bars"></i> Category</a></li>
+        <li><a href="#"><i class="fa fa-deviantart"></i> Strain</a></li>
         <li class="active">Create</li>
     </ol>
 @endsection
@@ -20,47 +20,26 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Create category</h3>
+                <h3 class="box-title">Create Strain</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="{{ route('category.store') }}">
+            <form class="form-horizontal" method="post" action="{{ route('strain.store') }}">
                 {{ csrf_field() }}
 
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="nameTh" class="col-sm-3 control-label">
-                                Name TH <span class="text-danger">*</span>
+                            <label for="name" class="col-sm-3 control-label">
+                                Name <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="th[name]" id="nameTh"
-                                       placeholder="Name TH">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="category" class="col-sm-3 control-label">Category</label>
-
-                            <div class="col-sm-9">
-                                <select class="form-control" name="category" id="category">
-                                    <!-- <option></option> -->
-                                </select>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="nameEn" class="col-sm-3 control-label">
-                                Name EN <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="en[name]" id="nameEn"
-                                       placeholder="Name EN">
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <label for="status" class="col-sm-3 control-label">Status</label>
 

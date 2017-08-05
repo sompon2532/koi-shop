@@ -15,15 +15,16 @@
 Route::group(['prefix' => 'admin'], function() {
 	Route::middleware('auth:admin')->namespace('Backoffice')->group(function() {
 		Route::get('/', [
-			'as'   => 'get::admin.index',
+			'as'   => 'admin.index',
 			'uses' => 'AdminController@getIndex'
 		]);
 
-		Route::resource('/item', 'ItemController');
-
-		Route::resource('/category', 'CategoryController');
+		Route::resource('item', 'ItemController');
+		Route::resource('category', 'CategoryController');
+		Route::resource('farm', 'FarmController');
+		Route::resource('strain', 'StrainController');
 	});
-	
+
 	Route::namespace('Admin')->group(function() {
 		Route::get('login', [
 			'as'   => 'admin.login',
