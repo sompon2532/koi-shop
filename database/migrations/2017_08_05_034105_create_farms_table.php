@@ -16,6 +16,7 @@ class CreateFarmsTable extends Migration
         Schema::create('farms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable()->index();
+            $table->string('code')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

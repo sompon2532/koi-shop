@@ -25,7 +25,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::resource('strain', 'StrainController');
 	});
 
-	Route::namespace('Admin')->group(function() {
+	Route::group(['namespace' => 'Admin'], function() {
 		Route::get('login', [
 			'as'   => 'admin.login',
 			'uses' => 'LoginController@showLoginForm'
