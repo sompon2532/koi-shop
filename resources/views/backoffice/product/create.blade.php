@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        Category
+        Product
         <small>create</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-bars"></i> Category</a></li>
+        <li><a href="#"><i class="fa fa-product-hunt"></i> Product</a></li>
         <li class="active">Create</li>
     </ol>
 @endsection
@@ -20,11 +20,11 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Create category</h3>
+                <h3 class="box-title">Create product</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="{{ route('category.store') }}">
+            <form class="form-horizontal" method="post" action="{{ route('product.store') }}">
                 {{ csrf_field() }}
 
                 <div class="box-body">
@@ -40,20 +40,30 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="code" class="col-sm-3 control-label">
-                                Code <span class="text-danger">*</span>
+                            <label for="productId" class="col-sm-3 control-label">
+                                Product ID <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="code" id="code"
-                                       placeholder="Code">
+                                <input type="text" class="form-control" name="product_id" id="productId"
+                                       placeholder="Product ID">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="delivery" class="col-sm-3 control-label">
+                                Delivery <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="delivery" id="delivery"
+                                       placeholder="Delivery">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="category" class="col-sm-3 control-label">Category</label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="parent_id" id="category">
-                                    <option value="">-------- Select parent category --------</option>
+                                <select class="form-control" name="category_id" id="category">
+                                    <option value="">-------- Select category --------</option>
                                     @php
                                     $traverse = function ($categories, $prefix = '') use (&$traverse) {
                                         foreach ($categories as $category) {
@@ -66,6 +76,15 @@
                                     $traverse($categories);
                                     @endphp
                                 </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description" class="col-sm-3 control-label">
+                                Description
+                            </label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" rows="4" name="description" id="description" placeholder="Description ..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -88,6 +107,16 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="slug" id="slug"
                                        placeholder="Slug">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price" class="col-sm-3 control-label">
+                                Price <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="price" id="price"
+                                       placeholder="Price">
                             </div>
                         </div>
 

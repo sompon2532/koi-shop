@@ -33,6 +33,12 @@
             <i class="fa fa-deviantart"></i></i> <span>Strain</span>
         </a>
     </li>
+
+    <li>
+        <a href="{{ route('product.index') }}">
+            <i class="fa fa-product-hunt"></i></i> <span>Product</span>
+        </a>
+    </li>
     <!-- <li class="active treeview">
       <a href="#">
         <i class="fa fa-dashboard"></i> <span>Dashboard</span>

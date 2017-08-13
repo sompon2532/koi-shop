@@ -24,34 +24,40 @@
                 <table id="example2" class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Name TH</th>
-                        <th>Name EN</th>
+                        <th>Name</th>
+                        <th>Slug</th>
+                        <th>Code</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($categories as $index => $category)
-                    <tr>
-                        <td>{{ $category->id }}</td>
-                        <td>{{ $category->translate('th')->name }}</td>
-                        <td>{{ $category->translate('en')->name }}</td>
-                        <td>{{ $category->status }}</td>
-                        <td>
-                            <a href="{{ route('category.edit', ['category' => $category->id]) }}"
-                               class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                            <a href="{{ route('category.destroy', ['category' => $category->id]) }}"
-                               class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
-                        </td>
-                    </tr>
-                    @endforeach
+                    @php
+                    $traverse = function ($categories, $prefix = '') use (&$traverse) {
+                        foreach ($categories as $category) {
+                            echo '<tr>';
+                            echo '<td>' . $prefix . $category->name . '</td>';
+                            echo '<td>' . $category->slug . '</td>';
+                            echo '<td>' . $category->code . '</td>';
+                            echo '<td>' . $category->status . '</td>';
+                            echo '<td>';
+                            echo '<a href="' . route('category.edit', ['category' => $category->id]) . '" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a> ';
+                            echo '<a href="' . route('category.destroy', ['category' => $category->id]) . '" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>';
+                            echo '</td>';
+                            echo '<tr>';
+
+                            $traverse($category->children, $prefix.'<i class="fa fa-minus" aria-hidden="true"></i> ');
+                        }
+                    };
+
+                    $traverse($categories);
+                    @endphp
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th>#</th>
-                        <th>Name TH</th>
-                        <th>Name EN</th>
+                        <th>Name</th>
+                        <th>Slug</th>
+                        <th>Code</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>

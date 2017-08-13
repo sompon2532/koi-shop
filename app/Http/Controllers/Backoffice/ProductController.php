@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Backoffice;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Farm;
+use App\Models\Category;
+use App\Models\Product;
 
-class FarmController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class FarmController extends Controller
      */
     public function index()
     {
-        $farms = Farm::all();
+        $products = Product::all();
 
-        return view('backoffice.farm.index', compact('farms'));
+        return view('backoffice.product.index', compact('products'));
     }
 
     /**
@@ -27,7 +28,9 @@ class FarmController extends Controller
      */
     public function create()
     {
-        return view('backoffice.farm.create');
+        $categories = Category::active()->get()->toTree();
+
+        return view('backoffice.product.create', compact('categories'));
     }
 
     /**
@@ -38,9 +41,9 @@ class FarmController extends Controller
      */
     public function store(Request $request)
     {
-        $farm = Farm::create($request->all());
+        $product = Product::create($request->all());
 
-        return redirect()->route('farm.edit', ['farm' => $farm->id]);
+        return redirect()->route('product.edit', ['product' => $product->id]);
     }
 
     /**
@@ -60,9 +63,11 @@ class FarmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Farm $farm)
+    public function edit(Product $product)
     {
-        return view('backoffice.farm.update', compact('farm'));
+        $categories = Category::active()->get()->toTree();
+
+        return view('backoffice.product.update', compact('product','categories'));
     }
 
     /**
@@ -72,11 +77,11 @@ class FarmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Farm $farm)
+    public function update(Request $request, Product $product)
     {
-        $farm->update($request->all());
+        $product->update($request->all());
 
-        return redirect()->route('farm.edit', ['farm' => $farm->id]);
+        return redirect()->route('product.edit', ['product' => $product->id]);
     }
 
     /**

@@ -26,6 +26,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Code</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>
@@ -35,6 +36,7 @@
                     <tr>
                         <td>{{ $farm->id }}</td>
                         <td>{{ $farm->name }}</td>
+                        <td>{{ $farm->code }}</td>
                         <td>{{ $farm->status }}</td>
                         <td>
                             <a href="{{ route('farm.edit', ['farm' => $farm->id]) }}"
@@ -49,6 +51,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Code</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>

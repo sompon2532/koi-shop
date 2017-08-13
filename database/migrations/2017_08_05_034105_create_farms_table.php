@@ -19,6 +19,7 @@ class CreateFarmsTable extends Migration
             $table->string('code')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

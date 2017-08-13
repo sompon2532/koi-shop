@@ -4,10 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Dimsav\Translatable\Translatable;
+use Kalnoy\Nestedset\NodeTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Category extends Model
 {
-	use Translatable;
+	use Translatable, SoftDeletes, NodeTrait;
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     /**
      * @var string
@@ -22,7 +32,7 @@ class Category extends Model
     /**
      * @var array
      */
-    protected $fillable = ['status'];
+    protected $fillable = ['code', 'slug', 'status', 'parent_id'];
 
     /**
      * @param $query

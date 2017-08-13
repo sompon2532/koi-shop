@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        Category
+        Product
         <small>update</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-bars"></i> Category</a></li>
+        <li><a href="#"><i class="fa fa-product-hunt"></i> Product</a></li>
         <li class="active">Update</li>
     </ol>
 @endsection
@@ -20,12 +20,11 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Update category</h3>
+                <h3 class="box-title">Update product</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post"
-                  action="{{ route('category.update', ['category' => $category->id]) }}">
+            <form class="form-horizontal" method="post" action="{{ route('product.update', ['product' => $product->id]) }}">
                 {{ method_field('PATCH') }}
                 {{ csrf_field() }}
 
@@ -36,32 +35,42 @@
                                 Name TH <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="th[name]"
-                                       value="{{ $category->translate('th')->name }}" id="nameTh" placeholder="Name TH">
+                                <input type="text" class="form-control" name="th[name]" value="{{ $product->translate('th')->name }}" id="nameTh"
+                                       placeholder="Name TH">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="code" class="col-sm-3 control-label">
-                                Code <span class="text-danger">*</span>
+                            <label for="productId" class="col-sm-3 control-label">
+                                Product ID <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="code" value="{{ $category->code }}" id="code"
-                                       placeholder="Code">
+                                <input type="text" class="form-control" name="product_id" value="{{ $product->product_id }}" id="productId"
+                                       placeholder="Product ID">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="category" class="col-sm-3 control-label">Main category</label>
+                            <label for="delivery" class="col-sm-3 control-label">
+                                Delivery <span class="text-danger">*</span>
+                            </label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="parent_id" id="category">
-                                    <option value="">-------- Select parent category --------</option>
-                                    @php
-                                        $parent_id = $category->parent_id;
+                                <input type="text" class="form-control" name="delivery" value="{{ $product->delivery }}" id="delivery"
+                                       placeholder="Delivery">
+                            </div>
+                        </div>
 
-                                        $traverse = function ($categories, $prefix = '') use (&$traverse, $parent_id) {
+                        <div class="form-group">
+                            <label for="category" class="col-sm-3 control-label">Category</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="category_id" id="category">
+                                    <option value="">-------- Select category --------</option>
+                                    @php
+                                        $category_id = $product->category_id;
+
+                                        $traverse = function ($categories, $prefix = '') use (&$traverse, $category_id) {
                                             foreach ($categories as $category) {
-                                                if ($category->id == $parent_id) {
+                                                if ($category->id == $category_id) {
                                                     echo '<option value="'. $category->id . '" selected>' . $prefix . $category->name . '</option>';
                                                 }
                                                 else {
@@ -77,6 +86,15 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="description" class="col-sm-3 control-label">
+                                Description
+                            </label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" rows="4" name="description" id="description" placeholder="Description ...">{{ $product->description }}</textarea>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-md-6">
@@ -85,8 +103,8 @@
                                 Name EN <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="en[name]"
-                                       value="{{ $category->translate('en')->name }}" id="nameEn" placeholder="Name EN">
+                                <input type="text" class="form-control" name="en[name]" value="{{ $product->translate('en')->name }}" id="nameEn"
+                                       placeholder="Name EN">
                             </div>
                         </div>
 
@@ -95,8 +113,18 @@
                                 Slug <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="slug" value="{{ $category->slug }}" id="slug"
+                                <input type="text" class="form-control" name="slug" value="{{ $product->slug }}" id="slug"
                                        placeholder="Slug">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price" class="col-sm-3 control-label">
+                                Price <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="price" value="{{ $product->price }}" id="price"
+                                       placeholder="Price">
                             </div>
                         </div>
 
@@ -104,8 +132,8 @@
                             <label for="status" class="col-sm-3 control-label">Status</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="status" id="status">
-                                    <option value="1" {{ $category->status == 1 ? 'selected' : '' }}>Active</option>
-                                    <option value="0" {{ $category->status == 0 ? 'selected' : '' }}>Inactive</option>
+                                    <option value="1" {{ $product->status == 1 ? 'selected' : '' }}>Active</option>
+                                    <option value="0" {{ $product->status == 0 ? 'selected' : '' }}>Inactive</option>
                                 </select>
                             </div>
                         </div>

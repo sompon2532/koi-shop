@@ -26,6 +26,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Code</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>
@@ -35,6 +36,7 @@
                     <tr>
                         <td>{{ $strain->id }}</td>
                         <td>{{ $strain->name }}</td>
+                        <td>{{ $strain->code }}</td>
                         <td>{{ $strain->status }}</td>
                         <td>
                             <a href="{{ route('strain.edit', ['strain' => $strain->id]) }}"
@@ -49,6 +51,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Code</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>

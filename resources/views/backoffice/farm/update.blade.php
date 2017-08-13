@@ -39,12 +39,9 @@
                                        value="{{ $farm->name }}" id="name" placeholder="Name">
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="status" class="col-sm-3 control-label">Status</label>
-
                             <div class="col-sm-9">
                                 <select class="form-control" name="status" id="status">
                                     <option value="1">Active</option>
@@ -53,11 +50,23 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="code" class="col-sm-3 control-label">
+                                Code <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="code" value="{{ $farm->code }}" id="code"
+                                       placeholder="Code">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                        <button type="submit" class="btn btn-primary pull-right">Update</button>
                     </div>
                 </div>
                 <!-- /.box-footer -->

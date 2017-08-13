@@ -9,7 +9,7 @@ class Farm extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'status'];
+    protected $fillable = ['name', 'code', 'status'];
 
     /**
      * @param $query

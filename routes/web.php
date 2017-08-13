@@ -19,7 +19,7 @@ Route::group(['prefix' => 'admin'], function() {
 			'uses' => 'AdminController@getIndex'
 		]);
 
-		Route::resource('item', 'ItemController');
+		Route::resource('product', 'ProductController');
 		Route::resource('category', 'CategoryController');
 		Route::resource('farm', 'FarmController');
 		Route::resource('strain', 'StrainController');

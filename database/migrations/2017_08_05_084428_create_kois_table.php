@@ -24,8 +24,9 @@ class CreateKoisTable extends Migration
             $table->enum('sex', ['male', 'female', 'unknown']);
             $table->integer('owner', false, true)->nullable();
             $table->string('storage')->nullable();
-            $table->integer('price', false, true);
+            $table->float('price', 8, 2);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -16,7 +16,10 @@ class CreateRemarksTable extends Migration
         Schema::create('remarks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('remark')->nullable()->index();
+            $table->integer('remarktable_id', false, true);
+            $table->string('remarktable_type');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
