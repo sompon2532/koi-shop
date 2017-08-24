@@ -28,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::active()->get()->toTree();
+        $categories = Category::active()->group('product')->get()->toTree();
 
         return view('backoffice.product.create', compact('categories'));
     }
@@ -65,7 +65,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $categories = Category::active()->get()->toTree();
+        $categories = Category::active()->group('product')->get()->toTree();
 
         return view('backoffice.product.update', compact('product','categories'));
     }

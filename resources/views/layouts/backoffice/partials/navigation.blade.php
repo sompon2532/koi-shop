@@ -39,6 +39,13 @@
             <i class="fa fa-product-hunt"></i></i> <span>Product</span>
         </a>
     </li>
+
+
+    <li>
+        <a href="{{ route('koi.index') }}">
+            <i class="fa fa-archive"></i></i> <span>Koi</span>
+        </a>
+    </li>
     <!-- <li class="active treeview">
       <a href="#">
         <i class="fa fa-dashboard"></i> <span>Dashboard</span>

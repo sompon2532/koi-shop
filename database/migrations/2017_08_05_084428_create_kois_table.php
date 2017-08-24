@@ -20,6 +20,7 @@ class CreateKoisTable extends Migration
             $table->integer('strain_id', false, true);
             $table->boolean('certificate')->default(true);
             $table->string('born')->nullable();
+            $table->string('slug')->nullable();
             $table->string('oyagoi')->nullable();
             $table->enum('sex', ['male', 'female', 'unknown']);
             $table->integer('owner', false, true)->nullable();

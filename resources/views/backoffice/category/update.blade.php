@@ -16,7 +16,7 @@
 
 @section('content')
     <!-- right column -->
-    <div class="col-md-12">
+    <div class="col-md-12" id="app">
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
@@ -52,28 +52,21 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="category" class="col-sm-3 control-label">Main category</label>
+                            <label for="group" class="col-sm-3 control-label">Group</label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="parent_id" id="category">
-                                    <option value="">-------- Select parent category --------</option>
-                                    @php
-                                        $parent_id = $category->parent_id;
+                                <select class="form-control" name="group" id="group" v-model="group">
+                                    <option value="product" {{ $category->group == 'product' ? 'selected' : '' }}>Product</option>
+                                    <option value="koi" {{ $category->group == 'koi' ? 'selected' : '' }}>Koi</option>
+                                </select>
+                            </div>
+                        </div>
 
-                                        $traverse = function ($categories, $prefix = '') use (&$traverse, $parent_id) {
-                                            foreach ($categories as $category) {
-                                                if ($category->id == $parent_id) {
-                                                    echo '<option value="'. $category->id . '" selected>' . $prefix . $category->name . '</option>';
-                                                }
-                                                else {
-                                                    echo '<option value="'. $category->id . '">' . $prefix . $category->name . '</option>';
-                                                }
-
-                                                $traverse($category->children, $prefix.'- ');
-                                            }
-                                        };
-
-                                        $traverse($categories);
-                                    @endphp
+                        <div class="form-group">
+                            <label for="status" class="col-sm-3 control-label">Status</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="status" id="status">
+                                    <option value="1" {{ $category->status == 1 ? 'selected' : '' }}>Active</option>
+                                    <option value="0" {{ $category->status == 0 ? 'selected' : '' }}>Inactive</option>
                                 </select>
                             </div>
                         </div>
@@ -101,11 +94,54 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="status" class="col-sm-3 control-label">Status</label>
+                            <label for="category" class="col-sm-3 control-label">Category</label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="status" id="status">
-                                    <option value="1" {{ $category->status == 1 ? 'selected' : '' }}>Active</option>
-                                    <option value="0" {{ $category->status == 0 ? 'selected' : '' }}>Inactive</option>
+                                <select class="form-control" name="parent_id" id="category" v-if="group == 'product'">
+                                    <option value="">-------- Select parent category --------</option>
+                                    @php
+                                        $parent_id = $category->parent_id;
+
+                                        $traverse = function ($categories, $prefix = '') use (&$traverse, $parent_id) {
+                                            foreach ($categories as $category) {
+                                                if ($category->group == 'product') {
+                                                    if ($category->id == $parent_id) {
+                                                        echo '<option value="'. $category->id . '" selected>' . $prefix . $category->name . '</option>';
+                                                    }
+                                                    else {
+                                                        echo '<option value="'. $category->id . '">' . $prefix . $category->name . '</option>';
+                                                    }
+                                                }
+
+                                                $traverse($category->children, $prefix.'- ');
+                                            }
+                                        };
+
+                                        $traverse($categories);
+                                    @endphp
+                                </select>
+
+                                <select class="form-control" name="parent_id" id="category" v-else>
+                                    <option value="">-------- Select parent category --------</option>
+                                    @php
+                                        $parent_id = $category->parent_id;
+
+                                        $traverse = function ($categories, $prefix = '') use (&$traverse, $parent_id) {
+                                            foreach ($categories as $category) {
+                                                if ($category->group == 'koi') {
+                                                    if ($category->id == $parent_id) {
+                                                        echo '<option value="'. $category->id . '" selected>' . $prefix . $category->name . '</option>';
+                                                    }
+                                                    else {
+                                                        echo '<option value="'. $category->id . '">' . $prefix . $category->name . '</option>';
+                                                    }
+                                                }
+
+                                                $traverse($category->children, $prefix.'- ');
+                                            }
+                                        };
+
+                                        $traverse($categories);
+                                    @endphp
                                 </select>
                             </div>
                         </div>
@@ -124,3 +160,14 @@
     </div>
     <!--/.col (right) -->
 @endsection
+
+@push('scripts')
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                group: '{!! $category->group !!}'
+            }
+        })
+    </script>
+@endpush

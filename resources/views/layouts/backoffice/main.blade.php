@@ -18,7 +18,7 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="{{ asset('plugins/iCheck/flat/blue.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/iCheck/all.css') }}">
     <!-- jvectormap -->
     <link rel="stylesheet" href="{{ asset('plugins/jvectormap/jquery-jvectormap-1.2.2.css') }}">
     <!-- Date Picker -->
@@ -104,6 +104,8 @@
 <script src=" {{ asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 <!-- jQuery Knob Chart -->
 <script src=" {{ asset('plugins/knob/jquery.knob.js') }}"></script>
+<!-- iCheck 1.0.1 -->
+<script src=" {{ asset('plugins/iCheck/icheck.min.js') }}"></script>
 <!-- daterangepicker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 <script src=" {{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
@@ -119,5 +121,9 @@
 <script src=" {{ asset('dist/js/app.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src=" {{ asset('dist/js/demo.js') }}"></script>
+<!-- Vue -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+
+@stack('scripts')
 </body>
 </html>

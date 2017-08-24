@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin'], function() {
 			'uses' => 'AdminController@getIndex'
 		]);
 
+		Route::resource('koi', 'KoiController');
 		Route::resource('product', 'ProductController');
 		Route::resource('category', 'CategoryController');
 		Route::resource('farm', 'FarmController');

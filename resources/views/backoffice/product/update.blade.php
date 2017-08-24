@@ -1,6 +1,6 @@
 @extends('layouts.backoffice.main')
 
-@section('title', 'Admin | Category')
+@section('title', 'Admin | Product')
 
 @section('head')
     <h1>

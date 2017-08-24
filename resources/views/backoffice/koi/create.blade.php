@@ -1,15 +1,15 @@
 @extends('layouts.backoffice.main')
 
-@section('title', 'Admin | Product')
+@section('title', 'Admin | Koi')
 
 @section('head')
     <h1>
-        Product
+        Koi
         <small>create</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-product-hunt"></i> Product</a></li>
+        <li><a href="#"><i class="fa fa-archive"></i> Koi</a></li>
         <li class="active">Create</li>
     </ol>
 @endsection
@@ -20,11 +20,11 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Create product</h3>
+                <h3 class="box-title">Create koi</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="{{ route('product.store') }}">
+            <form class="form-horizontal" method="post" action="{{ route('koi.store') }}">
                 {{ csrf_field() }}
 
                 <div class="box-body">
@@ -40,22 +40,23 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="productId" class="col-sm-3 control-label">
-                                Product ID <span class="text-danger">*</span>
+                            <label for="koiId" class="col-sm-3 control-label">
+                                Koi ID <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="product_id" id="productId"
-                                       placeholder="Product ID">
+                                <input type="text" class="form-control" name="koi_id" id="koiId"
+                                       placeholder="Koi ID">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="delivery" class="col-sm-3 control-label">
-                                Delivery <span class="text-danger">*</span>
-                            </label>
+                            <label for="strain" class="col-sm-3 control-label">Strain</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="delivery" id="delivery"
-                                       placeholder="Delivery">
+                                <select class="form-control" name="strain_id" id="strain">
+                                    @foreach ($strains as $strain)
+                                        <option value="{{ $strain->id }}">{{ $strain->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
@@ -80,11 +81,33 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="description" class="col-sm-3 control-label">
-                                Description
+                            <label for="born" class="col-sm-3 control-label">
+                                Born <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4" name="description" id="description" placeholder="Description ..."></textarea>
+                                <input type="text" class="form-control" name="born" id="born"
+                                       placeholder="Born">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="storage" class="col-sm-3 control-label">
+                                Storage <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="storage" id="storage"
+                                       placeholder="Storage">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sex" class="col-sm-3 control-label">Sex</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="sex" id="sex">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="unknown">Unknown</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -111,6 +134,27 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="farm" class="col-sm-3 control-label">Farm</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="farm_id" id="farm">
+                                    @foreach ($farms as $farm)
+                                        <option value="{{ $farm->id }}">{{ $farm->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="oyagoi" class="col-sm-3 control-label">
+                                Oyagoi <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="oyagoi" id="oyagoi"
+                                       placeholder="Oyagoi">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="price" class="col-sm-3 control-label">
                                 Price <span class="text-danger">*</span>
                             </label>
@@ -129,6 +173,15 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="certificate" class="col-sm-3 control-label">
+                                Certificate <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-9" style="margin-top: 5px;">
+                                <input type="checkbox" value="1" class="minimal-red" name="certificate" id="certificate">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- /.box-body -->
@@ -144,3 +197,23 @@
     </div>
     <!--/.col (right) -->
 @endsection
+
+@push('scripts')
+    <script>
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass: 'iradio_minimal-blue'
+        });
+        //Red color scheme for iCheck
+        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+            checkboxClass: 'icheckbox_minimal-red',
+            radioClass: 'iradio_minimal-red'
+        });
+        //Flat red color scheme for iCheck
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        });
+    </script>
+@endpush

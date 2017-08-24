@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('code')->nullable();
             $table->string('slug')->nullable()->index();
             $table->boolean('status')->default(true);
+            $table->enum('group', ['product', 'koi']);
             $table->integer('parent_id', false, true)->nullable();
             $table->unsignedInteger('_lft');
             $table->unsignedInteger('_rgt');

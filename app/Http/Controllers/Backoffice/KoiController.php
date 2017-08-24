@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Backoffice;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Strain;
+use App\Models\Farm;
+use App\Models\Koi;
 
 class KoiController extends Controller
 {
@@ -14,7 +18,9 @@ class KoiController extends Controller
      */
     public function index()
     {
-        //
+        $kois = Koi::all();
+
+        return view('backoffice.koi.index', compact('kois'));
     }
 
     /**
@@ -24,7 +30,11 @@ class KoiController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::active()->group('koi')->get()->toTree();
+        $strains = Strain::all();
+        $farms = Farm::all();
+
+        return view('backoffice.koi.create', compact('categories', 'strains', 'farms'));
     }
 
     /**
@@ -35,7 +45,9 @@ class KoiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $koi = Koi::create($request->all());
+
+        return redirect()->route('koi.edit', ['koi' => $koi->id]);
     }
 
     /**
@@ -55,9 +67,13 @@ class KoiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Koi $koi)
     {
-        //
+        $categories = Category::active()->group('koi')->get()->toTree();
+        $strains = Strain::all();
+        $farms = Farm::all();
+
+        return view('backoffice.koi.update', compact('koi', 'categories', 'strains', 'farms'));
     }
 
     /**

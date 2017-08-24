@@ -27,6 +27,7 @@
                         <th>Name</th>
                         <th>Slug</th>
                         <th>Code</th>
+                        <th>Group</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>
@@ -39,6 +40,7 @@
                             echo '<td>' . $prefix . $category->name . '</td>';
                             echo '<td>' . $category->slug . '</td>';
                             echo '<td>' . $category->code . '</td>';
+                            echo '<td>' . $category->group . '</td>';
                             echo '<td>' . $category->status . '</td>';
                             echo '<td>';
                             echo '<a href="' . route('category.edit', ['category' => $category->id]) . '" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a> ';
@@ -58,6 +60,7 @@
                         <th>Name</th>
                         <th>Slug</th>
                         <th>Code</th>
+                        <th>Group</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>

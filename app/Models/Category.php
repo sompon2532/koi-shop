@@ -32,7 +32,7 @@ class Category extends Model
     /**
      * @var array
      */
-    protected $fillable = ['code', 'slug', 'status', 'parent_id'];
+    protected $fillable = ['code', 'slug', 'status', 'parent_id', 'group'];
 
     /**
      * @param $query
@@ -40,5 +40,9 @@ class Category extends Model
      */
     public function scopeActive($query) {
         return $query->where('status', 1);
+    }
+
+    public function scopeGroup($query, $type) {
+        return $query->where('group', $type);
     }
 }
