@@ -21,9 +21,10 @@ Route::group(['prefix' => 'admin'], function() {
 
 		Route::resource('koi', 'KoiController');
 		Route::resource('product', 'ProductController');
-		Route::resource('category', 'CategoryController');
 		Route::resource('farm', 'FarmController');
 		Route::resource('strain', 'StrainController');
+        Route::resource('category', 'CategoryController');
+        Route::resource('game', 'GameController');
 	});
 
 	Route::group(['namespace' => 'Admin'], function() {

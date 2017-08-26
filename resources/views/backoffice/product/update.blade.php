@@ -8,8 +8,8 @@
         <small>update</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-product-hunt"></i> Product</a></li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('product.index') }}"><i class="fa fa-product-hunt"></i> Product</a></li>
         <li class="active">Update</li>
     </ol>
 @endsection

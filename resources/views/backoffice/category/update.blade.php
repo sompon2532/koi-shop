@@ -8,8 +8,8 @@
         <small>update</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-bars"></i> Category</a></li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('category.index') }}"><i class="fa fa-bars"></i> Category</a></li>
         <li class="active">Update</li>
     </ol>
 @endsection
@@ -42,16 +42,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="code" class="col-sm-3 control-label">
-                                Code <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="code" value="{{ $category->code }}" id="code"
-                                       placeholder="Code">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <label for="group" class="col-sm-3 control-label">Group</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="group" id="group" v-model="group">
@@ -65,8 +55,8 @@
                             <label for="status" class="col-sm-3 control-label">Status</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="status" id="status">
-                                    <option value="1" {{ $category->status == 1 ? 'selected' : '' }}>Active</option>
-                                    <option value="0" {{ $category->status == 0 ? 'selected' : '' }}>Inactive</option>
+                                    <option value="1" {{ $category->status == true ? 'selected' : '' }}>Active</option>
+                                    <option value="0" {{ $category->status == false ? 'selected' : '' }}>Inactive</option>
                                 </select>
                             </div>
                         </div>
@@ -104,12 +94,8 @@
                                         $traverse = function ($categories, $prefix = '') use (&$traverse, $parent_id) {
                                             foreach ($categories as $category) {
                                                 if ($category->group == 'product') {
-                                                    if ($category->id == $parent_id) {
-                                                        echo '<option value="'. $category->id . '" selected>' . $prefix . $category->name . '</option>';
-                                                    }
-                                                    else {
-                                                        echo '<option value="'. $category->id . '">' . $prefix . $category->name . '</option>';
-                                                    }
+                                                    $selected = ($category->id == $parent_id) ? 'selected' : '';
+                                                    echo '<option value="'. $category->id . '"' . $selected . '>' . $prefix . $category->name . '</option>';
                                                 }
 
                                                 $traverse($category->children, $prefix.'- ');
@@ -128,12 +114,8 @@
                                         $traverse = function ($categories, $prefix = '') use (&$traverse, $parent_id) {
                                             foreach ($categories as $category) {
                                                 if ($category->group == 'koi') {
-                                                    if ($category->id == $parent_id) {
-                                                        echo '<option value="'. $category->id . '" selected>' . $prefix . $category->name . '</option>';
-                                                    }
-                                                    else {
-                                                        echo '<option value="'. $category->id . '">' . $prefix . $category->name . '</option>';
-                                                    }
+                                                    $selected = ($category->id == $parent_id) ? 'selected' : '';
+                                                    echo '<option value="'. $category->id . '"' . $selected . '>' . $prefix . $category->name . '</option>';
                                                 }
 
                                                 $traverse($category->children, $prefix.'- ');

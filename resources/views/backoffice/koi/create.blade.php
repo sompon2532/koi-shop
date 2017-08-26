@@ -8,8 +8,8 @@
         <small>create</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-archive"></i> Koi</a></li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('koi.index') }}"><i class="fa fa-archive"></i> Koi</a></li>
         <li class="active">Create</li>
     </ol>
 @endsection
@@ -179,7 +179,7 @@
                                 Certificate <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9" style="margin-top: 5px;">
-                                <input type="checkbox" value="1" class="minimal-red" name="certificate" id="certificate">
+                                <input type="checkbox" class="minimal-red" name="certificate" value="1" id="certificate">
                             </div>
                         </div>
                     </div>

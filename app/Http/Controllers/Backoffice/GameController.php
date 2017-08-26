@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Backoffice;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Game;
 
-class CategoryController extends Controller
+class GameController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::get()->toTree();
+        $games = Game::get();
 
-        return view('backoffice.category.index', compact('categories'));
+        return view('backoffice.game.index', compact('games'));
     }
 
     /**
@@ -27,9 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::get()->toTree();
-
-        return view('backoffice.category.create', compact('categories'));
+        return view('backoffice.game.create');
     }
 
     /**
@@ -40,9 +38,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = Category::create($request->all());
+        $game = Game::create($request->all());
 
-        return redirect()->route('category.edit', ['category' => $category->id]);
+        return redirect()->route('game.edit', ['game' => $game->id]);
     }
 
     /**
@@ -62,11 +60,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Game $game)
     {
-        $categories = Category::get()->toTree();
-
-        return view('backoffice.category.update', compact('category', 'categories'));
+        return view('backoffice.game.update', compact('game'));
     }
 
     /**
@@ -76,11 +72,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Game $game)
     {
-        $category->update($request->all());
+        $game->update($request->all());
 
-        return redirect()->route('category.edit', ['category' => $category->id]);
+        return view('backoffice.game.update', compact('game'));
     }
 
     /**

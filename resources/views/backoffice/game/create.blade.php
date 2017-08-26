@@ -1,16 +1,16 @@
 @extends('layouts.backoffice.main')
 
-@section('title', 'Admin | Farm')
+@section('title', 'Admin | Game')
 
 @section('head')
     <h1>
-        Farm
-        <small>update</small>
+        Game
+        <small>create</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ route('farm.index') }}"><i class="fa fa-dot-circle-o"></i> Farm</a></li>
-        <li class="active">Update</li>
+        <li><a href="{{ route('game.index') }}"><i class="fa fa-gamepad"></i> Game</a></li>
+        <li class="active">Create</li>
     </ol>
 @endsection
 
@@ -20,35 +20,44 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Update farm</h3>
+                <h3 class="box-title">Create game</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="{{ route('farm.update', ['farm' => $farm->id]) }}">
-                {{ method_field('PATCH') }}
+            <form class="form-horizontal" method="post" action="{{ route('game.store') }}">
                 {{ csrf_field() }}
 
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="name" class="col-sm-3 control-label">
-                                Name <span class="text-danger">*</span>
+                            <label for="nameTh" class="col-sm-3 control-label">
+                                Name TH <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="name"
-                                       value="{{ $farm->name }}" id="name" placeholder="Name">
+                                <input type="text" class="form-control" name="th[name]" id="nameTh"
+                                       placeholder="Name TH">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status" class="col-sm-3 control-label">Status</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="status" id="status">
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
+                                </select>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="status" class="col-sm-3 control-label">Status</label>
+                            <label for="nameEn" class="col-sm-3 control-label">
+                                Name EN <span class="text-danger">*</span>
+                            </label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="status" id="status">
-                                    <option value="1" {{ $farm->status == true ? 'selected' : '' }}>Active</option>
-                                    <option value="0" {{ $farm->status == false ? 'selected' : '' }}>Inactive</option>
-                                </select>
+                                <input type="text" class="form-control" name="en[name]" id="nameEn"
+                                       placeholder="Name EN">
                             </div>
                         </div>
                     </div>
@@ -56,7 +65,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right">Update</button>
+                        <button type="submit" class="btn btn-primary pull-right">Create</button>
                     </div>
                 </div>
                 <!-- /.box-footer -->

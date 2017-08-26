@@ -8,7 +8,7 @@
         <small>list</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Farm</li>
     </ol>
 @endsection
@@ -26,7 +26,6 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Code</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>
@@ -36,8 +35,7 @@
                     <tr>
                         <td>{{ $farm->id }}</td>
                         <td>{{ $farm->name }}</td>
-                        <td>{{ $farm->code }}</td>
-                        <td>{{ $farm->status }}</td>
+                        <td>{{ $farm->status ? 'Active' : 'Inactive' }}</td>
                         <td>
                             <a href="{{ route('farm.edit', ['farm' => $farm->id]) }}"
                                class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
@@ -51,7 +49,6 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Code</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>

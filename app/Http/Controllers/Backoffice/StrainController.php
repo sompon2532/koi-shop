@@ -38,7 +38,9 @@ class StrainController extends Controller
      */
     public function store(Request $request)
     {
-        Strain::create($request->all());
+        $strain = Strain::create($request->all());
+
+        return redirect()->route('strain.edit', ['strain' => $strain->id]);
     }
 
     /**
@@ -73,6 +75,8 @@ class StrainController extends Controller
     public function update(Request $request, Strain $strain)
     {
         $strain->update($request->all());
+
+        return redirect()->route('strain.edit', ['strain' => $strain->id]);
     }
 
     /**

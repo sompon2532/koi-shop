@@ -8,8 +8,8 @@
         <small>create</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-dot-circle-o"></i> Farm</a></li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('farm.index') }}"><i class="fa fa-dot-circle-o"></i> Farm</a></li>
         <li class="active">Create</li>
     </ol>
 @endsection
@@ -37,7 +37,9 @@
                                 <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                             </div>
                         </div>
+                    </div>
 
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="status" class="col-sm-3 control-label">Status</label>
                             <div class="col-sm-9">
@@ -45,18 +47,6 @@
                                     <option value="1">Active</option>
                                     <option value="0">Inactive</option>
                                 </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="code" class="col-sm-3 control-label">
-                                Code <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="code" id="code"
-                                       placeholder="Code">
                             </div>
                         </div>
                     </div>

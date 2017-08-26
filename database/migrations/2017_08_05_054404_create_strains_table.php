@@ -16,7 +16,6 @@ class CreateStrainsTable extends Migration
         Schema::create('strains', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable()->index();
-            $table->string('code')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
             $table->softDeletes();

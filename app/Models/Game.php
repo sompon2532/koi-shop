@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Product extends Model
+class Game extends Model
 {
     use Translatable, SoftDeletes;
 
@@ -29,7 +29,7 @@ class Product extends Model
     /**
      * @var string
      */
-    public $translationModel = ProductTranslation::class;
+    public $translationModel = GameTranslation::class;
 
     /**
      * @var array
@@ -39,6 +39,5 @@ class Product extends Model
     /**
      * @var array
      */
-    protected $fillable = ['product_id', 'category_id', 'slug', 'description', 'price', 'delivery', 'status'];
-
+    protected $fillable = ['status'];
 }

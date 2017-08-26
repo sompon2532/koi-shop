@@ -11,6 +11,15 @@ class Koi extends Model
     use Translatable, SoftDeletes;
 
     /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'status' => 'boolean',
+    ];
+
+    /**
      * The attributes that should be mutated to dates.
      *
      * @var array
@@ -30,5 +39,5 @@ class Koi extends Model
     /**
      * @var array
      */
-    public $fillable = ['koi_id', 'farm_id', 'strain_id', 'certificate', 'born', 'oyagoi', 'sex', 'owner', 'storage', 'price'];
+    public $fillable = ['koi_id', 'farm_id', 'strain_id', 'certificate', 'born', 'oyagoi', 'sex', 'owner', 'storage', 'price', 'category_id', 'slug'];
 }

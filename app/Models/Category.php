@@ -13,6 +13,15 @@ class Category extends Model
 	use Translatable, SoftDeletes, NodeTrait;
 
     /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'status' => 'boolean',
+    ];
+
+    /**
      * The attributes that should be mutated to dates.
      *
      * @var array
@@ -32,7 +41,7 @@ class Category extends Model
     /**
      * @var array
      */
-    protected $fillable = ['code', 'slug', 'status', 'parent_id', 'group'];
+    protected $fillable = ['slug', 'status', 'parent_id', 'group'];
 
     /**
      * @param $query
@@ -42,6 +51,11 @@ class Category extends Model
         return $query->where('status', 1);
     }
 
+    /**
+     * @param $query
+     * @param $type
+     * @return mixed
+     */
     public function scopeGroup($query, $type) {
         return $query->where('group', $type);
     }

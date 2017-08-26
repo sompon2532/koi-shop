@@ -31,8 +31,8 @@ class KoiController extends Controller
     public function create()
     {
         $categories = Category::active()->group('koi')->get()->toTree();
-        $strains = Strain::all();
-        $farms = Farm::all();
+        $strains = Strain::active()->get();
+        $farms = Farm::active()->get();
 
         return view('backoffice.koi.create', compact('categories', 'strains', 'farms'));
     }
@@ -70,8 +70,8 @@ class KoiController extends Controller
     public function edit(Koi $koi)
     {
         $categories = Category::active()->group('koi')->get()->toTree();
-        $strains = Strain::all();
-        $farms = Farm::all();
+        $strains = Strain::active()->get();
+        $farms = Farm::active()->get();
 
         return view('backoffice.koi.update', compact('koi', 'categories', 'strains', 'farms'));
     }
@@ -83,9 +83,17 @@ class KoiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Koi $koi)
     {
-        //
+        $inputs = $request->all();
+
+        if (! $request->has('certificate')) {
+            $inputs['certificate'] = 0;
+        }
+
+        $koi->update($inputs);
+
+        return redirect()->route('koi.edit', ['koi' => $koi->id]);
     }
 
     /**

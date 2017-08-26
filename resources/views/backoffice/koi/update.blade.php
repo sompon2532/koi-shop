@@ -5,12 +5,12 @@
 @section('head')
     <h1>
         Koi
-        <small>create</small>
+        <small>update</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-archive"></i> Koi</a></li>
-        <li class="active">Create</li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('koi.index') }}"><i class="fa fa-archive"></i> Koi</a></li>
+        <li class="active">Update</li>
     </ol>
 @endsection
 
@@ -20,11 +20,12 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Create koi</h3>
+                <h3 class="box-title">Update koi</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="{{ route('koi.store') }}">
+            <form class="form-horizontal" method="post" action="{{ route('koi.update', ['koi' => $koi->id]) }}">
+                {{ method_field('PATCH') }}
                 {{ csrf_field() }}
 
                 <div class="box-body">
@@ -44,7 +45,7 @@
                                 Koi ID <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="koi_id" id="koiId"
+                                <input type="text" class="form-control" name="koi_id" value="{{ $koi->koi_id }}" id="koiId"
                                        placeholder="Koi ID">
                             </div>
                         </div>
@@ -54,7 +55,7 @@
                             <div class="col-sm-9">
                                 <select class="form-control" name="strain_id" id="strain">
                                     @foreach ($strains as $strain)
-                                        <option value="{{ $strain->id }}">{{ $strain->name }}</option>
+                                        <option value="{{ $strain->id }}" {{ $strain->id == $koi->strain_id ? 'selected' : '' }}>{{ $strain->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -66,9 +67,10 @@
                                 <select class="form-control" name="category_id" id="category">
                                     <option value="">-------- Select category --------</option>
                                     @php
-                                        $traverse = function ($categories, $prefix = '') use (&$traverse) {
+                                        $traverse = function ($categories, $prefix = '') use (&$traverse, $koi) {
                                             foreach ($categories as $category) {
-                                                echo '<option value="'. $category->id . '">' . $prefix . $category->name . '</option>';
+                                                $selected = ($koi->category_id == $category->id) ? 'selected' : '';
+                                                echo '<option value="'. $category->id . '"' . $selected . '>' . $prefix . $category->name . '</option>';
 
                                                 $traverse($category->children, $prefix.'- ');
                                             }
@@ -85,7 +87,7 @@
                                 Born <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="born" id="born"
+                                <input type="text" class="form-control" name="born" value="{{ $koi->born }}" id="born"
                                        placeholder="Born">
                             </div>
                         </div>
@@ -95,7 +97,7 @@
                                 Storage <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="storage" id="storage"
+                                <input type="text" class="form-control" name="storage" value="{{ $koi->storage }}" id="storage"
                                        placeholder="Storage">
                             </div>
                         </div>
@@ -104,9 +106,9 @@
                             <label for="sex" class="col-sm-3 control-label">Sex</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="sex" id="sex">
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="unknown">Unknown</option>
+                                    <option value="male" {{ $koi->sex == 'male' ? 'selected' : '' }}>Male</option>
+                                    <option value="female" {{ $koi->sex == 'female' ? 'selected' : '' }}>Female</option>
+                                    <option value="unknown" {{ $koi->sex == 'unknown' ? 'selected' : '' }}>Unknown</option>
                                 </select>
                             </div>
                         </div>
@@ -118,7 +120,7 @@
                                 Name EN <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="en[name]" id="nameEn"
+                                <input type="text" class="form-control" name="en[name]" value="{{ $koi->translate('en')->name }}" id="nameEn"
                                        placeholder="Name EN">
                             </div>
                         </div>
@@ -128,7 +130,7 @@
                                 Slug <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="slug" id="slug"
+                                <input type="text" class="form-control" name="slug" value="{{ $koi->slug }}" id="slug"
                                        placeholder="Slug">
                             </div>
                         </div>
@@ -138,7 +140,7 @@
                             <div class="col-sm-9">
                                 <select class="form-control" name="farm_id" id="farm">
                                     @foreach ($farms as $farm)
-                                        <option value="{{ $farm->id }}">{{ $farm->name }}</option>
+                                        <option value="{{ $farm->id }}" {{ $farm->id == $koi->farm_id ? 'selected' : '' }}>{{ $farm->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -149,7 +151,7 @@
                                 Oyagoi <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="oyagoi" id="oyagoi"
+                                <input type="text" class="form-control" name="oyagoi" value="{{ $koi->oyagoi }}" id="oyagoi"
                                        placeholder="Oyagoi">
                             </div>
                         </div>
@@ -159,7 +161,7 @@
                                 Price <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="price" id="price"
+                                <input type="text" class="form-control" name="price" value="{{ $koi->price }}" id="price"
                                        placeholder="Price">
                             </div>
                         </div>
@@ -179,7 +181,7 @@
                                 Certificate <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9" style="margin-top: 5px;">
-                                <input type="checkbox" value="1" class="minimal-red" name="certificate" id="certificate">
+                                <input type="checkbox" class="minimal-red" name="certificate" value="1" {{ $koi->certificate ? 'checked' : '' }} id="certificate">
                             </div>
                         </div>
                     </div>
@@ -187,7 +189,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right">Create</button>
+                        <button type="submit" class="btn btn-primary pull-right">Update</button>
                     </div>
                 </div>
                 <!-- /.box-footer -->

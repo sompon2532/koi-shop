@@ -7,9 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Strain extends Model
 {
     /**
+     * The attributes that should be cast to native types.
+     *
      * @var array
      */
-    protected $fillable = ['name', 'code', 'status'];
+    protected $casts = [
+        'status' => 'boolean',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $fillable = ['name', 'status'];
 
     /**
      * @param $query

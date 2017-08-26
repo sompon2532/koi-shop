@@ -8,7 +8,7 @@
         <small>list</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Product</li>
     </ol>
 @endsection
@@ -37,7 +37,7 @@
                             <td>{{ $product->product_id }}</td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->slug }}</td>
-                            <td>{{ $product->status }}</td>
+                            <td>{{ $product->status ? 'Active' : 'Inactive' }}</td>
                             <td>
                                 <a href="{{ route('product.edit', ['product' => $product->id]) }}"
                                    class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>

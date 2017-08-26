@@ -1,15 +1,15 @@
 @extends('layouts.backoffice.main')
 
-@section('title', 'Admin | Koi')
+@section('title', 'Admin | Game')
 
 @section('head')
     <h1>
-        Koi
+        Game
         <small>list</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Koi</li>
+        <li class="active">Game</li>
     </ol>
 @endsection
 
@@ -17,41 +17,38 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('koi.create') }}" class="pull-right btn btn-primary">Create koi</a>
+                <a href="{{ route('game.create') }}" class="pull-right btn btn-primary">Create game</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
                 <table id="example2" class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>Koi ID</th>
+                        <th>#</th>
                         <th>Name</th>
-                        <th>Slug</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($kois as $index => $koi)
-                        <tr>
-                            <td>{{ $koi->koi_id }}</td>
-                            <td>{{ $koi->name }}</td>
-                            <td>{{ $koi->slug }}</td>
-                            <td>{{ $koi->status ? 'Active' : 'Inactive' }}</td>
-                            <td>
-                                <a href="{{ route('koi.edit', ['koi' => $koi->id]) }}"
-                                   class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="{{ route('koi.destroy', ['koi' => $koi->id]) }}"
-                                   class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
+                    @foreach ($games as $index => $game)
+                    <tr>
+                        <td>{{ $game->id }}</td>
+                        <td>{{ $game->name }}</td>
+                        <td>{{ $game->status ? 'Active' : 'Inactive' }}</td>
+                        <td>
+                            <a href="{{ route('game.edit', ['game' => $game->id]) }}"
+                               class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
+                            <a href="{{ route('game.destroy', ['game' => $game->id]) }}"
+                               class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
                     @endforeach
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th>Koi ID</th>
+                        <th>#</th>
                         <th>Name</th>
-                        <th>Slug</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>

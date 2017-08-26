@@ -17,6 +17,12 @@
     </li>
 
     <li>
+        <a href="{{ route('game.index') }}">
+            <i class="fa fa-gamepad"></i></i> <span>Game</span>
+        </a>
+    </li>
+
+    <li>
         <a href="{{ route('category.index') }}">
             <i class="fa fa-bars"></i></i> <span>Category</span>
         </a>
