@@ -41,8 +41,9 @@
                         <td>
                             <a href="{{ route('game.edit', ['game' => $game->id]) }}"
                                class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                            <a href="{{ route('game.destroy', ['game' => $game->id]) }}"
-                               class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                            <button data-token="{{ csrf_token() }}" data-id="{{ $game->id }}" class="btn-delete btn btn-danger btn-xs">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
                         </td>
                     </tr>
                     @endforeach
@@ -63,3 +64,21 @@
         <!-- /.box -->
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(".btn-delete").click(function() {
+            var id = $(this).data('id');
+            var token = $(this).data('token');
+
+            $.ajax({
+                url: "game/" + id,
+                type: "POST",
+                data: {_method: 'DELETE', _token :token},
+                success: function(response) {
+                    location.reload();
+                }
+            })
+        });
+    </script>
+@endpush
