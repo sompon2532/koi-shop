@@ -125,9 +125,9 @@
 <!-- Vue -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
 
+@stack('scripts')
+
 <!-- Main script -->
 <script src="{{ asset('js/main.js') }}"></script>
-
-@stack('scripts')
 </body>
 </html>
