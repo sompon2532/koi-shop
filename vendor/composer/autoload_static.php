@@ -382,7 +382,7 @@ class ComposerStaticInitb52e9084d3cc2fc77a3ec55a581ec448
         'App\\Models\\Remark' => __DIR__ . '/../..' . '/app/Models/Remark.php',
         'App\\Models\\Size' => __DIR__ . '/../..' . '/app/Models/Size.php',
         'App\\Models\\Strain' => __DIR__ . '/../..' . '/app/Models/Strain.php',
-        'App\\Models\\video' => __DIR__ . '/../..' . '/app/Models/video.php',
+        'App\\Models\\video' => __DIR__ . '/../..',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

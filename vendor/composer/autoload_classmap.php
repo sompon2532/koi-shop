@@ -54,7 +54,7 @@ return array(
     'App\\Models\\Remark' => $baseDir . '/app/Models/Remark.php',
     'App\\Models\\Size' => $baseDir . '/app/Models/Size.php',
     'App\\Models\\Strain' => $baseDir . '/app/Models/Strain.php',
-    'App\\Models\\video' => $baseDir . '/app/Models/video.php',
+    'App\\Models\\video' => $baseDir . '/app/Models/Video.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
