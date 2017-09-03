@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backoffice;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Farm\CreateFarmRequest;
+use App\Http\Requests\Farm\UpdateFarmRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Farm;
 
@@ -36,11 +38,13 @@ class FarmController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateFarmRequest $request)
     {
         $farm = Farm::create($request->all());
 
-        return redirect()->route('farm.edit', ['farm' => $farm->id]);
+        return redirect()
+                ->route('farm.edit', ['farm' => $farm->id])
+                ->with(['success' => 'Create farm success']);
     }
 
     /**
@@ -72,11 +76,13 @@ class FarmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Farm $farm)
+    public function update(UpdateFarmRequest $request, Farm $farm)
     {
         $farm->update($request->all());
 
-        return redirect()->route('farm.edit', ['farm' => $farm->id]);
+        return redirect()
+                ->route('farm.edit', ['farm' => $farm->id])
+                ->with(['success' => 'Update farm success']);
     }
 
     /**

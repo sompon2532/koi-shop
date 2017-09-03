@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class Product extends Model
+class Product extends Model implements HasMedia
 {
-    use Translatable, SoftDeletes;
+    use Translatable, SoftDeletes, HasMediaTrait;
 
     /**
      * The attributes that should be cast to native types.
@@ -40,5 +42,21 @@ class Product extends Model
      * @var array
      */
     protected $fillable = ['product_id', 'category_id', 'slug', 'description', 'price', 'delivery', 'status'];
+
+    /**
+     * Get all of the post's remarks.
+     */
+    public function remarks()
+    {
+        return $this->morphMany(Remark::class, 'remarktable');
+    }
+
+    /**
+     * Get all of the post's videos.
+     */
+    public function videos()
+    {
+        return $this->morphMany(Video::class, 'videotable');
+    }
 
 }

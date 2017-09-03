@@ -34,7 +34,7 @@
                                 Name TH <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="th[name]" id="nameTh"
+                                <input type="text" class="form-control" name="th[name]" value="{{ old('th.name') }}" id="nameTh"
                                        placeholder="Name TH">
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                                 Name EN <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="en[name]" id="nameEn"
+                                <input type="text" class="form-control" name="en[name]" value="{{ old('en.name') }}" id="nameEn"
                                        placeholder="Name EN">
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                                 Slug <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="slug" id="slug"
+                                <input type="text" class="form-control" name="slug" value="{{ old('slug') }}" id="slug"
                                        placeholder="Slug">
                             </div>
                         </div>

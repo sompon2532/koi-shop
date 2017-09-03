@@ -26,6 +26,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Slug</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>
@@ -35,6 +36,7 @@
                     <tr>
                         <td>{{ $game->id }}</td>
                         <td>{{ $game->name }}</td>
+                        <td>{{ $game->slug }}</td>
                         <td>{{ $game->status ? 'Active' : 'Inactive' }}</td>
                         <td>
                             <a href="{{ route('game.edit', ['game' => $game->id]) }}"
@@ -49,6 +51,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Slug</th>
                         <th>Status</th>
                         <th>Aciton</th>
                     </tr>

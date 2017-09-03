@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->integer('category_id', false, true)->nullable();
             $table->string('slug')->nullable()->index();
             $table->text('description')->nullable();
-            $table->float('price', 8, 2);
+            $table->float('price', 8, 2)->default(0);
             $table->string('delivery')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();

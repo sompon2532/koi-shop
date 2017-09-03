@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backoffice;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Strain\CreateStrainRequest;
+use App\Http\Requests\Strain\UpdateStrainRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Strain;
 
@@ -36,11 +38,13 @@ class StrainController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateStrainRequest $request)
     {
         $strain = Strain::create($request->all());
 
-        return redirect()->route('strain.edit', ['strain' => $strain->id]);
+        return redirect()
+                ->route('strain.edit', ['strain' => $strain->id])
+                ->with(['success' => 'Create strain success']);
     }
 
     /**
@@ -72,11 +76,13 @@ class StrainController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Strain $strain)
+    public function update(UpdateStrainRequest $request, Strain $strain)
     {
         $strain->update($request->all());
 
-        return redirect()->route('strain.edit', ['strain' => $strain->id]);
+        return redirect()
+                ->route('strain.edit', ['strain' => $strain->id])
+                ->with(['success' => 'Update strain success']);
     }
 
     /**

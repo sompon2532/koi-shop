@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backoffice;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Game\CreateGameRequest;
+use App\Http\Requests\Game\UpdateGameRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Game;
 
@@ -36,11 +38,20 @@ class GameController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateGameRequest $request)
     {
         $game = Game::create($request->all());
 
-        return redirect()->route('game.edit', ['game' => $game->id]);
+        // Image
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $image) {
+                $game->addMedia($image)->toMediaCollection('game');
+            }
+        }
+
+        return redirect()
+                ->route('game.edit', ['game' => $game->id])
+                ->with(['success' => 'Create game success']);
     }
 
     /**
@@ -62,6 +73,8 @@ class GameController extends Controller
      */
     public function edit(Game $game)
     {
+        $game->load('media');
+
         return view('backoffice.game.update', compact('game'));
     }
 
@@ -72,11 +85,26 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Game $game)
+    public function update(UpdateGameRequest $request, Game $game)
     {
         $game->update($request->all());
 
-        return view('backoffice.game.update', compact('game'));
+        $remove_images = array_get($request->all(), 'remove_images', []);
+
+        $game->getMedia('game')->filter(function($image) use ($remove_images) {
+            return in_array($image->id, $remove_images);
+        })->map(function($image) { $image->delete(); });
+
+        // Image
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $image) {
+                $game->addMedia($image)->toMediaCollection('game');
+            }
+        }
+
+        return redirect()
+                ->route('game.edit', ['koi' => $game->id])
+                ->with(['success' => 'Update game success']);
     }
 
     /**

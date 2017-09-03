@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class Game extends Model
+class Game extends Model implements HasMedia
 {
-    use Translatable, SoftDeletes;
+    use Translatable, SoftDeletes, HasMediaTrait;
 
     /**
      * The attributes that should be cast to native types.
@@ -39,5 +41,5 @@ class Game extends Model
     /**
      * @var array
      */
-    protected $fillable = ['status'];
+    protected $fillable = ['slug', 'status'];
 }

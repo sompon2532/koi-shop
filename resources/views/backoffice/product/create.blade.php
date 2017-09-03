@@ -2,6 +2,23 @@
 
 @section('title', 'Admin | Product')
 
+@push('style')
+    <style>
+        .minus {
+            position: absolute;
+            cursor: pointer;
+            right: 0px;
+            top: 0px;
+        }
+
+        .add {
+            float: right;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+    </style>
+@endpush
+
 @section('head')
     <h1>
         Product
@@ -16,7 +33,7 @@
 
 @section('content')
     <!-- right column -->
-    <div class="col-md-12">
+    <div class="col-md-12" id="app">
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
@@ -24,7 +41,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="{{ route('product.store') }}">
+            <form class="form-horizontal" method="post" action="{{ route('product.store') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
                 <div class="box-body">
@@ -34,7 +51,7 @@
                                 Name TH <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="th[name]" id="nameTh"
+                                <input type="text" class="form-control" name="th[name]" value="{{ old('th.name') }}" id="nameTh"
                                        placeholder="Name TH">
                             </div>
                         </div>
@@ -44,7 +61,7 @@
                                 Product ID <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="product_id" id="productId"
+                                <input type="text" class="form-control" name="product_id" value="{{ old('product_id') }}" id="productId"
                                        placeholder="Product ID">
                             </div>
                         </div>
@@ -54,7 +71,7 @@
                                 Delivery <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="delivery" id="delivery"
+                                <input type="text" class="form-control" name="delivery" value="{{ old('delivery') }}" id="delivery"
                                        placeholder="Delivery">
                             </div>
                         </div>
@@ -84,7 +101,7 @@
                                 Description
                             </label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4" name="description" id="description" placeholder="Description ..."></textarea>
+                                <textarea class="form-control" rows="4" name="description" id="description" placeholder="Description ...">{{ old('description') }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -95,7 +112,7 @@
                                 Name EN <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="en[name]" id="nameEn"
+                                <input type="text" class="form-control" name="en[name]" value="{{ old('en.name') }}" id="nameEn"
                                        placeholder="Name EN">
                             </div>
                         </div>
@@ -105,7 +122,7 @@
                                 Slug <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="slug" id="slug"
+                                <input type="text" class="form-control" name="slug" value="{{ old('slug') }}" id="slug"
                                        placeholder="Slug">
                             </div>
                         </div>
@@ -115,7 +132,7 @@
                                 Price <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="price" id="price"
+                                <input type="text" class="form-control" name="price" value="{{ old('price') }}" id="price"
                                        placeholder="Price">
                             </div>
                         </div>
@@ -130,6 +147,41 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Vidoe -->
+                    <div class="col-md-6">
+                        <div class="form-group" v-for="(video, index) in videos">
+                            <label class="col-sm-3 control-label">
+                                Video @{{ index + 1 }}
+                            </label>
+                            <div class="col-sm-9">
+                                <textarea name="videos[]" v-model="video.video" style="width: 100%; padding-left: 13px;" rows="5"></textarea>
+                                <i class="minus fa fa-minus-circle" v-on:click="remove('video', index)" v-show="videos.length > 1"></i>
+                            </div>
+                        </div>
+                        <i class="add fa fa-plus-circle" style="margin-top: -15px;" v-on:click="add('video')"></i>
+                    </div>
+
+                    <!-- Remark -->
+                    <div class="col-md-6">
+                        <div class="form-group" v-for="(remark, index) in remarks">
+                            <label class="col-sm-3 control-label">
+                                Remark @{{ index + 1 }}
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="remarks[]" v-model="remark.remark" placeholder="Remark">
+                                <i class="minus fa fa-minus-circle" v-on:click="remove('remark', index)" v-show="remarks.length > 1"></i>
+                            </div>
+                        </div>
+                        <i class="add fa fa-plus-circle" v-on:click="add('remark')"></i>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    @include('backoffice.partials.image', ['images' => []])
+
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
@@ -144,3 +196,33 @@
     </div>
     <!--/.col (right) -->
 @endsection
+
+@push('scripts')
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                videos: [{video: ''}],
+                remarks: [{remark: ''}]
+            },
+            methods: {
+                add: function(type) {
+                    if (type == 'video') {
+                        this.videos.push({video: ''})
+                    }
+                    else if (type == 'remark') {
+                        this.remarks.push({remark: ''})
+                    }
+                },
+                remove: function(type, index) {
+                    if (type == 'video') {
+                        this.videos.splice(index, 1)
+                    }
+                    else if (type == 'remark') {
+                        this.remarks.splice(index, 1)
+                    }
+                }
+            }
+        })
+    </script>
+@endpush

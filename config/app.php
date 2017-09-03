@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Dimsav\Translatable\TranslatableServiceProvider::class,
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 
     ],
 

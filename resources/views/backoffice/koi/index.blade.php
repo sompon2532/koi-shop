@@ -2,6 +2,23 @@
 
 @section('title', 'Admin | Koi')
 
+@push('style')
+    <style>
+        .minus {
+            position: absolute;
+            cursor: pointer;
+            right: 0px;
+            top: 0px;
+        }
+
+        .add {
+            float: right;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+    </style>
+@endpush
+
 @section('head')
     <h1>
         Koi

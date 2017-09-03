@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backoffice;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Category\CreateCategoryRequest;
+use App\Http\Requests\Category\UpdateCategoryRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 
@@ -38,11 +40,13 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCategoryRequest $request)
     {
         $category = Category::create($request->all());
 
-        return redirect()->route('category.edit', ['category' => $category->id]);
+        return redirect()
+                ->route('category.edit', ['category' => $category->id])
+                ->with(['success' => 'Create category success']);
     }
 
     /**
@@ -76,11 +80,13 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
         $category->update($request->all());
 
-        return redirect()->route('category.edit', ['category' => $category->id]);
+        return redirect()
+                ->route('category.edit', ['category' => $category->id])
+                ->with(['success' => 'Update category success']);
     }
 
     /**

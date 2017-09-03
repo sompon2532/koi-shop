@@ -24,7 +24,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="{{ route('game.update', ['game' => $game->id]) }}">
+            <form class="form-horizontal" method="post" action="{{ route('game.update', ['game' => $game->id]) }}" enctype="multipart/form-data">
                 {{ method_field('PATCH') }}
                 {{ csrf_field() }}
 
@@ -41,12 +41,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="status" class="col-sm-3 control-label">Status</label>
+                            <label for="slug" class="col-sm-3 control-label">
+                                Slug <span class="text-danger">*</span>
+                            </label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="status" id="status">
-                                    <option value="1" {{ $game->status == true ? 'selected' : '' }}>Active</option>
-                                    <option value="0" {{ $game->status == false ? 'selected' : '' }}>Inactive</option>
-                                </select>
+                                <input type="text" class="form-control" name="slug" value="{{ $game->slug }}" id="slug"
+                                       placeholder="Slug">
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,22 @@
                                        placeholder="Name EN">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="status" class="col-sm-3 control-label">Status</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="status" id="status">
+                                    <option value="1" {{ $game->status == true ? 'selected' : '' }}>Active</option>
+                                    <option value="0" {{ $game->status == false ? 'selected' : '' }}>Inactive</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="clearfix"></div>
+
+                    @include('backoffice.partials.image', ['images' => $game->media])
+
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">

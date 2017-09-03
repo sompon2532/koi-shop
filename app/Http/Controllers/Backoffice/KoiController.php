@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Backoffice;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Koi\CreateKoiRequest;
+use App\Http\Requests\Koi\UpdateKoiRequest;
 use App\Http\Controllers\Controller;
+use App\Supports\KoiRepository;
 use App\Models\Category;
 use App\Models\Strain;
 use App\Models\Farm;
@@ -11,6 +14,11 @@ use App\Models\Koi;
 
 class KoiController extends Controller
 {
+    public function __construct(KoiRepository $koiRepository)
+    {
+        $this->koiRepository = $koiRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -43,11 +51,48 @@ class KoiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateKoiRequest $request)
     {
         $koi = Koi::create($request->all());
 
-        return redirect()->route('koi.edit', ['koi' => $koi->id]);
+        // Remark
+        foreach (array_get($request->all(), 'remarks') as $remark) {
+            if ($remark) {
+                $koi->remarks()->create(['remark' => $remark]);
+            }
+        }
+
+        // Size
+        foreach (array_get($request->all(), 'sizes') as $size) {
+            if ($size) {
+                $koi->sizes()->create(['size' => $size]);
+            }
+        }
+
+        // Contest
+        foreach (array_get($request->all(), 'contests') as $contest) {
+            if ($contest) {
+                $koi->contests()->create(['contest' => $contest]);
+            }
+        }
+
+        // Video
+        foreach (array_get($request->all(), 'videos') as $video) {
+            if ($video) {
+                $koi->videos()->create(['video' => $video]);
+            }
+        }
+
+        // Image
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $image) {
+                $koi->addMedia($image)->toMediaCollection('koi');
+            }
+        }
+
+        return redirect()
+                ->route('koi.edit', ['koi' => $koi->id])
+                ->with(['success' => 'Create koi success']);
     }
 
     /**
@@ -69,6 +114,8 @@ class KoiController extends Controller
      */
     public function edit(Koi $koi)
     {
+        $koi->load(['remarks', 'contests', 'sizes', 'videos', 'media']);
+
         $categories = Category::active()->group('koi')->get()->toTree();
         $strains = Strain::active()->get();
         $farms = Farm::active()->get();
@@ -83,7 +130,7 @@ class KoiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Koi $koi)
+    public function update(UpdateKoiRequest $request, Koi $koi)
     {
         $inputs = $request->all();
 
@@ -93,7 +140,54 @@ class KoiController extends Controller
 
         $koi->update($inputs);
 
-        return redirect()->route('koi.edit', ['koi' => $koi->id]);
+        // Remark
+        $koi->remarks()->delete();
+        foreach (array_get($request->all(), 'remarks') as $remark) {
+            if ($remark) {
+                $koi->remarks()->create(['remark' => $remark]);
+            }
+        }
+
+        // Size
+        $koi->sizes()->delete();
+        foreach (array_get($request->all(), 'sizes') as $size) {
+            if ($size) {
+                $koi->sizes()->create(['size' => $size]);
+            }
+        }
+
+        // Contest
+        $koi->contests()->delete();
+        foreach (array_get($request->all(), 'contests') as $contest) {
+            if ($contest) {
+                $koi->contests()->create(['contest' => $contest]);
+            }
+        }
+
+        // Video
+        $koi->videos()->delete();
+        foreach (array_get($request->all(), 'videos') as $video) {
+            if ($video) {
+                $koi->videos()->create(['video' => $video]);
+            }
+        }
+
+        $remove_images = array_get($request->all(), 'remove_images', []);
+
+        $koi->getMedia('koi')->filter(function($image) use ($remove_images) {
+            return in_array($image->id, $remove_images);
+        })->map(function($image) { $image->delete(); });
+
+        // Image
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $image) {
+                $koi->addMedia($image)->toMediaCollection('koi');
+            }
+        }
+
+        return redirect()
+                ->route('koi.edit', ['koi' => $koi->id])
+                ->with(['success' => 'Update koi success']);
     }
 
     /**
