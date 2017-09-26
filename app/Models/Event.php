@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class Game extends Model implements HasMedia
+class Event extends Model implements HasMedia
 {
     use Translatable, SoftDeletes, HasMediaTrait;
 
@@ -31,7 +31,7 @@ class Game extends Model implements HasMedia
     /**
      * @var string
      */
-    public $translationModel = GameTranslation::class;
+    public $translationModel = EventTranslation::class;
 
     /**
      * @var array
@@ -42,4 +42,19 @@ class Game extends Model implements HasMedia
      * @var array
      */
     protected $fillable = ['slug', 'status'];
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeActive($query) {
+        return $query->where('status', 1);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function kois() {
+        return $this->hasMany(Koi::class);
+    }
 }

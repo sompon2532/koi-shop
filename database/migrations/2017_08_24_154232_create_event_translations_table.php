@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFieldSlugToGameTable extends Migration
+class CreateEventTranslationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddFieldSlugToGameTable extends Migration
      */
     public function up()
     {
-        Schema::table('games', function (Blueprint $table) {
-            $table->string('slug')->after('id')->nullabel()->index();
+        Schema::create('event_translations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('event_id', false, true);
+            $table->string('name');
+            $table->string('locale')->index();
         });
     }
 
@@ -25,8 +28,6 @@ class AddFieldSlugToGameTable extends Migration
      */
     public function down()
     {
-        Schema::table('games', function (Blueprint $table) {
-            $table->dropColumn('slug');
-        });
+        Schema::dropIfExists('event_translations');
     }
 }

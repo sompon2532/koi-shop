@@ -1,15 +1,15 @@
 @extends('layouts.backoffice.main')
 
-@section('title', 'Admin | Game')
+@section('title', 'Admin | News')
 
 @section('head')
     <h1>
-        Game
+        News
         <small>update</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ route('game.index') }}"><i class="fa fa-dot-circle-o"></i> Game</a></li>
+        <li><a href="{{ route('news.index') }}"><i class="fa fa-newspaper-o"></i> News</a></li>
         <li class="active">Update</li>
     </ol>
 @endsection
@@ -20,11 +20,11 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Update game</h3>
+                <h3 class="box-title">Update news</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="{{ route('game.update', ['game' => $game->id]) }}" enctype="multipart/form-data">
+            <form class="form-horizontal" method="post" action="{{ route('news.update', ['news' => $news->id]) }}" enctype="multipart/form-data">
                 {{ method_field('PATCH') }}
                 {{ csrf_field() }}
 
@@ -35,7 +35,7 @@
                                 Name TH <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="th[name]" value="{{ $game->translate('th')->name }}" id="nameTh"
+                                <input type="text" class="form-control" name="th[name]" value="{{ $news->translate('th')->name }}" id="nameTh"
                                        placeholder="Name TH">
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                 Slug <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="slug" value="{{ $game->slug }}" id="slug"
+                                <input type="text" class="form-control" name="slug" value="{{ $news->slug }}" id="slug"
                                        placeholder="Slug">
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                                 Name EN <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="en[name]" value="{{ $game->translate('en')->name }}" id="nameEn"
+                                <input type="text" class="form-control" name="en[name]" value="{{ $news->translate('en')->name }}" id="nameEn"
                                        placeholder="Name EN">
                             </div>
                         </div>
@@ -66,8 +66,8 @@
                             <label for="status" class="col-sm-3 control-label">Status</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="status" id="status">
-                                    <option value="1" {{ $game->status == true ? 'selected' : '' }}>Active</option>
-                                    <option value="0" {{ $game->status == false ? 'selected' : '' }}>Inactive</option>
+                                    <option value="1" {{ $news->status == true ? 'selected' : '' }}>Active</option>
+                                    <option value="0" {{ $news->status == false ? 'selected' : '' }}>Inactive</option>
                                 </select>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
 
                     <div class="clearfix"></div>
 
-                    @include('backoffice.partials.image', ['images' => $game->media])
+                    @include('backoffice.partials.image', ['images' => $news->media, 'collection' => 'news'])
 
                 </div>
                 <!-- /.box-body -->

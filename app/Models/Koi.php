@@ -22,6 +22,13 @@ class Koi extends Model implements HasMedia
     ];
 
     /**
+     * @var array
+     */
+    protected $appends = [
+        'image'
+    ];
+
+    /**
      * The attributes that should be mutated to dates.
      *
      * @var array
@@ -41,7 +48,7 @@ class Koi extends Model implements HasMedia
     /**
      * @var array
      */
-    public $fillable = ['koi_id', 'farm_id', 'strain_id', 'certificate', 'born', 'oyagoi', 'sex', 'owner', 'storage', 'price', 'category_id', 'slug'];
+    public $fillable = ['koi_id', 'farm_id', 'strain_id', 'certificate', 'born', 'oyagoi', 'sex', 'owner', 'storage', 'price', 'category_id', 'slug', 'event_id'];
 
     /**
      * Get all of the post's remarks.
@@ -73,5 +80,15 @@ class Koi extends Model implements HasMedia
     public function contests()
     {
         return $this->morphMany(Contest::class, 'contesttable');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Routing\UrlGenerator|null|string
+     */
+    public function getImageAttribute()
+    {
+        $media = $this->getFirstMedia('koi');
+
+        return $media ? url($media->getUrl()) : null;
     }
 }

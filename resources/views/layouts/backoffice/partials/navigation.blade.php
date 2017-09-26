@@ -17,8 +17,14 @@
     </li>
 
     <li>
-        <a href="{{ route('game.index') }}">
-            <i class="fa fa-gamepad"></i></i> <span>Game</span>
+        <a href="{{ route('event.index') }}">
+            <i class="fa fa-gamepad"></i> <span>Event</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ route('news.index') }}">
+            <i class="fa fa-newspaper-o"></i> <span>News</span>
         </a>
     </li>
 

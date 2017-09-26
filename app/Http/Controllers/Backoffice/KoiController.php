@@ -10,6 +10,7 @@ use App\Supports\KoiRepository;
 use App\Models\Category;
 use App\Models\Strain;
 use App\Models\Farm;
+use App\Models\Event;
 use App\Models\Koi;
 
 class KoiController extends Controller
@@ -39,10 +40,11 @@ class KoiController extends Controller
     public function create()
     {
         $categories = Category::active()->group('koi')->get()->toTree();
+        $events = Event::active()->get();
         $strains = Strain::active()->get();
         $farms = Farm::active()->get();
 
-        return view('backoffice.koi.create', compact('categories', 'strains', 'farms'));
+        return view('backoffice.koi.create', compact('categories', 'strains', 'events', 'farms'));
     }
 
     /**
@@ -117,10 +119,11 @@ class KoiController extends Controller
         $koi->load(['remarks', 'contests', 'sizes', 'videos', 'media']);
 
         $categories = Category::active()->group('koi')->get()->toTree();
+        $events = Event::active()->get();
         $strains = Strain::active()->get();
         $farms = Farm::active()->get();
 
-        return view('backoffice.koi.update', compact('koi', 'categories', 'strains', 'farms'));
+        return view('backoffice.koi.update', compact('koi', 'categories', 'events', 'strains', 'farms'));
     }
 
     /**

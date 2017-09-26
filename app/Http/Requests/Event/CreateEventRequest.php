@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Game;
+namespace App\Http\Requests\Event;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateGameRequest extends FormRequest
+class CreateEventRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class CreateGameRequest extends FormRequest
         return [
             'th.name' => 'required',
             'en.name' => 'required',
-            'slug' => 'required|unique:games,slug'
+            'slug' => 'required|unique:events,slug'
         ];
     }
 }

@@ -105,11 +105,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="description" class="col-sm-3 control-label">
-                                Description
+                            <label for="descriptionTh" class="col-sm-3 control-label">
+                                Description TH
                             </label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4" name="description" id="description" placeholder="Description ...">{{ $product->description }}</textarea>
+                                <textarea class="form-control" rows="4" name="th[description]" id="descriptionTh" placeholder="Description TH ...">{{ $product->translate('th')->description }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -154,6 +154,15 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="descriptionEn" class="col-sm-3 control-label">
+                                Description EN
+                            </label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" rows="4" name="en[description]" id="descriptionEn" placeholder="Description EN ...">{{ $product->translate('en')->description }}</textarea>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="clearfix"></div>
@@ -165,11 +174,11 @@
                                 Video @{{ index + 1 }}
                             </label>
                             <div class="col-sm-9">
-                                <textarea name="videos[]" v-model="video.video" style="width: 100%; padding-left: 13px;" rows="5"></textarea>
+                                <textarea class="form-control" name="videos[]" v-model="video.video" rows="5" placeholder="Video ..."></textarea>
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('video', index)" v-show="videos.length > 1"></i>
                             </div>
                         </div>
-                        <i class="add fa fa-plus-circle" style="margin-top: -15px;" v-on:click="add('video')"></i>
+                        <i class="add fa fa-plus-circle" v-on:click="add('video')"></i>
                     </div>
 
                     <!-- Remark -->

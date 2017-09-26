@@ -1,15 +1,15 @@
 @extends('layouts.backoffice.main')
 
-@section('title', 'Admin | Game')
+@section('title', 'Admin | News')
 
 @section('head')
     <h1>
-        Game
+        News
         <small>create</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ route('game.index') }}"><i class="fa fa-gamepad"></i> Game</a></li>
+        <li><a href="{{ route('news.index') }}"><i class="fa fa-newspaper-o"></i> News</a></li>
         <li class="active">Create</li>
     </ol>
 @endsection
@@ -20,11 +20,11 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Create game</h3>
+                <h3 class="box-title">Create news</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="{{ route('game.store') }}" enctype="multipart/form-data">
+            <form class="form-horizontal" method="post" action="{{ route('news.store') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
                 <div class="box-body">

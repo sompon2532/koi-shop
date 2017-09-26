@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGamesTable extends Migration
+class CreateNewsTranslationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateGamesTable extends Migration
      */
     public function up()
     {
-        Schema::create('games', function (Blueprint $table) {
+        Schema::create('news_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('status')->default(true);
-            $table->timestamps();
-            $table->softDeletes();
+            $table->integer('news_id', false, true);
+            $table->string('name');
+            $table->string('locale')->index();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateGamesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('games');
+        Schema::dropIfExists('news_translations');
     }
 }

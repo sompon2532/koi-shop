@@ -178,7 +178,7 @@ ruby: |
 documents: 2
 
 ---
-test: Play by play feed from a game
+test: Play by play feed from a event
 todo: true
 spec: 2.8
 yaml: |

@@ -36,12 +36,12 @@ class Product extends Model implements HasMedia
     /**
      * @var array
      */
-    public $translatedAttributes = ['name'];
+    public $translatedAttributes = ['name', 'description'];
 
     /**
      * @var array
      */
-    protected $fillable = ['product_id', 'category_id', 'slug', 'description', 'price', 'delivery', 'status'];
+    protected $fillable = ['product_id', 'category_id', 'slug', 'price', 'delivery', 'status'];
 
     /**
      * Get all of the post's remarks.
@@ -58,5 +58,4 @@ class Product extends Model implements HasMedia
     {
         return $this->morphMany(Video::class, 'videotable');
     }
-
 }

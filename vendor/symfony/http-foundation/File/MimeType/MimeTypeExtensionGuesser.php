@@ -158,7 +158,7 @@ class MimeTypeExtensionGuesser implements ExtensionGuesserInterface
         'application/vnd.android.package-archive' => 'apk',
         'application/vnd.anser-web-certificate-issue-initiation' => 'cii',
         'application/vnd.anser-web-funds-transfer-initiation' => 'fti',
-        'application/vnd.antix.game-component' => 'atx',
+        'application/vnd.antix.event-component' => 'atx',
         'application/vnd.apple.installer+xml' => 'mpkg',
         'application/vnd.apple.mpegurl' => 'm3u8',
         'application/vnd.aristanetworks.swi' => 'swi',

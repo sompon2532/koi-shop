@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Backoffice;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\Game\CreateGameRequest;
-use App\Http\Requests\Game\UpdateGameRequest;
+use App\Http\Requests\Event\CreateEventRequest;
+use App\Http\Requests\Event\UpdateEventRequest;
 use App\Http\Controllers\Controller;
-use App\Models\Game;
+use App\Models\Event;
 
-class GameController extends Controller
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class GameController extends Controller
      */
     public function index()
     {
-        $games = Game::get();
+        $events = Event::get();
 
-        return view('backoffice.game.index', compact('games'));
+        return view('backoffice.event.index', compact('events'));
     }
 
     /**
@@ -29,7 +29,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        return view('backoffice.game.create');
+        return view('backoffice.event.create');
     }
 
     /**
@@ -38,20 +38,25 @@ class GameController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateGameRequest $request)
+    public function store(CreateEventRequest $request)
     {
-        $game = Game::create($request->all());
+        $event = Event::create($request->all());
 
         // Image
         if ($request->hasFile('image')) {
             foreach ($request->file('image') as $image) {
-                $game->addMedia($image)->toMediaCollection('game');
+                $event->addMedia($image)->toMediaCollection('event');
             }
         }
 
+        // Cover
+        if ($request->hasFile('cover')) {
+            $event->addMedia($request->file('cover'))->toMediaCollection('event-cover');
+        }
+
         return redirect()
-                ->route('game.edit', ['game' => $game->id])
-                ->with(['success' => 'Create game success']);
+                ->route('event.edit', ['event' => $event->id])
+                ->with(['success' => 'Create event success']);
     }
 
     /**
@@ -60,9 +65,11 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Event $event)
     {
-        //
+        $event->load('media', 'kois.media');
+
+        return view('backoffice.event.detail', compact('event'));
     }
 
     /**
@@ -71,11 +78,11 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Game $game)
+    public function edit(Event $event)
     {
-        $game->load('media');
+        $event->load('media');
 
-        return view('backoffice.game.update', compact('game'));
+        return view('backoffice.event.update', compact('event'));
     }
 
     /**
@@ -85,26 +92,32 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateGameRequest $request, Game $game)
+    public function update(UpdateEventRequest $request, Event $event)
     {
-        $game->update($request->all());
+        $event->update($request->all());
 
         $remove_images = array_get($request->all(), 'remove_images', []);
 
-        $game->getMedia('game')->filter(function($image) use ($remove_images) {
+        $event->getMedia('event')->filter(function($image) use ($remove_images) {
             return in_array($image->id, $remove_images);
         })->map(function($image) { $image->delete(); });
 
         // Image
         if ($request->hasFile('image')) {
             foreach ($request->file('image') as $image) {
-                $game->addMedia($image)->toMediaCollection('game');
+                $event->addMedia($image)->toMediaCollection('event');
             }
         }
 
+        // Cover
+        if ($request->hasFile('cover')) {
+            $event->clearMediaCollection('event-cover');
+            $event->addMedia($request->file('cover'))->toMediaCollection('event-cover');
+        }
+
         return redirect()
-                ->route('game.edit', ['koi' => $game->id])
-                ->with(['success' => 'Update game success']);
+                ->route('event.edit', ['event' => $event->id])
+                ->with(['success' => 'Update event success']);
     }
 
     /**
@@ -113,10 +126,10 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Game $game)
+    public function destroy(Event $event)
     {
-        $game->clearMediaCollection('game');
-        $game->delete();
+        $event->clearMediaCollection('event');
+        $event->delete();
 
         return;
     }

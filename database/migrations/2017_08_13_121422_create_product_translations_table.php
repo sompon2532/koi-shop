@@ -17,6 +17,7 @@ class CreateProductTranslationsTable extends Migration
             $table->increments('id');
             $table->integer('product_id', false, true);
             $table->string('name');
+            $table->text('description')->nullable();
             $table->string('locale')->index();
         });
     }

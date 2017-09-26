@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GameTranslation extends Model
+class EventTranslation extends Model
 {
     public $timestamps = false;
 

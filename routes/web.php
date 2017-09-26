@@ -24,7 +24,8 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::resource('farm', 'FarmController');
 		Route::resource('strain', 'StrainController');
         Route::resource('category', 'CategoryController');
-        Route::resource('game', 'GameController');
+        Route::resource('news', 'NewsController');
+        Route::resource('event', 'EventController');
 	});
 
 	Route::group(['namespace' => 'Admin'], function() {

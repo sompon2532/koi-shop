@@ -1,15 +1,15 @@
 @extends('layouts.backoffice.main')
 
-@section('title', 'Admin | Game')
+@section('title', 'Event')
 
 @section('head')
     <h1>
-        Game
+        Event
         <small>list</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Game</li>
+        <li class="active">Event</li>
     </ol>
 @endsection
 
@@ -17,7 +17,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('game.create') }}" class="pull-right btn btn-primary">Create game</a>
+                <a href="{{ route('event.create') }}" class="pull-right btn btn-primary">Create event</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -32,16 +32,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($games as $index => $game)
+                    @foreach ($events as $index => $event)
                     <tr>
-                        <td>{{ $game->id }}</td>
-                        <td>{{ $game->name }}</td>
-                        <td>{{ $game->slug }}</td>
-                        <td>{{ $game->status ? 'Active' : 'Inactive' }}</td>
+                        <td>{{ $event->id }}</td>
+                        <td>{{ $event->name }}</td>
+                        <td>{{ $event->slug }}</td>
+                        <td>{{ $event->status ? 'Active' : 'Inactive' }}</td>
                         <td>
-                            <a href="{{ route('game.edit', ['game' => $game->id]) }}"
+                            <a href="{{ route('event.show', ['event' => $event->id]) }}"
+                               class="btn btn-default btn-xs"><i class="fa fa-list"></i></a>
+                            <a href="{{ route('event.edit', ['event' => $event->id]) }}"
                                class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                            <button data-token="{{ csrf_token() }}" data-id="{{ $game->id }}" class="btn-delete btn btn-danger btn-xs">
+                            <button data-token="{{ csrf_token() }}" data-id="{{ $event->id }}" class="btn-delete btn btn-danger btn-xs">
                                 <i class="fa fa-trash-o"></i>
                             </button>
                         </td>
@@ -66,19 +68,4 @@
 @endsection
 
 @push('scripts')
-    <script>
-        $(".btn-delete").click(function() {
-            var id = $(this).data('id');
-            var token = $(this).data('token');
-
-            $.ajax({
-                url: "game/" + id,
-                type: "POST",
-                data: {_method: 'DELETE', _token :token},
-                success: function(response) {
-                    location.reload();
-                }
-            })
-        });
-    </script>
 @endpush

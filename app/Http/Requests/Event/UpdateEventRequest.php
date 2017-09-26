@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Game;
+namespace App\Http\Requests\Event;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateGameRequest extends FormRequest
+class UpdateEventRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,12 @@ class UpdateGameRequest extends FormRequest
      */
     public function rules()
     {
-        $game = $this->game;
+        $event = $this->event;
 
         return [
             'th.name' => 'required',
             'en.name' => 'required',
-            'slug' => 'required|unique:games,slug,'.$game->id
+            'slug' => 'required|unique:events,slug,'.$event->id
         ];
     }
 }

@@ -47,6 +47,22 @@
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label for="event" class="col-sm-3 control-label">Event</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="event_id" id="event">
+                                    <option value="">-------- Select event --------</option>
+                                    @foreach ($events as $event)
+                                        <option value="{{ $event->id }}">{{ $event->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <label for="nameTh" class="col-sm-3 control-label">
                                 Name TH <span class="text-danger">*</span>
                             </label>
@@ -240,11 +256,11 @@
                                 Video @{{ index + 1 }}
                             </label>
                             <div class="col-sm-9">
-                                <textarea name="videos[]" v-model="video.video" style="width: 100%; padding-left: 13px;" rows="5"></textarea>
+                                <textarea class="form-control" name="videos[]" v-model="video.video" rows="5" placeholder="Video ..."></textarea>
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('video', index)" v-show="videos.length > 1"></i>
                             </div>
                         </div>
-                        <i class="add fa fa-plus-circle" style="margin-top: -15px;" v-on:click="add('video')"></i>
+                        <i class="add fa fa-plus-circle" v-on:click="add('video')"></i>
                     </div>
 
                     <!-- Remark -->
