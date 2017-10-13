@@ -281,7 +281,7 @@
 
                     <div class="clearfix"></div>
 
-                    @include('backoffice.partials.image', ['images' => $koi->media])
+                    @include('backoffice.partials.image', ['images' => $koi->media, 'collection' => 'koi'])
 
                 </div>
 

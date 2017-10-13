@@ -197,7 +197,7 @@
 
                     <div class="clearfix"></div>
 
-                    @include('backoffice.partials.image', ['images' => $product->media])
+                    @include('backoffice.partials.image', ['images' => $product->media, 'collection' => 'product'])
 
                 </div>
                 <!-- /.box-body -->
