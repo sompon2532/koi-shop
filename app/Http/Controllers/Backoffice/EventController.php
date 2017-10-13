@@ -50,8 +50,8 @@ class EventController extends Controller
             $input['config'] = 0;
         }
 
-        $input['start_datetime'] = Carbon::parse($start_datetime);
-        $input['end_datetime'] = Carbon::parse($end_datetime);
+        $input['start_datetime'] = Carbon::createFromFormat('d/m/Y H:i', $start_datetime);
+        $input['end_datetime'] = Carbon::createFromFormat('d/m/Y H:i', $end_datetime);
 
         $event = Event::create($input);
 
