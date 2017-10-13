@@ -336,7 +336,9 @@ class ComposerStaticInitb52e9084d3cc2fc77a3ec55a581ec448
     public static $classMap = array (
         'AddDatetimeToEventsTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_24_070349_add_datetime_to_events_table.php',
         'AddEventIdToKoiTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_09_020445_add_event_id_to_koi_table.php',
+        'AddFieldConfigToEventsTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_07_081952_add_field_config_to_events_table.php',
         'AddFreshSeeds' => __DIR__ . '/..' . '/dimsav/laravel-translatable/tests/seeds/AddFreshSeeds.php',
+        'AdminsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AdminsTableSeeder.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Admin\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ForgotPasswordController.php',

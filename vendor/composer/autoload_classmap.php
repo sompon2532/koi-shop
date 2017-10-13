@@ -8,7 +8,9 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddDatetimeToEventsTable' => $baseDir . '/database/migrations/2017_09_24_070349_add_datetime_to_events_table.php',
     'AddEventIdToKoiTable' => $baseDir . '/database/migrations/2017_09_09_020445_add_event_id_to_koi_table.php',
+    'AddFieldConfigToEventsTable' => $baseDir . '/database/migrations/2017_10_07_081952_add_field_config_to_events_table.php',
     'AddFreshSeeds' => $vendorDir . '/dimsav/laravel-translatable/tests/seeds/AddFreshSeeds.php',
+    'AdminsTableSeeder' => $baseDir . '/database/seeds/AdminsTableSeeder.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Admin\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Admin/ForgotPasswordController.php',

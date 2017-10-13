@@ -75,6 +75,10 @@
 
                     <div class="clearfix"></div>
 
+                    @include('backoffice.partials.cover', ['images' => $news->media, 'collection' => 'news-cover'])
+
+                    <div class="clearfix"></div>
+
                     @include('backoffice.partials.image', ['images' => $news->media, 'collection' => 'news'])
 
                 </div>

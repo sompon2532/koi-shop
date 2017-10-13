@@ -43,7 +43,7 @@
                                class="btn btn-default btn-xs"><i class="fa fa-list"></i></a>
                             <a href="{{ route('event.edit', ['event' => $event->id]) }}"
                                class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                            <button data-token="{{ csrf_token() }}" data-id="{{ $event->id }}" class="btn-delete btn btn-danger btn-xs">
+                            <button data-token="{{ csrf_token() }}" data-id="{{ $event->id }}" data-url="event" class="btn-delete btn btn-danger btn-xs">
                                 <i class="fa fa-trash-o"></i>
                             </button>
                         </td>

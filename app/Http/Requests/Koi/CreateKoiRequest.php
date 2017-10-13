@@ -31,7 +31,7 @@ class CreateKoiRequest extends FormRequest
             'oyagoi' => 'required',
             'born' => 'required',
             'price' => 'required',
-            'storage' => 'required',
+            'storage' => 'required'
         ];
     }
 }

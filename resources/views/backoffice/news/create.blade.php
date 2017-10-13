@@ -74,6 +74,10 @@
 
                     <div class="clearfix"></div>
 
+                    @include('backoffice.partials.cover', ['images' => []])
+
+                    <div class="clearfix"></div>
+
                     @include('backoffice.partials.image', ['images' => []])
                     
                 </div>

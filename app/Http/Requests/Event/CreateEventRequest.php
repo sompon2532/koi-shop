@@ -26,7 +26,11 @@ class CreateEventRequest extends FormRequest
         return [
             'th.name' => 'required',
             'en.name' => 'required',
-            'slug' => 'required|unique:events,slug'
+            'slug' => 'required|unique:events,slug',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required',
         ];
     }
 }

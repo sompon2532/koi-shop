@@ -47,6 +47,11 @@ class NewsController extends Controller
             }
         }
 
+        // Cover
+        if ($request->hasFile('cover')) {
+            $news->addMedia($request->file('cover'))->toMediaCollection('news-cover');
+        }
+
         return redirect()
             ->route('news.edit', ['news' => $news->id])
             ->with(['success' => 'Create news success']);
@@ -94,8 +99,12 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(News $news)
     {
-        //
+        $news->clearMediaCollection('news');
+        $news->clearMediaCollection('news-cover');
+        $news->delete();
+
+        return;
     }
 }

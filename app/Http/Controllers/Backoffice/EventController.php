@@ -7,6 +7,7 @@ use App\Http\Requests\Event\CreateEventRequest;
 use App\Http\Requests\Event\UpdateEventRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -40,7 +41,19 @@ class EventController extends Controller
      */
     public function store(CreateEventRequest $request)
     {
-        $event = Event::create($request->all());
+        $start_datetime = $request->start_date . ' ' . $request->start_time;
+        $end_datetime = $request->end_date . ' ' . $request->end_time;
+
+        $input = $request->all();
+
+        if (! $request->has('config')) {
+            $input['config'] = 0;
+        }
+
+        $input['start_datetime'] = Carbon::parse($start_datetime);
+        $input['end_datetime'] = Carbon::parse($end_datetime);
+
+        $event = Event::create($input);
 
         // Image
         if ($request->hasFile('image')) {
@@ -94,7 +107,19 @@ class EventController extends Controller
      */
     public function update(UpdateEventRequest $request, Event $event)
     {
-        $event->update($request->all());
+        $start_datetime = $request->start_date . ' ' . $request->start_time;
+        $end_datetime = $request->end_date . ' ' . $request->end_time;
+
+        $input = $request->all();
+
+        if (! $request->has('config')) {
+            $input['config'] = 0;
+        }
+
+        $input['start_datetime'] = Carbon::createFromFormat('d/m/Y H:i', $start_datetime);
+        $input['end_datetime'] = Carbon::createFromFormat('d/m/Y H:i', $end_datetime);
+
+        $event->update($input);
 
         $remove_images = array_get($request->all(), 'remove_images', []);
 
@@ -129,6 +154,7 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         $event->clearMediaCollection('event');
+        $event->clearMediaCollection('event-cover');
         $event->delete();
 
         return;

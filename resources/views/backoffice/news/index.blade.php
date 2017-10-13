@@ -41,7 +41,7 @@
                         <td>
                             <a href="{{ route('news.edit', ['news' => $news->id]) }}"
                                class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                            <button data-token="{{ csrf_token() }}" data-id="{{ $news->id }}" class="btn-delete btn btn-danger btn-xs">
+                            <button data-token="{{ csrf_token() }}" data-id="{{ $news->id }}" data-url="news" class="btn-delete btn btn-danger btn-xs">
                                 <i class="fa fa-trash-o"></i>
                             </button>
                         </td>

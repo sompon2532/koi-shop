@@ -26,7 +26,7 @@ class Event extends Model implements HasMedia
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = ['start_datetime', 'end_datetime', 'deleted_at'];
 
     /**
      * @var string
@@ -41,7 +41,7 @@ class Event extends Model implements HasMedia
     /**
      * @var array
      */
-    protected $fillable = ['slug', 'status'];
+    protected $fillable = ['slug', 'status', 'config', 'start_datetime', 'end_datetime'];
 
     /**
      * @param $query

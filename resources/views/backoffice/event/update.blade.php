@@ -49,6 +49,33 @@
                                        placeholder="Slug">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">
+                                Start date <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control datepicker" name="start_date" value="{{ $event->start_datetime->format('d/m/Y') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">
+                                End date <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control datepicker" name="end_date" value="{{ $event->end_datetime->format('d/m/Y') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="config" class="col-sm-3 control-label">
+                                Config
+                            </label>
+                            <div class="col-sm-9" style="margin-top: 5px;">
+                                <input type="checkbox" class="minimal-red" name="config" value="1" id="config" {{ $event->config ? 'checked' : '' }}>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-md-6">
@@ -69,6 +96,28 @@
                                     <option value="1" {{ $event->status == true ? 'selected' : '' }}>Active</option>
                                     <option value="0" {{ $event->status == false ? 'selected' : '' }}>Inactive</option>
                                 </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">
+                                Start time <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <div class="bootstrap-timepicker">
+                                    <input type="text" class="form-control timepicker" name="start_time" value="{{ $event->start_datetime->toTimeString() }}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">
+                                End time <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <div class="bootstrap-timepicker">
+                                    <input type="text" class="form-control timepicker" name="end_time" value="{{ $event->end_datetime->toTimeString() }}">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -95,3 +144,26 @@
     </div>
     <!--/.col (right) -->
 @endsection
+
+@push('scripts')
+    <script>
+        // Date picker
+        $(".datepicker").datepicker({
+            autoclose: true,
+            format: 'dd/mm/yyyy',
+            todayHighlight: true
+        });
+
+        // Timepicker
+        $(".timepicker").timepicker({
+            showInputs: false,
+            minuteStep: 10,
+            showMeridian: false,
+        });
+
+        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+            checkboxClass: 'icheckbox_minimal-red',
+            radioClass: 'iradio_minimal-red'
+        });
+    </script>
+@endpush
