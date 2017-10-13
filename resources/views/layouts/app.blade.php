@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>KOIKICHI-SHOP</title>
+    <title>KOIKICHI-FISH-FARM</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -30,7 +30,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    KOIKICHI-SHOP
+                    KOIKICHI-FISH-FARM
                 </a>
             </div>
 
