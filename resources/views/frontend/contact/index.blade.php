@@ -49,7 +49,7 @@
 
 
                     <div class="row">
-                        <div class="col-md-2 col-md-offset-5">
+                        <div class="col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5">
                             <h4 class="text-thick contact-title">เวลาให้บริการ</h4>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
 
 
                     <div class="row">
-                        <div class="col-md-4 col-md-offset-4">
+                        <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
                             <h4 class="text-thick contact-title">KOIKICHI FISH FARM</h4>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
 
 
                     <div class="row">
-                        <div class="col-md-2 col-md-offset-5">
+                        <div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5">
                             <h4 class="text-thick contact-title center">MAP</h4>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                     <div class="row">
                         <div class="col-md-12">   
                             <div class="map">
-                                <img class="img-responsive" src="{{ asset('frontend/scr/img/map-koikichi.png') }}" alt="...">
+                                <img class="img-responsive" src="{{ asset('frontend/src/img/map-koikichi.png') }}" alt="...">
                                 <!-- <img class="img-responsive" src="{{ asset('assets/img/About-us-2.png') }}" alt="..."> -->
                             </div>
                         </div>

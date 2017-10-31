@@ -7,7 +7,7 @@
                         <div class ="footer-box">
                             <div class="about-box text-center">
                                 <div class="row">
-                                    <div class="col-md-2 col-md-offset-5">
+                                    <div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5">
                                         <p class="text-thick footer-title"><a href="{{ url('about') }}">ABOUT US</a></p>
                                     </div>
                                 </div>
@@ -21,7 +21,7 @@
                             </div>
                             <div class="contact-box text-center">
                                 <div class="row">
-                                    <div class="col-md-2 col-md-offset-5">
+                                    <div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5">
                                         <p class="text-thick footer-title"><a href="{{ url('contact') }}">CONTACT US</a></p>
                                     </div>
                                 </div>
