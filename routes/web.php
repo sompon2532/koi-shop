@@ -49,6 +49,13 @@ Route::group(['prefix' => 'admin'], function() {
 	});
 });
 
+Route::group(['namespace' => 'Frontend'], function() {
+	Route::get('/frontend', [
+		'uses' => 'ProductController@getIndex',
+		'as' => 'welcome'
+	]);
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
