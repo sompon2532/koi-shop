@@ -1,9 +1,9 @@
 @section('page_title', 'Register')
 
-@extends('fontend.layouts.master')
+@extends('frontend.layouts.master')
 
 @section('content')
-<div class="container">
+<!-- <div class="container"> -->
     <div class="row">
         <div class="col-md-12">
             <div class="register">
@@ -180,7 +180,7 @@
             </div>
         </div>
     </div>
-</div>
+<!-- </div> -->
 @endsection
 
 @section('custom-js')

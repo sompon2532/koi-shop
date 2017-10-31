@@ -18,7 +18,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <!-- <h2>Custom search field</h2> -->
-                                    <div id="custom-search-input">
+                                    <!-- <div id="custom-search-input">
                                         <div class="input-group col-md-12">
                                             <input type="text" class="form-control input-lg" placeholder="Search" />
                                             <span class="input-group-btn">
@@ -27,7 +27,7 @@
                                                 </button>
                                             </span>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             
                             <!-- <form class="navbar-form navbar-left">
@@ -42,7 +42,7 @@
                                             <li><a href="{{ route('login') }}">LOGIN</a></li>
                                             <li><a href="{{ route('register') }}">REGISTER</a></li>
                                             <li>
-                                                <a href="{{ route('fontend.product.shoppingCart') }}"><span class="glyphicon glyphicon-shopping-cart">
+                                                <a href="{{-- route('frontend.product.shoppingCart') --}}"><span class="glyphicon glyphicon-shopping-cart">
                                                     <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
                                                 </a>
                                             </li>                                             
@@ -73,7 +73,7 @@
                                             </li> -->                                        
                                                                                       
                                         @endif
-                                        <li><a href="#">TH/EN</a></li> 
+                                        <!-- <li><a href="#">TH/EN</a></li>  -->
                                     </ul>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
         </div>    
 
         <div class="top-logo">
-                <img src="{{ asset('fontend/src/img/LOGO-Koikichi-Auction.png') }}" class="img-responsive center" alt="" height="150" width="150">
+                <img src="{{ asset('frontend/src/img/LOGO-Koikichi-Auction.png') }}" class="img-responsive center" alt="" height="150" width="150">
         </div>
 
         <div class="menu-bar">
@@ -140,7 +140,7 @@
                                 </li>
                             @endif -->
 
-                            <li><a href="{{ url('home') }}">HOME</a></li>
+                            <li><a href="{{ url('/') }}">HOME</a></li>
 
                             <li class="menu-item dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">KOI</a>
@@ -167,11 +167,11 @@
                                 </ul>
                             </li>
 
-                            <li><a href="{{ url('/stock/product') }}">KOI PRODUCTS</a></li>
+                            <li><a href="{{-- url('/stock/product') --}}">KOI PRODUCTS</a></li>
                             <li><a href="http://www.koikichi-auction.com/">ONLINE AUCTION</a></li>
-                            <li><a href="{{ url('/event') }}">EVENTS</a></li>
-                            <li><a href="{{ url('/hallofframe') }}">HALL OF FAME</a></li>
-                            <li><a href="{{ url('/payment') }}">PAYMENT</a></li>
+                            <li><a href="{{-- url('/event') --}}">EVENTS</a></li>
+                            <li><a href="{{-- url('/hallofframe') --}}">HALL OF FAME</a></li>
+                            <li><a href="{{-- url('/payment') --}}">PAYMENT</a></li>
                             
                         </ul>
                     </div>

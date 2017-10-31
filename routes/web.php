@@ -50,14 +50,23 @@ Route::group(['prefix' => 'admin'], function() {
 });
 
 Route::group(['namespace' => 'Frontend'], function() {
-	Route::get('/frontend', [
-		'uses' => 'ProductController@getIndex',
-		'as' => 'welcome'
+	Route::get('/hello', [
+		'uses' => 'ProductController@getIndex'
 	]);
+	
+	
 });
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('frontend.index');
+});
+
+Route::get('/about', function () {
+	return view('frontend.about.index');
+});
+
+Route::get('/contact', function () {
+	return view('frontend.contact.index');
 });
 
 Auth::routes();

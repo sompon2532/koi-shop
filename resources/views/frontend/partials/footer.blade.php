@@ -22,7 +22,7 @@
                             <div class="contact-box text-center">
                                 <div class="row">
                                     <div class="col-md-2 col-md-offset-5">
-                                        <p class="text-thick footer-title"><a href="{{ url('CONTACT') }}">CONTACT US</a></p>
+                                        <p class="text-thick footer-title"><a href="{{ url('contact') }}">CONTACT US</a></p>
                                     </div>
                                 </div>
                                 <div class="row">
