@@ -17,12 +17,12 @@
         <div class="row">
             <div class="col-md-3">
                 
-                <div class="input-group date" data-provide="datepicker">
+                <!-- <div class="input-group date" data-provide="datepicker">
                     <input type="text" class="form-control">
                     <div class="input-group-addon">
                         <span class="glyphicon glyphicon-th"></span>
                     </div>
-                </div>
+                </div> -->
                 
             </div>
             <div class="col-md-9">

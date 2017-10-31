@@ -16,7 +16,7 @@
      <!-- bootstrap -->
     <!-- <link rel="stylesheet" href="{{ asset('fontend/bootstrap/css/bootstrap.min.css') }}" > -->
     <link rel="stylesheet" href="{{ asset('frontend/bootstrap-3.3.7/css/bootstrap.min.css') }}" >
-    <link rel="stylesheet" href="{{ asset('frontend/bootstrap/css/bootstrap-theme.min.css') }}" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="{{ asset('frontend/bootstrap-3.3.7/css/bootstrap-theme.min.css') }}" media="screen" title="no title" charset="utf-8">
 
     <!-- slick -->
     <link rel="stylesheet" href="{{ asset('frontend/slick-1.8.0/slick/slick.css') }}" media="screen" title="no title" charset="utf-8">    
@@ -53,7 +53,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    <script type="text/javascript" src="{{ asset('frontend/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('frontend/bootstrap-3.3.7/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
     <!-- sick -->
