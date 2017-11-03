@@ -38,14 +38,14 @@
                             </form> -->
                                 <div class="col-md-9">
                                     <ul class="nav navbar-nav navbar-right">
-                                        @if (Auth::guest())
-                                            <li><a href="{{ route('login') }}">LOGIN</a></li>
-                                            <li><a href="{{ route('register') }}">REGISTER</a></li>
                                             <li>
-                                                <a href="{{-- route('frontend.product.shoppingCart') --}}"><span class="glyphicon glyphicon-shopping-cart">
+                                                <a href="{{ route('frontend.shop.shoppingCart') }}"><span class="glyphicon glyphicon-shopping-cart">
                                                     <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
                                                 </a>
-                                            </li>                                             
+                                            </li>  
+                                        @if (Auth::guest())
+                                            <li><a href="{{ route('login') }}">{{ trans('header.login') }}</a></li>
+                                            <li><a href="{{ route('register') }}">{{ trans('header.register') }}</a></li>                                           
                                         @else
                                             <li class="dropdown">
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -73,7 +73,8 @@
                                             </li> -->                                        
                                                                                       
                                         @endif
-                                        <!-- <li><a href="#">TH/EN</a></li>  -->
+                                        <li><a href="{{ URL::to('change/th') }}">TH</a></li> 
+                                        <li><a href="{{ URL::to('change/en') }}">EN</a></li> 
                                     </ul>
                                 </div>
                             </div>
@@ -140,38 +141,48 @@
                                 </li>
                             @endif -->
 
-                            <li><a href="{{ url('/') }}">HOME</a></li>
+                            <li><a href="{{ url('/') }}">{{ trans('header.home') }}</a></li>
 
                             <li class="menu-item dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">KOI</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('header.koi') }}</a>
                                 <ul class="dropdown-menu">
                                     <li class="menu-item dropdown dropdown-submenu">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">STOCK IN JAPAN</b></a>
                                         <!-- <b class="glyphicon glyphicon-menu-right"> -->
                                         <ul class="dropdown-menu">
-                                            <li class="menu-item "><a href="#">SAKAI</a></li>
-                                            <li class="menu-item "><a href="#">NARITA</a></li>
-                                            <li class="menu-item "><a href="#">MOMOTARO</a></li>
-                                            <li class="menu-item "><a href="#">DAINICHI</a></li>
+                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">SAKAI</a></li>
+                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">NARITA</a></li>
+                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">MOMOTARO</a></li>
+                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">DAINICHI</a></li>
                                         </ul>
                                     </li>
                                     <li class="menu-item dropdown dropdown-submenu">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">STOCK IN THAILAND</a>
                                         <ul class="dropdown-menu">
-                                            <li class="menu-item "><a href="#">TOP QUALITY</a></li>
-                                            <li class="menu-item "><a href="#">HIGH QUALITY</a></li>
-                                            <li class="menu-item "><a href="#">MIDDLE QUALITY</a></li>
-                                            <li class="menu-item "><a href="#">PET QUALITY</a></li>
+                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">TOP QUALITY</a></li>
+                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">HIGH QUALITY</a></li>
+                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">MIDDLE QUALITY</a></li>
+                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">PET QUALITY</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
 
-                            <li><a href="{{-- url('/stock/product') --}}">KOI PRODUCTS</a></li>
-                            <li><a href="http://www.koikichi-auction.com/">ONLINE AUCTION</a></li>
-                            <li><a href="{{-- url('/event') --}}">EVENTS</a></li>
-                            <li><a href="{{-- url('/hallofframe') --}}">HALL OF FAME</a></li>
-                            <li><a href="{{-- url('/payment') --}}">PAYMENT</a></li>
+                            <!-- <li><a href="{{ url('/product') }}">KOI PRODUCTS</a></li> -->
+                            <li class="menu-item dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('header.koi-products') }}</a>
+                                <ul class="dropdown-menu">
+                                    <li class="menu-item "><a href="{{ url('/koi-product') }}">KOI FOOD</a></li>
+                                    <li class="menu-item "><a href="{{ url('/koi-product') }}">KOI NET</a></li>
+                                    <li class="menu-item "><a href="{{ url('/koi-product') }}">FILTER</a></li>
+                                    <li class="menu-item "><a href="{{ url('/koi-product') }}">MEDICATION</a></li>
+                                    <li class="menu-item "><a href="{{ url('/koi-product') }}">TANK/TUB/CANVAS</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="http://www.koikichi-auction.com/">{{ trans('header.online-auction') }}</a></li>
+                            <li><a href="{{-- url('/event') --}}">{{ trans('header.events') }}</a></li>
+                            <li><a href="{{-- url('/hallofframe') --}}">{{ trans('header.hall-of-fame') }}</a></li>
+                            <li><a href="{{-- url('/payment') --}}">{{ trans('header.payment') }}</a></li>
                             
                         </ul>
                     </div>

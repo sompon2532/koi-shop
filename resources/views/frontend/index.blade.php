@@ -36,13 +36,14 @@
                         </ol>
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
-                                <img src="{{ asset('frontend/src/img/LOGO-header.png') }}" alt="...">
+                                <img src="/media/{{ $images[0]->order_column}}/{{ $images[0]->file_name}}" alt="..." class="image-responsive"style="max-height:150px;">
                             </div>
-                            <div class="item">
-                                <img src="{{ asset('frontend/src/img/LOGO-header.png') }}" alt="...">
-                            </div>
-                        </div>
-
+                            @for($i=1;$i<count($images);$i++)
+                                <div class="item">
+                                    <img src="/media/{{ $images[$i]->order_column}}/{{ $images[$i]->file_name}}" alt="..." class="image-responsive"style="max-height:150px;">
+                                </div>
+                            @endfor
+                           
                         <!-- Controls -->
                         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -60,6 +61,5 @@
 @endsection
 
 @section('custom-js')
-<script src="{{ asset('assets/js/bootstrap-datepicker.min.js') }}"></script>
-<script src="{{ asset('assets/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.min.js') }}"></script>
+
 @endsection

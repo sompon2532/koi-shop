@@ -1,13 +1,13 @@
 <!-- FOOTER -->
 <footer>
-    <div class="container">
+    <!-- <div class="container"> -->
         <div class="row">
             <div class="col-md-12">
                 <div class ="footer-box">
                     <div class="about-box text-center">
                         <div class="row">
                             <div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5">
-                                <p class="text-thick footer-title"><a href="{{ url('about') }}">ABOUT US</a></p>
+                                <p class="text-thick footer-title"><a href="{{ url('about') }}">{{ trans('footer.about') }}</a></p>
                             </div>
                         </div>
                         <div class="row">
@@ -21,7 +21,7 @@
                     <div class="contact-box text-center">
                         <div class="row">
                             <div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5">
-                                <p class="text-thick footer-title"><a href="{{ url('contact') }}">CONTACT US</a></p>
+                                <p class="text-thick footer-title"><a href="{{ url('contact') }}">{{ trans('footer.contact') }}</a></p>
                             </div>
                         </div>
                         <div class="row">
@@ -35,5 +35,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 </footer>

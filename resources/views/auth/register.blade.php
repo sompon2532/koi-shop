@@ -1,6 +1,6 @@
-@section('page_title', 'Register')
-
 @extends('frontend.layouts.master')
+
+@section('page_title', 'Register')
 
 @section('content')
 <!-- <div class="container"> -->

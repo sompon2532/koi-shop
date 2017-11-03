@@ -50,16 +50,77 @@ Route::group(['prefix' => 'admin'], function() {
 });
 
 Route::group(['namespace' => 'Frontend'], function() {
-	Route::get('/hello', [
-		'uses' => 'ProductController@getIndex'
+	
+	Route::get('change/{lacale}', 'LanguageController@setlocale');
+
+	Route::get('/test/{id}', [
+		'uses' => 'ProductController@getItem'
+	]);
+
+	Route::get('/koi', [
+		'uses' => 'KoiController@getIndex',
+		'as' => 'frontend.koi.index'
+	]);
+
+	Route::get('/koi/{id}', [
+		'uses' => 'KoiController@getDetail',
+		'as' => 'frontend.koi.detail'
 	]);
 	
+	Route::get('/koi-product', [
+		'uses' => 'ProductController@getIndex',
+		'as' => 'frontend.shop.index'
+	]);
+
+	Route::get('/koi-product/{id}', [
+		'uses' => 'ProductController@getDetail',
+		'as' => 'frontend.shop.detail'
+	]);
+
+	Route::get('/add-to-cart/{id}', [
+		'uses' => 'ProductController@getAddToCart',
+		'as' => 'frontend.shop.addToCart'
+	]);
+
+	Route::get('/reduce/{id}', [
+		'uses' => 'ProductController@getReduceByOne',
+		'as' => 'frontend.shop.reduceByone'
+	]);
+
+	Route::get('/reduce-add/{id}', [
+		'uses' => 'ProductController@getReduceAddByOne',
+		'as' => 'frontend.shop.reduceAddByone'
+	]);
+
+	Route::get('/remove/{id}', [
+		'uses' => 'ProductController@getRemoveItem',
+		'as' => 'frontend.shop.remove'
+	]);
+
+	Route::get('/shopping-cart', [
+		'uses' => 'ProductController@getCart',
+		'as' => 'frontend.shop.shoppingCart'
+	]);
 	
+	Route::get('/checkout', [
+		'uses' => 'ProductController@getCheckout',
+		'as' => 'checkout',
+		'middleware' => 'auth'
+	]);
+	
+	Route::post('/checkout', [
+		'uses' => 'ProductController@postCheckout',
+		'as' => 'checkout'
+	]);
 });
 
-Route::get('/', function () {
-	return view('frontend.index');
-});
+Route::get('/', [
+	'uses' => 'HomeController@Index',
+	'as' => 'frontend.index'
+]);
+// Route::get('/', function () {
+// 	return view('frontend.index');
+// });
 
 Route::get('/about', function () {
 	return view('frontend.about.index');
