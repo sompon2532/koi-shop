@@ -217,7 +217,7 @@ rather sharply; 'I advise you to leave off this minute!' She generally
 gave herself very good advice, (though she very seldom followed it),
 and sometimes she scolded herself so severely as to bring tears into
 her eyes; and once she remembered trying to box her own ears for having
-cheated herself in a event of croquet she was playing against herself,
+cheated herself in a game of croquet she was playing against herself,
 for this curious child was very fond of pretending to be two people.
 'But it's no use now,' thought poor Alice, 'to pretend to be two people!
 Why, there's hardly enough of me left to make ONE respectable person!'
@@ -916,7 +916,7 @@ and made believe to worry it; then Alice dodged behind a great thistle,
 to keep herself from being run over; and the moment she appeared on the
 other side, the puppy made another rush at the stick, and tumbled head
 over heels in its hurry to get hold of it; then Alice, thinking it was
-very like having a event of play with a cart-horse, and expecting every
+very like having a game of play with a cart-horse, and expecting every
 moment to be trampled under its feet, ran round the thistle again; then
 the puppy began a series of short charges at the stick, running a very
 little way forwards each time and a long way back, and barking hoarsely
@@ -2059,7 +2059,7 @@ Queen said--'
 
 'Get to your places!' shouted the Queen in a voice of thunder, and
 people began running about in all directions, tumbling up against each
-other; however, they got settled down in a minute or two, and the event
+other; however, they got settled down in a minute or two, and the game
 began. Alice thought she had never seen such a curious croquet-ground in
 her life; it was all ridges and furrows; the balls were live hedgehogs,
 the mallets live flamingoes, and the soldiers had to double themselves
@@ -2077,7 +2077,7 @@ itself, and was in the act of crawling away: besides all this, there was
 generally a ridge or furrow in the way wherever she wanted to send the
 hedgehog to, and, as the doubled-up soldiers were always getting up
 and walking off to other parts of the ground, Alice soon came to the
-conclusion that it was a very difficult event indeed.
+conclusion that it was a very difficult game indeed.
 
 The players all played at once without waiting for turns, quarrelling
 all the while, and fighting for the hedgehogs; and in a very short
@@ -2103,7 +2103,7 @@ enough for it to speak with.
 Alice waited till the eyes appeared, and then nodded. 'It's no use
 speaking to it,' she thought, 'till its ears have come, or at least one
 of them.' In another minute the whole head appeared, and then Alice put
-down her flamingo, and began an account of the event, feeling very glad
+down her flamingo, and began an account of the game, feeling very glad
 she had someone to listen to her. The Cat seemed to think that there was
 enough of it now in sight, and no more of it appeared.
 
@@ -2120,7 +2120,7 @@ it ran away when it saw mine coming!'
 
 'Not at all,' said Alice: 'she's so extremely--' Just then she noticed
 that the Queen was close behind her, listening: so she went on,
-'--likely to win, that it's hardly worth while finishing the event.'
+'--likely to win, that it's hardly worth while finishing the game.'
 
 The Queen smiled and passed on.
 
@@ -2151,11 +2151,11 @@ The Queen had only one way of settling all difficulties, great or small.
 'I'll fetch the executioner myself,' said the King eagerly, and he
 hurried off.
 
-Alice thought she might as well go back, and see how the event was going
+Alice thought she might as well go back, and see how the game was going
 on, as she heard the Queen's voice in the distance, screaming with
 passion. She had already heard her sentence three of the players to be
 executed for having missed their turns, and she did not like the look
-of things at all, as the event was in such confusion that she never knew
+of things at all, as the game was in such confusion that she never knew
 whether it was her turn or not. So she went in search of her hedgehog.
 
 The hedgehog was engaged in a fight with another hedgehog, which seemed
@@ -2201,7 +2201,7 @@ And the executioner went off like an arrow.
  The Cat's head began fading away the moment he was gone, and,
 by the time he had come back with the Duchess, it had entirely
 disappeared; so the King and the executioner ran wildly up and down
-looking for it, while the rest of the party went back to the event.
+looking for it, while the rest of the party went back to the game.
 
 
 
@@ -2243,7 +2243,7 @@ right height to rest her chin upon Alice's shoulder, and it was an
 uncomfortably sharp chin. However, she did not like to be rude, so she
 bore it as well as she could.
 
-'The event's going on rather better now,' she said, by way of keeping up
+'The game's going on rather better now,' she said, by way of keeping up
 the conversation a little.
 
 ''Tis so,' said the Duchess: 'and the moral of that is--"Oh, 'tis love,
@@ -2328,13 +2328,13 @@ about half no time! Take your choice!'
 
 The Duchess took her choice, and was gone in a moment.
 
-'Let's go on with the event,' the Queen said to Alice; and Alice was
+'Let's go on with the game,' the Queen said to Alice; and Alice was
 too much frightened to say a word, but slowly followed her back to the
 croquet-ground.
 
 The other guests had taken advantage of the Queen's absence, and were
 resting in the shade: however, the moment they saw her, they hurried
-back to the event, the Queen merely remarking that a moment's delay would
+back to the game, the Queen merely remarking that a moment's delay would
 cost them their lives.
 
 All the time they were playing the Queen never left off quarrelling with
@@ -2796,7 +2796,7 @@ with sobs, to sing this:--
      Beautiful, beautiful Soup!
 
    'Beautiful Soup! Who cares for fish,
-   Event, or any other dish?
+   Game, or any other dish?
    Who would not give all else for two
    Pennyworth only of beautiful Soup?
    Pennyworth only of beautiful Soup?

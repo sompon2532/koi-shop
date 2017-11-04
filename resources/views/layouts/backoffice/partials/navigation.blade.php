@@ -17,6 +17,12 @@
     </li>
 
     <li>
+        <a href="{{ route('user.index') }}">
+            <i class="fa fa-user"></i> <span>Member</span>
+        </a>
+    </li>
+
+    <li>
         <a href="{{ route('event.index') }}">
             <i class="fa fa-gamepad"></i> <span>Event</span>
         </a>

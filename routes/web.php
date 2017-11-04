@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin'], function() {
         Route::resource('category', 'CategoryController');
         Route::resource('news', 'NewsController');
         Route::resource('event', 'EventController');
+        Route::resource('user', 'UserController');
 	});
 
 	Route::group(['namespace' => 'Admin'], function() {
