@@ -4,13 +4,13 @@
 
 @section('head')
     <h1>
-        Event
-        <small>update</small>
+        อีเว้นท์
+        <small>อัพเดท</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ route('event.index') }}"><i class="fa fa-gamepad"></i> Event</a></li>
-        <li class="active">Update</li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าหลัก</a></li>
+        <li><a href="{{ route('event.index') }}"><i class="fa fa-gamepad"></i> อีเว้นท์</a></li>
+        <li class="active">อัพเดท</li>
     </ol>
 @endsection
 
@@ -20,7 +20,7 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Update event</h3>
+                <h3 class="box-title">อัพเดทอีเว้น</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -32,27 +32,17 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameTh" class="col-sm-3 control-label">
-                                Name TH <span class="text-danger">*</span>
+                                ชื่อไทย <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="th[name]" value="{{ $event->translate('th')->name }}" id="nameTh"
-                                       placeholder="Name TH">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="slug" class="col-sm-3 control-label">
-                                Slug <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="slug" value="{{ $event->slug }}" id="slug"
-                                       placeholder="Slug">
+                                       placeholder="ชื่อไทย">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">
-                                Start date <span class="text-danger">*</span>
+                                วันที่เริ่ม <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control datepicker" name="start_date" value="{{ $event->start_datetime->format('d/m/Y') }}">
@@ -61,7 +51,7 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">
-                                End date <span class="text-danger">*</span>
+                                วันที่สิ้นสุด <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control datepicker" name="end_date" value="{{ $event->end_datetime->format('d/m/Y') }}">
@@ -70,7 +60,7 @@
 
                         <div class="form-group">
                             <label for="config" class="col-sm-3 control-label">
-                                Config
+                                ตั้งค่าการลงชื่อ
                             </label>
                             <div class="col-sm-9" style="margin-top: 5px;">
                                 <input type="checkbox" class="minimal-red" name="config" value="1" id="config" {{ $event->config ? 'checked' : '' }}>
@@ -81,27 +71,17 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameEn" class="col-sm-3 control-label">
-                                Name EN <span class="text-danger">*</span>
+                                ชื่ออังกฤษ <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="en[name]" value="{{ $event->translate('en')->name }}" id="nameEn"
-                                       placeholder="Name EN">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="status" class="col-sm-3 control-label">Status</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" name="status" id="status">
-                                    <option value="1" {{ $event->status == true ? 'selected' : '' }}>Active</option>
-                                    <option value="0" {{ $event->status == false ? 'selected' : '' }}>Inactive</option>
-                                </select>
+                                       placeholder="ชื่ออังกฤษ">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">
-                                Start time <span class="text-danger">*</span>
+                                เวลาเริ่มต้น <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <div class="bootstrap-timepicker">
@@ -112,12 +92,22 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">
-                                End time <span class="text-danger">*</span>
+                                เวลาสิ้นสุด <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <div class="bootstrap-timepicker">
                                     <input type="text" class="form-control timepicker" name="end_time" value="{{ $event->end_datetime->toTimeString() }}">
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status" class="col-sm-3 control-label">สถานะ</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="status" id="status">
+                                    <option value="1" {{ $event->status == true ? 'selected' : '' }}>Active</option>
+                                    <option value="0" {{ $event->status == false ? 'selected' : '' }}>Inactive</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -134,7 +124,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right">Update</button>
+                        <button type="submit" class="btn btn-primary pull-right">อัพเดท</button>
                     </div>
                 </div>
                 <!-- /.box-footer -->

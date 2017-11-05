@@ -17,10 +17,10 @@
 <div class="col-md-9">
     <div class="form-group">
         <label class="col-sm-2 control-label">
-            Image
+            รูปภาพ
         </label>
         <div class="col-sm-10">
-            <button type="button" class="add-file btn btn-warning btn-sm">Image</button>
+            <button type="button" class="add-file btn btn-warning btn-sm">เลือกรูปภาพ</button>
             <div id="group"></div>
             <div id="images">
                 @foreach ($images as $index => $image)
@@ -67,8 +67,7 @@
 
         $(document).on("click", ".add-file", function() {
             if ($("#imgInp").length == 0) {
-                var last = $("input[type='file']").last();
-
+                var last = $(".images").last();
                 if (last.length == 0) {
                     var key = 0;
                 }
@@ -76,7 +75,7 @@
                     var key = parseInt(last.attr('data-key')) + 1;
                 }
 
-                var htmls = "<input type='file' id='imgInp' name='image[]' data-key='" + key + "' class='hidden'>";
+                var htmls = "<input type='file' id='imgInp' name='image[]' data-key='" + key + "' class='images hidden'>";
                 $("#group").append(htmls);
             }
 

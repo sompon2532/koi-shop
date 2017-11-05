@@ -4,13 +4,13 @@
 
 @section('head')
     <h1>
-        Event
-        <small>detail</small>
+        อีเว้นท์
+        <small>รายละเอียด</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ route('event.index') }}"><i class="fa fa-gamepad"></i> Event</a></li>
-        <li class="active">Detail</li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าหลัก</a></li>
+        <li><a href="{{ route('event.index') }}"><i class="fa fa-gamepad"></i> อีเว้นท์</a></li>
+        <li class="active">รายละเอียด</li>
     </ol>
 @endsection
 
@@ -19,7 +19,7 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Koi detail</h3>
+                <h3 class="box-title">ราการปลา</h3>
             </div>
             <!-- /.box-header -->
             @foreach($event->kois->chunk(4) as $kois)

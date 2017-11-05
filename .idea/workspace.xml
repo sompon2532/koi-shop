@@ -2,129 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1de6960-8bca-4007-8145-6a78462776c3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/backoffice/user/create.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/backoffice/user/index.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/backoffice/user/update.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/AdminController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/EventController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/EventController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/Event/CreateEventRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/Event/CreateEventRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/Event/UpdateEventRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/Event/UpdateEventRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_08_24_154003_create_events_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_08_24_154003_create_events_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_09_08_052336_create_news_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_09_08_052336_create_news_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/dashboard.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/dashboard.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/event/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/event/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/event/detail.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/event/detail.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/event/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/event/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/event/update.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/event/update.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/partials/cover.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/partials/cover.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/partials/image.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/partials/image.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/user/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/user/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/user/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/user/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/user/update.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/user/update.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/backoffice/partials/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/backoffice/partials/header.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/backoffice/partials/navigation.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/backoffice/partials/navigation.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/.travis.yml" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/CHANGELOG.md" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/Makefile" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/composer.json" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/readme.md" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Calculator/Iban.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Calculator/Iban.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Calculator/Luhn.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Calculator/Luhn.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/DefaultGenerator.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/DefaultGenerator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Factory.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Factory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Generator.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Generator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/ORM/Doctrine/EntityPopulator.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/ORM/Doctrine/EntityPopulator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Barcode.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Barcode.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Base.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Base.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Biased.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Biased.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/DateTime.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/DateTime.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Image.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Image.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Internet.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Internet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Lorem.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Lorem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Miscellaneous.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Miscellaneous.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Payment.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Payment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/PhoneNumber.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/PhoneNumber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Text.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/Text.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/UserAgent.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/UserAgent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ar_SA/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ar_SA/Company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ar_SA/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ar_SA/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/at_AT/Payment.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/at_AT/Payment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/cs_CZ/PhoneNumber.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/cs_CZ/PhoneNumber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_AT/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_AT/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_CH/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_CH/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_DE/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_DE/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_DE/Payment.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_DE/Payment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_DE/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/de_DE/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_GB/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_GB/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_IN/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_IN/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_PH/PhoneNumber.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_PH/PhoneNumber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_SG/PhoneNumber.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_SG/PhoneNumber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_US/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_US/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_US/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_US/Company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_US/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_US/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_US/Text.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_US/Text.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_ZA/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/en_ZA/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/es_ES/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/es_ES/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/es_ES/Payment.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/es_ES/Payment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/es_ES/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/es_ES/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/es_PE/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/es_PE/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/es_VE/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/es_VE/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fa_IR/PhoneNumber.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fa_IR/PhoneNumber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fi_FI/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fi_FI/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fi_FI/PhoneNumber.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fi_FI/PhoneNumber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_BE/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_BE/Company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_CH/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_CH/Company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_FR/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_FR/Company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_FR/Payment.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_FR/Payment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_FR/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_FR/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_FR/PhoneNumber.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/fr_FR/PhoneNumber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/id_ID/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/id_ID/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/is_IS/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/is_IS/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ja_JP/Internet.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ja_JP/Internet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ja_JP/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ja_JP/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ja_JP/PhoneNumber.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ja_JP/PhoneNumber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ja_JP/Text.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ja_JP/Text.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ka_GE/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ka_GE/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ka_GE/Internet.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ka_GE/Internet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ka_GE/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ka_GE/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ka_GE/Text.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ka_GE/Text.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/kk_KZ/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/kk_KZ/Company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/kk_KZ/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/kk_KZ/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ko_KR/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ko_KR/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ko_KR/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ko_KR/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/lv_LV/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/lv_LV/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ne_NP/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ne_NP/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/nl_BE/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/nl_BE/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/nl_NL/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/nl_NL/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/nl_NL/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/nl_NL/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/pl_PL/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/pl_PL/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/pl_PL/Text.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/pl_PL/Text.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/pt_BR/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/pt_BR/Company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/pt_BR/PhoneNumber.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/pt_BR/PhoneNumber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/pt_PT/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/pt_PT/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ro_RO/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ro_RO/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ru_RU/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ru_RU/Company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ru_RU/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/ru_RU/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/sr_RS/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/sr_RS/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/sv_SE/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/sv_SE/Company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/uk_UA/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/uk_UA/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/uk_UA/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/uk_UA/Company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/uk_UA/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/uk_UA/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/uk_UA/PhoneNumber.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/uk_UA/PhoneNumber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/vi_VN/Address.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/vi_VN/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/zh_CN/PhoneNumber.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/zh_CN/PhoneNumber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/zh_TW/Company.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/zh_TW/Company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/zh_TW/Person.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Provider/zh_TW/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/UniqueGenerator.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/UniqueGenerator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/ValidGenerator.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/ValidGenerator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Calculator/LuhnTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Calculator/LuhnTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/BaseTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/BaseTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/DateTimeTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/DateTimeTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/ImageTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/ImageTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/InternetTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/InternetTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/MiscellaneousTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/MiscellaneousTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/PaymentTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/PaymentTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/ProviderOverrideTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/ProviderOverrideTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/UuidTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/UuidTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/cs_CZ/PersonTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/cs_CZ/PersonTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/en_SG/PhoneNumberTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/en_SG/PhoneNumberTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/ja_JP/PersonTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/ja_JP/PersonTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/pt_PT/AddressTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/pt_PT/AddressTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/ro_RO/PersonTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/ro_RO/PersonTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/ro_RO/PhoneNumberTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/ro_RO/PhoneNumberTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/zh_TW/TextTest.php" afterPath="$PROJECT_DIR$/vendor/fzaninotto/faker/test/Faker/Provider/zh_TW/TextTest.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -148,32 +43,22 @@
     <favorites_list name="koi-shop" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="54" column="3" lean-forward="true" selection-start-line="54" selection-start-column="3" selection-end-line="54" selection-end-column="3" />
+            <state relative-caret-position="122">
+              <caret line="123" column="6" lean-forward="false" selection-start-line="123" selection-start-column="6" selection-end-line="123" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/composer.json">
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/backoffice/user/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-848">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="composer.lock" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/composer.lock">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1328">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="191">
+              <caret line="51" column="34" lean-forward="false" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -203,6 +88,8 @@
       <find>time</find>
       <find>date</find>
       <find>checkbox</find>
+      <find>status</find>
+      <find>อัพ</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -211,15 +98,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/plugins/vuejs/vue.js" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_08_05_054404_create_strains_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_09_08_051819_create_news_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_09_08_052336_create_news_table.php" />
-        <option value="$PROJECT_DIR$/app/Models/News.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_09_08_064831_create_news_translations_table.php" />
         <option value="$PROJECT_DIR$/app/Models/NewsTranslation.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_08_24_154232_create_event_translations_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_08_24_154003_create_events_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_08_13_091432_create_products_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_08_13_121422_create_product_translations_table.php" />
         <option value="$PROJECT_DIR$/app/Models/ProductTranslation.php" />
@@ -229,38 +109,45 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backoffice/KoiController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_09_09_020445_add_event_id_to_koi_table.php" />
         <option value="$PROJECT_DIR$/resources/views/backoffice/koi/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/backoffice/partials/header.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Koi.php" />
-        <option value="$PROJECT_DIR$/resources/views/backoffice/event/detail.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backoffice/partials/image.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backoffice/partials/cover.blade.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/resources/views/layouts/backoffice/main.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_10_07_081952_add_field_config_to_events_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Koi/CreateKoiRequest.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_09_24_070349_add_datetime_to_events_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/Event/CreateEventRequest.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/Event/UpdateEventRequest.php" />
         <option value="$PROJECT_DIR$/app/Models/Event.php" />
-        <option value="$PROJECT_DIR$/resources/views/backoffice/event/update.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backoffice/event/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backoffice/news/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backoffice/news/update.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backoffice/event/index.blade.php" />
         <option value="$PROJECT_DIR$/public/js/main.js" />
         <option value="$PROJECT_DIR$/resources/views/backoffice/news/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backoffice/NewsController.php" />
         <option value="$PROJECT_DIR$/database/seeds/AdminsTableSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Backoffice/EventController.php" />
         <option value="$PROJECT_DIR$/resources/views/backoffice/product/update.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backoffice/koi/update.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backoffice/AdminController.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/backoffice/partials/navigation.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backoffice/UserController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backoffice/user/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backoffice/user/update.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/backoffice/partials/navigation.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/backoffice/partials/header.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/Event/UpdateEventRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/Event/CreateEventRequest.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2017_08_24_154003_create_events_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2017_09_08_052336_create_news_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/backoffice/event/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Backoffice/EventController.php" />
+        <option value="$PROJECT_DIR$/resources/views/backoffice/partials/image.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backoffice/partials/cover.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backoffice/event/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backoffice/event/update.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backoffice/event/detail.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backoffice/dashboard.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backoffice/user/index.blade.php" />
       </list>
     </option>
@@ -329,7 +216,95 @@
               <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
               <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Requests" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Supports" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="migrations" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backoffice" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backoffice" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="event" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backoffice" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="layouts" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="layouts" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backoffice" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="layouts" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backoffice" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="partials" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
@@ -416,11 +391,12 @@
       <workItem from="1507868214131" duration="7931000" />
       <workItem from="1508055487212" duration="3412000" />
       <workItem from="1509776369524" duration="49000" />
+      <workItem from="1509872937060" duration="2944000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191765000" />
+    <option name="totallyTimeSpent" value="200131000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -435,7 +411,7 @@
     <frame x="10" y="28" width="1260" height="701" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21756978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922825" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -468,118 +444,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2017_09_08_064831_create_news_translations_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2017_09_24_070349_add_datetime_to_events_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="42" column="14" lean-forward="false" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Event/CreateEventRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="32" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Event/UpdateEventRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="34" column="37" lean-forward="false" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/event/update.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="126" column="117" lean-forward="true" selection-start-line="124" selection-start-column="20" selection-end-line="126" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Event.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/strain/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1074">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/category/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-904">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/farm/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-982">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/koi/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1442">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/product/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1051">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/strain/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-982">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/event/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="165" column="46" lean-forward="true" selection-start-line="165" selection-start-column="46" selection-end-line="165" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backoffice/FarmController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1741">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backoffice/StrainController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1741">
@@ -605,13 +469,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="104" column="47" lean-forward="false" selection-start-line="104" selection-start-column="47" selection-end-line="104" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/event/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="45" column="28" lean-forward="false" selection-start-line="45" selection-start-column="28" selection-end-line="47" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -650,13 +507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/backoffice/main.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="129" column="13" lean-forward="true" selection-start-line="129" selection-start-column="13" selection-end-line="129" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -675,13 +525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-696">
           <caret line="32" column="38" lean-forward="false" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backoffice/EventController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="53" column="86" lean-forward="false" selection-start-line="53" selection-start-column="86" selection-end-line="53" selection-end-column="86" />
         </state>
       </provider>
     </entry>
@@ -706,13 +549,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/partials/cover.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="22" column="12" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backoffice/news/update.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -724,13 +560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="76" column="75" lean-forward="false" selection-start-line="76" selection-start-column="75" selection-end-line="76" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/partials/image.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -776,13 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/backoffice/partials/navigation.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backoffice/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -790,10 +612,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/user/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1265">
-          <caret line="55" column="24" lean-forward="true" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
+        <state relative-caret-position="-848">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1328">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="44" column="35" lean-forward="true" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -804,26 +650,172 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
+    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/user/update.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-848">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/backoffice/partials/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="30" lean-forward="false" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/backoffice/partials/navigation.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111">
+          <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/backoffice/main.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-311">
+          <caret line="49" column="60" lean-forward="true" selection-start-line="49" selection-start-column="60" selection-end-line="49" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_08_24_154232_create_event_translations_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.lock">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_08_24_154003_create_events_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1328">
+        <state relative-caret-position="345">
+          <caret line="17" column="46" lean-forward="false" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_09_08_052336_create_news_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="18" column="46" lean-forward="false" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_07_30_015416_create_categories_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_08_13_091432_create_products_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_08_05_084428_create_kois_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Event/UpdateEventRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Event/CreateEventRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/partials/cover.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="22" column="91" lean-forward="false" selection-start-line="22" selection-start-column="91" selection-end-line="22" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/partials/image.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="22" column="85" lean-forward="false" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/event/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="128" column="86" lean-forward="false" selection-start-line="128" selection-start-column="86" selection-end-line="128" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/event/update.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="126" column="87" lean-forward="false" selection-start-line="126" selection-start-column="87" selection-end-line="126" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/event/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="53" column="31" lean-forward="false" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/event/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="21" column="46" lean-forward="false" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backoffice/EventController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="48" column="19" lean-forward="false" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="54" column="3" lean-forward="true" selection-start-line="54" selection-start-column="3" selection-end-line="54" selection-end-column="3" />
+        <state relative-caret-position="122">
+          <caret line="123" column="6" lean-forward="false" selection-start-line="123" selection-start-column="6" selection-end-line="123" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/user/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="51" column="34" lean-forward="false" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
           <folding />
         </state>
       </provider>

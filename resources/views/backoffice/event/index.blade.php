@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        Event
-        <small>list</small>
+        อีเว้นท์
+        <small>รายการ</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Event</li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+        <li class="active">อีเว้นท์</li>
     </ol>
 @endsection
 
@@ -17,7 +17,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('event.create') }}" class="pull-right btn btn-primary">Create event</a>
+                <a href="{{ route('event.create') }}" class="pull-right btn btn-primary">สร้างอีเว้นท์</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -25,10 +25,9 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Slug</th>
-                        <th>Status</th>
-                        <th>Aciton</th>
+                        <th>ชื่ออีเว้นท์</th>
+                        <th>สถานะ</th>
+                        <th>จัดการ</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,7 +35,6 @@
                     <tr>
                         <td>{{ $event->id }}</td>
                         <td>{{ $event->name }}</td>
-                        <td>{{ $event->slug }}</td>
                         <td>{{ $event->status ? 'Active' : 'Inactive' }}</td>
                         <td>
                             <a href="{{ route('event.show', ['event' => $event->id]) }}"
@@ -53,10 +51,9 @@
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Slug</th>
-                        <th>Status</th>
-                        <th>Aciton</th>
+                        <th>ชื่ออีเว้นท์</th>
+                        <th>สถานะ</th>
+                        <th>จัดการ</th>
                     </tr>
                     </tfoot>
                 </table>

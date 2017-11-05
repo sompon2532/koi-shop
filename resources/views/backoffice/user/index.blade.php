@@ -17,7 +17,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('user.create') }}" class="pull-right btn btn-primary">Create user</a>
+                {{--<a href="{{ route('user.create') }}" class="pull-right btn btn-primary">Create user</a>--}}
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -25,9 +25,9 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>E-mail</th>
-                        <th>Aciton</th>
+                        <th>ชื่อ</th>
+                        <th>อีเมล์</th>
+                        <th>การจัดการ</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -37,10 +37,10 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>
-                            <a href="{{ route('user.edit', ['user' => $user->id]) }}"
-                               class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                            <a href="{{ route('user.destroy', ['user' => $user->id]) }}"
-                               class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                            {{--<a href="{{ route('user.edit', ['user' => $user->id]) }}"--}}
+                               {{--class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>--}}
+                            {{--<a href="{{ route('user.destroy', ['user' => $user->id]) }}"--}}
+                               {{--class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>--}}
                         </td>
                     </tr>
                     @endforeach
@@ -48,9 +48,9 @@
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>E-mail</th>
-                        <th>Aciton</th>
+                        <th>ชื่อ</th>
+                        <th>อีเมล์</th>
+                        <th>การจัดการ</th>
                     </tr>
                     </tfoot>
                 </table>

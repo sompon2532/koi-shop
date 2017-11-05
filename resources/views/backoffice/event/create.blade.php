@@ -4,13 +4,13 @@
 
 @section('head')
     <h1>
-        Event
-        <small>create</small>
+        อีเว้นท์
+        <small>สร้าง</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ route('event.index') }}"><i class="fa fa-gamepad"></i> Event</a></li>
-        <li class="active">Create</li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+        <li><a href="{{ route('event.index') }}"><i class="fa fa-gamepad"></i> อีเว้นท์</a></li>
+        <li class="active">สร้าง</li>
     </ol>
 @endsection
 
@@ -20,7 +20,7 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Create event</h3>
+                <h3 class="box-title">สร้างอีเว้นท์</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -32,28 +32,18 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameTh" class="col-sm-3 control-label">
-                                Name TH <span class="text-danger">*</span>
+                                ชื่อไทย <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="th[name]" value="{{ old('th.name') }}"
                                        id="nameTh"
-                                       placeholder="Name TH">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="slug" class="col-sm-3 control-label">
-                                Slug <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="slug" value="{{ old('slug') }}" id="slug"
-                                       placeholder="Slug">
+                                       placeholder="ชื่อไทย">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">
-                                Start date <span class="text-danger">*</span>
+                                วันที่เริ่ม <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control datepicker" name="start_date">
@@ -62,7 +52,7 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">
-                                End date <span class="text-danger">*</span>
+                                วันที่สิ้นสุด <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control datepicker" name="end_date">
@@ -71,7 +61,7 @@
 
                         <div class="form-group">
                             <label for="config" class="col-sm-3 control-label">
-                                Config
+                                ตั้งค่าการลงชื่อ
                             </label>
                             <div class="col-sm-9" style="margin-top: 5px;">
                                 <input type="checkbox" class="minimal-red" name="config" value="1" id="config">
@@ -82,28 +72,18 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameEn" class="col-sm-3 control-label">
-                                Name EN <span class="text-danger">*</span>
+                                ชื่ออังกฤษ <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="en[name]" value="{{ old('en.name') }}"
                                        id="nameEn"
-                                       placeholder="Name EN">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="status" class="col-sm-3 control-label">Status</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" name="status" id="status">
-                                    <option value="1">Active</option>
-                                    <option value="0">Inactive</option>
-                                </select>
+                                       placeholder="ชื่ออังกฤษ">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">
-                                Start time <span class="text-danger">*</span>
+                                เวลาเริ่มต้น <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <div class="bootstrap-timepicker">
@@ -114,12 +94,22 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">
-                                End time <span class="text-danger">*</span>
+                                เวลาสิ้นสุด <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <div class="bootstrap-timepicker">
                                     <input type="text" class="form-control timepicker" name="end_time">
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status" class="col-sm-3 control-label">สถานะ</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="status" id="status">
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -136,7 +126,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right">Create</button>
+                        <button type="submit" class="btn btn-primary pull-right">สร้าง</button>
                     </div>
                 </div>
                 <!-- /.box-footer -->
@@ -153,7 +143,7 @@
         $(".datepicker").datepicker({
             autoclose: true,
             format: 'dd/mm/yyyy',
-            todayHighlight: true
+            todayHighlight: true,
         });
 
         // Timepicker
