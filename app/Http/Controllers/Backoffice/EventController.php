@@ -46,8 +46,6 @@ class EventController extends Controller
 
         $input = $request->all();
 
-        dd($input);
-
         if (! $request->has('config')) {
             $input['config'] = 0;
         }

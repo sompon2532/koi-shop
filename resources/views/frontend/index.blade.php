@@ -35,14 +35,19 @@
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <img src="/media/{{ $images[0]->order_column}}/{{ $images[0]->file_name}}" alt="..." class="image-responsive"style="max-height:150px;">
-                            </div>
-                            @for($i=1;$i<count($images);$i++)
-                                <div class="item">
-                                    <img src="/media/{{ $images[$i]->order_column}}/{{ $images[$i]->file_name}}" alt="..." class="image-responsive"style="max-height:150px;">
+                            @if (count($events) > 0)
+                                <div class="item active">
+                                    <img src="{{ asset($events->first()->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="max-height:150px;">
                                 </div>
-                            @endfor
+
+                                @foreach($events as $index => $event)
+                                    @if ($index > 0)
+                                        <div class="item">
+                                            <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="max-height:150px;">
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endif
                            
                         <!-- Controls -->
                         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -54,6 +59,17 @@
                             <span class="sr-only">Next</span>
                         </a>
                         </div>
+
+                        @foreach($events as $index => $event)
+
+                            <h1>{{ $event->name }}</h1>
+
+                            @foreach($event->media->where('collection_name', 'event') as $media)
+                                <div>
+                                    <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style="max-height:150px;">    
+                                </div>
+                            @endforeach
+                        @endforeach
                 </div>
             </div>
         </div>

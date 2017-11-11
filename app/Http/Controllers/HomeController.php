@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use App\Models\Event;
+use App\Models\Category;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -24,13 +26,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $images = DB::table('media')
-        // ->Join('media', 'kois.id', '=', 'media.model_id')
-        // ->select('kois.*', 'media.*')
-        ->where('media.collection_name', '=', 'news-cover')
-        ->get();
-        return view('frontend.index',[
-            'images' => $images
-        ]);
+        $events = Event::with(['media'])
+                    // ->whereDate('start_datetime', Carbon::now()->toDateString())
+                    ->get();
+
+        $categories = Category::get()->toTree();
+
+        foreach($categories as $category) {
+            dump($category->name);
+        }
+
+        return view('frontend.index', compact('events'));
     }
 }
