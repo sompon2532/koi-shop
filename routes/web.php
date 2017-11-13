@@ -58,6 +58,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'uses' => 'ProductController@getItem'
 	]);
 
+	// Koi
 	Route::get('/koi', [
 		'uses' => 'KoiController@getIndex',
 		'as' => 'frontend.koi.index'
@@ -78,6 +79,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'as' => 'frontend.shop.detail'
 	]);
 
+	// Shop
 	Route::get('/add-to-cart/{id}', [
 		'uses' => 'ProductController@getAddToCart',
 		'as' => 'frontend.shop.addToCart'
@@ -112,6 +114,13 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::post('/checkout', [
 		'uses' => 'ProductController@postCheckout',
 		'as' => 'checkout'
+	]);
+
+	// Events
+	Route::get('/event', [
+		'uses' => 'EventController@getIndex',
+		'as' => 'checkout',
+		'middleware' => 'auth'
 	]);
 });
 

@@ -32,10 +32,10 @@ class HomeController extends Controller
 
         $categories = Category::get()->toTree();
 
-        foreach($categories as $category) {
-            dump($category->name);
-        }
+        // foreach($categories as $category) {
+        //     dump($category->name);
+        // }
 
-        return view('frontend.index', compact('events'));
+        return view('frontend.index', compact('events','categories'));
     }
 }

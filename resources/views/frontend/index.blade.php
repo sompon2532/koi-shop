@@ -70,6 +70,8 @@
                                 </div>
                             @endforeach
                         @endforeach
+
+
                 </div>
             </div>
         </div>
@@ -77,5 +79,4 @@
 @endsection
 
 @section('custom-js')
-
 @endsection
