@@ -1,4 +1,4 @@
-<!--                         @foreach($categories->where('group', 'product') as $category)
+                        <!-- @foreach($categories->where('group', 'product') as $category)
                             @if(count($category) > 0)
                                 <h1>{{ $category->name }}</h1>
                                 <hr>

@@ -64,6 +64,11 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'as' => 'frontend.koi.index'
 	]);
 
+	Route::get('/koi/category/{category}', [
+		'uses' => 'KoiController@getKoiCategory',
+		'as' => 'frontend.koi.category'
+	]);
+
 	Route::get('/koi/{id}', [
 		'uses' => 'KoiController@getDetail',
 		'as' => 'frontend.koi.detail'
@@ -72,6 +77,11 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('/koi-product', [
 		'uses' => 'ProductController@getIndex',
 		'as' => 'frontend.shop.index'
+	]);
+
+	Route::get('/koi-product/category/{category}', [
+		'uses' => 'ProductController@getProductCategory',
+		'as' => 'frontend.shop.category'
 	]);
 
 	Route::get('/koi-product/{id}', [
@@ -119,7 +129,19 @@ Route::group(['namespace' => 'Frontend'], function() {
 	// Events
 	Route::get('/event', [
 		'uses' => 'EventController@getIndex',
-		'as' => 'checkout',
+		'as' => 'frontend.event.index',
+		'middleware' => 'auth'
+	]);
+
+	Route::get('/event/{id}', [
+		'uses' => 'EventController@getEvent',
+		'as' => 'frontend.event.event',
+		'middleware' => 'auth'
+	]);
+
+	Route::get('/event/{event}/{koi}', [
+		'uses' => 'EventController@getKoi',
+		'as' => 'frontend.event.koi',
 		'middleware' => 'auth'
 	]);
 });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Cart;
 use Session;
@@ -28,8 +29,21 @@ class ProductController extends Controller
         //     'products' => $products,
         //     'images' => $images
         // ]);
+        $products = Product::with('media')->get();
+        $categories = Category::get()->toTree();
+        return view('frontend.shop.index', compact('products', 'categories'));
+        // $products = Product::with('media')->get();
+        // return view('frontend.shop.index', [
+        //         'products' => $products
+        //     ]);
+    }
 
-        return Product::with('media')->get();
+    public function getProductCategory($category)
+    {
+        
+        $products = Product::with('media')->where('category_id', $category)->get();
+        $categories = Category::get()->toTree();        
+        return view('frontend.shop.category', compact('products', 'categories'));
         // $products = Product::with('media')->get();
         // return view('frontend.shop.index', [
         //         'products' => $products
@@ -107,7 +121,12 @@ class ProductController extends Controller
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        return view('frontend.shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+        
+        $images = Product::with('media')->get();
+        // dd($images);
+
+        $categories = Category::get()->toTree();  
+        return view('frontend.shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'images' => $images, 'categories' => $categories]);
     }
 
     public function getCheckout()

@@ -25,7 +25,12 @@
                                     @foreach($products as $product)
                                     <tr>
                                         <td>
-                                            <img class="img-thumbnail" src="{{ asset('assets/img/map-koikichi.png') }}" alt="..." width="100">
+                                            {{-- dd($images) --}}
+                                            @foreach($images as $image)
+                                                <img src="{{ $image->media->first()->where('model_id', $product['item']['id'])->where('collection_name', 'product')->first()->getUrl() }}" alt="..." class="img-thumbnail image-responsive" style="max-height:150px;">
+                                                @break
+                                            @endforeach
+                                            <!-- <img class="img-thumbnail" src="{{ asset('assets/img/map-koikichi.png') }}" alt="..." width="100"> -->
                                         </td>
                                         <td class="text-left">
                                             <p class="text-red">{{ $product['item']['title'] }}</p>

@@ -683,3 +683,10 @@ table.table-none-border {
 .product.thumbnail img {
     max-height: 150px;
 }
+
+.btn-white {
+    color: #ff0000;
+    background-color: #fff;
+    border: solid 2px #ff0000;    
+    border-radius: 0;    
+}

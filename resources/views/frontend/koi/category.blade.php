@@ -10,10 +10,11 @@
             <div class="main-content text-center">
 
                 <div class="title-box">
-                    <h1>STOCK IN JAPAN</h1>
+
+                    <h1>{{ $koiCategoty->name }}</h1>
                 </div>
 
-                <h3 class="text-red"> SAKAI </h3>
+                <!-- <h3 class="text-red"> SAKAI </h3> -->
                 
                 <div class="content-box">
                     <div class="row">
@@ -29,8 +30,8 @@
                                             </div>
                                         </div>  
 
-                                        <p class="text-red">{{-- $kois[$i]->id --}}</p>
-                                        <p>{{-- $kois[$i]->id --}}</p>
+                                        <p class="text-red">{{ $koi->name }}</p>
+                                        <p>CODE : {{ $koi->koi_id }}</p>
                                         <a class="btn btn-white" href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">
                                             DETAIL
                                         </a>
