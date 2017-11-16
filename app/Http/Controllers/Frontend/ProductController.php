@@ -51,8 +51,9 @@ class ProductController extends Controller
     }
 
     public function getDetail($id)
-    {
-        $products = Product::find($id);
+    {   
+        $products = Product::with('media')->find($id);        
+        // $products = Product::find($id);
         $images = DB::table('products')
         ->Join('media', 'products.id', '=', 'media.model_id')
         ->select('products.*', 'media.*')
@@ -60,13 +61,16 @@ class ProductController extends Controller
         ->where('media.collection_name', '=', 'product')
         ->get();
 
+        $categories = Category::get()->toTree();          
+
         // dd($images);
         // $images = $products->getMedia('product');
         // $images = $images[1]->getUrl();
         // dd($images);
         return view('frontend.shop.detail', [
             'products' => $products,
-            'images' => $images
+            'images' => $images,
+            'categories' => $categories
         ]);
     }
 
@@ -116,28 +120,41 @@ class ProductController extends Controller
 
     public function getCart()
     {
+        $categories = Category::get()->toTree();
         if (!Session::has('cart')) {
-            return view('frontend.shop.shopping-cart');
+            return view('frontend.shop.shopping-cart', compact('categories'));
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        
         $images = Product::with('media')->get();
-        // dd($images);
 
-        $categories = Category::get()->toTree();  
-        return view('frontend.shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'images' => $images, 'categories' => $categories]);
+        // $categories = Category::get()->toTree();  
+        return view('frontend.shop.shopping-cart', [
+            'products' => $cart->items, 
+            'totalPrice' => $cart->totalPrice, 
+            'images' => $images, 
+            'categories' => $categories
+        ]);
     }
 
     public function getCheckout()
-    {
+    {   
+        $categories = Category::get()->toTree();        
     	if (!Session::has('cart')) {
-            return view('frontend.shop.shopping-cart');
+            return view('frontend.shop.shopping-cart', compact('categories'));
         }
+
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $total = $cart->totalPrice;
-        return view('frontend.shop.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+        $images = Product::with('media')->get();
+        
+        return view('frontend.shop.checkout', [
+            'products' => $cart->items, 
+            'totalPrice' => $cart->totalPrice,
+            'images' => $images, 
+            'categories' => $categories
+        ]);
     }
 
     public function postCheckout(Request $request)

@@ -26,7 +26,11 @@
                                     @foreach($products as $product)
                                     <tr>
                                         <td>
-                                            <img class="img-thumbnail" src="{{ asset('assets/img/map-koikichi.png') }}" alt="..." width="100">
+                                            <!-- <img class="img-thumbnail" src="{{ asset('assets/img/map-koikichi.png') }}" alt="..." width="100"> -->
+                                            @foreach($images as $image)
+                                                    <img src="{{ $image->media->first()->where('model_id', $product['item']['id'])->where('collection_name', 'product')->first()->getUrl() }}" alt="..." class="img-thumbnail image-responsive" style="max-height:150px;">
+                                                @break
+                                            @endforeach
                                         </td>
                                         <td class="text-left">
                                             <p class="text-red">{{ $product['item']['title'] }}</p>
@@ -63,11 +67,11 @@
                                     <tr>
                                         <td class="text-right text-red" colspan="2">SHIPPING FEE</td>
                                         <td class="text-red table-border">  </td>
-                                        <td class="text-red table-border"> 200 THB </td>
+                                        <td class="text-red table-border"> xxx THB </td>
                                     </tr>
                                     <tr bgcolor="#F5F5F5">
                                         <td class="text-right text-red table-border" colspan="3">TOTAL</td>
-                                        <td class="text-red table-border"> 2620 THB </td>
+                                        <td class="text-red table-border"> {{ $totalPrice }} THB </td>
                                     </tr>
 
 
@@ -107,23 +111,22 @@
                         </div>
                     </div>
                     <!-- <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 clear-both"> -->
-                        <h2>SHIPPING ADDRESS</h2>
+                        <h2 class="text-red">SHIPPING ADDRESS</h2>
                         <form action="{{ route('checkout') }}" method="post" id="checkout-form">
                             <div class="row">
-                                <div class="col-xs-12">
+                                <div class="col-xs-12 col-md-4 col-md-offset-4">
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" id="name" class="form-control" required name="name">
                                     </div>
                                 </div>
-                                <div class="col-xs-12">
+                                <div class="col-xs-12 col-md-4 col-md-offset-4">
                                     <div class="form-group">
                                         <label for="address">Address</label>
                                         <input type="text" id="address" class="form-control" required name="address">
                                     </div>
                                 </div>
-                                <hr>
-                                <div class="col-xs-12">
+                                <div class="col-xs-12 col-md-4 col-md-offset-4">
                                     <div class="form-group">
                                         <label for="card-name">Tel</label>
                                         <input type="text" id="Tel" class="form-control" name="tel" required>

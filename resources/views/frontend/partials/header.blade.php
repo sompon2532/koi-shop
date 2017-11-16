@@ -54,12 +54,17 @@
 
                                                 <ul class="dropdown-menu" role="menu">
                                                     <li>
+                                                        <a href="{{ route('frontend.event.booking') }}">
+                                                            MY BOOKING
+                                                        </a>
+                                                    </li>
+                                                    <li>
                                                         <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                    LOGOUT
-                                                </a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    {{ csrf_field() }}
-                                                </form>
+                                                            LOGOUT
+                                                        </a>
+                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                            {{ csrf_field() }}
+                                                        </form>
                                                     </li>
                                                 </ul>
                                             </li>

@@ -19,12 +19,14 @@
 		@foreach($products as $index => $product)
 		  <div class="col-sm-6 col-md-3">
 		    <div class="product text-center">
-		      <img src="{{ asset($product->media->first()->getUrl()) }}" alt="..." class="img-thumbnail img-responsive">
-		      <div class="caption">
-		        <p class="text-red">{{ $product->name }}</P>
-		        <p>CODE : {{ $product->product_id }}</p>
-		        <p><a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">ORDER</a></p>
-		      </div>
+				<a href="{{ route('frontend.shop.detail', ['id' => $product->id]) }}">
+		      		<img src="{{ asset($product->media->first()->getUrl()) }}" alt="..." class="img-thumbnail img-responsive">
+		      	</a>
+				<div class="caption">
+					<p class="text-red">{{ $product->name }}</P>
+					<p>CODE : {{ $product->product_id }}</p>
+					<p><a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">ORDER</a></p>
+				</div>
 		    </div>
 		  </div>
 		@endforeach

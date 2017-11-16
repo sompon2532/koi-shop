@@ -3,6 +3,44 @@
 @extends('frontend.layouts.master')
 
 @section('custom-css')
+<style>
+.slider {
+    width: 100%;
+    margin: auto;
+    /* margin: 100px auto; */
+}
+
+.slick-slide {
+  margin: 0px 20px;
+}
+
+.slick-slide img {
+  width: 50%;
+}
+
+.slick-slide iframe {
+  width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: red;
+}
+
+
+.slick-slide {
+  transition: all ease-in-out .3s;
+  opacity: .2;
+}
+
+.slick-active {
+  opacity: .5;
+}
+
+.slick-current {
+  opacity: 1;
+}
+</style>
 @endsection
 
 @section('content')
@@ -28,21 +66,31 @@
                                     <div class="col-md-12">
                                         <div class="slider slider-for">
                                             @foreach($kois->media as $media)
-                                                <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style="max-height:150px;">    
+                                                <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style=" ">    
                                             @endforeach
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="item">
+                                    <div class="col-md-12 ">
+                                        <div class="item" style="margin-top:50px;">
                                             <div class="slider slider-nav">
                                                 @foreach($kois->media as $media)
-                                                    <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style="max-height:150px;">    
+                                                    <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style="">    
                                                 @endforeach
                                             </div>
                                         </div> 
                                     </div>
+                                    @if(count($kois->videos) > 0)
+                                        <div class="col-md-12">
+                                            <section class="lazy slider" data-sizes="50vw">
+                                                @foreach($kois->videos as $video)
+                                                    <div>
+                                                        {!! $video->video !!}
+                                                    </div>
+                                                @endforeach
+                                            </section>                                        
+                                        </div>
+                                    @endif
                                 </div>
-
 
                                 <div class="col-md-6">
                                     <div class="col-md-12">
@@ -52,26 +100,57 @@
                                                 <th class="table-border text-center" width="50%">NUMBER OF BOOKING</th>
                                             </tr>
                                             <tr>
-                                                <td class="table-border text-center">28:35:24</td>
-                                                <td class="table-border text-center">2</td>
+                                                <td class="table-border text-center">xx:xx:xx</td>
+                                                <td class="table-border text-center">{{ count($userbooks->users) }}</td>
                                             </tr>
                                         </table>
                                         <br>
+                                        
                                         <table class="table text-red">
                                             <tr>
                                                 <th class="text-center">NAME LIST</th>
                                             </tr>
                                             <tr>
-                                                <td class="text-center">USER 1, USER 2</td>
+                                                <td class="text-center">
+                                                    @foreach ($userbooks->users as $index => $user)
+                                                        {{ $user->name }}
+                                                    @endforeach
+                                                </td>
                                             </tr>
                                         </table>
                                     </div>
-
-                                    <div class="col-md-12">
+                                    @if($events->config == 1)
+                                        @php 
+                                            $i=0;
+                                        @endphp
+                                        @if(count($books) > 0)
+                                            @if($books->id == $kois->id && $kois->event_id == $events->id)
+                                                @php
+                                                    $i=1;
+                                                @endphp
+                                            @endif
+                                        @endif
+                                        @if($i == 1)
+                                            <form action="{{ route('frontend.event.bookdel', ['koi' => $kois->id, 'event' => $events->id]) }}" method="GET" style="">  
+                                                <!-- <input type="hidden" name="koi" value="{{-- $koi->id --}}">
+                                                <input type="hidden" name="event" value="{{ $events->id }}"> -->
+                                                <button type="submit" class="btn btn-red">CANCEL</button>                                                                                          
+                                                {{ csrf_field() }}
+                                            </form>
+                                        @else
+                                            <form action="{{ route('frontend.event.bookevent') }}" method="POST" style="">  
+                                                <input type="hidden" name="koi" value="{{ $kois->id }}">
+                                                <input type="hidden" name="event" value="{{ $events->id }}">
+                                                <button type="submit" class="btn btn-white">BOOK NOW</button>                                                                                          
+                                                {{ csrf_field() }}
+                                            </form>
+                                        @endif
+                                    @endif
+                                    <!-- <div class="col-md-12">
                                         <a class="btn btn-white" href="#">
                                             BOOK NOW
                                         </a>
-                                    </div>
+                                    </div> -->
 
                                     <div class="col-md-12">
                                         <br>
@@ -128,14 +207,14 @@
     slidesToShow: 3,
     slidesToScroll: 1,
     asNavFor: '.slider-for',
-    dots: true,
+    dots: false,
     centerMode: true,
     focusOnSelect: true
     });
 </script>
 
 <script type="text/javascript">
-    // $(document).on('ready', function() {
+    $(document).on('ready', function() {
     //   $(".vertical-center-4").slick({
     //     dots: true,
     //     vertical: true,
@@ -186,11 +265,11 @@
     //     infinite: true,
     //     variableWidth: true
     //   });
-    //   $(".lazy").slick({
-    //     lazyLoad: 'ondemand', // ondemand progressive anticipated
-    //     infinite: true
-    //   });
-    // });
+      $(".lazy").slick({
+        lazyLoad: 'ondemand', // ondemand progressive anticipated
+        infinite: true
+      });
+    });
 </script>
 
 @endsection

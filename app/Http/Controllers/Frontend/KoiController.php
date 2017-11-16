@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Koi;
 use App\Models\Category;
-
+use App\Models\Favorite;
+use Auth;
 use DB;
 
 class KoiController extends Controller
@@ -53,10 +54,12 @@ class KoiController extends Controller
         // ]);
 
         $kois = Koi::with(['media'])->where('category_id', $categoty)->get();
+        $favorites = Favorite::where('type', 'koi')->where('user_id', Auth::user()->id)->get();
+        // dd($favorites);
         $koiCategoty = Category::find($categoty);
         $categories = Category::get()->toTree();
 
-        return view('frontend.koi.category', compact('kois','koiCategoty', 'categories'));
+        return view('frontend.koi.category', compact('kois', 'favorites', 'koiCategoty', 'categories'));
         
     }
 
@@ -71,9 +74,10 @@ class KoiController extends Controller
         // ]);
 
         $kois = Koi::with(['media'])->find($id);
+        $favorites = Favorite::where('type', 'koi')->where('user_id', Auth::user()->id)->get();        
         $categories = Category::get()->toTree();
 
-        return view('frontend.koi.detail', compact('kois','categories'));
+        return view('frontend.koi.detail', compact('kois','favorites', 'categories'));
         
     }
 }

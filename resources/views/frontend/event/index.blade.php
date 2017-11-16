@@ -34,9 +34,9 @@
                                     <p>{{ $events->first()->start_datetime }} to {{ $events->first()->end_datetime }}</p>  
                                 </div>
                             </div>
+                        
 
                             <div class="col-md-12">
-
                                 <h4 class="text-red">PAST EVENTS</h4>
 
                                     @foreach($events as $index => $event)
@@ -49,10 +49,11 @@
                                                 </div>
                                                 <p class="text-red">{{ $event->name }}</p>
                                                 <p>{{ $event->start_datetime }} to {{ $event->end_datetime }}</p>  
-                                            </div>  
+                                            {{ $event->start_time}}
+                                        </div>  
                                         @endif                           
                                     @endforeach
-                                @endif
+                                
 
                                 <!-- <div class="col-md-4">
                                     <img class="img-thumbnail img-responsive" src="{{ asset('assets/img/map-koikichi.png') }}" alt="...">                                    
@@ -86,11 +87,13 @@
                                 </div> -->
 
                             </div>
-                               
+                            
                             <div class="col-md-12"> 
                                 <p class="text-red text-right">TOTAL : {{ count($events) }}</p>
                             </div>
-                           
+                            @else
+                                <h1>Now, Don't have Event</h1>
+                            @endif
 
                         </div>
                     </div>

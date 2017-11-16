@@ -2,8 +2,47 @@
 
 @section('page_title', 'KOI')
 
-@section('customcss')
+@section('custom-css')
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.slider {
+    width: 50%;
+    margin: auto;
+    /* margin: 100px auto; */
+}
+
+.slick-slide {
+  margin: 0px 20px;
+}
+
+.slick-slide img {
+  width: 100%;
+}
+
+.slick-slide iframe {
+  width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: red;
+}
+
+
+.slick-slide {
+  transition: all ease-in-out .3s;
+  opacity: .2;
+}
+
+.slick-active {
+  opacity: .5;
+}
+
+.slick-current {
+  opacity: 1;
+}
+</style>
+
 @endsection
 
 @section('content')
@@ -25,11 +64,9 @@
                             <div class="col-md-6">
                                <!--  <img class="img-thumbnail" src="{{ asset('assets/img/stock-koi-4.png') }}" alt="..."> -->
                                <div class="col-md-12">
-                                    <div class="slider slider-for">
+                                    <div class="slider slider-for thumbnail">
                                         @foreach($kois->media as $media)
-                                            <div class="col-md-6 col-md-offset-3">
-                                                <img src="{{ asset($media->getUrl()) }}" class="img-thumbnail image-responsive" style="">    
-                                            </div>
+                                            <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style=""> 
                                         @endforeach
                                     </div>
                                 </div>
@@ -52,17 +89,33 @@
                                 <p>SIZE : {{ $kois->owner }}</p>
                                 <p>GENDER : {{ $kois->sex }}</p>
                             </div>
-                            <div class="col-md-12">
-                                <div class="item">
-                                    <div class="slider slider-nav">
-                                        @foreach($kois->media as $media)
-                                            <div class="col-md-3">
-                                                <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style="max-height:150px;">    
+
+                            @if(count($kois->media) > 1)                            
+                                <div class="col-md-12">
+                                    <div class="item">
+                                        <div class="slider slider-nav">
+                                            @foreach($kois->media as $media)
+                                                <!-- <div class="col-md-3"> -->
+                                                    <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style="max-height:150px;">    
+                                                <!-- </div> -->
+                                            @endforeach
+                                        </div>
+                                    </div> 
+                                </div>
+                            @endif
+
+                            @if(count($kois->videos) > 0)
+                                <div class="col-md-12">
+                                    <section class="lazy slider" data-sizes="50vw">
+                                        @foreach($kois->videos as $video)
+                                            <div>
+                                                {!! $video->video !!}
                                             </div>
                                         @endforeach
-                                    </div>
-                                </div> 
-                            </div>
+                                    </section>                                        
+                                </div>
+                            @endif
+                            
                         </div>
                     </div><!-- content-box -->
                 </div>
@@ -93,6 +146,8 @@
         </div>
     </div> -->
 </section>
+
+
 
 @endsection
 
