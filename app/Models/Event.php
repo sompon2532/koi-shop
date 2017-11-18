@@ -18,7 +18,8 @@ class Event extends Model implements HasMedia
      * @var array
      */
     protected $casts = [
-        'status' => 'boolean',
+        'config' => 'boolean',
+        'status' => 'boolean'
     ];
 
     /**

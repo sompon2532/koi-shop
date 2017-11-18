@@ -38,6 +38,8 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
+
         $news = News::create($request->all());
 
         // Image

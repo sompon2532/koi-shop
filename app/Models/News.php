@@ -26,7 +26,7 @@ class News extends Model implements HasMedia
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = ['start_datetime', 'end_datetime', 'deleted_at'];
 
     /**
      * @var string

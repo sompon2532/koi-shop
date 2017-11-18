@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddDateTimeToNewsTable' => $baseDir . '/database/migrations/2017_11_12_055000_add_date_time_to_news_table.php',
     'AddDatetimeToEventsTable' => $baseDir . '/database/migrations/2017_09_24_070349_add_datetime_to_events_table.php',
     'AddEventIdToKoiTable' => $baseDir . '/database/migrations/2017_09_09_020445_add_event_id_to_koi_table.php',
     'AddFieldConfigToEventsTable' => $baseDir . '/database/migrations/2017_10_07_081952_add_field_config_to_events_table.php',
