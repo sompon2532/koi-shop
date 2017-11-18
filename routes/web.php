@@ -58,9 +58,15 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'uses' => 'ProductController@getItem'
 	]);
 
+	// Koi
 	Route::get('/koi', [
 		'uses' => 'KoiController@getIndex',
 		'as' => 'frontend.koi.index'
+	]);
+
+	Route::get('/koi/category/{category}', [
+		'uses' => 'KoiController@getKoiCategory',
+		'as' => 'frontend.koi.category'
 	]);
 
 	Route::get('/koi/{id}', [
@@ -68,9 +74,15 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'as' => 'frontend.koi.detail'
 	]);
 	
+	// Product
 	Route::get('/koi-product', [
 		'uses' => 'ProductController@getIndex',
 		'as' => 'frontend.shop.index'
+	]);
+	
+	Route::get('/koi-product/category/{category}', [
+		'uses' => 'ProductController@getProductCategory',
+		'as' => 'frontend.shop.category'
 	]);
 
 	Route::get('/koi-product/{id}', [
@@ -78,6 +90,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'as' => 'frontend.shop.detail'
 	]);
 
+	// Shop
 	Route::get('/add-to-cart/{id}', [
 		'uses' => 'ProductController@getAddToCart',
 		'as' => 'frontend.shop.addToCart'
@@ -111,7 +124,59 @@ Route::group(['namespace' => 'Frontend'], function() {
 	
 	Route::post('/checkout', [
 		'uses' => 'ProductController@postCheckout',
-		'as' => 'checkout'
+		'as' => 'checkout',
+		'middleware' => 'auth'		
+	]);
+
+	// Events
+	Route::get('/event', [
+		'uses' => 'EventController@getIndex',
+		'as' => 'frontend.event.index',
+		'middleware' => 'auth'
+	]);
+
+	Route::get('/event/{id}', [
+		'uses' => 'EventController@getEvent',
+		'as' => 'frontend.event.event',
+		'middleware' => 'auth'
+	]);
+
+	Route::get('/event/{event}/{koi}', [
+		'uses' => 'EventController@getKoi',
+		'as' => 'frontend.event.koi',
+		'middleware' => 'auth'
+	]);
+	
+	//Booking
+	Route::post('/event/booking/add', [ //add_koi_user
+		'uses' => 'EventController@postEvent',
+		'as' => 'frontend.event.bookevent',
+		'middleware' => 'auth'		
+	]);
+
+	Route::get('/event/booking/del/{koi}/{event}', [ //delete_koi_user
+		'uses' => 'EventController@getEventDel',
+		'as' => 'frontend.event.bookdel',
+		'middleware' => 'auth'		
+	]);
+
+	Route::get('/mybooking', [
+		'uses' => 'EventController@getMyBooking',
+		'as' => 'frontend.event.booking',
+		'middleware' => 'auth'		
+	]);
+
+	//Favorite
+	Route::post('/event/favorite/add', [ //add_koi_user
+		'uses' => 'UserController@postfavorite',
+		'as' => 'frontend.user.favorite',
+		'middleware' => 'auth'		
+	]);
+
+	Route::get('/event/favorite/del/{item}/{type}', [ //add_koi_user
+		'uses' => 'UserController@getfavoriteDel',
+		'as' => 'frontend.user.favoritedel',
+		'middleware' => 'auth'		
 	]);
 });
 
@@ -119,6 +184,18 @@ Route::get('/', [
 	'uses' => 'HomeController@Index',
 	'as' => 'frontend.index'
 ]);
+
+Route::get('login', [
+	'as'   => 'auth.login',
+	'uses' => 'LoginController@showLoginForm',
+	'middleware' => 'auth'
+]);
+
+Route::get('register', [
+	'as'   => 'auth.register',
+	'uses' => 'RegisterController@showRegistrationForm'
+]);
+
 // Route::get('/', function () {
 // 	return view('frontend.index');
 // });

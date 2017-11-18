@@ -2,8 +2,47 @@
 
 @section('page_title', 'KOI')
 
-@section('customcss')
+@section('custom-css')
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.slider {
+    width: 50%;
+    margin: auto;
+    /* margin: 100px auto; */
+}
+
+.slick-slide {
+  margin: 0px 20px;
+}
+
+.slick-slide img {
+  width: 100%;
+}
+
+.slick-slide iframe {
+  width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: red;
+}
+
+
+.slick-slide {
+  transition: all ease-in-out .3s;
+  opacity: .2;
+}
+
+.slick-active {
+  opacity: .5;
+}
+
+.slick-current {
+  opacity: 1;
+}
+</style>
+
 @endsection
 
 @section('content')
@@ -18,25 +57,31 @@
                     </div>
 
                     <h3 class="text-red"> SAKAI </h3>
-                    <P>KOI > KOI  IN JAPAN > SAKAI > {{-- $products->title --}}</P>
+                    <P>KOI > KOI  IN JAPAN > SAKAI > {{ $kois->name }}</P>
 
                     <div class="content-box">
                         <div class="row">
                             <div class="col-md-6">
                                <!--  <img class="img-thumbnail" src="{{ asset('assets/img/stock-koi-4.png') }}" alt="..."> -->
-                                <img class="img-thumbnail" src="{{-- $products->imagePath --}}" alt="..." style="max-height:150px;">
-                                <div class="text-red">
+                               <div class="col-md-12">
+                                    <div class="slider slider-for thumbnail">
+                                        @foreach($kois->media as $media)
+                                            <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style=""> 
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-md-offset-3 text-red">
                                     <p>TO ORDER</p>
                                     <p>PLEASE CONTACT</p>
-                                    <img class="" src="{{-- asset('assets/img/line-logo.png') --}}" alt="...">                                    
+                                    <img class="" src="{{ asset('frontend/src/img/line-logo.png') }}" alt="...">                                    
                                 </div>
                             </div>
                             <div class="col-md-6 text-left">
                                 <p class="text-red">{{-- $products->title --}}</p>
-                                <p>CODE : {{ $kois->id }}</p>
+                                <p>CODE : {{ $kois->koi_id }}</p>
                                 <p>OWNER : {{ $kois->owner }}</p>
                                 <p>PRICE : {{ $kois->price }} THB / YEN</p>
-                                <p>SHIPPING : 9999 THB</p>
+                                <!-- <p>SHIPPING : 9999 THB</p> -->
                                 <br>
                                 <p class="text-red">DETAIL</p>
                                 <p>BREEDER : {{ $kois->owner }}</p>
@@ -44,6 +89,33 @@
                                 <p>SIZE : {{ $kois->owner }}</p>
                                 <p>GENDER : {{ $kois->sex }}</p>
                             </div>
+
+                            @if(count($kois->media) > 1)                            
+                                <div class="col-md-12">
+                                    <div class="item">
+                                        <div class="slider slider-nav">
+                                            @foreach($kois->media as $media)
+                                                <!-- <div class="col-md-3"> -->
+                                                    <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style="max-height:150px;">    
+                                                <!-- </div> -->
+                                            @endforeach
+                                        </div>
+                                    </div> 
+                                </div>
+                            @endif
+
+                            @if(count($kois->videos) > 0)
+                                <div class="col-md-12">
+                                    <section class="lazy slider" data-sizes="50vw">
+                                        @foreach($kois->videos as $video)
+                                            <div>
+                                                {!! $video->video !!}
+                                            </div>
+                                        @endforeach
+                                    </section>                                        
+                                </div>
+                            @endif
+                            
                         </div>
                     </div><!-- content-box -->
                 </div>
@@ -74,6 +146,8 @@
         </div>
     </div> -->
 </section>
+
+
 
 @endsection
 

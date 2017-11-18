@@ -54,12 +54,17 @@
 
                                                 <ul class="dropdown-menu" role="menu">
                                                     <li>
+                                                        <a href="{{ route('frontend.event.booking') }}">
+                                                            MY BOOKING
+                                                        </a>
+                                                    </li>
+                                                    <li>
                                                         <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                    LOGOUT
-                                                </a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    {{ csrf_field() }}
-                                                </form>
+                                                            LOGOUT
+                                                        </a>
+                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                            {{ csrf_field() }}
+                                                        </form>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -143,33 +148,117 @@
 
                             <li><a href="{{ url('/') }}">{{ trans('header.home') }}</a></li>
 
+                            @if(count($categories) > 0)
                             <li class="menu-item dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('header.koi') }}</a>
+                                <ul class="dropdown-menu">
+                                @foreach($categories->where('group', 'koi') as $category)
+
+                                    <li class="menu-item dropdown dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $category->name }}</a>
+                                        @if(count($category->children) > 0)
+                                        <ul class="dropdown-menu">
+                                            
+                                            @foreach($category->children as $category2)    
+                                            <li class="menu-item dropdown dropdown-submenu">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $category2->name }}</a>
+                                                @if(count($category2->children) > 0)
+                                                <ul class="dropdown-menu">
+                                                    
+                                                    @foreach($category2->children as $category3)
+                                                    <li class="menu-item">
+                                                        <a href="{{ route('frontend.koi.category', ['category' => $category3->id]) }}">{{ $category3->name }}</a>
+                                                    </li>
+                                                    @endforeach
+
+                                                </ul>
+                                                @endif 
+                                            </li>
+                                            @endforeach
+
+                                        </ul>
+                                        @endif 
+                                    </li>
+
+                                @endforeach
+                                </ul>
+                            </li>
+                            @endif
+
+                            @if(count($categories) > 0)
+                            <li class="menu-item dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('header.koi-products') }}</a>
+                                <ul class="dropdown-menu">
+                                @foreach($categories->where('group', 'product') as $category)
+
+                                    <li class="menu-item dropdown dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $category->name }}</a>
+                                        @if(count($category->children) > 0)
+                                        <ul class="dropdown-menu">
+                                            
+                                            @foreach($category->children as $category2)    
+                                            <li class="menu-item dropdown dropdown-submenu">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $category2->name }}</a>
+                                                @if(count($category2->children) > 0)
+                                                <ul class="dropdown-menu">
+                                                    
+                                                    @foreach($category2->children as $category3)
+                                                    <li class="menu-item">
+                                                        <a href="{{ route('frontend.shop.category', ['category' => $category3->id]) }}">{{ $category3->name }}</a>
+                                                    </li>
+                                                    @endforeach
+                                                    
+                                                </ul>
+                                                @endif 
+                                            </li>
+                                            @endforeach
+
+                                        </ul>
+                                        @endif 
+                                    </li>
+
+                                @endforeach
+                                </ul>
+                            </li>
+                            @endif
+
+
+
+                           <!--  <li class="menu-item dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('header.koi') }}</a>
                                 <ul class="dropdown-menu">
                                     <li class="menu-item dropdown dropdown-submenu">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">STOCK IN JAPAN</b></a>
-                                        <!-- <b class="glyphicon glyphicon-menu-right"> -->
+
                                         <ul class="dropdown-menu">
-                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">SAKAI</a></li>
-                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">NARITA</a></li>
-                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">MOMOTARO</a></li>
-                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">DAINICHI</a></li>
+                                            <li class="menu-item "><a href="{{-- route('frontend.koi.index') --}}">SAKAI</a></li>
+                                            <li class="menu-item "><a href="{{-- route('frontend.koi.index') --}}">NARITA</a></li>
+                                            <li class="menu-item "><a href="{{-- route('frontend.koi.index') --}}">MOMOTARO</a></li>
+                                            <li class="menu-item dropdown dropdown-submenu"><a href="{{ route('frontend.koi.index') }}">DAINICHI</a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="menu-item "><a href="{{-- route('frontend.koi.index') --}}">SAKAI</a></li>
+                                                    <li class="menu-item "><a href="{{-- route('frontend.koi.index') --}}">NARITA</a></li>
+                                                    <li class="menu-item "><a href="{{-- route('frontend.koi.index') --}}">MOMOTARO</a></li>
+                                                    <li class="menu-item dropdown dropdown-submenu"><a href="{{ route('frontend.koi.index') }}">DAINICHI</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="menu-item dropdown dropdown-submenu">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">STOCK IN THAILAND</a>
                                         <ul class="dropdown-menu">
-                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">TOP QUALITY</a></li>
-                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">HIGH QUALITY</a></li>
-                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">MIDDLE QUALITY</a></li>
-                                            <li class="menu-item "><a href="{{ route('frontend.koi.index') }}">PET QUALITY</a></li>
+                                            <li class="menu-item "><a href="{{-- route('frontend.koi.index') --}}">TOP QUALITY</a></li>
+                                            <li class="menu-item "><a href="{{-- route('frontend.koi.index') --}}">HIGH QUALITY</a></li>
+                                            <li class="menu-item "><a href="{{-- route('frontend.koi.index') --}}">MIDDLE QUALITY</a></li>
+                                            <li class="menu-item "><a href="{{-- route('frontend.koi.index') --}}">PET QUALITY</a></li>
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
 
                             <!-- <li><a href="{{ url('/product') }}">KOI PRODUCTS</a></li> -->
-                            <li class="menu-item dropdown">
+                            <!-- <li class="menu-item dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('header.koi-products') }}</a>
                                 <ul class="dropdown-menu">
                                     <li class="menu-item "><a href="{{ url('/koi-product') }}">KOI FOOD</a></li>
@@ -178,9 +267,9 @@
                                     <li class="menu-item "><a href="{{ url('/koi-product') }}">MEDICATION</a></li>
                                     <li class="menu-item "><a href="{{ url('/koi-product') }}">TANK/TUB/CANVAS</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li><a href="http://www.koikichi-auction.com/">{{ trans('header.online-auction') }}</a></li>
-                            <li><a href="{{-- url('/event') --}}">{{ trans('header.events') }}</a></li>
+                            <li><a href="{{ url('/event') }}">{{ trans('header.events') }}</a></li>
                             <li><a href="{{-- url('/hallofframe') --}}">{{ trans('header.hall-of-fame') }}</a></li>
                             <li><a href="{{-- url('/payment') --}}">{{ trans('header.payment') }}</a></li>
                             
@@ -189,5 +278,6 @@
                 </div>
             </nav>
         </div>
+
 
     

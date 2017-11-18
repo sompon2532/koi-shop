@@ -17,27 +17,28 @@
                 
                 <div class="content-box">
                     <div class="row">
-                        @for($i=0; $i<count($kois); $i++)
-                            <div class="col-sm-6  col-md-3">
-                                <div class="stock-item-box">
-                                    <div class="img-item-box">  
-                                    @if($images[$i]->model_id = $kois[$i]->id)
-                                        <img src="/media/{{ $images[$i]->order_column }}/{{ $images[$i]->file_name }}" alt="..." class="img-responsive img-thumbnail" style="max-height:150px;">                                                                            
-                                        <!-- <img class="img-thumbnail" src="{{-- $koi-> --}}" alt="..." style="max-height:150px;"> -->
-                                    @endif
-                                        <div class="star-label">
-                                            <!-- <img class="" src="{{-- asset('assets/img/unstar.png') --}}" alt="...">-->
-                                        </div>
-                                    </div>  
+                        @foreach($kois as $index => $koi)
 
-                                    <p class="text-red">{{ $kois[$i]->id }}</p>
-                                    <p>{{ $kois[$i]->id }}</p>
-                                    <a class="btn btn-white" href="{{ route('frontend.koi.detail', ['id' => $kois[$i]->id]) }}">
-                                        DETAIL
-                                    </a>
+                                <div class="col-sm-6  col-md-3">
+                                    <div class="stock-item-box">
+                                        <div class="img-item-box">  
+                                            <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class="img-thumbnail image-responsive" style="max-height:150px;">
+
+                                            <div class="star-label">
+                                                <!-- <img class="" src="{{-- asset('assets/img/unstar.png') --}}" alt="...">-->
+                                            </div>
+                                        </div>  
+
+                                        <p class="text-red">{{-- $kois[$i]->id --}}</p>
+                                        <p>{{-- $kois[$i]->id --}}</p>
+                                        <a class="btn btn-white" href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">
+                                            DETAIL
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        @endfor
+                          
+                        @endforeach
+
                     </div>
                 </div><!-- content-box -->
                 <div class="row">

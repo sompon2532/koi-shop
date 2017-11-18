@@ -14,7 +14,7 @@ html, body {
     background: #ffffff;
     box-shadow:0 0 2px 1px rgba(0,0,0,0.1);
     border: none;
-    height: 35px;
+    /* height: 35px; */
 }
 
 .top-bar input.form-control{
@@ -84,7 +84,7 @@ html, body {
     background: #ffffff;
     box-shadow:0 0 2px 1px rgba(0,0,0,0.1);
     border: none;
-    height: 35px;
+    /* height: 35px; */
 }
 
 .nav>li>a {
@@ -147,7 +147,7 @@ footer {
 .about-us .title-box {
     padding: 10px 0 20px 0;
     margin-bottom: 10px;
-    background-image: url('../../assets/img/title.png');
+    background-image: url('/../frontend/src/img/Title.png');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -179,7 +179,7 @@ footer {
 .contact-us .title-box {
     padding: 10px 0 20px 0;
     margin-bottom: 10px;
-    background-image: url('../../assets/img/title.png');
+    background-image: url('/../frontend/src/img/Title.png');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -225,7 +225,7 @@ footer {
 .login .title-box {
     padding: 10px 0 20px 0;
     margin-bottom: 10px;
-    background-image: url('../../fontend/scr/img/title.png');
+    background-image: url('/../frontend/src/img/Title.png');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -265,7 +265,7 @@ footer {
 .register .title-box {
     padding: 10px 0 20px 0;
     margin-bottom: 10px;
-    background-image: url('../../assets/img/title.png');
+    background-image: url('/../frontend/src/img/Title.png');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -328,7 +328,7 @@ footer {
 .profile .title-box {
     padding: 10px 0 20px 0;
     margin-bottom: 10px;
-    background-image: url('../../assets/img/title.png');
+    background-image: url('/../frontend/src/img/Title.png');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -359,7 +359,7 @@ footer {
 .mykoi .title-box {
     padding: 10px 0 20px 0;
     margin-bottom: 10px;
-    background-image: url('../../assets/img/title.png');
+    background-image: url('/../frontend/src/img/Title.png');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -381,7 +381,7 @@ footer {
 .favourite-koi .title-box {
     padding: 10px 0 20px 0;
     margin-bottom: 10px;
-    background-image: url('../../assets/img/title.png');
+    background-image: url('/../frontend/src/img/Title.png');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -528,7 +528,7 @@ footer {
 .title-box {
     padding: 10px 0 20px 0;
     margin-bottom: 10px;
-    background-image: url('../../assets/img/title.png');
+    background-image: url('/../frontend/src/img/Title.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -682,4 +682,11 @@ table.table-none-border {
 }
 .product.thumbnail img {
     max-height: 150px;
+}
+
+.btn-white {
+    color: #ff0000;
+    background-color: #fff;
+    border: solid 2px #ff0000;    
+    border-radius: 0;    
 }
