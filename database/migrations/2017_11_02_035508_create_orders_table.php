@@ -23,7 +23,7 @@ class CreateOrdersTable extends Migration
             $table->integer('status'); //สถานะคำสั่งซื้อ
             $table->integer('totalQty'); //จำนวนรวมของสินค้า
             $table->double('totalPrice', 10, 2); //ราคารวม
-            $table->string('payment_id');
+            $table->string('payment_id');//
             $table->timestamps();
         });
     }

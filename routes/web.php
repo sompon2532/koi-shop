@@ -167,15 +167,35 @@ Route::group(['namespace' => 'Frontend'], function() {
 	]);
 
 	//Favorite
-	Route::post('/event/favorite/add', [ //add_koi_user
+	Route::post('/favorite/add', [ //add_koi_user
 		'uses' => 'UserController@postfavorite',
+		'as' => 'frontend.user.favorite-add',
+		'middleware' => 'auth'		
+	]);
+
+	Route::get('/favorite/del/{item}/{type}', [ //add_koi_user
+		'uses' => 'UserController@getfavoriteDel',
+		'as' => 'frontend.user.favorite-del',
+		'middleware' => 'auth'		
+	]);
+
+	//User
+	Route::get('/myorder', [
+		'uses' => 'UserController@getMyorders',
+		'as' => 'frontend.user.myorder',
+		'middleware' => 'auth'		
+	]);
+
+	Route::get('/favorite', [
+		'uses' => 'UserController@getFavorite',
 		'as' => 'frontend.user.favorite',
 		'middleware' => 'auth'		
 	]);
 
-	Route::get('/event/favorite/del/{item}/{type}', [ //add_koi_user
-		'uses' => 'UserController@getfavoriteDel',
-		'as' => 'frontend.user.favoritedel',
+	//Payment
+	Route::get('/payment', [
+		'uses' => 'PaymentController@getPayment',
+		'as' => 'frontend.payment.index',
 		'middleware' => 'auth'		
 	]);
 });
@@ -200,13 +220,15 @@ Route::get('register', [
 // 	return view('frontend.index');
 // });
 
-Route::get('/about', function () {
-	return view('frontend.about.index');
-});
+Route::get('/about', [
+	'uses' => 'HomeController@getAboutUs',
+	'as'   => 'frontend.about.index'
+]);
 
-Route::get('/contact', function () {
-	return view('frontend.contact.index');
-});
+Route::get('/contact', [
+	'uses' => 'HomeController@getContactUs',
+	'as'   => 'frontend.contact.index'
+]);
 
 Auth::routes();
 

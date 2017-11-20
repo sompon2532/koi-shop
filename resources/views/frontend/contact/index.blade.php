@@ -17,32 +17,34 @@
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <form class="form-inline">
-                                <div class="form-group">
+                                <div class="form-group form-contact">
                                     <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"> NAME </div>
                                         <input type="text" class="form-control" id="exampleInputAmount" placeholder="NAME">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="input-group">
+                                <div class="form-group form-contact">
+                                    <div class="input-group ">
                                         <div class="input-group-addon"> E-MAIL </div>
                                         <input type="text" class="form-control" id="exampleInputAmount" placeholder="E-MAIL">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group form-contact">
                                     <div class="input-group">
                                         <div class="input-group-addon"> PHONE NUMBER </div>
                                         <input type="text" class="form-control" id="exampleInputAmount" placeholder="PHONE NUMBER">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group form-contact">
                                     <div class="input-group">
                                         <div class="input-group-addon"> DETAILS </div>
                                         <textarea type="text" class="form-control" id="exampleInputAmount" placeholder="DETAILS"></textarea>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Transfer cash</button>
+                                <div class="form-contact">
+                                    <button type="submit" class="btn btn-white">SEND</button>
+                                </div>
                             </form>
                         </div>
                     </div>

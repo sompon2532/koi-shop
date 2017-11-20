@@ -57,7 +57,7 @@
                                         <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class=" image-responsive" style="max-height:150px;">
                                         @if($i == 0)
                                             <div class="star-label">
-                                                <form action="{{ route('frontend.user.favorite') }}" method="POST" style="">  
+                                                <form action="{{ route('frontend.user.favorite-add') }}" method="POST" style="">  
                                                     <input type="hidden" name="item" value="{{ $koi->id }}">
                                                     <input type="hidden" name="type" value="koi">
                                                     <button type="submit" class="btn btn-favorite">
@@ -68,7 +68,7 @@
                                             </div>
                                         @else
                                             <div class="star-label">
-                                                <form action="{{ route('frontend.user.favoritedel', ['item' => $koi->id, 'type' => 'koi']) }}" method="GET" style="">  
+                                                <form action="{{ route('frontend.user.favorite-del', ['item' => $koi->id, 'type' => 'koi']) }}" method="GET" style="">  
 
                                                     <button type="submit" class="btn btn-favorite">
                                                         <img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    

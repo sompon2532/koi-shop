@@ -27,11 +27,15 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit|Roboto+Condensed" media="screen" title="no title">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Prompt" media="screen" title="no title">
-
+    <!-- fullCalendar -->
+  <link rel="stylesheet" href="{{ asset('plugins/fullcalendar/dist/fullcalendar.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/fullcalendar/dist/fullcalendar.print.min.css') }}" media="print">
    
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/src/css/style.css') }}" >
+
+
     
     @yield('custom-css')
 
@@ -46,6 +50,7 @@
         <div class="container">
             @yield('content')
         </div>
+        
         @include('frontend.partials.footer')
     </div>
 
@@ -61,8 +66,17 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="{{ asset('frontend/slick-1.8.0/slick/slick.min.js') }}"></script>
 
-    @yield('custom-js')
+    <!-- daterangepicker -->
+    <script src="{{ asset('plugins/moment/moment.min.js') }} "></script>
+    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
 
+    
+
+    @yield('custom-js')
+    <!-- fullCalendar -->
+    <script src="{{ asset('plugins/fullcalendar/dist/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('plugins/fullcalendar/dist/locale-all.js') }}"></script>
+    
 </body>
 
 </html>

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Cart;
+use Carbon\Carbon;
 use Session;
 use Auth;
 use DB;
@@ -187,9 +188,11 @@ class ProductController extends Controller
               'totalQty'    => $cart->totalQty,
               'totalPrice'  => $cart->totalPrice,
               'tel'         => $request->input('tel'),
-              'payment_id'  => ''//id การชำระเงิน
+              'payment_id'  => '',//id การชำระเงิน            
+              'created_at' => Carbon::now()->toDateTimeString()                   
+              
             );
-            // dd($insert);  
+        // dd($insert);  
             $order_id = DB::table('orders')->insertGetId($insert);
             
             foreach ($cart->items as $item) {
@@ -197,14 +200,17 @@ class ProductController extends Controller
                   'order_id'    => $order_id,
                   'product_id'  => $item['item']['id']
                 );
-                // dd($insert);
-                DB::table('order_details')->insertGetId($insert);
+        // dd($insert);
+                DB::table('order_product')->insertGetId($insert);
+        
             }
+        
         } catch (\Exception $e) {
             return redirect()->route('checkout')->with('error', $e->getMessage());
         }
 
         Session::forget('cart');
+        
         return redirect()->route('frontend.shop.index')->with('success', 'Successfully purchased products!');
     }
 }

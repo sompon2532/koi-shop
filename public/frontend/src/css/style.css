@@ -166,6 +166,9 @@ footer {
 }
 
 /* contact page */
+.form-contact{
+    margin: 20px 0;
+}
 .contact-us {
     box-shadow:0 0 2px 1px rgba(0,0,0,0.1); 
     padding: 20px 50px 50px 50px;  
@@ -573,9 +576,10 @@ footer {
     color: #ffffff;
 }*/
 
-.main-content .btn-red {
+.btn-red {
     background-color: #ff0000;    
     border-radius: 0;    
+    color: #ffffff;
 }
 
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
@@ -689,4 +693,13 @@ table.table-none-border {
     background-color: #fff;
     border: solid 2px #ff0000;    
     border-radius: 0;    
+}
+
+/* 
+|
+|   Payment
+|
+*/
+.form-payment{
+    margin: 20px 0;
 }

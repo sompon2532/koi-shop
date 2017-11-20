@@ -41,6 +41,11 @@
 .slick-current {
   opacity: 1;
 }
+
+.btn-favorite {
+    background-color: transparent;
+    padding: 0px;
+}
 </style>
 
 @endsection
@@ -88,6 +93,41 @@
                                 <p>BORN IN : {{ $kois->born }}</p>
                                 <p>SIZE : {{ $kois->owner }}</p>
                                 <p>GENDER : {{ $kois->sex }}</p>
+                                @php 
+                                    $i=0;
+                                @endphp
+                                @if(count($favorites) > 0)
+                                    @foreach($favorites as $favorite)
+                                        @if($favorite->item_id == $kois->id)
+                                            @php
+                                                $i=1;
+                                            @endphp
+                                        @endif
+                                    @endforeach
+                                @endif
+                                @if($i == 0)
+                                    <!-- <div class="star-label"> -->
+                                        <form action="{{ route('frontend.user.favorite-add') }}" method="POST" style="">  
+                                            <input type="hidden" name="item" value="{{ $kois->id }}">
+                                            <input type="hidden" name="type" value="koi">
+                                            <button type="submit" class="btn btn-favorite">
+                                                <p class="text-red glyphicon glyphicon-star"></p><p class="float-left">add to favorite</p>
+                                                <!-- <img class="" src="{{-- asset('frontend/src/img/favorite.png') --}}" alt="..." style="max-height:50px;">     -->
+                                            </button> 
+                                            {{ csrf_field() }}
+                                        </form>
+                                    <!-- </div> -->
+                                @else
+                                    <div class="star-label">
+                                        <form action="{{ route('frontend.user.favorite-del', ['item' => $kois->id, 'type' => 'koi']) }}" method="GET" style="">  
+
+                                            <button type="submit" class="btn btn-favorite">
+                                                <img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
+                                            </button> 
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                                @endif
                             </div>
 
                             @if(count($kois->media) > 1)                            
