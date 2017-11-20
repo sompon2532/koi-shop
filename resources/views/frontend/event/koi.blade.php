@@ -59,7 +59,7 @@
                             <div class="col-md-12">
                                 <!-- <p>CHUGOKU AUCTION WEEK</p> -->
                                 <!-- <p>16-22 SEPTEMBER 17</p> -->
-                                <p>{{ $events->start_datetime }} to {{ $events->end_datetime }}</p>
+                                <p>{{ $events->start_datetime->formatLocalized('%d %B %Y') }} to {{ $events->end_datetime->formatLocalized('%d %B %Y') }}</p>
 
 
                                 <div class="col-md-6">
