@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1de6960-8bca-4007-8145-6a78462776c3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/EventController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/EventController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Koi.php" afterPath="$PROJECT_DIR$/app/Models/Koi.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,8 +50,8 @@
       <file leaf-file-name="EventController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backoffice/EventController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="196" column="26" lean-forward="true" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="26" />
+            <state relative-caret-position="374">
+              <caret line="206" column="0" lean-forward="true" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
               <folding>
                 <element signature="e#51#79#0#PHP" expanded="true" />
               </folding>
@@ -171,8 +168,8 @@
         <option value="$PROJECT_DIR$/resources/views/backoffice/event/koi.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Backoffice/EventController.php" />
         <option value="$PROJECT_DIR$/app/Models/Koi.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Backoffice/EventController.php" />
       </list>
     </option>
   </component>
@@ -390,12 +387,12 @@
       <workItem from="1511013266378" duration="584000" />
       <workItem from="1511063299489" duration="6290000" />
       <workItem from="1511097898382" duration="893000" />
-      <workItem from="1511187184108" duration="4921000" />
+      <workItem from="1511187184108" duration="5006000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222034000" />
+    <option name="totallyTimeSpent" value="222119000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -802,8 +799,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backoffice/EventController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="196" column="26" lean-forward="true" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="26" />
+        <state relative-caret-position="374">
+          <caret line="206" column="0" lean-forward="true" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
           <folding>
             <element signature="e#51#79#0#PHP" expanded="true" />
           </folding>
