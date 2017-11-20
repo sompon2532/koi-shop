@@ -25,7 +25,17 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::resource('strain', 'StrainController');
         Route::resource('category', 'CategoryController');
         Route::resource('news', 'NewsController');
+
+        Route::get('event/{event}/koi/{koi}/set/{user}', [
+            'as'   => 'event.koi.owner',
+            'uses' => 'EventController@setOwner'
+        ]);
+        Route::get('event/{event}/koi/{koi}', [
+            'as'   => 'event.koi.detail',
+            'uses' => 'EventController@showKoiDetail'
+        ]);
         Route::resource('event', 'EventController');
+
         Route::resource('user', 'UserController');
 	});
 
