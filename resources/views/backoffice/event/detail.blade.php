@@ -30,7 +30,10 @@
                                 <h5>รหัสปลา: {{ $koi->koi_id }}</h5>
                                 <img src="{{ $koi->image }}" alt="" class="img-thumbnail">
                                 <div>
-                                    <a href="" class="btn btn-info btn-xs pull-right" style="margin-top: 5px;">ดูผู้ลงทะเบียน</a>
+                                    <a href="{{ route('event.koi.detail', ['event' => $event->id, 'koi' => $koi->id]) }}" class="btn btn-info btn-xs pull-right" style="margin-top: 5px;">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        ดูผู้ลงทะเบียน
+                                    </a>
                                 </div>
                             </div>
                         @endforeach

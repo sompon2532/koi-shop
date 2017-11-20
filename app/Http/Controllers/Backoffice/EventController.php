@@ -7,6 +7,7 @@ use App\Http\Requests\Event\CreateEventRequest;
 use App\Http\Requests\Event\UpdateEventRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\Koi;
 use Carbon\Carbon;
 
 class EventController extends Controller
@@ -173,5 +174,37 @@ class EventController extends Controller
         $event->delete();
 
         return;
+    }
+
+    /**
+     * @param Event $event
+     * @param Koi $koi
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showKoiDetail(Event $event, Koi $koi) {
+        $koi->load('users');
+
+        return view('backoffice.event.koi', compact('event', 'koi'));
+    }
+
+    /**
+     * @param Event $event
+     * @param Koi $koi
+     * @param $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function setOwner(Event $event, Koi $koi, $user) {
+        if ($koi->owner !== (int)$user) {
+            $koi->update([
+                'owner' => $user
+            ]);
+        }
+        else {
+            $koi->update([
+                'owner' => null
+            ]);
+        }
+
+        return redirect()->back();
     }
 }
