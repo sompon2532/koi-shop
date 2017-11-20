@@ -194,6 +194,8 @@ class EventController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function setOwner(Event $event, Koi $koi, $user) {
+        return $koi->user;
+
         if ($koi->owner !== (int)$user) {
             $koi->update([
                 'owner' => $user
