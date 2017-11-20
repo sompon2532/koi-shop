@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Koi;
+namespace App\Http\Requests\News;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateKoiRequest extends FormRequest
+class UpdateNewsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,16 +23,13 @@ class UpdateKoiRequest extends FormRequest
      */
     public function rules()
     {
-        $koi = $this->koi;
-
         return [
             'th.name' => 'required',
             'en.name' => 'required',
-            'koi_id' => 'required',
-            'oyagoi' => 'required',
-            'born' => 'required',
-            'price' => 'required',
-            'storage' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required',
         ];
     }
 }

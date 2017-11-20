@@ -334,6 +334,7 @@ class ComposerStaticInitb52e9084d3cc2fc77a3ec55a581ec448
     );
 
     public static $classMap = array (
+        'AddDateTimeToNewsTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_12_055000_add_date_time_to_news_table.php',
         'AddDatetimeToEventsTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_24_070349_add_datetime_to_events_table.php',
         'AddEventIdToKoiTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_09_020445_add_event_id_to_koi_table.php',
         'AddFieldConfigToEventsTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_07_081952_add_field_config_to_events_table.php',

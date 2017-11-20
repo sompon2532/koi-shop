@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        User
-        <small>list</small>
+        สมาชิก
+        <small>รายการ</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">User</li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+        <li class="active">สมาชิก</li>
     </ol>
 @endsection
 
@@ -25,9 +25,9 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>ชื่อ</th>
+                        <th>ชื่อสมาชิก</th>
                         <th>อีเมล์</th>
-                        <th>การจัดการ</th>
+                        {{--<th>การจัดการ</th>--}}
                     </tr>
                     </thead>
                     <tbody>
@@ -36,21 +36,21 @@
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>
+                        {{--<td>--}}
                             {{--<a href="{{ route('user.edit', ['user' => $user->id]) }}"--}}
                                {{--class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>--}}
                             {{--<a href="{{ route('user.destroy', ['user' => $user->id]) }}"--}}
                                {{--class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>--}}
-                        </td>
+                        {{--</td>--}}
                     </tr>
                     @endforeach
                     </tbody>
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>ชื่อ</th>
+                        <th>ชื่อสมาชิก</th>
                         <th>อีเมล์</th>
-                        <th>การจัดการ</th>
+                        {{--<th>การจัดการ</th>--}}
                     </tr>
                     </tfoot>
                 </table>

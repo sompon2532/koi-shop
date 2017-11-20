@@ -67,6 +67,13 @@ class EventController extends Controller
             $event->addMedia($request->file('cover'))->toMediaCollection('event-cover');
         }
 
+        // Video
+        foreach (array_get($request->all(), 'videos') as $video) {
+            if ($video) {
+                $event->videos()->create(['video' => $video]);
+            }
+        }
+
         return redirect()
                 ->route('event.edit', ['event' => $event->id])
                 ->with(['success' => 'Create event success']);
@@ -80,7 +87,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        $event->load('media', 'kois.media');
+        $event->load('media', 'kois.media', 'videos');
 
         return view('backoffice.event.detail', compact('event'));
     }
@@ -93,7 +100,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        $event->load('media');
+        $event->load('media', 'videos');
 
         return view('backoffice.event.update', compact('event'));
     }
@@ -138,6 +145,14 @@ class EventController extends Controller
         if ($request->hasFile('cover')) {
             $event->clearMediaCollection('event-cover');
             $event->addMedia($request->file('cover'))->toMediaCollection('event-cover');
+        }
+
+        // Video
+        $event->videos()->delete();
+        foreach (array_get($request->all(), 'videos') as $video) {
+            if ($video) {
+                $event->videos()->create(['video' => $video]);
+            }
         }
 
         return redirect()

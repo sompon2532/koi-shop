@@ -5,22 +5,22 @@
 @section('head')
     <h1>
         อีเว้นท์
-        <small>อัพเดท</small>
+        <small>แก้ไข</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าหลัก</a></li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
         <li><a href="{{ route('event.index') }}"><i class="fa fa-gamepad"></i> อีเว้นท์</a></li>
-        <li class="active">อัพเดท</li>
+        <li class="active">แก้ไข</li>
     </ol>
 @endsection
 
 @section('content')
     <!-- right column -->
-    <div class="col-md-12">
+    <div class="col-md-12" id="app">
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">อัพเดทอีเว้น</h3>
+                <h3 class="box-title">แก้ไขอีเว้น</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -32,7 +32,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameTh" class="col-sm-3 control-label">
-                                ชื่อไทย <span class="text-danger">*</span>
+                                ชื่อ (TH) <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="th[name]" value="{{ $event->translate('th')->name }}" id="nameTh"
@@ -71,7 +71,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameEn" class="col-sm-3 control-label">
-                                ชื่ออังกฤษ <span class="text-danger">*</span>
+                                ชื่อ (EN) <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="en[name]" value="{{ $event->translate('en')->name }}" id="nameEn"
@@ -114,6 +114,22 @@
 
                     <div class="clearfix"></div>
 
+                    <!-- Vidoe -->
+                    <div class="col-md-6">
+                        <div class="form-group" v-for="(video, index) in videos">
+                            <label class="col-sm-3 control-label">
+                                วีดีโอ @{{ index + 1 }}
+                            </label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" name="videos[]" v-model="video.video" rows="5" placeholder="Video ..."></textarea>
+                                <i class="minus fa fa-minus-circle" v-on:click="remove('video', index)" v-show="videos.length > 1"></i>
+                            </div>
+                        </div>
+                        <i class="add fa fa-plus-circle" v-on:click="add('video')"></i>
+                    </div>
+
+                    <div class="clearfix"></div>
+
                     @include('backoffice.partials.cover', ['images' => $event->media, 'collection' => 'event-cover'])
 
                     <div class="clearfix"></div>
@@ -124,7 +140,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right">อัพเดท</button>
+                        <button type="submit" class="btn btn-primary pull-right">แก้ไข</button>
                     </div>
                 </div>
                 <!-- /.box-footer -->
@@ -137,23 +153,23 @@
 
 @push('scripts')
     <script>
-        // Date picker
-        $(".datepicker").datepicker({
-            autoclose: true,
-            format: 'dd/mm/yyyy',
-            todayHighlight: true
-        });
-
-        // Timepicker
-        $(".timepicker").timepicker({
-            showInputs: false,
-            minuteStep: 10,
-            showMeridian: false,
-        });
-
-        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-            checkboxClass: 'icheckbox_minimal-red',
-            radioClass: 'iradio_minimal-red'
+        var app = new Vue({
+            el: '#app',
+            data: {
+                videos: {!! $event->videos->count() ? $event->videos : json_encode([['video' => '']]) !!},
+            },
+            methods: {
+                add: function(type) {
+                    if (type == 'video') {
+                        this.videos.push({video: ''})
+                    }
+                },
+                remove: function(type, index) {
+                    if (type == 'video') {
+                        this.videos.splice(index, 1)
+                    }
+                }
+            }
         });
     </script>
 @endpush

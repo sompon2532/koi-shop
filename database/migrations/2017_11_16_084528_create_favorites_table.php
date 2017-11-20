@@ -17,7 +17,7 @@ class CreateFavoritesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('item_id');
-            $table->string('type'); //Type เป็น Product/Koi
+            $table->string('type');
             $table->timestamps();
         });
     }

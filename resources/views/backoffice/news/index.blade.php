@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        News
-        <small>list</small>
+        ข่าวสาร
+        <small>รายการ</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">News</li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+        <li class="active">ข่าวสาร</li>
     </ol>
 @endsection
 
@@ -17,7 +17,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('news.create') }}" class="pull-right btn btn-primary">Create news</a>
+                <a href="{{ route('news.create') }}" class="pull-right btn btn-primary">สร้างข่าวสาร</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -25,10 +25,9 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Slug</th>
-                        <th>Status</th>
-                        <th>Aciton</th>
+                        <th>ข่าวสาร</th>
+                        <th>สถานะ</th>
+                        <th>การจัดการ</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,7 +35,6 @@
                     <tr>
                         <td>{{ $news->id }}</td>
                         <td>{{ $news->name }}</td>
-                        <td>{{ $news->slug }}</td>
                         <td>{{ $news->status ? 'Active' : 'Inactive' }}</td>
                         <td>
                             <a href="{{ route('news.edit', ['news' => $news->id]) }}"
@@ -51,10 +49,9 @@
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Slug</th>
-                        <th>Status</th>
-                        <th>Aciton</th>
+                        <th>ข่าวสาร</th>
+                        <th>สถานะ</th>
+                        <th>การจัดการ</th>
                     </tr>
                     </tfoot>
                 </table>

@@ -24,11 +24,14 @@
             <!-- /.box-header -->
             @foreach($event->kois->chunk(4) as $kois)
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" style="padding-bottom: 15px;">
                         @foreach($kois as $koi)
                             <div class="col-sm-3">
-                                <h5>KOI ID : {{ $koi->koi_id }}</h5>
+                                <h5>รหัสปลา: {{ $koi->koi_id }}</h5>
                                 <img src="{{ $koi->image }}" alt="" class="img-thumbnail">
+                                <div>
+                                    <a href="" class="btn btn-info btn-xs pull-right" style="margin-top: 5px;">ดูผู้ลงทะเบียน</a>
+                                </div>
                             </div>
                         @endforeach
                     </div>

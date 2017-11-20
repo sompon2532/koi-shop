@@ -2,32 +2,15 @@
 
 @section('title', 'Admin | Koi')
 
-@push('style')
-    <style>
-        .minus {
-            position: absolute;
-            cursor: pointer;
-            right: 0px;
-            top: 0px;
-        }
-
-        .add {
-            float: right;
-            margin-top: -10px;
-            margin-bottom: 15px;
-        }
-    </style>
-@endpush
-
 @section('head')
     <h1>
-        Koi
-        <small>update</small>
+        ปลา
+        <small>แก้ไข</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ route('koi.index') }}"><i class="fa fa-archive"></i> Koi</a></li>
-        <li class="active">Update</li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+        <li><a href="{{ route('koi.index') }}"><i class="fa fa-archive"></i> ปลา</a></li>
+        <li class="active">แก้ไข</li>
     </ol>
 @endsection
 
@@ -37,7 +20,7 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Update koi</h3>
+                <h3 class="box-title">แก้ไขปลา</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -48,7 +31,7 @@
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="event" class="col-sm-3 control-label">Event</label>
+                            <label for="event" class="col-sm-3 control-label">อีเว้นท์</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="event_id" id="event">
                                     <option value="">-------- Select event --------</option>
@@ -65,7 +48,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameTh" class="col-sm-3 control-label">
-                                Name TH <span class="text-danger">*</span>
+                                ชื่อ (TH) <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="th[name]" value="{{ $koi->translate('th')->name }}" id="nameTh"
@@ -75,7 +58,7 @@
 
                         <div class="form-group">
                             <label for="koiId" class="col-sm-3 control-label">
-                                Koi ID <span class="text-danger">*</span>
+                                รหัสปลา <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="koi_id" value="{{ $koi->koi_id }}" id="koiId"
@@ -84,7 +67,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="strain" class="col-sm-3 control-label">Strain</label>
+                            <label for="strain" class="col-sm-3 control-label">สายพันธุ์</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="strain_id" id="strain">
                                     @foreach ($strains as $strain)
@@ -95,7 +78,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="category" class="col-sm-3 control-label">Category</label>
+                            <label for="category" class="col-sm-3 control-label">หมวดหมู่</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="category_id" id="category">
                                     <option value="">-------- Select category --------</option>
@@ -117,7 +100,7 @@
 
                         <div class="form-group">
                             <label for="born" class="col-sm-3 control-label">
-                                Born <span class="text-danger">*</span>
+                                ปีเกิด <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="born" value="{{ $koi->born }}" id="born"
@@ -127,7 +110,7 @@
 
                         <div class="form-group">
                             <label for="storage" class="col-sm-3 control-label">
-                                Storage <span class="text-danger">*</span>
+                                ที่เก็บปลา <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="storage" value="{{ $koi->storage }}" id="storage"
@@ -136,7 +119,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="sex" class="col-sm-3 control-label">Sex</label>
+                            <label for="sex" class="col-sm-3 control-label">เพศ</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="sex" id="sex">
                                     <option value="male" {{ $koi->sex == 'male' ? 'selected' : '' }}>Male</option>
@@ -150,7 +133,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameEn" class="col-sm-3 control-label">
-                                Name EN <span class="text-danger">*</span>
+                                ชื่อ (EN) <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="en[name]" value="{{ $koi->translate('en')->name }}" id="nameEn"
@@ -159,17 +142,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="slug" class="col-sm-3 control-label">
-                                Slug <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="slug" value="{{ $koi->slug }}" id="slug"
-                                       placeholder="Slug">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="farm" class="col-sm-3 control-label">Farm</label>
+                            <label for="farm" class="col-sm-3 control-label">ฟาร์ม</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="farm_id" id="farm">
                                     @foreach ($farms as $farm)
@@ -191,7 +164,7 @@
 
                         <div class="form-group">
                             <label for="price" class="col-sm-3 control-label">
-                                Price <span class="text-danger">*</span>
+                                ราคา <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="price" value="{{ $koi->price }}" id="price"
@@ -200,7 +173,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="status" class="col-sm-3 control-label">Status</label>
+                            <label for="status" class="col-sm-3 control-label">สถานะ</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="status" id="status">
                                     <option value="1">Active</option>
@@ -225,7 +198,7 @@
                     <div class="col-md-6">
                         <div class="form-group" v-for="(size, index) in sizes">
                             <label class="col-sm-3 control-label">
-                                Size @{{ index + 1 }}
+                                ขนาด @{{ index + 1 }}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="sizes[]" v-model="size.size" placeholder="Size">
@@ -239,7 +212,7 @@
                     <div class="col-md-6">
                         <div class="form-group" v-for="(contest, index) in contests">
                             <label class="col-sm-3 control-label">
-                                Contest @{{ index + 1 }}
+                                เวทีประกวด @{{ index + 1 }}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="contests[]" v-model="contest.contest" placeholder="Contest">
@@ -255,7 +228,7 @@
                     <div class="col-md-6">
                         <div class="form-group" v-for="(video, index) in videos">
                             <label class="col-sm-3 control-label">
-                                Video @{{ index + 1 }}
+                                วีดีโอ @{{ index + 1 }}
                             </label>
                             <div class="col-sm-9">
                                 <textarea class="form-control" name="videos[]" v-model="video.video" rows="5" placeholder="Video ..."></textarea>
@@ -269,7 +242,7 @@
                     <div class="col-md-6">
                         <div class="form-group" v-for="(remark, index) in remarks">
                             <label class="col-sm-3 control-label">
-                                Remark @{{ index + 1 }}
+                                หมายเหตุ @{{ index + 1 }}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="remarks[]" v-model="remark.remark" placeholder="Remark">

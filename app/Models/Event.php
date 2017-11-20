@@ -18,7 +18,8 @@ class Event extends Model implements HasMedia
      * @var array
      */
     protected $casts = [
-        'status' => 'boolean',
+        'config' => 'boolean',
+        'status' => 'boolean'
     ];
 
     /**
@@ -56,5 +57,13 @@ class Event extends Model implements HasMedia
      */
     public function kois() {
         return $this->hasMany(Koi::class);
+    }
+
+    /**
+     * Get all of the post's videos.
+     */
+    public function videos()
+    {
+        return $this->morphMany(Video::class, 'videotable');
     }
 }

@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        Category
-        <small>list</small>
+        หมวดหมู่
+        <small>รายการ</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Category</li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+        <li class="active">หมวดหมู่</li>
     </ol>
 @endsection
 
@@ -17,18 +17,17 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('category.create') }}" class="pull-right btn btn-primary">Create category</a>
+                <a href="{{ route('category.create') }}" class="pull-right btn btn-primary">สร้างหมวดหมู่</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
                 <table id="example2" class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Slug</th>
-                        <th>Group</th>
-                        <th>Status</th>
-                        <th>Aciton</th>
+                        <th>ชื่อหมวดหมู่</th>
+                        <th>กลุ่ม</th>
+                        <th>สถานะ</th>
+                        <th>การจัดการ</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -37,7 +36,6 @@
                         foreach ($categories as $category) {
                             echo '<tr>';
                             echo '<td>' . $prefix . $category->name . '</td>';
-                            echo '<td>' . $category->slug . '</td>';
                             echo '<td>' . $category->group . '</td>';
 
                             $status = ($category->status) ? 'Active' : 'Inactive';
@@ -58,11 +56,10 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th>Name</th>
-                        <th>Slug</th>
-                        <th>Group</th>
-                        <th>Status</th>
-                        <th>Aciton</th>
+                        <th>ชื่อหมวดหมู่</th>
+                        <th>หลุ่ม</th>
+                        <th>สถานะ</th>
+                        <th>การจัดการ</th>
                     </tr>
                     </tfoot>
                 </table>
