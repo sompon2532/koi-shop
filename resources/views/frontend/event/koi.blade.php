@@ -100,7 +100,7 @@
                                                 <th class="table-border text-center" width="50%">NUMBER OF BOOKING</th>
                                             </tr>
                                             <tr>
-                                                <td class="table-border text-center">xx:xx:xx</td>
+                                                <td class="table-border text-center"><div id="showRemain"></div></td>
                                                 <td class="table-border text-center">{{ count($userbooks->users) }}</td>
                                             </tr>
                                         </table>
@@ -270,6 +270,39 @@
         infinite: true
       });
     });
+</script>
+
+<script type="text/javascript">
+    console.log('hello');    
+
+function countDown(){
+    var timeA = new Date(); // วันเวลาปัจจุบัน
+    var timeB = new Date('<?=date_format($events->end_datetime, 'l F d Y H:i:s')?>'); // วันเวลาสิ้นสุด รูปแบบ เดือน/วัน/ปี ชั่วโมง:นาที:วินาที
+    // var timeB = new Date("Febriaru 24,2018 00:00:01"); // วันเวลาสิ้นสุด รูปแบบ เดือน/วัน/ปี ชั่วโมง:นาที:วินาที
+    //  var timeB = new Date(2012,1,24,0,0,1,0); 
+    // วันเวลาสิ้นสุด รูปแบบ ปี,เดือน;วันที่,ชั่วโมง,นาที,วินาที,,มิลลิวินาที    เลขสองหลักไม่ต้องมี 0 นำหน้า
+    // เดือนต้องลบด้วย 1 เดือนมกราคมคือเลข 0
+    var timeDifference = timeB.getTime()-timeA.getTime();    
+    if(timeDifference>=0){
+        timeDifference=timeDifference/1000;
+        timeDifference=Math.floor(timeDifference);
+        var wan=Math.floor(timeDifference/86400);
+        var l_wan=timeDifference%86400;
+        var hour=Math.floor(l_wan/3600);
+        var l_hour=l_wan%3600;
+        var minute=Math.floor(l_hour/60);
+        var second=l_hour%60;
+        var showPart=document.getElementById('showRemain');
+        showPart.innerHTML= wan+" day "+hour+":"
+        +minute+":"+second; 
+            if(wan==0 && hour==0 && minute==0 && second==0){
+                clearInterval(iCountDown); // ยกเลิกการนับถอยหลังเมื่อครบ
+                // เพิ่มฟังก์ชันอื่นๆ ตามต้องการ
+            }
+    }
+}
+// การเรียกใช้
+var iCountDown=setInterval("countDown()",1000); 
 </script>
 
 @endsection

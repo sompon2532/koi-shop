@@ -30,7 +30,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- <p>CHUGOKU AUCTION WEEK</p> -->
-                                <p>{{ $events->start_datetime }} to {{ $events->end_datetime }}</p>
+                                <p>{{ $events->start_datetime->toDateString() }} to {{ $events->end_datetime->toDateString() }}</p>
 
                                 @if(count($kois) > 0)
                                     @foreach($kois as $index => $koi)

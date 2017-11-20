@@ -58,4 +58,8 @@ class Product extends Model implements HasMedia
     {
         return $this->morphMany(Video::class, 'videotable');
     }
+
+    public function favorites() {
+        return $this->hasMany('App\Models\Favorite');
+    }
 }

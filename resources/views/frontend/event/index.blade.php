@@ -31,7 +31,7 @@
                                 <div class="center">
                                     <h4 class="text-red">NEW EVENT !</h4>
                                     <p>{{ $events->first()->name }}</p>
-                                    <p>{{ $events->first()->start_datetime }} to {{ $events->first()->end_datetime }}</p>  
+                                    <p>{{ $events->first()->start_datetime->toDateString() }} to {{ $events->first()->end_datetime->toDateString() }}</p>  
                                 </div>
                             </div>
                         
@@ -48,7 +48,7 @@
                                                     </a>
                                                 </div>
                                                 <p class="text-red">{{ $event->name }}</p>
-                                                <p>{{ $event->start_datetime }} to {{ $event->end_datetime }}</p>  
+                                                <p>{{ $event->start_datetime->toDateString() }} to {{ $event->end_datetime->toDateString() }}</p>  
                                             {{ $event->start_time}}
                                         </div>  
                                         @endif                           

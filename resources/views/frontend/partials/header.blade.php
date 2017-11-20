@@ -29,20 +29,10 @@
                                         </div>
                                     </div> -->
                                 </div>
-                            
-                            <!-- <form class="navbar-form navbar-left">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                </div>
-                                <button type="submit" class="btn btn-default">Submit</button>
-                            </form> -->
+
                                 <div class="col-md-9">
                                     <ul class="nav navbar-nav navbar-right">
-                                            <li>
-                                                <a href="{{ route('frontend.shop.shoppingCart') }}"><span class="glyphicon glyphicon-shopping-cart">
-                                                    <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
-                                                </a>
-                                            </li>  
+                                             
                                         @if (Auth::guest())
                                             <li><a href="{{ route('login') }}">{{ trans('header.login') }}</a></li>
                                             <li><a href="{{ route('register') }}">{{ trans('header.register') }}</a></li>                                           
@@ -53,33 +43,28 @@
                                                 </a>
 
                                                 <ul class="dropdown-menu" role="menu">
-                                                    <li>
-                                                        <a href="{{ route('frontend.event.booking') }}">
-                                                            MY BOOKING
-                                                        </a>
-                                                    </li>
+                                                    <li><a href="{{ route('frontend.user.favorite') }}"><span class="glyphicon glyphicon-star text-red"></span> MY FAVORITE</a></li>                                                
+                                                    <li><a href="{{ route('frontend.event.booking') }}"><span class="glyphicon glyphicon-bookmark text-red"></span> MY BOOKING</a></li>
+                                                    <li><a href="{{ route('frontend.user.myorder') }}"><span class="glyphicon glyphicon-list-alt text-red"></span> MY ORDERS</a></li>
                                                     <li>
                                                         <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                            LOGOUT
+                                                            <span class="glyphicon glyphicon-log-out text-red"></span> LOGOUT
                                                         </a>
                                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                             {{ csrf_field() }}
                                                         </form>
                                                     </li>
                                                 </ul>
-                                            </li>
-                                           <!--  <li>
-                                                <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                    LOGOUT
-                                                </a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    {{ csrf_field() }}
-                                                </form>
-                                            </li> -->                                        
-                                                                                      
+                                            </li>                                                                           
                                         @endif
                                         <li><a href="{{ URL::to('change/th') }}">TH</a></li> 
                                         <li><a href="{{ URL::to('change/en') }}">EN</a></li> 
+                                        <li>
+                                                <a href="{{ route('frontend.shop.shoppingCart') }}">
+                                                    <span class="glyphicon glyphicon-shopping-cart" style=""></span>
+                                                    <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
+                                                </a>
+                                            </li> 
                                     </ul>
                                 </div>
                             </div>
@@ -152,35 +137,38 @@
                             <li class="menu-item dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('header.koi') }}</a>
                                 <ul class="dropdown-menu">
-                                @foreach($categories->where('group', 'koi') as $category)
-
-                                    <li class="menu-item dropdown dropdown-submenu">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $category->name }}</a>
-                                        @if(count($category->children) > 0)
-                                        <ul class="dropdown-menu">
-                                            
-                                            @foreach($category->children as $category2)    
+                                    @foreach($categories->where('group', 'koi') as $category)
+                                        @if(count($category->children) > 0)                                    
                                             <li class="menu-item dropdown dropdown-submenu">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $category2->name }}</a>
-                                                @if(count($category2->children) > 0)
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">category1{{ $category->name }}</a>
                                                 <ul class="dropdown-menu">
-                                                    
-                                                    @foreach($category2->children as $category3)
-                                                    <li class="menu-item">
-                                                        <a href="{{ route('frontend.koi.category', ['category' => $category3->id]) }}">{{ $category3->name }}</a>
-                                                    </li>
+                                                    @foreach($category->children as $category2)
+                                                        @if(count($category2->children) > 0)
+                                                            <li class="menu-item dropdown dropdown-submenu">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">category2 {{ $category2->name }}</a>
+                                                                <ul class="dropdown-menu">
+                                                                    @foreach($category2->children as $category3)
+                                                                        <li class="menu-item">
+                                                                            <a href="{{ route('frontend.koi.category', ['category' => $category3->id]) }}">category3 {{ $category3->name }}</a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+
+                                                            </li>
+                                                        @else
+                                                            <li class="menu-item">
+                                                                <a href="{{ route('frontend.koi.category', ['category' => $category2->id]) }}">category2 {{ $category2->name }}</a>
+                                                            </li>
+                                                        @endif 
                                                     @endforeach
-
                                                 </ul>
-                                                @endif 
                                             </li>
-                                            @endforeach
-
-                                        </ul>
+                                        @else
+                                            <li class="menu-item">
+                                                <a href="{{ route('frontend.koi.category', ['category' => $category->id]) }}">category1 {{ $category->name }}</a>
+                                            </li>
                                         @endif 
-                                    </li>
-
-                                @endforeach
+                                    @endforeach
                                 </ul>
                             </li>
                             @endif
@@ -189,35 +177,37 @@
                             <li class="menu-item dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('header.koi-products') }}</a>
                                 <ul class="dropdown-menu">
-                                @foreach($categories->where('group', 'product') as $category)
-
-                                    <li class="menu-item dropdown dropdown-submenu">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $category->name }}</a>
-                                        @if(count($category->children) > 0)
-                                        <ul class="dropdown-menu">
-                                            
-                                            @foreach($category->children as $category2)    
+                                    @foreach($categories->where('group', 'product') as $category)
+                                        @if(count($category->children) > 0)                                    
                                             <li class="menu-item dropdown dropdown-submenu">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $category2->name }}</a>
-                                                @if(count($category2->children) > 0)
+                                                <a href="#">category1{{ $category->name }}</a>
                                                 <ul class="dropdown-menu">
-                                                    
-                                                    @foreach($category2->children as $category3)
-                                                    <li class="menu-item">
-                                                        <a href="{{ route('frontend.shop.category', ['category' => $category3->id]) }}">{{ $category3->name }}</a>
-                                                    </li>
+                                                    @foreach($category->children as $category2)
+                                                        @if(count($category2->children) > 0)
+                                                            <li class="menu-item dropdown dropdown-submenu">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">category2 {{ $category2->name }}</a>
+                                                                <ul class="dropdown-menu">
+                                                                    @foreach($category2->children as $category3)
+                                                                        <li class="menu-item">
+                                                                            <a href="{{ route('frontend.shop.category', ['category' => $category3->id]) }}">category3 {{ $category3->name }}</a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </li>
+                                                        @else
+                                                            <li class="menu-item">
+                                                                <a href="{{ route('frontend.shop.category', ['category' => $category2->id]) }}">category2 {{ $category2->name }}</a>
+                                                            </li>
+                                                        @endif 
                                                     @endforeach
-                                                    
                                                 </ul>
-                                                @endif 
                                             </li>
-                                            @endforeach
-
-                                        </ul>
+                                        @else
+                                            <li class="menu-item">
+                                                <a href="{{ route('frontend.shop.category', ['category' => $category->id]) }}">category1 {{ $category->name }}</a>
+                                            </li>
                                         @endif 
-                                    </li>
-
-                                @endforeach
+                                    @endforeach
                                 </ul>
                             </li>
                             @endif
@@ -271,7 +261,7 @@
                             <li><a href="http://www.koikichi-auction.com/">{{ trans('header.online-auction') }}</a></li>
                             <li><a href="{{ url('/event') }}">{{ trans('header.events') }}</a></li>
                             <li><a href="{{-- url('/hallofframe') --}}">{{ trans('header.hall-of-fame') }}</a></li>
-                            <li><a href="{{-- url('/payment') --}}">{{ trans('header.payment') }}</a></li>
+                            <li><a href="{{ url('/payment') }}">{{ trans('header.payment') }}</a></li>
                             
                         </ul>
                     </div>

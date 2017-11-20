@@ -14,9 +14,7 @@
                     <p>KOIKICHI FISH FARM</p>
                     <p>WE ARE A MEMBER OF<br>
                         ALL JAPAN NISHIKIGOI PROMOTION ASSOCIATION</p>
-
-                    <img class="img-responsive" src="{{ asset('assets/img/About-us-1.png') }}" alt="...">
-                    <img class="img-responsive" src="{{ asset('assets/img/About-us-2.png') }}" alt="...">
+                    <iframe src="https://player.vimeo.com/video/125912833?autoplay=1&color=fc0328&title=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="margin: 30px 0"></iframe>
                     
                     <p>ผมผูกพันกับปลาคาร์พมาตั้งแต่เด็กๆ เพราะคุณพ่อชอบเลี้ยงและพาไปเลือกซื้อปลาด้วยหลายครั้ง เรียกได้ว่าตั้งแต่จำความได้ปลาคาร์พก็เป็นส่วนหนึ่งในชีวิตไปแล้ว
                         พอโตมาช่วงเข้ามหาลัยก็เริ่มฝันว่าซักวัน จะมีฟาร์มปลาคาร์พนำเข้าเป็นของตัวเองให้ได้</p>
