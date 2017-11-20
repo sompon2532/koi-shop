@@ -13,7 +13,7 @@ class CreateNewsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class CreateNewsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'th.name' => 'required',
+            'en.name' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required',
         ];
     }
 }

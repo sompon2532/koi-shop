@@ -8,7 +8,7 @@
         <small>รายละเอียด</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> หน้าหลัก</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
         <li class="active">ข้อมูลทั่วไป</li>
     </ol>
 @endsection
@@ -73,5 +73,5 @@
             {{--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>--}}
         {{--</div>--}}
     {{--</div>--}}
-    <!-- ./col -->
+    {{--<!-- ./col -->--}}
 @endsection

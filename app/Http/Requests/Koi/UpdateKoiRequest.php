@@ -29,7 +29,6 @@ class UpdateKoiRequest extends FormRequest
             'th.name' => 'required',
             'en.name' => 'required',
             'koi_id' => 'required',
-            'slug' => 'required|unique:kois,slug,'.$koi->id,
             'oyagoi' => 'required',
             'born' => 'required',
             'price' => 'required',

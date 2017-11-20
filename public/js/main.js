@@ -1,3 +1,22 @@
+// Date picker
+$(".datepicker").datepicker({
+    autoclose: true,
+    format: 'dd/mm/yyyy',
+    todayHighlight: true,
+});
+
+// Timepicker
+$(".timepicker").timepicker({
+    showInputs: false,
+    minuteStep: 10,
+    showMeridian: false,
+});
+
+$('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+    checkboxClass: 'icheckbox_minimal-red',
+    radioClass: 'iradio_minimal-red'
+});
+
 $('form').submit(function () {
     $(this).find(':button[type=submit]').prop('disabled', true);
 });

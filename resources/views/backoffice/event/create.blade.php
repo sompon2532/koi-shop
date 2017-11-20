@@ -16,7 +16,7 @@
 
 @section('content')
     <!-- right column -->
-    <div class="col-md-12">
+    <div class="col-md-12" id="app">
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
@@ -67,6 +67,7 @@
                                 <input type="checkbox" class="minimal-red" name="config" value="1" id="config">
                             </div>
                         </div>
+
                     </div>
 
                     <div class="col-md-6">
@@ -116,6 +117,22 @@
 
                     <div class="clearfix"></div>
 
+                    <!-- Vidoe -->
+                    <div class="col-md-6">
+                        <div class="form-group" v-for="(video, index) in videos">
+                            <label class="col-sm-3 control-label">
+                                วีดีโอ @{{ index + 1 }}
+                            </label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" name="videos[]" v-model="video.video" rows="5" placeholder="Video ..."></textarea>
+                                <i class="minus fa fa-minus-circle" v-on:click="remove('video', index)" v-show="videos.length > 1"></i>
+                            </div>
+                        </div>
+                        <i class="add fa fa-plus-circle" v-on:click="add('video')"></i>
+                    </div>
+
+                    <div class="clearfix"></div>
+
                     @include('backoffice.partials.cover', ['images' => []])
 
                     <div class="clearfix"></div>
@@ -139,23 +156,23 @@
 
 @push('scripts')
     <script>
-        // Date picker
-        $(".datepicker").datepicker({
-            autoclose: true,
-            format: 'dd/mm/yyyy',
-            todayHighlight: true,
-        });
-
-        // Timepicker
-        $(".timepicker").timepicker({
-            showInputs: false,
-            minuteStep: 10,
-            showMeridian: false,
-        });
-
-        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-            checkboxClass: 'icheckbox_minimal-red',
-            radioClass: 'iradio_minimal-red'
+        var app = new Vue({
+            el: '#app',
+            data: {
+                videos: [{video: ''}],
+            },
+            methods: {
+                add: function(type) {
+                    if (type == 'video') {
+                        this.videos.push({video: ''})
+                    }
+                },
+                remove: function(type, index) {
+                    if (type == 'video') {
+                        this.videos.splice(index, 1)
+                    }
+                }
+            }
         });
     </script>
 @endpush

@@ -4,13 +4,13 @@
 
 @section('head')
     <h1>
-        Farm
-        <small>update</small>
+        ฟาร์ม
+        <small>แก้ไข</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ route('farm.index') }}"><i class="fa fa-dot-circle-o"></i> Farm</a></li>
-        <li class="active">Update</li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+        <li><a href="{{ route('farm.index') }}"><i class="fa fa-dot-circle-o"></i> ฟาร์ม</a></li>
+        <li class="active">แก้ไข</li>
     </ol>
 @endsection
 
@@ -20,7 +20,7 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Update farm</h3>
+                <h3 class="box-title">แก้ไขฟาร์ม</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -32,7 +32,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">
-                                Name <span class="text-danger">*</span>
+                                ชื่อฟาร์ม <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="name"
@@ -43,7 +43,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="status" class="col-sm-3 control-label">Status</label>
+                            <label for="status" class="col-sm-3 control-label">สถานะ</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="status" id="status">
                                     <option value="1" {{ $farm->status == true ? 'selected' : '' }}>Active</option>
@@ -56,7 +56,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right">Update</button>
+                        <button type="submit" class="btn btn-primary pull-right">แก้ไข</button>
                     </div>
                 </div>
                 <!-- /.box-footer -->

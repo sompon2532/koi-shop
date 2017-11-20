@@ -8,7 +8,7 @@
         <small>สร้าง</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าหลัก</a></li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
         <li><a href="{{ route('news.index') }}"><i class="fa fa-newspaper-o"></i> ข่าวสาร</a></li>
         <li class="active">สร้าง</li>
     </ol>
@@ -16,7 +16,7 @@
 
 @section('content')
     <!-- right column -->
-    <div class="col-md-12">
+    <div class="col-md-12" id="app">
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
@@ -104,6 +104,22 @@
 
                     <div class="clearfix"></div>
 
+                    <!-- Vidoe -->
+                    <div class="col-md-6">
+                        <div class="form-group" v-for="(video, index) in videos">
+                            <label class="col-sm-3 control-label">
+                                วีดีโอ @{{ index + 1 }}
+                            </label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" name="videos[]" v-model="video.video" rows="5" placeholder="Video ..."></textarea>
+                                <i class="minus fa fa-minus-circle" v-on:click="remove('video', index)" v-show="videos.length > 1"></i>
+                            </div>
+                        </div>
+                        <i class="add fa fa-plus-circle" v-on:click="add('video')"></i>
+                    </div>
+
+                    <div class="clearfix"></div>
+
                     @include('backoffice.partials.cover', ['images' => []])
 
                     <div class="clearfix"></div>
@@ -127,18 +143,23 @@
 
 @push('scripts')
     <script>
-        // Date picker
-        $(".datepicker").datepicker({
-            autoclose: true,
-            format: 'dd/mm/yyyy',
-            todayHighlight: true,
-        });
-
-        // Timepicker
-        $(".timepicker").timepicker({
-            showInputs: false,
-            minuteStep: 10,
-            showMeridian: false,
+        var app = new Vue({
+            el: '#app',
+            data: {
+                videos: [{video: ''}],
+            },
+            methods: {
+                add: function(type) {
+                    if (type == 'video') {
+                        this.videos.push({video: ''})
+                    }
+                },
+                remove: function(type, index) {
+                    if (type == 'video') {
+                        this.videos.splice(index, 1)
+                    }
+                }
+            }
         });
     </script>
 @endpush

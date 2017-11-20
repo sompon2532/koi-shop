@@ -4,13 +4,13 @@
 
 @section('head')
     <h1>
-        Category
-        <small>update</small>
+        หมวดหมู่
+        <small>แก้ไข</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ route('category.index') }}"><i class="fa fa-bars"></i> Category</a></li>
-        <li class="active">Update</li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+        <li><a href="{{ route('category.index') }}"><i class="fa fa-bars"></i> หมวดหมู่</a></li>
+        <li class="active">แก้ไข</li>
     </ol>
 @endsection
 
@@ -20,7 +20,7 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Update category</h3>
+                <h3 class="box-title">แก้ไขหมวดหมู่</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -33,7 +33,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameTh" class="col-sm-3 control-label">
-                                Name TH <span class="text-danger">*</span>
+                                ชื่อ (TH) <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="th[name]"
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="group" class="col-sm-3 control-label">Group</label>
+                            <label for="group" class="col-sm-3 control-label">กลุ่ม</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="group" id="group" v-model="group">
                                     <option value="product" {{ $category->group == 'product' ? 'selected' : '' }}>Product</option>
@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="status" class="col-sm-3 control-label">Status</label>
+                            <label for="status" class="col-sm-3 control-label">สถานะ</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="status" id="status">
                                     <option value="1" {{ $category->status == true ? 'selected' : '' }}>Active</option>
@@ -65,7 +65,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameEn" class="col-sm-3 control-label">
-                                Name EN <span class="text-danger">*</span>
+                                ชื่อ (EN) <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="en[name]"
@@ -74,17 +74,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="slug" class="col-sm-3 control-label">
-                                Slug <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="slug" value="{{ $category->slug }}" id="slug"
-                                       placeholder="Slug">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="category" class="col-sm-3 control-label">Category</label>
+                            <label for="category" class="col-sm-3 control-label">หมวดหมู่หลัก</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="parent_id" id="category" v-if="group == 'product'">
                                     <option value="">-------- Select parent category --------</option>
@@ -132,7 +122,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right">Update</button>
+                        <button type="submit" class="btn btn-primary pull-right">แก้ไข</button>
                     </div>
                 </div>
                 <!-- /.box-footer -->

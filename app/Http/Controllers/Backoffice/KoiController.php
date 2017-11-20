@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Koi\CreateKoiRequest;
 use App\Http\Requests\Koi\UpdateKoiRequest;
 use App\Http\Controllers\Controller;
-use App\Supports\KoiRepository;
 use App\Models\Category;
 use App\Models\Strain;
 use App\Models\Farm;
@@ -15,11 +14,6 @@ use App\Models\Koi;
 
 class KoiController extends Controller
 {
-    public function __construct(KoiRepository $koiRepository)
-    {
-        $this->koiRepository = $koiRepository;
-    }
-
     /**
      * Display a listing of the resource.
      *
