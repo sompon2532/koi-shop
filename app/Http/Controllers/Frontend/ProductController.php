@@ -31,7 +31,7 @@ class ProductController extends Controller
         //     'images' => $images
         // ]);
         $products = Product::with('media')->get();
-        $categories = Category::get()->toTree();
+        $categories = Category::active()->get()->toTree();
         return view('frontend.shop.index', compact('products', 'categories'));
         // $products = Product::with('media')->get();
         // return view('frontend.shop.index', [
@@ -43,7 +43,7 @@ class ProductController extends Controller
     {
         
         $products = Product::with('media')->where('category_id', $category)->get();
-        $categories = Category::get()->toTree();        
+        $categories = Category::active()->get()->toTree();        
         return view('frontend.shop.category', compact('products', 'categories'));
         // $products = Product::with('media')->get();
         // return view('frontend.shop.index', [
@@ -62,7 +62,7 @@ class ProductController extends Controller
         ->where('media.collection_name', '=', 'product')
         ->get();
 
-        $categories = Category::get()->toTree();          
+        $categories = Category::active()->get()->toTree();          
 
         // dd($images);
         // $images = $products->getMedia('product');
@@ -121,7 +121,7 @@ class ProductController extends Controller
 
     public function getCart()
     {
-        $categories = Category::get()->toTree();
+        $categories = Category::active()->get()->toTree();
         if (!Session::has('cart')) {
             return view('frontend.shop.shopping-cart', compact('categories'));
         }
@@ -140,7 +140,7 @@ class ProductController extends Controller
 
     public function getCheckout()
     {   
-        $categories = Category::get()->toTree();        
+        $categories = Category::active()->get()->toTree();        
     	if (!Session::has('cart')) {
             return view('frontend.shop.shopping-cart', compact('categories'));
         }

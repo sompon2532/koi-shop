@@ -101,4 +101,15 @@ class Koi extends Model implements HasMedia
     {
         return $this->belongsTo('App\User', 'owner');
     }
+
+    public function strain()
+    {
+        return $this->belongsTo('App\Models\Strain', 'strain_id');
+    }
+
+    public function farm()
+    {
+        return $this->belongsTo('App\Models\Farm', 'farm_id');
+    }
+
 }

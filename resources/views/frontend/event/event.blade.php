@@ -50,8 +50,8 @@
                                                             <!-- <img class="img-thumbnail" src="{{ asset('assets/img/hf-2.png') }}" alt="...">-->     
                                                         </a>
                                                     </div>  
-                                                    <p class="text-red">GRAND CHAMPION NON GOSANKE</p>
-                                                    <p> OWNER : Shk Sultan Abdullah Ai Qassime</p>
+                                                    <p class="text-red">{{ $koi->name }}</p>
+                                                    <p> OWNER : Koikichi fish farm</p>
                                                     @if($events->config == 1)
                                                         @php 
                                                             $i=0;
@@ -85,9 +85,7 @@
                                             </div> 
                                         @endforeach
                                     @else
-                                        
                                         <h2 class="text-red">End of Event.</h2>
-                                        
                                         <div class="col-md-12">
                                             <h4>LUCK DRAW</h4>
                                             <h5>(CLIP VIDEO)</h5>
@@ -103,14 +101,13 @@
                                                 </div>
                                             @endif
                                         </div>
-
                                         <div class="col-md-12">
                                             <h4 style="margin:30px;">WINNER LIST</h4>
                                         </div>
                                         @foreach($kois as $koi)
                                             <div class="col-md-3">
                                                 <div class="winner-item-list">
-                                                    <p class="text-red">WINNER <br> {{ $koi->owner }}</p>
+                                                    <p class="text-red">WINNER <br> {{ $koi->owner != '' ? $koi->user['name'] : 'Koikichi Fish Farm' }} {{-- $koi->user['name'] --}}</p>
                                                     <div class="img-item-box">                                                                                          
                                                         <img class="img-thumbnail" src="{{ asset( $koi->media()->first()->getUrl() ) }}" alt="...">                                
                                                     </div>  
@@ -120,27 +117,9 @@
                                         @endforeach
                                     @endif      
                                 @else
-                                    <h1 class="text-red">No Koi in  Event!</h1>
+                                    <h1 class="text-red">No Koi in Event!</h1>
                                 @endif
-                                
-                                <!-- <div class="col-md-3">
-                                    <div class="event-item-box">
-                                        <div class="img-item-box">                                                                                          
-                                            <img class="img-thumbnail" src="{{ asset('assets/img/hf-3.png') }}" alt="...">                                
-                                        </div>  
-                                        <p class="text-red">GRAND CHAMPION NON GOSANKE</p>
-                                        <p> OWNER : Shk Sultan Abdullah Ai Qassime</p>
-                                        <a class="btn btn-red" href="#">
-                                            CANCEL
-                                        </a>
-                                        <div class="book-fleg">
-                                            <img class="" src="{{ asset('assets/img/event-fleg.png') }}" width="20"> 
-                                        </div>
-                                    </div>
-                                </div>  -->
-
                             </div>
-                            
                         </div><p class="text-red text-right">TOTAL : {{ count($kois) }}</p>
                     </div>
 

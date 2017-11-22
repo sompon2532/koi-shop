@@ -238,6 +238,11 @@ Route::get('register', [
 	'uses' => 'RegisterController@showRegistrationForm'
 ]);
 
+// Route::get('password/reset', [
+// 	'as'   => 'password.request',
+// 	'uses' => 'ForgotPasswordController@showLinkRequestForm'
+// ]);
+
 // Route::get('/', function () {
 // 	return view('frontend.index');
 // });

@@ -133,9 +133,9 @@ footer {
     font-weight: bold;
 }
 
-.footer-title {
+/* .footer-title {
     border-bottom: solid 2px #ff0000;
-}
+} */
 
 /* About page */
 .about-us {
@@ -485,9 +485,9 @@ footer {
     -moz-border-radius:0 6px 6px 6px;
     border-radius:0 6px 6px 6px;
 }
-.dropdown-submenu:hover>.dropdown-menu {
+/* .dropdown-submenu:hover>.dropdown-menu {
     display:block;
-}
+} */
 .dropdown-submenu>a:after {
     display:block;
     content:" ";
@@ -703,3 +703,62 @@ table.table-none-border {
 .form-payment{
     margin: 20px 0;
 }
+
+/* 
+|
+|   Responsive
+|
+*/
+@media (max-width: 1200px) {
+    
+}
+
+@media (min-width: 1366px) {
+
+}
+
+@media (max-width: 970px) {
+    .calendar-box{
+        padding: 20px
+    }
+}
+
+@media (max-width: 768px) {
+    .show-max-768px{
+        display: block;
+    }
+
+    .hide-max-768px{
+        display: none;
+    }
+    
+}
+
+@media (min-width: 768px) {
+    .hide-min-768px{
+        display: none;
+    }
+
+    .show-min-768px{
+        display: block;
+    }
+    
+}
+
+@media (max-width: 533px) {
+    .main-content{
+        padding: 0px;
+        box-shadow: 0 0 2px 1px rgba(0,0,0,0);
+    }
+
+    .calendar-box{
+        padding: 10px
+    }
+    
+    
+}
+
+
+
+
+
