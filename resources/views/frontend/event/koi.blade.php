@@ -11,11 +11,11 @@
 }
 
 .slick-slide {
-  margin: 0px 20px;
+  margin: 0px 5px;
 }
 
 .slick-slide img {
-  width: 50%;
+  width: 100%;
 }
 
 .slick-slide iframe {
@@ -51,7 +51,7 @@
                 <div class="events main-content text-center">
 
                     <div class="title-box">
-                        <h1>EVENT</h1>
+                        <h1>{{ trans('event.events') }}</h1>
                     </div>
 
                     @if(count($kois) > 0)
@@ -88,7 +88,7 @@
                                                 <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style="">    
                                             @endforeach
                                             </section>                                        
-                                        </div>
+                                        </div>  
                                     </div>
                                  
                                     @if(count($kois->videos) > 0)
@@ -112,8 +112,8 @@
                                             <div class="col-md-12">
                                                 <table class="table text-red">
                                                     <tr>
-                                                        <th class="table-border text-center" width="50%">REMAINING TIME</th>
-                                                        <th class="table-border text-center" width="50%">NUMBER OF BOOKING</th>
+                                                        <th class="table-border text-center" width="50%">{{ trans('event.remaining_time') }}</th>
+                                                        <th class="table-border text-center" width="50%">{{ trans('event.number_of_booking') }}</th>
                                                     </tr>
                                                     <tr>
                                                         <td class="table-border text-center"><div id="showRemain"></div></td>
@@ -124,7 +124,7 @@
                                                 
                                                 <table class="table text-red">
                                                     <tr>
-                                                        <th class="text-center">NAME LIST</th>
+                                                        <th class="text-center">{{ trans('event.name_list') }}</th>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">
@@ -148,14 +148,14 @@
                                                 @endif
                                                 @if($i == 1)
                                                     <form action="{{ route('frontend.event.bookdel', ['koi' => $kois->id, 'event' => $events->id]) }}" method="GET" style="">  
-                                                        <button type="submit" class="btn btn-red">CANCEL</button>                                                                                          
+                                                        <button type="submit" class="btn btn-red">{{ trans('event.cancel') }}</button>                                                                                          
                                                         {{ csrf_field() }}
                                                     </form>
                                                 @else
                                                     <form action="{{ route('frontend.event.bookevent') }}" method="POST" style="">  
                                                         <input type="hidden" name="koi" value="{{ $kois->id }}">
                                                         <input type="hidden" name="event" value="{{ $events->id }}">
-                                                        <button type="submit" class="btn btn-white">BOOK NOW</button>                                                                                          
+                                                        <button type="submit" class="btn btn-white">{{ trans('event.book_now') }}</button>                                                                                          
                                                         {{ csrf_field() }}
                                                     </form>
                                                 @endif
@@ -164,30 +164,29 @@
                                             <div class="col-md-12">
                                                 <br>
                                                 <p class="text-left"><font color="#ff0000">{{ $kois->name }}</font><br>
-                                                    CODE : {{ $kois->koi_id }} <br>
-                                                    OWNER : Koikichi Fish Farm<br>
-                                                    PRICE : {{ $kois->price }} THB / YEN<br>
+                                                    {{ trans('event.code') }} : {{ $kois->koi_id }} <br>
+                                                    {{ trans('event.owner') }} : Koikichi Fish Farm<br>
+                                                    {{ trans('event.price') }} : {{ $kois->price }} THB / YEN<br>
                                                     <!-- SHIPPING : 9999 THB<br><br> -->
                                                 </p>
 
                                                 <p class="text-left"><font color="#ff0000">DETAIL</font><br>
                                                     <!-- BREEDER : AOKIYA<br> -->
-                                                    BORN : {{ $kois->born }}<br>
+                                                    {{ trans('event.born') }} : {{ $kois->born }}<br>
                                                     <!-- SIZE : {{-- $kois->size --}}<br> -->
-                                                    STRAIN : {{ $kois->strain['name'] }}<br>
-                                                    FARM : {{ $kois->farm['name'] }}<br>
-                                                    GENDER : {{ $kois->sex }}<br>
+                                                    {{ trans('event.strain') }} : {{ $kois->strain['name'] }}<br>
+                                                    {{ trans('event.farm') }} : {{ $kois->farm['name'] }}<br>
+                                                    {{ trans('event.gender') }} : {{ $kois->sex }}<br>
                                                     
                                                     @if($kois->certificate)
-                                                        CONTEST :
+                                                        {{ trans('event.contest') }} :
                                                         @foreach($contests as $contest)
                                                              {{ $contest->contest }} 
                                                         @endforeach
                                                     @endif
                                                     <br>
-                                                    OYAGOI : {{ $kois->oyagoi }}<br>
-                                                    STORAGE : {{ $kois->storage }} <br>
-                                                    PRICE : {{ number_format($kois->price) }} <br>
+                                                    {{ trans('event.oyagoi') }} : {{ $kois->oyagoi }}<br>
+                                                    {{ trans('event.storage') }} : {{ $kois->storage }} <br>
                                                 </p>
                                             </div>
                                         </div>
@@ -220,26 +219,31 @@
 
                                             <div class="col-md-12">
                                                 <br>
-                                                <p class="text-left"><font color="#ff0000">MARUYAMA SHOWA</font><br>
-                                                    CODE : {{ $kois->koi_id }} <br>
-                                                    OWNER : {{ $kois->owner }}<br>
-                                                    PRICE : {{ $kois->price }} THB / YEN<br>
+                                                <p class="text-left"><font color="#ff0000">{{ $kois->name }}</font><br>
+                                                    {{ trans('event.code') }} : {{ $kois->koi_id }} <br>
+                                                    {{ trans('event.owner') }} : Koikichi Fish Farm<br>
+                                                    {{ trans('event.price') }} : {{ $kois->price }} THB / YEN<br>
                                                     <!-- SHIPPING : 9999 THB<br><br> -->
                                                 </p>
 
                                                 <p class="text-left"><font color="#ff0000">DETAIL</font><br>
-                                                    BREEDER : AOKIYA<br>
-                                                    BORN IN : {{ $kois->born }}<br>
-                                                    SIZE : {{ $kois->size }}<br>
-                                                    GENDER : {{ $kois->sex }}<br><br>
+                                                    <!-- BREEDER : AOKIYA<br> -->
+                                                    {{ trans('event.born') }} : {{ $kois->born }}<br>
+                                                    <!-- SIZE : {{-- $kois->size --}}<br> -->
+                                                    {{ trans('event.strain') }} : {{ $kois->strain['name'] }}<br>
+                                                    {{ trans('event.farm') }} : {{ $kois->farm['name'] }}<br>
+                                                    {{ trans('event.gender') }} : {{ $kois->sex }}<br>
+                                                    
+                                                    @if($kois->certificate)
+                                                        {{ trans('event.contest') }} :
+                                                        @foreach($contests as $contest)
+                                                             {{ $contest->contest }} 
+                                                        @endforeach
+                                                    @endif
+                                                    <br>
+                                                    {{ trans('event.oyagoi') }} : {{ $kois->oyagoi }}<br>
+                                                    {{ trans('event.storage') }} : {{ $kois->storage }} <br>
                                                 </p>
-
-                                                <!-- <p class="text-left"><font color="#ff0000">DETAIL</font><br>
-                                                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                                                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                                                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                                                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                                                </p> -->
                                             </div>
                                         </div>
                                     @endif

@@ -34,6 +34,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/src/css/style.css') }}" >
+    <link rel="stylesheet" href="{{ asset('frontend/src/font/fontstyle.css') }}" >
     <style>
 .dropdown-submenu {
     position: relative;

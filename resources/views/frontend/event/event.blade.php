@@ -8,6 +8,10 @@
 .slick-next:before {
   color: red;
 }
+
+.slick-slide iframe {
+  width: 100%;
+}
 </style>
 @endsection
 
@@ -51,7 +55,7 @@
                                                         </a>
                                                     </div>  
                                                     <p class="text-red">{{ $koi->name }}</p>
-                                                    <p> OWNER : Koikichi fish farm</p>
+                                                    <p> {{ trans('event.owner') }} : Koikichi fish farm</p>
                                                     @if($events->config == 1)
                                                         @php 
                                                             $i=0;
@@ -69,14 +73,14 @@
                                                             <form action="{{ route('frontend.event.bookdel', ['koi' => $koi->id, 'event' => $events->id]) }}" method="GET" style="">  
                                                                 <!-- <input type="hidden" name="koi" value="{{ $koi->id }}">
                                                                 <input type="hidden" name="event" value="{{ $events->id }}"> -->
-                                                                <button type="submit" class="btn btn-red">CANCEL</button>                                                                                          
+                                                                <button type="submit" class="btn btn-red">{{ trans('event.cancel') }}</button>                                                                                          
                                                                 {{ csrf_field() }}
                                                             </form>
                                                         @else
                                                             <form action="{{ route('frontend.event.bookevent') }}" method="POST" style="">  
                                                                 <input type="hidden" name="koi" value="{{ $koi->id }}">
                                                                 <input type="hidden" name="event" value="{{ $events->id }}">
-                                                                <button type="submit" class="btn btn-white">BOOK NOW</button>                                                                                          
+                                                                <button type="submit" class="btn btn-white">{{ trans('event.book_now') }}</button>                                                                                          
                                                                 {{ csrf_field() }}
                                                             </form>
                                                         @endif
@@ -85,12 +89,12 @@
                                             </div> 
                                         @endforeach
                                     @else
-                                        <h2 class="text-red">End of Event.</h2>
+                                        <h4 class="text-red">End of Event.</h4>
                                         <div class="col-md-12">
-                                            <h4>LUCK DRAW</h4>
-                                            <h5>(CLIP VIDEO)</h5>
+                                            <h3>{{ trans('event.lucky_draw') }}</h3>
+                                            <h5>({{ trans('event.video') }})</h5>
                                             @if(count($events->videos) > 0)
-                                                <div class="col-md-12">
+                                                <div class="col-xs-12 col-sm-12 col-md-12">
                                                     <section class="lazy slider" data-sizes="50vw">
                                                         @foreach($events->videos as $video)
                                                             <div>
@@ -102,12 +106,12 @@
                                             @endif
                                         </div>
                                         <div class="col-md-12">
-                                            <h4 style="margin:30px;">WINNER LIST</h4>
+                                            <h3 style="margin:30px 0;">{{ trans('event.winner_list') }}</h3>
                                         </div>
                                         @foreach($kois as $koi)
-                                            <div class="col-md-3">
+                                            <div class="col-xs-12 col-sm-6 col-md-3">
                                                 <div class="winner-item-list">
-                                                    <p class="text-red">WINNER <br> {{ $koi->owner != '' ? $koi->user['name'] : 'Koikichi Fish Farm' }} {{-- $koi->user['name'] --}}</p>
+                                                    <p class="text-red">{{ trans('event.winner') }} <br> {{ $koi->owner != '' ? $koi->user['name'] : 'Koikichi Fish Farm' }} {{-- $koi->user['name'] --}}</p>
                                                     <div class="img-item-box">                                                                                          
                                                         <img class="img-thumbnail" src="{{ asset( $koi->media()->first()->getUrl() ) }}" alt="...">                                
                                                     </div>  
@@ -120,7 +124,7 @@
                                     <h1 class="text-red">No Koi in Event!</h1>
                                 @endif
                             </div>
-                        </div><p class="text-red text-right">TOTAL : {{ count($kois) }}</p>
+                        </div><p class="text-red text-right">{{ trans('event.total') }} : {{ count($kois) }}</p>
                     </div>
 
                 </div>

@@ -15,10 +15,11 @@ use DB;
 class EventController extends Controller
 {
     public function getIndex() {
+        // Carbon::setLocale(config('app.locale'));
         $events = Event::active()->with(['media'])->orderBy('end_datetime', 'desc')->get();
         $today = Carbon::now('Asia/Bangkok');
         $categories = Category::active()->get()->toTree();
-
+        // dd(config('app.locale'));
         return view('frontend.event.index', compact('events', 'today', 'categories'));
     }
 
