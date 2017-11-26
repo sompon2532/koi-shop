@@ -91,8 +91,10 @@ class StrainController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Strain $strain)
     {
-        //
+        $strain->delete();
+
+        return;
     }
 }

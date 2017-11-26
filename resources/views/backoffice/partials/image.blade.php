@@ -26,7 +26,7 @@
                 @foreach ($images as $index => $image)
                     @if ($image->collection_name == $collection)
                         <div class='box-image' data-key='{{ $index }}' data-id="{{ $image->id }}">
-                            <img class='preview' src="{{ asset("$image->disk/$image->id/$image->file_name") }}">
+                            <img class='preview' src="{{ $image->getUrl() }}">
                             <i class='fa fa-times-circle remove-file'></i>
                         </div>
                     @endif

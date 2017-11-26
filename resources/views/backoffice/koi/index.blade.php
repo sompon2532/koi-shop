@@ -25,7 +25,7 @@
                     <thead>
                     <tr>
                         <th>รหัสปลา</th>
-                        <th>ชื่อปลา</th>
+                        <th>ปลา</th>
                         <th>สถานะ</th>
                         <th>การจัดการ</th>
                     </tr>
@@ -39,8 +39,9 @@
                             <td>
                                 <a href="{{ route('koi.edit', ['koi' => $koi->id]) }}"
                                    class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="{{ route('koi.destroy', ['koi' => $koi->id]) }}"
-                                   class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                                <button data-token="{{ csrf_token() }}" data-id="{{ $koi->id }}" data-url="koi" class="btn-delete btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
                             </td>
                         </tr>
                     @endforeach
@@ -48,7 +49,7 @@
                     <tfoot>
                     <tr>
                         <th>รหัสปลา</th>
-                        <th>ชื่อปลา</th>
+                        <th>ปลา</th>
                         <th>สถานะ</th>
                         <th>การจัดการ</th>
                     </tr>

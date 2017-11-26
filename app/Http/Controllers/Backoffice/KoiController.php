@@ -193,8 +193,10 @@ class KoiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Koi $koi)
     {
-        //
+        $koi->delete();
+
+        return;
     }
 }
