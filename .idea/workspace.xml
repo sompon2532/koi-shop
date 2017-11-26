@@ -3,25 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a1de6960-8bca-4007-8145-6a78462776c3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/CategoryController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/CategoryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/FarmController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/FarmController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/KoiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/KoiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/ProductController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/ProductController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/StrainController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/StrainController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/Product/CreateProductRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/Product/CreateProductRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/Product/UpdateProductRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/Product/UpdateProductRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/main.js" afterPath="$PROJECT_DIR$/public/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/category/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/category/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/farm/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/farm/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/koi/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/koi/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/partials/cover.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/partials/cover.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/partials/image.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/partials/image.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/product/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/product/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/product/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/product/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/product/update.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/product/update.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/strain/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/strain/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/user/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/user/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/backoffice/main.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/backoffice/main.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,32 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cover.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/backoffice/partials/cover.blade.php">
+      <file leaf-file-name="DatabaseSeeder.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-73">
-              <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-              <folding>
-                <element signature="e#946#977#0#HTML" expanded="true" />
-                <marker date="1511680859000" expanded="true" signature="486:533" ph="..." />
-                <marker date="1511680859000" expanded="true" signature="486:535" ph="..." />
-                <marker date="1511680859000" expanded="true" signature="486:539" ph="..." />
-                <marker date="1511680859000" expanded="true" signature="486:540" ph="..." />
-                <marker date="1511680859000" expanded="true" signature="486:789" ph="..." />
-                <marker date="1511680859000" expanded="true" signature="573:789" ph="..." />
-                <marker date="1511680859000" expanded="true" signature="698:789" ph="..." />
-                <marker date="1511680859000" expanded="true" signature="722:789" ph="..." />
-                <marker date="1511680859000" expanded="true" signature="730:789" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="image.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/backoffice/partials/image.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="28" column="74" lean-forward="false" selection-start-line="28" selection-start-column="74" selection-end-line="28" selection-end-column="74" />
+            <state relative-caret-position="391">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -119,7 +80,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2017_11_16_084528_create_favorites_table.php" />
         <option value="$PROJECT_DIR$/app/Models/Event.php" />
         <option value="$PROJECT_DIR$/public/css/main.css" />
         <option value="$PROJECT_DIR$/resources/views/backoffice/event/create.blade.php" />
@@ -170,6 +130,7 @@
         <option value="$PROJECT_DIR$/public/js/main.js" />
         <option value="$PROJECT_DIR$/resources/views/backoffice/partials/image.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backoffice/partials/cover.blade.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
       </list>
     </option>
   </component>
@@ -239,6 +200,12 @@
             <path>
               <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
               <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="seeds" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -252,12 +219,6 @@
               <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koi-shop" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="media" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="koi-shop" type="b2602c69:ProjectViewProjectNode" />
@@ -387,12 +348,12 @@
       <workItem from="1511097898382" duration="893000" />
       <workItem from="1511187184108" duration="5126000" />
       <workItem from="1511593842959" duration="1721000" />
-      <workItem from="1511673680251" duration="5868000" />
+      <workItem from="1511673680251" duration="6155000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229828000" />
+    <option name="totallyTimeSpent" value="230115000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -441,20 +402,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/farm/update.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="22" column="43" lean-forward="false" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/strain/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="56" column="86" lean-forward="false" selection-start-line="56" selection-start-column="86" selection-end-line="56" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backoffice/strain/update.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1334">
@@ -826,18 +773,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/partials/image.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="28" column="74" lean-forward="false" selection-start-line="28" selection-start-column="74" selection-end-line="28" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backoffice/partials/cover.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-73">
-          <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+        <state relative-caret-position="182">
+          <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
           <folding>
             <element signature="e#946#977#0#HTML" expanded="true" />
             <marker date="1511680859000" expanded="true" signature="486:533" ph="..." />
@@ -850,6 +789,30 @@
             <marker date="1511680859000" expanded="true" signature="722:789" ph="..." />
             <marker date="1511680859000" expanded="true" signature="730:789" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/partials/image.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="28" column="74" lean-forward="false" selection-start-line="28" selection-start-column="74" selection-end-line="28" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Seeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="100" column="8" lean-forward="true" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
