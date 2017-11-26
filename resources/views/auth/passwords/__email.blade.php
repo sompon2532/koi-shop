@@ -8,8 +8,13 @@
         <div class="col-md-12">
             <div class="login">
                 <div class="text-center">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <div class="title-box">
-                        <h1>LOGIN</h1>
+                        <h2>FORGOT PASSWORD</h2>
                     </div>
 
                     @if(count($errors) > 0)
@@ -21,7 +26,7 @@
                     @endif
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
-                            <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                            <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
                             {{ csrf_field() }}
 
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -36,29 +41,9 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label for="inputPassword3" class="col-sm-offset-2 col-sm-3 control-label">PASSWORD : </label>
-                                    <div class="col-sm-5">
-                                        <input type="password" class="form-control" id="password" placeholder="PASSWORD" name="password"required>
-                                    
-                                        @if ($errors->has('password'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <div class="col-sm-offset-4 col-sm-5">
-                                        <a class="btn btn-link " href="{{ route('password.request') }}">
-                                            FORGOT PASSWORD?
-                                        </a>
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <!-- <div class="col-sm-offset-2 col-sm-10"> -->
-                                        <button type="submit" class="btn btn-red">LOGIN</button>
+                                        <button type="submit" class="btn btn-default">Send Password Reset Link/button>
                                     <!-- </div> -->
                                 </div>
                             </form>

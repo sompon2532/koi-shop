@@ -156,15 +156,27 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'as' => 'frontend.event.koi',
 		'middleware' => 'auth'
 	]);
-	
+
+	Route::get('/event/announcement/luckydraw/{event}', [
+		'uses' => 'EventController@getluckydraw',
+		'as' => 'frontend.event.luckydraw',
+		'middleware' => 'auth'		
+	]);
+
+	Route::get('/event/announcement/winnerlist/{event}', [
+		'uses' => 'EventController@getwinnerlist',
+		'as' => 'frontend.event.winnerlist',
+		'middleware' => 'auth'		
+	]);
+
 	//Booking
-	Route::post('/event/booking/add', [ //add_koi_user
+	Route::post('/event/booking/add', [
 		'uses' => 'EventController@postEvent',
 		'as' => 'frontend.event.bookevent',
 		'middleware' => 'auth'		
 	]);
 
-	Route::get('/event/booking/del/{koi}/{event}', [ //delete_koi_user
+	Route::get('/event/booking/del/{koi}/{event}', [
 		'uses' => 'EventController@getEventDel',
 		'as' => 'frontend.event.bookdel',
 		'middleware' => 'auth'		
@@ -177,13 +189,13 @@ Route::group(['namespace' => 'Frontend'], function() {
 	]);
 
 	//Favorite
-	Route::post('/favorite/add', [ //add_koi_user
+	Route::post('/favorite/add', [
 		'uses' => 'UserController@postfavorite',
 		'as' => 'frontend.user.favorite-add',
 		'middleware' => 'auth'		
 	]);
 
-	Route::get('/favorite/del/{item}/{type}', [ //add_koi_user
+	Route::get('/favorite/del/{item}/{type}', [
 		'uses' => 'UserController@getfavoriteDel',
 		'as' => 'frontend.user.favorite-del',
 		'middleware' => 'auth'		
@@ -225,6 +237,11 @@ Route::get('register', [
 	'as'   => 'auth.register',
 	'uses' => 'RegisterController@showRegistrationForm'
 ]);
+
+// Route::get('password/reset', [
+// 	'as'   => 'password.request',
+// 	'uses' => 'ForgotPasswordController@showLinkRequestForm'
+// ]);
 
 // Route::get('/', function () {
 // 	return view('frontend.index');

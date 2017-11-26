@@ -3,7 +3,36 @@
 @section('page_title', 'KOI')
 
 @section('custom-css')
+<style>
+.slider {
+    width: 100%;
+    margin: auto;
+    /* margin: 100px auto; */
+}
 
+.slick-slide {
+  margin: 0px 5px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: red;
+}
+
+
+.slick-slide {
+  transition: all ease-in-out .3s;
+  opacity: .2;
+}
+
+.slick-active {
+  opacity: .5;
+}
+
+.slick-current {
+  opacity: 1;
+}
+</style>
 @endsection
 
 @section('content')
@@ -14,61 +43,78 @@
                 <div class="main-content text-center">
 
                     <div class="title-box">
-                        <h1>STOCK IN JAPAN</h1>
+                        <h1>PRODUCT</h1>
                     </div>
 
                     <h3 class="text-red"> SAKAI </h3>
-                    <P>KOI > KOI  IN JAPAN > SAKAI > {{-- $products->title --}}</P>
+                    <P>KOI > KOI  IN JAPAN > SAKAI > {{ $products->name }}</P>
 
                     <div class="content-box">
                         <div class="row">
+                            <br>
                             <div class="col-md-3 col-md-offset-3">
                                 <div class="slider slider-for">
                                     @foreach($images as $image)
-                                      <div><img class="img-thumbnail" src="/media/{{ $image->order_column }}/{{ $image->file_name }}" alt="..." style="max-height:150px;"></div>
+                                      <div><img class="img-thumbnail" src="/media/{{ $image->order_column }}/{{ $image->file_name }}" alt="..." style=""></div>
                                     @endforeach
                                 </div>
+                                <br>
                                 <div class="text-red">
                                     <p>TO ORDER</p>
                                     <p>PLEASE CONTACT</p>
-                                    <img class="" src="{{-- asset('assets/img/line-logo.png') --}}" alt="...">                                    
+                                    <img class="" src="{{ asset('/frontend/src/img/line-logo.png') }}" alt="..." width="40">                                    
                                 </div>
                             </div>
+                            <br>                            
                             <div class="col-md-6 text-left">
-                                <p class="text-red"> TITLE{{-- $products->title --}}</p>
+                                <p class="text-red">TITLE : {{ $products->name }}</p>
                                 <p>CODE : {{ $products->id }}</p>
-                                <p>PRICE : {{ $products->price }} THB / YEN</p>
-                                <p>SHIPPING : 9{{ $products->delivery }} THB</p>
-                                <a class="btn btn-white" href="{{ route('frontend.shop.addToCart', ['id' => $products->id]) }}">
-                                    ORDER
-                                </a>
+                                <p>PRICE : {{ $products->price }} THB</p>
+                                <p>SHIPPING : {{ $products->delivery }} THB</p>
+                                <div class="text-center-max992">
+                                    <a class="btn btn-white text-center" href="{{ route('frontend.shop.addToCart', ['id' => $products->id]) }}">
+                                        ORDER
+                                    </a>
+                                </div>
                             </div>
                         </div>
-
+                        <br>
 
                         <div class="row">
-                            <div class="col-md-2 col-md-offset-2">
+                            <div class="col-md-2 col-md-offset-2 text-right">
                             DETAIL :
                             </div>
-                            <div class="col-md-7">
-                            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                            <div class="col-md-7 text-left">
+                                <p>
+                                    {{ $products->description }}
+                                </p>
                             </div>
                         </div>
-
+                        <br>
 
                         <div class="row">
-                            <div class="col-md-6 col-md-offset-3">
+                            <div class="col-md-8 col-md-offset-2">
                                 <div class="slider slider-nav">
                                     @foreach($images as $image)
-                                        <div><img class="img-thumbnail" src="/media/{{ $image->order_column }}/{{ $image->file_name }}" alt="..." style="max-height:150px;"></div>
+                                        <div><img class="img-thumbnail" src="/media/{{ $image->order_column }}/{{ $image->file_name }}" alt="..." style=""></div>
                                     @endforeach
                                 </div>
                             </div>
                         </div>
+
+                        @if(count($products->videos) > 0)
+                        <div class="row">
+                            <div class="col-md-12">
+                                <section class="lazy slider" data-sizes="50vw">
+                                    @foreach($products->videos as $video)
+                                        <div>
+                                            {!! $video->video !!}
+                                        </div>
+                                    @endforeach
+                                </section>                                        
+                            </div>
+                        </div>
+                        @endif
 
                     </div><!-- content-box -->
                 </div>

@@ -30,7 +30,7 @@ class KoiController extends Controller
         // ]);
 
         $kois = Koi::with(['media'])->get();
-        $categories = Category::get()->toTree();
+        $categories = Category::active()->get()->toTree();
 
         return view('frontend.koi.index', compact('kois','categories'));
         
@@ -57,7 +57,7 @@ class KoiController extends Controller
         $favorites = Favorite::where('type', 'koi')->where('user_id', Auth::user()->id)->get();
         // dd($favorites);
         $koiCategoty = Category::find($categoty);
-        $categories = Category::get()->toTree();
+        $categories = Category::active()->get()->toTree();
 
         return view('frontend.koi.category', compact('kois', 'favorites', 'koiCategoty', 'categories'));
         
@@ -75,7 +75,7 @@ class KoiController extends Controller
 
         $kois = Koi::with(['media'])->find($id);
         $favorites = Favorite::where('type', 'koi')->where('user_id', Auth::user()->id)->get();        
-        $categories = Category::get()->toTree();
+        $categories = Category::active()->get()->toTree();
 
         return view('frontend.koi.detail', compact('kois','favorites', 'categories'));
         

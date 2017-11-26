@@ -3,6 +3,14 @@
 @section('page_title', 'HOME')
 
 @section('custom-css')
+<style>
+    .carousel-indicators li{
+        border: 1px solid #ff0000;
+    }
+    .carousel-indicators .active{
+        background-color: #ff0000;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -16,46 +24,56 @@
         </div>
         <div class="row">
             <div class="col-md-3">
-                <div id="calendar"></div>                
+                <div class="calendar-box">
+                    <div id="calendar"></div>
+                </div>                
             </div>
             <div class="col-md-9">
                 <div class="slide-box">
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner" role="listbox">
-                            @if (count($events) > 0)
-                                <div class="item active">
-                                    <a href="{{ route('frontend.event.event', ['id' => $events->first()->id]) }}">
-                                        <img src="{{ asset($events->first()->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="">
-                                    </a>
-                                </div>
-
-                                @foreach($events as $index => $event)
-                                    @if ($index > 0)
+                        {{-- dd($news) --}}
+                        @if (count($news) > 0)
+                            @if (count($news) > 1)
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-example-generic" data-slide-to="{{0}}" class="active"></li>
+                                    @foreach($news as $index => $new)
+                                        @if($index > 0 && $now <= $new->end_datetime->toTimeString())
+                                            <li data-target="#carousel-example-generic" data-slide-to="{{$index}}"></li>
+                                        @endif                                    
+                                    @endforeach
+                                </ol>
+                            @endif
+                            <div class="carousel-inner" role="listbox">
+                                {{-- @if ($now <= $news->first()->end_datetime->toTimeString())--}}
+                                    <div class="item active">
+                                        <a href="{{-- route('frontend.event.event', ['id' => $news->first()->id]) --}}">
+                                            <img src="{{ asset($news->first()->media->where('collection_name', 'news-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="width:100%;">
+                                        </a>
+                                    </div>
+                                {{-- @endif --}}
+                                @foreach($news as $index => $new)
+                                    {{-- @if($index > 0 && $now <= $new->end_datetime->toTimeString()) --}}
                                         <div class="item">
-                                            <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">                                            
-                                                <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="">
+                                            <a href="{{-- route('frontend.event.event', ['id' => $new->id]) --}}">                                            
+                                                <img src="{{ asset($new->media->where('collection_name', 'news-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="width:100%;">
                                             </a>
                                         </div>
-                                    @endif
+                                    {{-- @endif --}}
                                 @endforeach
-                            @endif
-                           
-                            <!-- Controls -->
-                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
+                                @if (count($news) > 1)
+                                    <!-- Controls -->
+                                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                @endif
+                            </div>
+                        @endif
 
                         <!-- {{-- @foreach($events as $index => $event) --}}
                             <h1>{{-- $event->name --}}</h1>
@@ -76,9 +94,9 @@
 @section('custom-js')
 
 <!-- jQuery 2.2.3 -->
-<!-- <script src=" {{ asset('plugins/jQuery/jquery-2.2.3.min.js') }}"></script> -->
+<script src=" {{ asset('plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
 <!-- bootstrap -->
-<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+<!-- <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script> -->
 
 <script>
 $(document).ready(function() {
@@ -123,6 +141,9 @@ $(document).ready(function() {
         month: 'month',
         week : 'week',
         day  : 'day'
+      },
+      dayClick: function() {
+        alert('a day has been clicked!');
       },
       //Random default events
       locale : current_locale,
@@ -193,38 +214,6 @@ $(document).ready(function() {
           $(this).remove()
         }
       }
-    })
-    /* ADDING EVENTS */
-    var currColor = '#3c8dbc' //Red by default
-    //Color chooser button
-    var colorChooser = $('#color-chooser-btn')
-    $('#color-chooser > li > a').click(function (e) {
-      e.preventDefault()
-      //Save color
-      currColor = $(this).css('color')
-      //Add color effect to button
-      $('#add-new-event').css({ 'background-color': currColor, 'border-color': currColor })
-    })
-    $('#add-new-event').click(function (e) {
-      e.preventDefault()
-      //Get value and make sure it is not null
-      var val = $('#new-event').val()
-      if (val.length == 0) {
-        return
-      }
-      //Create events
-      var event = $('<div />')
-      event.css({
-        'background-color': currColor,
-        'border-color'    : currColor,
-        'color'           : '#fff'
-      }).addClass('external-event')
-      event.html(val)
-      $('#external-events').prepend(event)
-      //Add draggable funtionality
-      init_events(event)
-      //Remove event from text input
-      $('#new-event').val('')
     })
   })
 </script>
