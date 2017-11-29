@@ -62,4 +62,9 @@ class Product extends Model implements HasMedia
     public function favorites() {
         return $this->hasMany('App\Models\Favorite');
     }
+
+    public function users()
+    {
+        return $this->morphToMany('App\User', 'favorite');
+    }
 }

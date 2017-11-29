@@ -45,23 +45,24 @@
                                 </ol>
                             @endif
                             <div class="carousel-inner" role="listbox">
-                                {{-- @if ($now <= $news->first()->end_datetime->toTimeString())--}}
+                                {{-- @if ($now <= $news->first()->end_datetime->toTimeString()) --}}
                                     <div class="item active">
                                         <a href="{{-- route('frontend.event.event', ['id' => $news->first()->id]) --}}">
                                             <img src="{{ asset($news->first()->media->where('collection_name', 'news-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="width:100%;">
                                         </a>
                                     </div>
                                 {{-- @endif --}}
-                                @foreach($news as $index => $new)
-                                    {{-- @if($index > 0 && $now <= $new->end_datetime->toTimeString()) --}}
-                                        <div class="item">
-                                            <a href="{{-- route('frontend.event.event', ['id' => $new->id]) --}}">                                            
-                                                <img src="{{ asset($new->media->where('collection_name', 'news-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="width:100%;">
-                                            </a>
-                                        </div>
-                                    {{-- @endif --}}
-                                @endforeach
-                                @if (count($news) > 1)
+                                @if(count($news) > 1)                                
+                                    @foreach($news as $index => $new)
+                                        @if($index > 0 && $now <= $new->end_datetime->toTimeString()) 
+                                            <div class="item">
+                                                <a href="{{-- route('frontend.event.event', ['id' => $new->id]) --}}">                                            
+                                                    <img src="{{ asset($new->media->where('collection_name', 'news-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="width:100%;">
+                                                </a>
+                                            </div>
+                                        @endif
+                                    @endforeach
+
                                     <!-- Controls -->
                                     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -71,7 +72,8 @@
                                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
                                     </a>
-                                @endif
+
+                                @endif                              
                             </div>
                         @endif
 
@@ -145,6 +147,11 @@ $(document).ready(function() {
       dayClick: function() {
         alert('a day has been clicked!');
       },
+      views: { 
+        month: { // name of view
+            columnFormat: 'dd'
+        }
+      },   
       //Random default events
       locale : current_locale,
       events    : [

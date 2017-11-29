@@ -17,8 +17,10 @@ class CreatePaymentsTable extends Migration
             $table->increments('id');
             $table->integer('order_id');            
             $table->string('bank');
+            $table->integer('total');
             $table->timestamp('datetime');        
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

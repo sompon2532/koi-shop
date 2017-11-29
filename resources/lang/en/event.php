@@ -4,7 +4,7 @@ return [
     //index
     'events' => 'EVENTS',
     'new_events' => 'NEW EVENT',
-    'pass_events' => 'PASS EVENTS',
+    'pass_events' => 'PAST EVENTS',
     'to' => 'to',
     'total' => 'TOTAL',
     

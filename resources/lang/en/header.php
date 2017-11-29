@@ -11,5 +11,7 @@ return [
 	'about' => 'ABOUT US',
 	'contact' => 'CONTACT US',
 	'login' => 'LOGIN',
-	'register' => 'REGISTER'
+	'register' => 'REGISTER',
+	'flag-en' => '/en.png',
+	'flag-th' => '/th-wb.png'
 ];

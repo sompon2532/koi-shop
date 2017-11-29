@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="content-box">
-                            @foreach($orders as $order)
+                            @foreach($users->orders as $order)
                                 <div class="info-box">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -26,7 +26,7 @@
                                                 <div class="row">
                                                     <div class="col-md-8">
                                                         <p>ORDER NUMBER : #{{ $order->id }}</p>
-                                                        <p>DATE : {{ $order->created_at }}</p>
+                                                        <p>DATE : {{ $order->created_at->formatLocalized('%d %B %Y') }}</p>
                                                     </div>
                                                     <div class="col-md-4 text-right">
                                                         <br>
@@ -37,25 +37,27 @@
 
                                             <div class="content-info-box">
                                                 <div class="row">
-                                                    @foreach($order->cart->items as $item)
-                                                        <div class="col-md-6 orders-detail">
+                                                    @foreach($order->products as $product)
+                                                    <div class="col-md-6 orders-detail">
                                                             <div class="col-md-4">
-                                                                <img class="img-thumbnail" src="{{ asset('assets/img/map-koikichi.png') }}" alt="...">
+                                                                <img class="img-thumbnail" src="{{ $product->media->first()->getUrl() }}" alt="...">
                                                             </div>
                                                             <div class="col-md-8">
-                                                                <p class="text-red">{{ $item['item']['name'] }}</p>
-                                                                <p>CODE : {{ $item['item']['id'] }}</p>
+                                                                <p class="text-red">{{ $product->name }}</p>
+                                                                <p>CODE : {{ $product->id }}</p>
                                                             </div>
                                                         </div>
                                                     @endforeach
-
-                                                    <div class="col-md-12 text-center">
-                                                        <a class="btn btn-red" href="#">
-                                                            CHECK OUT
-                                                        </a>
-                                                    </div>
+                                                    @if($order->status == 0)
+                                                        <div class="col-md-12 text-center">
+                                                            <a class="btn btn-red" href="{{ route('frontend.payment.payment', ['id' => $order->id]) }}">
+                                                                PAYMENT
+                                                            </a>
+                                                        </div>
+                                                    @endif
                                                 </div>
-                                            </div>         
+                                            </div>  
+
                                         </div>
                                     </div>
                                 </div> <!-- info-box -->

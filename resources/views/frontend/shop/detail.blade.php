@@ -4,6 +4,14 @@
 
 @section('custom-css')
 <style>
+.btn-favorite {
+    background-color: transparent;
+    padding: 0px;
+    border: none;
+}
+.star-label {
+    top: 0px;
+}
 .slider {
     width: 100%;
     margin: auto;
@@ -18,7 +26,6 @@
 .slick-next:before {
   color: red;
 }
-
 
 .slick-slide {
   transition: all ease-in-out .3s;
@@ -54,18 +61,40 @@
                             <br>
                             <div class="col-md-3 col-md-offset-3">
                                 <div class="slider slider-for">
-                                    @foreach($images as $image)
-                                      <div><img class="img-thumbnail" src="/media/{{ $image->order_column }}/{{ $image->file_name }}" alt="..." style=""></div>
+                                    @foreach($products->media as $media)
+                                      <div><img class="img-thumbnail" src="{{ $media->getUrl() }}" alt="..." style=""></div>
                                     @endforeach
                                 </div>
+
+                                @if(count($favorites) == 0)
+                                    <div class="star-label">
+                                        <form action="{{ route('frontend.user.favorite-add', ['id' => $products->id]) }}" method="GET" style="">  
+                                            <input type="hidden" name="item" value="{{ $products->id }}">
+                                            <input type="hidden" name="type" value="App\Models\Product">
+                                            <button type="submit" class="btn btn-favorite">
+                                                <img class="" src="{{ asset('frontend/src/img/favorite.png') }}" alt="..." style="max-height:50px;">    
+                                            </button> 
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                                @else
+                                    <div class="star-label">
+                                        <form action="{{ route('frontend.user.favorite-del', ['id' => $products->id, 'type' => 'App\Models\Product']) }}" method="GET" style="">  
+
+                                            <button type="submit" class="btn btn-favorite">
+                                                <img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
+                                            </button> 
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                                @endif
                                 <br>
                                 <div class="text-red">
-                                    <p>TO ORDER</p>
-                                    <p>PLEASE CONTACT</p>
+                                    <p>TO ORDER<br>PLEASE CONTACT</p>
                                     <img class="" src="{{ asset('/frontend/src/img/line-logo.png') }}" alt="..." width="40">                                    
                                 </div>
-                            </div>
-                            <br>                            
+                                <br>
+                            </div>                        
                             <div class="col-md-6 text-left">
                                 <p class="text-red">TITLE : {{ $products->name }}</p>
                                 <p>CODE : {{ $products->id }}</p>
@@ -78,10 +107,9 @@
                                 </div>
                             </div>
                         </div>
-                        <br>
 
                         <div class="row">
-                            <div class="col-md-2 col-md-offset-2 text-right">
+                            <div class="col-md-2 col-md-offset-2">
                             DETAIL :
                             </div>
                             <div class="col-md-7 text-left">
@@ -95,8 +123,8 @@
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="slider slider-nav">
-                                    @foreach($images as $image)
-                                        <div><img class="img-thumbnail" src="/media/{{ $image->order_column }}/{{ $image->file_name }}" alt="..." style=""></div>
+                                    @foreach($products->media as $media)
+                                        <div><img class="img-thumbnail" src="{{ $media->getUrl() }}" alt="..." style=""></div>
                                     @endforeach
                                 </div>
                             </div>
@@ -123,43 +151,11 @@
         </div>
     </div>
 
-    <!-- slick -->
-    <!-- <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-              <h2>Slider Syncing</h2> 
-              <div class="slider slider-for">
-                @foreach($images as $image)
-                  <div><img class="img-thumbnail" src="/media/{{ $image->order_column }}/{{ $image->file_name }}" alt="..." style="max-height:150px;"></div>
-                @endforeach
-              </div>
-              <div class="slider slider-nav">
-                @foreach($images as $image)
-                  <div><img class="img-thumbnail" src="/media/{{ $image->order_column }}/{{ $image->file_name }}" alt="..." style="max-height:150px;"></div>
-                @endforeach
-              </div>
-            </div>
-        </div>
-    </div> -->
 </section>
-
 @endsection
 
-<!-- <script>
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-}
-</script> -->
 @section('custom-js')
 <script>
-$(document).ready(function(){
-  $('.your-class').slick({
-    
-  });
-});
-	
-
  $('.slider-for').slick({
   slidesToShow: 1,
   slidesToScroll: 3,

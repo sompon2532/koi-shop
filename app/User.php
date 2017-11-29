@@ -41,4 +41,20 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Favorite');
     }
+
+    /**
+     * Get all of the product that are assigned this Favorite.
+     */
+    public function product()
+    {
+        return $this->morphedByMany('App\Models\Product', 'favorite');
+    }
+
+    /**
+     * Get all of the koi that are assigned this Favorite.
+     */
+    public function koi()
+    {
+        return $this->morphedByMany('App\Models\Koi', 'favorite');
+    }
 }

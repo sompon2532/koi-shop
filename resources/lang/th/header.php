@@ -11,5 +11,7 @@ return [
 	'about' => 'เกี่ยวกับเรา',
 	'contact' => 'ติดต่อเรา',
 	'login' => 'เข้าสู่ระบบ',
-	'register' => 'ลงทะเบียน'
+	'register' => 'ลงทะเบียน',
+	'flag-en' => '/en-wb.png',
+	'flag-th' => '/th.png'
 ];

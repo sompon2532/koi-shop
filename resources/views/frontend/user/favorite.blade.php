@@ -18,7 +18,7 @@
                     <div class="row">
                         <div class="col-md-12">
 
-                            @if(count($favorites) > 0)
+                            @if(count($favorites->koi) > 0 || count($favorites->product) > 0)
                                 <div class="table-responsive">
                                     <table class="table">
                                         <tr>
@@ -27,10 +27,10 @@
                                             <th class="text-center">PRICE</th>
                                             <th class="text-center"></th>
                                         </tr>
-                                        @foreach($favorites as $favorite)
-                                            @if($favorite->type == 'koi')                                        
+                                        @if(count($favorites->koi) > 0)
+                                            @foreach($favorites->koi as $favorite)  
                                                 @foreach($kois as $koi)
-                                                    @if($koi->id == $favorite->item_id)
+                                                    @if($koi->id == $favorite->id)
                                                         <tr>
                                                             <td width="20%">
                                                                 <img class="img-thumbnail" src="{{ asset($koi->media()->first()->getUrl()) }}" alt="..." width="100">
@@ -49,33 +49,36 @@
                                                                 <a class="btn btn-white" href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">DETAIL</a>
                                                             </td>
                                                         </tr>
-                                                        @endif
+                                                    @endif
                                                 @endforeach
-                                            @elseif($favorite->type == 'product')
-                                                @foreach($products as $product)
-                                                    @if($product->id == $favorite->item_id)
-                                                        <tr>
-                                                            <td width="20%">
-                                                                <img class="img-thumbnail" src="{{ asset($product->media()->first()->getUrl()) }}" alt="..." width="100">
-                                                            </td>
-                                                            <td class="">
-                                                                <p class="text-red ">{{ $product->name }}</p>
-                                                                <p >CODE : {{ $product->product_id }}</p>
-                                                            </td>
-                                                            <!-- <td>
-                                                                <p class="text-red">IN STOCK</p>
-                                                            </td> -->
-                                                            <td>
-                                                                <p class="text-red text-center">{{ number_format($product->price) }} THB</p>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <a class="btn btn-red" href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}">ORDER</a>
-                                                            </td>
-                                                        </tr>
-                                                        @endif
-                                                @endforeach
-                                            @endif                                                
-                                        @endforeach
+                                            @endforeach
+                                        @endif
+
+                                        @if(count($favorites->product) > 0)
+                                            @foreach($products as $product)
+                                                @if($product->id == $favorite->id)
+                                                    <tr>
+                                                        <td width="20%">
+                                                            <img class="img-thumbnail" src="{{ asset($product->media()->first()->getUrl()) }}" alt="..." width="100">
+                                                        </td>
+                                                        <td class="">
+                                                            <p class="text-red ">{{ $product->name }}</p>
+                                                            <p >CODE : {{ $product->product_id }}</p>
+                                                        </td>
+                                                        <!-- <td>
+                                                            <p class="text-red">IN STOCK</p>
+                                                        </td> -->
+                                                        <td>
+                                                            <p class="text-red text-center">{{ number_format($product->price) }} THB</p>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <a class="btn btn-red" href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}">ORDER</a>
+                                                        </td>
+                                                    </tr>
+                                                    @endif
+                                            @endforeach
+                                        @endif                                                
+
                                     </table>
                                 </div>
                             </div>

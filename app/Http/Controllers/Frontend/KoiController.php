@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Koi;
 use App\Models\Category;
 use App\Models\Favorite;
+use App\Models\Product;
+use App\User;
 use Auth;
 use DB;
 
@@ -36,7 +38,7 @@ class KoiController extends Controller
         
     }
 
-    public function getKoiCategory($categoty)
+    public function getKoiCategory($category)
     {
         // $kois = Koi::all();
         // // $images = Koi::with(['media'])->get();
@@ -53,13 +55,16 @@ class KoiController extends Controller
         //     'images' => $images
         // ]);
 
-        $kois = Koi::with(['media'])->where('category_id', $categoty)->get();
-        $favorites = Favorite::where('type', 'koi')->where('user_id', Auth::user()->id)->get();
-        // dd($favorites);
-        $koiCategoty = Category::find($categoty);
+        $kois = Koi::with(['media'])->where('category_id', $category)->where('event_id', null)->paginate(20);
+        $koiCategory = Category::find($category);
         $categories = Category::active()->get()->toTree();
+        if(Auth::user() == null){
+            $favorites = null;
+        }else{
+            $favorites = Favorite::where('favorite_type', 'App\Models\Koi')->where('user_id', Auth::user()->id)->get();            
+        }
 
-        return view('frontend.koi.category', compact('kois', 'favorites', 'koiCategoty', 'categories'));
+        return view('frontend.koi.category', compact('kois', 'favorites', 'koiCategory', 'categories'));
         
     }
 
@@ -74,8 +79,14 @@ class KoiController extends Controller
         // ]);
 
         $kois = Koi::with(['media'])->find($id);
-        $favorites = Favorite::where('type', 'koi')->where('user_id', Auth::user()->id)->get();        
+        // dd($favorites);
         $categories = Category::active()->get()->toTree();
+
+        if(Auth::user() == null){
+            $favorites = null;
+        }else{
+            $favorites = Favorite::where('favorite_type', 'App\Models\Koi')->where('user_id', Auth::user()->id)->get();            
+        }
 
         return view('frontend.koi.detail', compact('kois','favorites', 'categories'));
         

@@ -189,13 +189,18 @@ Route::group(['namespace' => 'Frontend'], function() {
 	]);
 
 	//Favorite
-	Route::post('/favorite/add', [
+	// Route::post('/favorite/add', [
+	// 	'uses' => 'UserController@postfavorite',
+	// 	'as' => 'frontend.user.favorite-add',
+	// 	'middleware' => 'auth'		
+	// ]);
+	Route::get('/favorite/add/{id}', [
 		'uses' => 'UserController@postfavorite',
 		'as' => 'frontend.user.favorite-add',
 		'middleware' => 'auth'		
 	]);
 
-	Route::get('/favorite/del/{item}/{type}', [
+	Route::get('/favorite/del/{id}/{type}', [
 		'uses' => 'UserController@getfavoriteDel',
 		'as' => 'frontend.user.favorite-del',
 		'middleware' => 'auth'		
@@ -216,9 +221,32 @@ Route::group(['namespace' => 'Frontend'], function() {
 
 	//Payment
 	Route::get('/payment', [
+		'uses' => 'PaymentController@getIndex',
+		'as' => 'frontend.payment.index'	
+	]);
+
+	Route::get('/payment/order/{id}', [
 		'uses' => 'PaymentController@getPayment',
-		'as' => 'frontend.payment.index',
+		'as' => 'frontend.payment.payment',
 		'middleware' => 'auth'		
+	]);
+
+	Route::post('/payment/order/{id}', [
+		'uses' => 'PaymentController@postPayment',
+		'as' => 'frontend.payment.payment',
+		'middleware' => 'auth'		
+	]);
+
+	Route::get('/payment/success/{id}', [
+		'uses' => 'PaymentController@getSuccess',
+		'as' => 'frontend.payment.success',
+		'middleware' => 'auth'	
+	]);
+
+	//News
+	Route::get('news/{id}', [
+		'uses' => 'NewsController@getIndex',
+		'as' => 'frontend.news.index',
 	]);
 });
 

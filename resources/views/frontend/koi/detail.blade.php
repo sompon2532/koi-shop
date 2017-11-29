@@ -3,21 +3,27 @@
 @section('page_title', 'KOI')
 
 @section('custom-css')
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
+.btn-favorite {
+    background-color: transparent;
+    padding: 0px;
+}
+.star-label {
+    top: 0px;
+    right: 14px;
+}
 .slider {
-    width: 50%;
+    width: 100%;
     margin: auto;
-    /* margin: 100px auto; */
 }
 
 .slick-slide {
   margin: 0px 20px;
 }
 
-.slick-slide img {
+{{--/* .slick-slide img {
   width: 100%;
-}
+} */--}}
 
 .slick-slide iframe {
   width: 100%;
@@ -27,7 +33,6 @@
 .slick-next:before {
   color: red;
 }
-
 
 .slick-slide {
   transition: all ease-in-out .3s;
@@ -40,11 +45,6 @@
 
 .slick-current {
   opacity: 1;
-}
-
-.btn-favorite {
-    background-color: transparent;
-    padding: 0px;
 }
 </style>
 
@@ -66,21 +66,40 @@
 
                     <div class="content-box">
                         <div class="row">
-                            <div class="col-md-6">
-                               <!--  <img class="img-thumbnail" src="{{ asset('assets/img/stock-koi-4.png') }}" alt="..."> -->
-                               <div class="col-md-12">
-                                    <div class="slider slider-for thumbnail">
-                                        @foreach($kois->media as $media)
-                                            <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style=""> 
-                                        @endforeach
-                                    </div>
+                            <div class="col-md-3 col-md-offset-3">
+                                <div class="slider slider-for thumbnail">
+                                    @foreach($kois->media as $media)
+                                        <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style=""> 
+                                    @endforeach
                                 </div>
-                                <div class="col-md-6 col-md-offset-3 text-red">
+                                @if(count($favorites) == 0)
+                                    <div class="star-label">
+                                        <form action="{{ route('frontend.user.favorite-add', ['id' => $kois->id]) }}" method="GET" style="">  
+                                            <input type="hidden" name="item" value="{{ $kois->id }}">
+                                            <input type="hidden" name="type" value="App\Models\Koi">
+                                            <button type="submit" class="btn btn-favorite">
+                                                <img class="" src="{{ asset('frontend/src/img/favorite.png') }}" alt="..." style="max-height:50px;">    
+                                            </button> 
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                                @else
+                                    <div class="star-label">
+                                        <form action="{{ route('frontend.user.favorite-del', ['id' => $kois->id, 'type' => 'App\Models\Koi']) }}" method="GET" style="">  
+                                            <button type="submit" class="btn btn-favorite">
+                                                <img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
+                                            </button> 
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                                @endif
+                                <div class="text-red">
                                     <p>TO ORDER</p>
                                     <p>PLEASE CONTACT</p>
                                     <img class="" src="{{ asset('frontend/src/img/line-logo.png') }}" alt="...">                                    
                                 </div>
                             </div>
+
                             <div class="col-md-6 text-left">
                                 <p class="text-red">{{-- $products->title --}}</p>
                                 <p>CODE : {{ $kois->koi_id }}</p>
@@ -93,51 +112,14 @@
                                 <p>BORN IN : {{ $kois->born }}</p>
                                 <p>SIZE : {{ $kois->owner }}</p>
                                 <p>GENDER : {{ $kois->sex }}</p>
-                                @php 
-                                    $i=0;
-                                @endphp
-                                @if(count($favorites) > 0)
-                                    @foreach($favorites as $favorite)
-                                        @if($favorite->item_id == $kois->id)
-                                            @php
-                                                $i=1;
-                                            @endphp
-                                        @endif
-                                    @endforeach
-                                @endif
-                                @if($i == 0)
-                                    <!-- <div class="star-label"> -->
-                                        <form action="{{ route('frontend.user.favorite-add') }}" method="POST" style="">  
-                                            <input type="hidden" name="item" value="{{ $kois->id }}">
-                                            <input type="hidden" name="type" value="koi">
-                                            <button type="submit" class="btn btn-favorite">
-                                                <p class="text-red glyphicon glyphicon-star"></p><p class="float-left">add to favorite</p>
-                                                <!-- <img class="" src="{{-- asset('frontend/src/img/favorite.png') --}}" alt="..." style="max-height:50px;">     -->
-                                            </button> 
-                                            {{ csrf_field() }}
-                                        </form>
-                                    <!-- </div> -->
-                                @else
-                                    <div class="star-label">
-                                        <form action="{{ route('frontend.user.favorite-del', ['item' => $kois->id, 'type' => 'koi']) }}" method="GET" style="">  
-
-                                            <button type="submit" class="btn btn-favorite">
-                                                <img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
-                                            </button> 
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </div>
-                                @endif
                             </div>
 
                             @if(count($kois->media) > 1)                            
-                                <div class="col-md-12">
+                                <div class="col-md-8 col-md-offset-2">
                                     <div class="item">
                                         <div class="slider slider-nav">
                                             @foreach($kois->media as $media)
-                                                <!-- <div class="col-md-3"> -->
-                                                    <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style="max-height:150px;">    
-                                                <!-- </div> -->
+                                                <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style="max-height:150px;">    
                                             @endforeach
                                         </div>
                                     </div> 
@@ -163,49 +145,11 @@
             </div>
         </div>
     </div>
-    <!-- slick -->
-    <!-- <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-              <h2>Slider Syncing</h2> 
-              <div class="slider slider-for">
-                <div><img class="" src="{{ asset('assets/img/stock-koi-1.png') }}" alt="..."></div>
-                <div><img class="" src="{{ asset('assets/img/stock-koi-2.png') }}" alt="..."></div>
-                <div><img class="" src="{{ asset('assets/img/stock-koi-3.png') }}" alt="..."></div>
-                <div><img class="" src="{{ asset('assets/img/stock-koi-4.png') }}" alt="..."></div>
-                <div><img class="" src="{{ asset('assets/img/stock-koi-3.png') }}" alt="..."></div>
-              </div>
-              <div class="slider slider-nav">
-                <div><img class="" src="{{ asset('assets/img/stock-koi-1.png') }}" alt="..."></div>
-                <div><img class="" src="{{ asset('assets/img/stock-koi-2.png') }}" alt="..."></div>
-                <div><img class="" src="{{ asset('assets/img/stock-koi-3.png') }}" alt="..."></div>
-                <div><img class="" src="{{ asset('assets/img/stock-koi-4.png') }}" alt="..."></div>
-                <div><img class="" src="{{ asset('assets/img/stock-koi-3.png') }}" alt="..."></div>
-              </div>
-            </div>
-        </div>
-    </div> -->
 </section>
-
-
-
 @endsection
 
-<!-- <script>
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-}
-</script> -->
 @section('custom-js')
 <script>
-$(document).ready(function(){
-  $('.your-class').slick({
-    
-  });
-});
-	
-
  $('.slider-for').slick({
   slidesToShow: 1,
   slidesToScroll: 3,

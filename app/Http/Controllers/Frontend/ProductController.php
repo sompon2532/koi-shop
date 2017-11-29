@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Favorite;
+use App\User;
 use Carbon\Carbon;
 use Session;
 use Auth;
@@ -30,48 +32,67 @@ class ProductController extends Controller
         //     'products' => $products,
         //     'images' => $images
         // ]);
-        $products = Product::with('media')->get();
-        $categories = Category::active()->get()->toTree();
-        return view('frontend.shop.index', compact('products', 'categories'));
+        // $products = Product::with('media')->get();
+        // $categories = Category::active()->get()->toTree();
+        // return view('frontend.shop.index', compact('products', 'categories'));
         // $products = Product::with('media')->get();
         // return view('frontend.shop.index', [
         //         'products' => $products
         //     ]);
+
+        $products = Product::with('media')->get();       
+        $categories = Category::active()->get()->toTree(); 
+
+        if(Auth::user() == null){
+            $favorites = null;
+        }else{
+            $favorites = Favorite::where('favorite_type', 'App\Models\Product')->where('user_id', Auth::user()->id)->get();            
+        }      
+
+        return view('frontend.shop.index', compact('products', 'categories', 'favorites'));
     }
 
     public function getProductCategory($category)
-    {
-        
+    {   
         $products = Product::with('media')->where('category_id', $category)->get();
-        $categories = Category::active()->get()->toTree();        
-        return view('frontend.shop.category', compact('products', 'categories'));
-        // $products = Product::with('media')->get();
-        // return view('frontend.shop.index', [
-        //         'products' => $products
-        //     ]);
+        $productCategory = Category::find($category);        
+        $categories = Category::active()->get()->toTree(); 
+        // $user = User::find(Auth::user()->id);
+
+
+        if(Auth::user() == null){
+            $favorites = null;
+        }else{
+            $favorites = Favorite::where('favorite_type', 'App\Models\Product')->where('user_id', Auth::user()->id)->get();            
+        }      
+
+        return view('frontend.shop.category', compact('products', 'productCategory', 'categories', 'favorites'));
     }
 
     public function getDetail($id)
     {   
         $products = Product::with('media')->find($id);        
         // $products = Product::find($id);
-        $images = DB::table('products')
-        ->Join('media', 'products.id', '=', 'media.model_id')
-        ->select('products.*', 'media.*')
-        ->where('media.model_id' ,'=', $id)
-        ->where('media.collection_name', '=', 'product')
-        ->get();
-
+        // $images = DB::table('products')
+        // ->Join('media', 'products.id', '=', 'media.model_id')
+        // ->select('products.*', 'media.*')
+        // ->where('media.model_id' ,'=', $id)
+        // ->where('media.collection_name', '=', 'product')
+        // ->get();
         $categories = Category::active()->get()->toTree();          
-
+        if(Auth::user() == null){
+            $favorites = null;
+        }else{
+            $favorites = Favorite::where('favorite_id', $id)->where('favorite_type', 'App\Models\Product')->where('user_id', Auth::user()->id)->get();            
+        }
         // dd($images);
         // $images = $products->getMedia('product');
         // $images = $images[1]->getUrl();
         // dd($images);
         return view('frontend.shop.detail', [
             'products' => $products,
-            'images' => $images,
-            'categories' => $categories
+            'categories' => $categories,
+            'favorites' => $favorites
         ]);
     }
 

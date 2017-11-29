@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class Payment extends Model
+class Payment extends Model implements HasMedia
 {
-    use Translatable, SoftDeletes, HasMediaTrait;
+    use SoftDeletes, HasMediaTrait;
     
     /**
      * The attributes that should be cast to native types.
@@ -29,10 +28,24 @@ class Payment extends Model
     ];
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
+
+    /**
      * Get all of the post's remarks.
      */
     public function remarks()
     {
         return $this->morphMany(Remark::class, 'remarktable');
     }
+
+    /**
+     * @var array
+     */
+    public $fillable = ['order_id', 'bank', 'total', 'datetime'];
+    
 }

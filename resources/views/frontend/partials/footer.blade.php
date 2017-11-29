@@ -10,7 +10,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <p>
                                 KOIKICHI FISH FARM<br>
-                                WE ARE A MEMVER OF<br>
+                                WE ARE A MEMBER OF<br>
                                 ALL JAPAN NISHIKIGOI PROMOTION ASSOCIATION<br>
                                 </p>
                             </div>
