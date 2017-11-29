@@ -25,7 +25,7 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>ชื่อสายพันธุ์</th>
+                        <th>สายพันธุ์</th>
                         <th>สถานะ</th>
                         <th>การจัดการ</th>
                     </tr>
@@ -39,8 +39,9 @@
                         <td>
                             <a href="{{ route('strain.edit', ['strain' => $strain->id]) }}"
                                class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                            <a href="{{ route('strain.destroy', ['strain' => $strain->id]) }}"
-                               class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                            <button data-token="{{ csrf_token() }}" data-id="{{ $strain->id }}" data-url="strain" class="btn-delete btn btn-danger btn-xs">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
                         </td>
                     </tr>
                     @endforeach
@@ -48,7 +49,7 @@
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>ชื่อสายพันธุ์</th>
+                        <th>สายพันธุ์</th>
                         <th>สถานะ</th>
                         <th>การจัดการ</th>
                     </tr>

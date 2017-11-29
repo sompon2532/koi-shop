@@ -24,7 +24,7 @@
                 <table id="example2" class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>ชื่อหมวดหมู่</th>
+                        <th>หมวดหมู่</th>
                         <th>กลุ่ม</th>
                         <th>สถานะ</th>
                         <th>การจัดการ</th>
@@ -43,7 +43,9 @@
                             echo '<td>' . $status . '</td>';
                             echo '<td>';
                             echo '<a href="' . route('category.edit', ['category' => $category->id]) . '" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a> ';
-                            echo '<a href="' . route('category.destroy', ['category' => $category->id]) . '" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>';
+                            echo '<button data-token="' . csrf_token() . '" data-id="' . $category->id . '" data-url="category" class="btn-delete btn btn-danger btn-xs">';
+                            echo '<i class="fa fa-trash-o"></i>';
+                            echo '</button>';
                             echo '</td>';
                             echo '<tr>';
 
@@ -56,7 +58,7 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th>ชื่อหมวดหมู่</th>
+                        <th>หมวดหมู่</th>
                         <th>หลุ่ม</th>
                         <th>สถานะ</th>
                         <th>การจัดการ</th>

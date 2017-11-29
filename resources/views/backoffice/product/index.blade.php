@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        Product
-        <small>list</small>
+        สินค้า
+        <small>รายการ</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Product</li>
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+        <li class="active">สินค้า</li>
     </ol>
 @endsection
 
@@ -17,18 +17,17 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('product.create') }}" class="pull-right btn btn-primary">Create product</a>
+                <a href="{{ route('product.create') }}" class="pull-right btn btn-primary">สร้างสินค้า</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
                 <table id="example2" class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>Product ID</th>
-                        <th>Name</th>
-                        <th>Slug</th>
-                        <th>Status</th>
-                        <th>Aciton</th>
+                        <th>รหัสสินค้า</th>
+                        <th>สินค้า</th>
+                        <th>สถานะ</th>
+                        <th>การจัดการ</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,24 +35,23 @@
                         <tr>
                             <td>{{ $product->product_id }}</td>
                             <td>{{ $product->name }}</td>
-                            <td>{{ $product->slug }}</td>
                             <td>{{ $product->status ? 'Active' : 'Inactive' }}</td>
                             <td>
                                 <a href="{{ route('product.edit', ['product' => $product->id]) }}"
                                    class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="{{ route('product.destroy', ['product' => $product->id]) }}"
-                                   class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                                <button data-token="{{ csrf_token() }}" data-id="{{ $product->id }}" data-url="product" class="btn-delete btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th>Product ID</th>
-                        <th>Name</th>
-                        <th>Slug</th>
-                        <th>Status</th>
-                        <th>Aciton</th>
+                        <th>รหัสสินค้า</th>
+                        <th>สินค้า</th>
+                        <th>สถานะ</th>
+                        <th>การจัดการ</th>
                     </tr>
                     </tfoot>
                 </table>

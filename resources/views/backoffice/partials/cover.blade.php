@@ -20,17 +20,29 @@
             รูปปก
         </label>
         <div class="col-sm-10">
-            <button type="button" class="add-file-cover btn btn-warning btn-sm">เลือกรูปภาพ</button>
+            @php
+                $display = 'inline-block';
+                $url = '';
+            @endphp
+
+            @foreach ($images as $index => $image)
+                @if ($image->collection_name == $collection)
+                    @php
+                        $display = 'none';
+                        $url = $image->getUrl();
+                    @endphp
+                @endif
+            @endforeach
+
+            <button type="button" class="add-file-cover btn btn-warning btn-sm" style="display: {{ $display }}">เลือกรูปภาพ</button>
             <div id="cover"></div>
             <div id="image-cover">
-                @foreach ($images as $index => $image)
-                    @if ($image->collection_name == $collection)
-                        <div class='box-image-cover'>
-                            <img class='preview-cover' src="{{ asset("$image->disk/$image->id/$image->file_name") }}">
-                            <i class='fa fa-times-circle remove-file-cover'></i>
-                        </div>
-                    @endif
-                @endforeach
+            @if ($display == 'none')
+                <div class='box-image-cover'>
+                    <img class='preview-cover' src="{{ $url }}">
+                    <i class='fa fa-times-circle remove-file-cover'></i>
+                </div>
+            @endif
             </div>
         </div>
     </div>

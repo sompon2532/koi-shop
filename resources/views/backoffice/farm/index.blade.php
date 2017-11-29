@@ -25,7 +25,7 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>ชื่อฟาร์ม</th>
+                        <th>ฟาร์ม</th>
                         <th>สถานะ</th>
                         <th>การจัดการ</th>
                     </tr>
@@ -39,8 +39,9 @@
                         <td>
                             <a href="{{ route('farm.edit', ['farm' => $farm->id]) }}"
                                class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                            <a href="{{ route('farm.destroy', ['farm' => $farm->id]) }}"
-                               class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                            <button data-token="{{ csrf_token() }}" data-id="{{ $farm->id }}" data-url="farm" class="btn-delete btn btn-danger btn-xs">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
                         </td>
                     </tr>
                     @endforeach
@@ -48,7 +49,7 @@
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>ชื่อฟาร์ม</th>
+                        <th>ฟาร์ม</th>
                         <th>สถานะ</th>
                         <th>การจัดการ</th>
                     </tr>
