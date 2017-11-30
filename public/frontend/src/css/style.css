@@ -641,6 +641,11 @@ footer a:hover {
     color: #ffffff;
 }
 
+.btn-red:focus,
+.btn-red:hover {
+    color: #ffffff;
+}
+
 .btn.disabled,
 .btn[disabled],
 fieldset[disabled] .btn {

@@ -24,7 +24,6 @@ class EventController extends Controller
     public function getEvent($id) {
         $events = Event::with(['media'])->find($id);
         $kois = Koi::with(['media'])->where('event_id', $id)->get();
-        $books = Auth::user()->kois()->with(['media'])->where('kois.event_id', $id)->get();
         $today = Carbon::now('Asia/Bangkok');
         $categories = Category::active()->get()->toTree();
 
@@ -33,6 +32,11 @@ class EventController extends Controller
         // }
         // $koi = Koi::find(1);
         // dd($koi->user);
+        if(Auth::user() == null){
+            $books = null;
+        }else{
+            $books = Auth::user()->kois()->with(['media'])->where('kois.event_id', $id)->get();            
+        }
         if($events->end_datetime < Carbon::now()->toDateString()) {
             $events->config = 0;
         }
@@ -46,9 +50,14 @@ class EventController extends Controller
         $kois = Koi::with(['media'])->where('event_id', $event)->find($koi);
         $today = Carbon::now('Asia/Bangkok');     
         $contests = Contest::where('contesttable_id', $koi)->get();          
-        $books = Auth::user()->kois()->with(['media'])->where('kois.event_id', $event)->find($koi);
         $userbooks = Koi::with(['users'])->find($koi);
         $categories = Category::active()->get()->toTree();
+
+        if(Auth::user() == null){
+            $books = null;
+        }else{
+            $books = Auth::user()->kois()->with(['media'])->where('kois.event_id', $event)->find($koi);        
+        }
 
         if($events->end_datetime < Carbon::now()->toDateString()) {
             $events->config = 0;
@@ -57,14 +66,27 @@ class EventController extends Controller
         return view('frontend.event.koi', compact('events', 'kois', 'today', 'contests', 'books', 'userbooks', 'categories'));
     }
 
-    public function postEvent(Request $request) {
-        $insert = array(
-            'koi_id' => $request->input('koi'),            
-            'user_id' => Auth::user()->id,
-            'event_id' => $request->input('event')
-        );
+    // public function postEvent(Request $request) {
+    //     $insert = array(
+    //         'koi_id' => $request->input('koi'),            
+    //         'user_id' => Auth::user()->id,
+    //         'event_id' => $request->input('event')
+    //     );
 
-        DB::table('koi_user')->insert($insert);
+    //     DB::table('koi_user')->insert($insert);
+        
+    //     return redirect()->back()->with('success', 'Successfully Book Koi!');
+    // }
+    public function getEventAdd($koi, $event) {
+        $book = DB::table('koi_user')->where('koi_id', $koi)->where('event_id', $event)->where('user_id', Auth::user()->id)->get();
+        if(count($book) == 0){
+            $insert = array(
+                'koi_id' => $koi,            
+                'user_id' => Auth::user()->id,
+                'event_id' => $event
+            );
+            DB::table('koi_user')->insert($insert);
+        }
         
         return redirect()->back()->with('success', 'Successfully Book Koi!');
     }

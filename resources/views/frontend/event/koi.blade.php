@@ -152,9 +152,9 @@
                                                         {{ csrf_field() }}
                                                     </form>
                                                 @else
-                                                    <form action="{{ route('frontend.event.bookevent') }}" method="POST" style="">  
-                                                        <input type="hidden" name="koi" value="{{ $kois->id }}">
-                                                        <input type="hidden" name="event" value="{{ $events->id }}">
+                                                    <form action="{{ route('frontend.event.bookevent', ['koi' => $kois->id, 'event' => $events->id]) }}" method="GET" style="">  
+                                                        <!-- <input type="hidden" name="koi" value="{{ $kois->id }}">
+                                                        <input type="hidden" name="event" value="{{ $events->id }}"> -->
                                                         <button type="submit" class="btn btn-white">{{ trans('event.book_now') }}</button>                                                                                          
                                                         {{ csrf_field() }}
                                                     </form>

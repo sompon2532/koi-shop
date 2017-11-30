@@ -141,20 +141,20 @@ Route::group(['namespace' => 'Frontend'], function() {
 	// Events
 	Route::get('/event', [
 		'uses' => 'EventController@getIndex',
-		'as' => 'frontend.event.index',
-		'middleware' => 'auth'
+		'as' => 'frontend.event.index'
+		// 'middleware' => 'auth'
 	]);
 
 	Route::get('/event/{id}', [
 		'uses' => 'EventController@getEvent',
 		'as' => 'frontend.event.event',
-		'middleware' => 'auth'
+		// 'middleware' => 'auth'
 	]);
 
 	Route::get('/event/{event}/{koi}', [
 		'uses' => 'EventController@getKoi',
 		'as' => 'frontend.event.koi',
-		'middleware' => 'auth'
+		// 'middleware' => 'auth'
 	]);
 
 	Route::get('/event/announcement/luckydraw/{event}', [
@@ -170,11 +170,16 @@ Route::group(['namespace' => 'Frontend'], function() {
 	]);
 
 	//Booking
-	Route::post('/event/booking/add', [
-		'uses' => 'EventController@postEvent',
-		'as' => 'frontend.event.bookevent',
-		'middleware' => 'auth'		
-	]);
+	// Route::post('/event/booking/add', [
+	// 	'uses' => 'EventController@postEvent',
+	// 	'as' => 'frontend.event.bookevent',
+	// 	'middleware' => 'auth'		
+	// ]);
+	Route::get('/event/booking/add/{koi}/{event}', [
+			'uses' => 'EventController@getEventAdd',
+			'as' => 'frontend.event.bookevent',
+			'middleware' => 'auth'		
+		]);
 
 	Route::get('/event/booking/del/{koi}/{event}', [
 		'uses' => 'EventController@getEventDel',

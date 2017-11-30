@@ -70,16 +70,16 @@
                                                             @endforeach
                                                         @endif
                                                         @if($i == 1)
-                                                            <form action="{{ route('frontend.event.bookdel', ['koi' => $koi->id, 'event' => $events->id]) }}" method="GET" style="">  
+                                                            <form action="{{ route('frontend.event.bookdel', ['koi' => $koi->id, 'event' => $events->id]) }}" method="GET">  
                                                                 <!-- <input type="hidden" name="koi" value="{{ $koi->id }}">
                                                                 <input type="hidden" name="event" value="{{ $events->id }}"> -->
                                                                 <button type="submit" class="btn btn-red">{{ trans('event.cancel') }}</button>                                                                                          
                                                                 {{ csrf_field() }}
                                                             </form>
                                                         @else
-                                                            <form action="{{ route('frontend.event.bookevent') }}" method="POST" style="">  
-                                                                <input type="hidden" name="koi" value="{{ $koi->id }}">
-                                                                <input type="hidden" name="event" value="{{ $events->id }}">
+                                                            <form action="{{ route('frontend.event.bookevent', ['koi' => $koi->id, 'event' => $events->id]) }}" method="GET">  
+                                                                <!-- <input type="hidden" name="koi" value="{{ $koi->id }}">
+                                                                <input type="hidden" name="event" value="{{ $events->id }}"> -->
                                                                 <button type="submit" class="btn btn-white">{{ trans('event.book_now') }}</button>                                                                                          
                                                                 {{ csrf_field() }}
                                                             </form>
