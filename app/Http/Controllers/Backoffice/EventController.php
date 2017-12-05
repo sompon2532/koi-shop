@@ -183,7 +183,9 @@ class EventController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function showKoiDetail(Event $event, Koi $koi) {
-        $koi->load('users');
+        $koi->load(['users' => function($query) use($event) {
+            $query->where('event_id', $event->id );
+        }]);
 
         return view('backoffice.event.koi', compact('event', 'koi'));
     }
