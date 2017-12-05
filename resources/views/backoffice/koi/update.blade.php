@@ -31,12 +31,12 @@
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="event" class="col-sm-3 control-label">อีเว้นท์</label>
+                            <label for="user" class="col-sm-3 control-label">เจ้าของปลา</label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="event_id" id="event">
-                                    <option value="">-------- Select event --------</option>
-                                    @foreach ($events as $event)
-                                        <option value="{{ $event->id }}" {{ $koi->event_id == $event->id ? 'selected' : '' }}>{{ $event->name }}</option>
+                                <select class="form-control" name="user_id" id="user">
+                                    <option value="">-------- Select owner --------</option>
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}" {{ $koi->user_id == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -57,27 +57,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="koiId" class="col-sm-3 control-label">
-                                รหัสปลา <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="koi_id" value="{{ $koi->koi_id }}" id="koiId"
-                                       placeholder="Koi ID">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="strain" class="col-sm-3 control-label">สายพันธุ์</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" name="strain_id" id="strain">
-                                    @foreach ($strains as $strain)
-                                        <option value="{{ $strain->id }}" {{ $strain->id == $koi->strain_id ? 'selected' : '' }}>{{ $strain->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <label for="category" class="col-sm-3 control-label">หมวดหมู่</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="category_id" id="category">
@@ -94,6 +73,27 @@
 
                                         $traverse($categories);
                                     @endphp
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="koiId" class="col-sm-3 control-label">
+                                รหัสปลา <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="koi_id" value="{{ $koi->koi_id }}" id="koiId"
+                                       placeholder="Koi ID">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="strain" class="col-sm-3 control-label">สายพันธุ์</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="strain_id" id="strain">
+                                    @foreach ($strains as $strain)
+                                        <option value="{{ $strain->id }}" {{ $strain->id == $koi->strain_id ? 'selected' : '' }}>{{ $strain->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -138,6 +138,18 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="en[name]" value="{{ $koi->translate('en')->name }}" id="nameEn"
                                        placeholder="Name EN">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event" class="col-sm-3 control-label">อีเว้นท์</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="event_id" id="event">
+                                    <option value="">-------- Select event --------</option>
+                                    @foreach ($events as $event)
+                                        <option value="{{ $event->id }}" {{ $koi->event_id == $event->id ? 'selected' : '' }}>{{ $event->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 

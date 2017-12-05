@@ -11,6 +11,7 @@ use App\Models\Strain;
 use App\Models\Farm;
 use App\Models\Event;
 use App\Models\Koi;
+use App\User;
 
 class KoiController extends Controller
 {
@@ -37,8 +38,9 @@ class KoiController extends Controller
         $events = Event::active()->get();
         $strains = Strain::active()->get();
         $farms = Farm::active()->get();
+        $users = User::get();
 
-        return view('backoffice.koi.create', compact('categories', 'strains', 'events', 'farms'));
+        return view('backoffice.koi.create', compact('categories', 'strains', 'events', 'farms', 'users'));
     }
 
     /**
@@ -110,14 +112,15 @@ class KoiController extends Controller
      */
     public function edit(Koi $koi)
     {
-        $koi->load(['remarks', 'contests', 'sizes', 'videos', 'media']);
+        $koi->load(['remarks', 'contests', 'sizes', 'videos', 'media', 'user']);
 
         $categories = Category::active()->group('koi')->get()->toTree();
         $events = Event::active()->get();
         $strains = Strain::active()->get();
         $farms = Farm::active()->get();
+        $users = User::get();
 
-        return view('backoffice.koi.update', compact('koi', 'categories', 'events', 'strains', 'farms'));
+        return view('backoffice.koi.update', compact('koi', 'categories', 'events', 'strains', 'farms', 'users'));
     }
 
     /**

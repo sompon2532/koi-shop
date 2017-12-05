@@ -8,6 +8,7 @@ use App\Http\Requests\Event\UpdateEventRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Models\Koi;
+use App\User;
 use Carbon\Carbon;
 
 class EventController extends Controller
@@ -193,17 +194,16 @@ class EventController extends Controller
      * @param $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function setOwner(Event $event, Koi $koi, $user) {
-        if ($koi->owner !== (int)$user) {
-            $koi->update([
-                'owner' => $user
-            ]);
+    public function setWinner(Event $event, Koi $koi, User $user) {
+        $user_id = $user->id;
+
+        if ($koi->user_id == $user->id) {
+            $user_id = null;
         }
-        else {
-            $koi->update([
-                'owner' => null
-            ]);
-        }
+
+        $koi->update([
+            'user_id' => $user_id
+        ]);
 
         return redirect()->back();
     }

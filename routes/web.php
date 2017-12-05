@@ -26,9 +26,9 @@ Route::group(['prefix' => 'admin'], function() {
         Route::resource('category', 'CategoryController');
         Route::resource('news', 'NewsController');
 
-        Route::get('event/{event}/koi/{koi}/set/{user}', [
-            'as'   => 'event.koi.owner',
-            'uses' => 'EventController@setOwner'
+        Route::get('event/{event}/koi/{koi}/winner/{user}', [
+            'as'   => 'event.koi.winner',
+            'uses' => 'EventController@setWinner'
         ]);
         Route::get('event/{event}/koi/{koi}', [
             'as'   => 'event.koi.detail',

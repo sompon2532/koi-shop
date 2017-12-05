@@ -48,7 +48,7 @@ class Koi extends Model implements HasMedia
     /**
      * @var array
      */
-    public $fillable = ['koi_id', 'farm_id', 'strain_id', 'certificate', 'born', 'oyagoi', 'sex', 'owner', 'storage', 'price', 'category_id', 'slug', 'event_id'];
+    public $fillable = ['koi_id', 'farm_id', 'strain_id', 'certificate', 'born', 'oyagoi', 'sex', 'user_id', 'storage', 'price', 'category_id', 'slug', 'event_id'];
 
     /**
      * Get all of the post's remarks.
@@ -99,7 +99,7 @@ class Koi extends Model implements HasMedia
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'owner');
+        return $this->belongsTo('App\User');
     }
 
     public function strain()

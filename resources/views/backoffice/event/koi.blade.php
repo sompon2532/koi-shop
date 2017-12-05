@@ -48,17 +48,21 @@
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>
-                                    @if ($koi->owner == $user->id)
-                                        ได้รับรางวัล
+                                    @if ($koi->user_id == $user->id)
+                                        <span class="label label-success">
+                                            <i class="fa fa-trophy"></i> ได้รับรางวัล
+                                        </span>
                                     @else
-                                        ไม่ได้รับรางวัล
+                                        <span class="label label-default">ไม่ได้รับรางวัล</span>
                                     @endif
                                 </td>
                                 <td>
-                                    @if ($koi->owner == $user->id)
-                                        <a href="{{ route('event.koi.owner', ['event' => $event->id, 'koi' => $koi->id, 'user' => $user->id]) }}" class="btn btn-xs btn-danger">ยกเลิก</a>
+                                    @if ($koi->user_id == $user->id)
+                                        <a href="{{ route('event.koi.winner', ['event' => $event->id, 'koi' => $koi->id, 'user' => $user->id]) }}" class="btn btn-xs btn-danger">
+                                            <i class="fa fa-ban"></i> ยกเลิก
+                                        </a>
                                     @else
-                                        <a href="{{ route('event.koi.owner', ['event' => $event->id, 'koi' => $koi->id, 'user' => $user->id]) }}" class="btn btn-xs btn-default">รับรางวัล</a>
+                                        <a href="{{ route('event.koi.winner', ['event' => $event->id, 'koi' => $koi->id, 'user' => $user->id]) }}" class="btn btn-xs btn-default">รับรางวัล</a>
                                     @endif
                                 </td>
                             </tr>

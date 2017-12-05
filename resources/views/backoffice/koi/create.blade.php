@@ -30,12 +30,12 @@
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="event" class="col-sm-3 control-label">อีเว้นท์</label>
+                            <label for="user" class="col-sm-3 control-label">เจ้าของปลา</label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="event_id" id="event">
-                                    <option value="">-------- Select event --------</option>
-                                    @foreach ($events as $event)
-                                        <option value="{{ $event->id }}">{{ $event->name }}</option>
+                                <select class="form-control" name="user_id" id="user">
+                                    <option value="">-------- Select owner --------</option>
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -56,6 +56,26 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="category" class="col-sm-3 control-label">หมวดหมู่</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="category_id" id="category">
+                                    <option value="">-------- Select category --------</option>
+                                    @php
+                                        $traverse = function ($categories, $prefix = '') use (&$traverse) {
+                                            foreach ($categories as $category) {
+                                                echo '<option value="'. $category->id . '">' . $prefix . $category->name . '</option>';
+
+                                                $traverse($category->children, $prefix.'- ');
+                                            }
+                                        };
+
+                                        $traverse($categories);
+                                    @endphp
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="koiId" class="col-sm-3 control-label">
                                 รหัสปลา <span class="text-danger">*</span>
                             </label>
@@ -72,26 +92,6 @@
                                     @foreach ($strains as $strain)
                                         <option value="{{ $strain->id }}">{{ $strain->name }}</option>
                                     @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="category" class="col-sm-3 control-label">หมวดหมู่</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" name="category_id" id="category">
-                                    <option value="">-------- Select category --------</option>
-                                    @php
-                                    $traverse = function ($categories, $prefix = '') use (&$traverse) {
-                                        foreach ($categories as $category) {
-                                            echo '<option value="'. $category->id . '">' . $prefix . $category->name . '</option>';
-
-                                            $traverse($category->children, $prefix.'- ');
-                                        }
-                                    };
-
-                                    $traverse($categories);
-                                    @endphp
                                 </select>
                             </div>
                         </div>
@@ -136,6 +136,18 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="en[name]" value="{{ old('en.name') }}" id="nameEn"
                                        placeholder="Name EN">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event" class="col-sm-3 control-label">อีเว้นท์</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="event_id" id="event">
+                                    <option value="">-------- Select event --------</option>
+                                    @foreach ($events as $event)
+                                        <option value="{{ $event->id }}">{{ $event->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
