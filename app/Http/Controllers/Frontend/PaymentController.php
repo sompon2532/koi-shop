@@ -34,18 +34,22 @@ class PaymentController extends Controller
             'order_id'    => $id,
             'bank'        => $request->input('bank'),
             'total'       => $request->input('total'),    
-            'datetime'    => $request->input('datetime'),    
-            'created_at'  => Carbon::now()->toDateTimeString()                   
+            'datetime'    => $request->input('datetime')                  
         );
-
         $payment = Payment::create($insert);
+
+        $order = Order::find($id);
+        $order->status = 1;
+        $order->save();
+
+        // DB::table('orders')->where('id', $id)->update(['status' => 1]);
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');  
             $payment->addMedia($image)->toMediaCollection('payment');
         }
         
-        return 'success';
+        return redirect()->route('frontend.payment.success', ['id' => $id])->with('success', 'Successfully purchased products!');;
     }
 
     public function getSuccess($id)

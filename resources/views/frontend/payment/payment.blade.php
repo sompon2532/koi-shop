@@ -16,6 +16,7 @@
         margin: 0 auto;
     }
 </style>
+
 @endsection
 
 @section('content')
@@ -50,7 +51,7 @@
                                             <td class="text-left">{{ $order->email }}</td>
                                         </tr> -->
                                         <tr>
-                                            <td class="text-right">PHONE NUMBER : </td>
+                                            <td class="text-right">TEL : </td>
                                             <td class="text-left">{{ $order->tel }}</td>
                                         </tr>
                                     </table>
@@ -96,41 +97,51 @@
                     </div>
                     <!-- <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 clear-both"> -->
                         <h2 class="text-red">SHIPPING ADDRESS</h2>
-                            <div class="row">
-                                <div class="col-xs-12 col-md-6 col-md-offset-3">
-                                    <div class="form-group form-payment">
-                                        <label class="col-md-3" for="name">IMAGE :</label>
-                                        <div class="col-md-9">
-                                            <input class="col-md-12" type="file" name="image" id="image" value="">                                        
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-12 col-md-6 col-md-offset-3">
-                                    <div class="form-group form-payment">
-                                        <label class="col-md-3" for="address">TOTAL : </label>
-                                        <div class="col-md-9">
-                                            <input type="text" id="total" class="form-control" required name="total">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-xs-12 col-md-6 col-md-offset-3">
-                                    <div class="form-group form-payment">
-                                        <label class="col-md-3" for="name">DATE TIME :</label>
-                                        <div class="col-md-9">
-                                            <div class='input-group date' id='datetimepicker1'>
-                                                <input type='text' class="form-control" name="datetime" />
-                                                <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                </span>
-                                            </div>
-                                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6 col-md-offset-3">
+                                <div class="form-group form-payment">
+                                    <label class="col-md-3" for="name">IMAGE :</label>
+                                    <div class="col-md-9">
+                                        <input class="col-md-12" type="file" name="image" id="image" value="">                                        
                                     </div>
                                 </div>
                             </div>
-                            {{ csrf_field() }}
-                            <button type="submit" class="btn btn-red form-payment">SEND</button>
+
+                            <div class="col-xs-12 col-md-6 col-md-offset-3">
+                                <div class="form-group form-payment">
+                                    <label class="col-md-3" for="address">TOTAL : </label>
+                                    <div class="col-md-9">
+                                        <input type="text" id="total" class="form-control" required name="total">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- <div class="col-xs-12 col-md-6 col-md-offset-3">
+                                <div class="form-group form-payment">
+                                    <label class="col-md-3" for="name">DATE TIME :</label>
+                                    <div class="col-md-9">
+                                        <div class='input-group date' id='datetimepicker1'>
+                                            <input type='text' class="form-control" name="datetime" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="col-xs-12 col-md-6 col-md-offset-3">
+                                <div class="form-group form-payment">
+                                    <label class="col-md-3" for="name">DATE TIME :</label>
+                                    <div class="col-md-9">
+                                        <input type='text' class="form-control" id='datetimepicker4' name="datetime"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <p>Date: <input type="text" id="datepicker"></p> -->
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn btn-red form-payment">SEND</button>
                         
                     <!-- </div> -->
                 </div>
@@ -145,4 +156,21 @@
         $('#datetimepicker1').datetimepicker();
     });
 </script>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker4').datetimepicker({
+            format:'YYYY-MM-DD HH:mm:ss',
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#datepicker').datetimepicker({
+            format:'YYYY-MM-DD HH:mm:ss',
+        });
+    });
+</script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script> -->
+
 @endsection

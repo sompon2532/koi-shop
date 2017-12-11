@@ -577,6 +577,92 @@ footer a:hover {
 
 
 /* 
+    *calendar
+*/
+
+.calendar-box {
+    border: solid 1px #ff0000;
+}
+
+.fc-toolbar.fc-header-toolbar {
+    margin-bottom: auto;
+    color: red;
+}
+
+.fc-event {
+    height: 2px;
+}
+
+.fc-state-default {
+    box-shadow: none;
+}
+
+.fc-state-default.fc-corner-right {
+    background: #fff;
+}
+
+.fc-state-default.fc-corner-right,
+.fc-state-default.fc-corner-left {
+    border: none;
+    color: #ff0000;
+}
+
+.fc button {
+    padding: 0 0.3em;
+}
+
+.fc button .fc-icon {
+    margin: auto;
+}
+
+.fc-icon,
+.fc-toolbar .fc-center {
+    margin-top: 5px;
+}
+
+.fc-unthemed .fc-content,
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-list-heading td,
+.fc-unthemed .fc-list-view,
+.fc-unthemed .fc-popover,
+.fc-unthemed .fc-row,
+.fc-unthemed tbody,
+.fc-unthemed td,
+.fc-unthemed th,
+.fc-unthemed thead {
+    border-color: #fff;
+}
+
+.fc-basic-view .fc-body .fc-row {
+    min-height: 2em;
+}
+
+.fc-scroller.fc-day-grid-container {
+    height: 100% !important;
+}
+
+span.fc-day-number {
+    float: unset !important;
+    margin: auto;
+    display: table;
+}
+
+.fc-unthemed td.fc-today {
+    background: #fff;
+}
+
+.fc-today span.fc-day-number {
+    text-align: center;
+    border: 1px solid #ff0000;
+    border-radius: 50%;
+    display: block;
+}
+
+
+/* end calendar */
+
+
+/* 
     *myorder
 */
 
@@ -629,6 +715,21 @@ footer a:hover {
 .orders-detail {
     padding: 10px 0;
 }
+
+
+/* 
+|
+|   input
+|
+*/
+
+
+/* .main-content input {
+    border: none;
+    border-radius: 0;
+    outline: none;
+    border-bottom: 2px solid #ff0000;
+} */
 
 
 /*.btn {

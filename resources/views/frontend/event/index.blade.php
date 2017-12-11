@@ -19,8 +19,45 @@
                     <div class="content-box">
                         <div class="row">
                             @if (count($events) > 0)
-                                @if ($today->toDateString() < $events->first()->end_datetime->toDateString())
-                                    <div class="col-md-6">
+                                @foreach($events as $event)
+                                    @if ($today->toDateString() < $event->end_datetime->toDateString())
+                                        <div class="col-md-6">
+                                            <div class="item active">
+                                                <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
+                                                    <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="max-height:150px;">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="center">
+                                                <h3 class="text-red text-thick">{{ trans('event.new_events') }}!</h3>
+                                                <p>{{ $event->name }}</p>
+                                                <p>{{ $event->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $event->end_datetime->formatLocalized('%d %B %Y') }}</p>  
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <br>
+                                    @elseif($today->toDateString() == $event->end_datetime->toDateString() && $today->toTimeString() <= $events->end_datetime->toTimeString())
+                                        <div class="col-md-6">
+                                            <div class="item active">
+                                                <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
+                                                    <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="max-height:150px;">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="center">
+                                                <h3 class="text-red text-thick">{{ trans('event.new_events') }}!</h3>
+                                                <p>{{ $event->name }}</p>
+                                                <p>{{ $event->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $event->end_datetime->formatLocalized('%d %B %Y') }}</p>  
+                                            </div>
+                                        </div>
+                                    <br>
+                                    <br>
+                                    @endif
+                                @endforeach
+                                {{-- <!-- @if ($today->toDateString() < $events->first()->end_datetime->toDateString()) --> --}}
+                                    <!-- <div class="col-md-6">
                                         <div class="item active">
                                             <a href="{{ route('frontend.event.event', ['id' => $events->first()->id]) }}">
                                                 <img src="{{ asset($events->first()->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="max-height:150px;">
@@ -33,9 +70,9 @@
                                             <p>{{ $events->first()->name }}</p>
                                             <p>{{ $events->first()->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $events->first()->end_datetime->formatLocalized('%d %B %Y') }}</p>  
                                         </div>
-                                    </div>
-                                @elseif($today->toDateString() == $events->first()->end_datetime->toDateString() && $today->toTimeString() <= $events->first()->end_datetime->toTimeString())
-                                    <div class="col-md-6">
+                                    </div> -->
+                                {{-- <!-- @elseif($today->toDateString() == $events->first()->end_datetime->toDateString() && $today->toTimeString() <= $events->first()->end_datetime->toTimeString()) --> --}}
+                                    <!-- <div class="col-md-6">
                                         <div class="item active">
                                             <a href="{{ route('frontend.event.event', ['id' => $events->first()->id]) }}">
                                                 <img src="{{ asset($events->first()->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="max-height:150px;">
@@ -48,11 +85,11 @@
                                             <p>{{ $events->first()->name }}</p>
                                             <p>{{ $events->first()->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $events->first()->end_datetime->formatLocalized('%d %B %Y') }}</p>  
                                         </div>
-                                    </div>
-                                @endif
+                                    </div> -->
+                                {{-- <!-- @endif --> --}}
                                 
                                 <div class="col-md-12">
-                                    <br>
+                                    
                                     <h3 class="text-red text-thick">{{ trans('event.pass_events') }}</h3>
                                     <br>
                                     @foreach($events as $index => $event)

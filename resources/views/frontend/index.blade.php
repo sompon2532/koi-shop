@@ -25,7 +25,9 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="calendar-box">
-                    <div id="calendar"></div>
+                    <!-- <div id="calendar"></div> -->
+                    {!! $calendar->calendar() !!}
+                    
                 </div>                
             </div>
             <div class="col-md-9">
@@ -100,9 +102,8 @@
 <!-- bootstrap -->
 <!-- <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script> -->
 
-<script>
+<!-- <script>
 $(document).ready(function() {
-
     /* initialize the external events
      -----------------------------------------------------------------*/
     function init_events(ele) {
@@ -198,6 +199,14 @@ $(document).ready(function() {
           url            : 'http://google.com/',
           backgroundColor: '#3c8dbc', //Primary (light-blue)
           borderColor    : '#3c8dbc' //Primary (light-blue)
+        },
+        {
+          title          : 'Click for Google',
+          start          : new Date(y, m, 28),
+          end            : new Date(y, m, 29),
+          url            : 'http://google.com/',
+          backgroundColor: '#3c8dbc', //Primary (light-blue)
+          borderColor    : '#3c8dbc' //Primary (light-blue)
         }
       ],
       editable  : true,
@@ -223,5 +232,8 @@ $(document).ready(function() {
       }
     })
   })
-</script>
+</script> -->
+
+{!! $calendar->script() !!}
+
 @endsection

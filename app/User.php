@@ -29,7 +29,7 @@ class User extends Authenticatable
 
     public function kois()
     {
-        return $this->belongsToMany('App\Models\Koi');
+        return $this->belongsToMany('App\Models\Koi')->withPivot('event_id');
     }
 
     public function orders()

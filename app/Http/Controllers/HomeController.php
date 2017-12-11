@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\News;
 use App\Models\Category;
 use Carbon\Carbon;
+use Calendar;
 
 class HomeController extends Controller
 {
@@ -39,7 +40,42 @@ class HomeController extends Controller
         $now = Carbon::now('Asia/Bangkok')->toTimeString();
         $categories = Category::active()->get()->toTree();
 
-        return view('frontend.index', compact('news', 'now', 'categories'));
+        $events = [];
+        $data = Event::all();
+        if($data->count()) {
+            foreach ($data as $key => $value) {
+                $events[] = Calendar::event(
+                    // $value->name,
+                    null,
+                    true,//full day event?
+                    new \DateTime($value->start_datetime),
+                    new \DateTime($value->end_datetime.' +1 day'),
+                    null,
+                    // Add color and link on event
+	                [
+	                    'color' => '#ff0000',
+	                    'url' => '/event/'.$value->id,
+	                ]
+                );
+            }
+        }
+        $calendar = Calendar::addEvents($events);
+        $calendar->setOptions([
+            'locale' => config('app.locale'),
+            'views' => [ 
+                'month' => [ // name of view
+                    'columnFormat' => 'dd'
+                ]
+            ], 
+            'header' => [
+                'left'  => 'prev',
+                'center'=> 'title',
+                'right' => 'next'
+            ],
+            'eventLimit' => 0,
+        ]);
+
+        return view('frontend.index', compact('news', 'now', 'categories', 'calendar'));
     }
 
     public function getAboutUs()

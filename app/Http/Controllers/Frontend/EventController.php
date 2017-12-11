@@ -35,11 +35,12 @@ class EventController extends Controller
         if(Auth::user() == null){
             $books = null;
         }else{
-            $books = Auth::user()->kois()->with(['media'])->where('kois.event_id', $id)->get();            
+            $books = Auth::user()->kois()->with(['media'])->where('koi_user.event_id', $id)->get();
         }
         if($events->end_datetime < Carbon::now()->toDateString()) {
             $events->config = 0;
         }
+        // return $books;
         // dd($events->end_datetime);
         // if($events->end_start
         return view('frontend.event.event', compact('events', 'kois', 'books', 'today', 'categories'));        
@@ -56,7 +57,7 @@ class EventController extends Controller
         if(Auth::user() == null){
             $books = null;
         }else{
-            $books = Auth::user()->kois()->with(['media'])->where('kois.event_id', $event)->find($koi);        
+            $books = Auth::user()->kois()->with(['media'])->where('koi_user.event_id', $event)->find($koi);        
         }
 
         if($events->end_datetime < Carbon::now()->toDateString()) {
@@ -99,27 +100,47 @@ class EventController extends Controller
 
     public function getMyBooking() {
         $kois = Auth::user()->kois()->with(['media'])->get();
-        // $books = Auth::user()->kois()->with(['media'])->where('kois.event_id', $id)->get();        
+        // $books = Auth::user()->kois()->with(['media'])->where('kois.event_id', $id)->get();  
+        
+        $koisActiveEvent = array();
+        $j = 0;
+        for($i=0; $i<count($kois); $i++){
+            if($kois[$i]->event_id == $kois[$i]->pivot->event_id){
+                // echo $kois[$i]->id;
+                // echo $kois[$i]->event_id;
+                // echo $kois[$i]->user_id;
+                $koisActiveEvent[$j] = $kois[$i];
+                $j++;
+            }
+        }      
+        $now = Carbon::now('Asia/Bangkok');     
+        
         $categories = Category::active()->get()->toTree();    
 
-        // dd($kois);
-        return view('frontend.event.booking', compact('kois', 'categories'));
+        // foreach ($koisActiveEvent as $koi) {
+        //     echo $koi->event->name."<br>";
+        //     echo $koi->event->start_datetime."<br>";
+        //     echo $koi->event->end_datetime."<br>";
+        // }
+        // dd();
+        // return $bookKois;
+        return view('frontend.event.booking', compact('kois', 'categories', 'koisActiveEvent', 'now'));
     }
 
-    public function getLuckydraw($event)
-    {
-        $events = Event::with(['media'])->find($event);
-        $categories = Category::active()->get()->toTree();    
-// dd($events->videos);
-        return view('frontend.event.luckydraw', compact ('events', 'categories'));
-    }
+    // public function getLuckydraw($event)
+    // {
+    //     $events = Event::with(['media'])->find($event);
+    //     $categories = Category::active()->get()->toTree();    
 
-    public function getWinnerlist($event)
-    {
-        $kois = Koi::with(['media'])->where('event_id', $event)->get();
-        // $events = Event::koi->with(['media'])->find($event);
-        $categories = Category::active()->get()->toTree();    
-// dd($events->videos);
-        return view('frontend.event.winnerlist', compact ('kois', 'categories'));
-    }
+    //     return view('frontend.event.luckydraw', compact ('events', 'categories'));
+    // }
+
+    // public function getWinnerlist($event)
+    // {
+    //     $kois = Koi::with(['media'])->where('event_id', $event)->get();
+    //     // $events = Event::koi->with(['media'])->find($event);
+    //     $categories = Category::active()->get()->toTree();    
+
+    //     return view('frontend.event.winnerlist', compact ('kois', 'categories'));
+    // }
 }

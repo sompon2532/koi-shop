@@ -112,6 +112,11 @@ class Koi extends Model implements HasMedia
         return $this->belongsTo('App\Models\Farm', 'farm_id');
     }
 
+    public function event()
+    {
+        return $this->belongsTo('App\Models\Event', 'event_id');
+    }
+
     public function userss()
     {
         return $this->morphToMany('App\User', 'favorite');

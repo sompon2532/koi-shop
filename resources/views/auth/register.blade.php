@@ -161,7 +161,7 @@
 
                                 <div class="form-group">
                                     <div class="col-sm-offset-5 col-sm-5">
-                                        <button type="submit" class="btn btn-default">ตกลง</button>
+                                        <button type="submit" class="btn btn-red">ตกลง</button>
                                     </div>
                                 </div>
 

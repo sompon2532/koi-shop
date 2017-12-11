@@ -90,10 +90,10 @@
                                         @endforeach
                                     @else
                                         <h4 class="text-red">End of Event.</h4>
-                                        <div class="col-md-12">
-                                            <h3>{{ trans('event.lucky_draw') }}</h3>
-                                            <h5>({{ trans('event.video') }})</h5>
-                                            @if(count($events->videos) > 0)
+                                        @if(count($events->videos) > 0)
+                                            <div class="col-md-12">
+                                                <h3>{{ trans('event.lucky_draw') }}</h3>
+                                                <h5>({{ trans('event.video') }})</h5>
                                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                                     <section class="lazy slider" data-sizes="50vw">
                                                         @foreach($events->videos as $video)
@@ -103,15 +103,15 @@
                                                         @endforeach
                                                     </section>                                        
                                                 </div>
-                                            @endif
-                                        </div>
+                                            </div>
+                                        @endif
                                         <div class="col-md-12">
                                             <h3 style="margin:30px 0;">{{ trans('event.winner_list') }}</h3>
                                         </div>
                                         @foreach($kois as $koi)
                                             <div class="col-xs-12 col-sm-6 col-md-3">
                                                 <div class="winner-item-list">
-                                                    <p class="text-red">{{ trans('event.winner') }} <br> {{ $koi->owner != '' ? $koi->user['name'] : 'Koikichi Fish Farm' }} {{-- $koi->user['name'] --}}</p>
+                                                    <p class="text-red">{{ trans('event.winner') }} <br> {{ $koi->user_id != '' ? $koi->user['name'] : 'Koikichi Fish Farm' }} {{-- $koi->user['name'] --}}</p>
                                                     <div class="img-item-box">                                                                                          
                                                         <img class="img-thumbnail" src="{{ asset( $koi->media()->first()->getUrl() ) }}" alt="...">                                
                                                     </div>  

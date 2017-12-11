@@ -212,6 +212,18 @@ Route::group(['namespace' => 'Frontend'], function() {
 	]);
 
 	//User
+	Route::get('/myport', [
+		'uses' => 'UserController@getMyports',
+		'as' => 'frontend.user.myport',
+		'middleware' => 'auth'		
+	]);
+
+	Route::get('/myport/koi/{id}', [
+		'uses' => 'UserController@getMyportKoi',
+		'as' => 'frontend.user.myport-koi',
+		'middleware' => 'auth'		
+	]);
+
 	Route::get('/myorder', [
 		'uses' => 'UserController@getMyorders',
 		'as' => 'frontend.user.myorder',
