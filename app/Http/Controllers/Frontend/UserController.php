@@ -34,10 +34,10 @@ class UserController extends Controller
         $products = Product::with('media')->get();
         $kois = Koi::with('media')->get();
         $categories = Category::active()->get()->toTree();
-        
+        // dd(count($favorites->koi));
+        // dd($favorites->product);
         return view('frontend.user.favorite', compact('favorites', 'products', 'kois', 'categories'));
 
-        
             // $user = User::find(Auth::user()->id);
             // dd($kois->user);
     }

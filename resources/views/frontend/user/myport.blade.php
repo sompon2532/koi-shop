@@ -10,20 +10,22 @@
             <div class="main-content text-center">
 
                 <div class="title-box">
-                    <h1>MY PORT </h1>
+                    <h1>{{ trans('user.myport') }}</h1>
                 </div>       
 
                 <div class="content-box">
                     <div class="row">
                         @foreach($kois as $koi)
-                            <div class="col-sm-6  col-md-3">
+                            <div class="col-sm-6  col-md-4">
                                 <div class="stock-item-box">
                                     <div class="img-item-box">  
-                                        <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class="img-thumbnail image-responsive" style="max-height:150px;">
+                                        <a href="{{ route('frontend.user.myport-koi', ['id' => $koi->id]) }}">
+                                            <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class="img-thumbnail image-responsive" style="max-height:150px;">
+                                        </a>
                                     </div>  
                                     <p class="text-red">{{ $koi->name }}</p>
                                     <a class="btn btn-white" href="{{ route('frontend.user.myport-koi', ['id' => $koi->id]) }}">
-                                        DETAIL
+                                        {{ trans('user.btn-detail') }}
                                     </a>
                                 </div>
                             </div>
@@ -32,7 +34,7 @@
                     </div>
                 </div><!-- content-box -->
                 <div class="row">
-                        <p class="text-red text-right"> TOTAL : {{ count($kois) }} </p>
+                        <p class="text-red text-right"> {{ trans('user.total') }} : {{ count($kois) }} </p>
                 </div>         
                 
         </div>

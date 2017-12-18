@@ -9,7 +9,7 @@
             <div class="register">
                 <div class="info-box">
                     <div class="title-box text-center">
-                        <h1>REGISTER</h1>
+                        <h1>{{ trans('user.register') }} </h1>
                     </div>
                     @if(count($errors) > 0)
                         <div class="alert alert-danger">
@@ -43,9 +43,9 @@
                                 </div>
  -->
                                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                    <label for="name" class="col-sm-offset-2 col-sm-3 control-label">Name :</label>
+                                    <label for="name" class="col-sm-offset-2 col-sm-3 control-label">{{ trans('user.name') }}  :</label>
                                     <div class="col-sm-5">
-                                        <input id="name" type="text" class="form-control" name="name" placeholder="NAME" value="{{ old('name') }}" required autofocus>
+                                        <input id="name" type="text" class="form-control" name="name" placeholder="{{ trans('user.name') }} " value="{{ old('name') }}" required autofocus>
                                         @if ($errors->has('name'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('name') }}</strong>
@@ -55,9 +55,9 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <label for="inputEmail3" class="col-sm-offset-2 col-sm-3 control-label">E-MAIL : </label>
+                                    <label for="inputEmail3" class="col-sm-offset-2 col-sm-3 control-label">{{ trans('user.email') }}  : </label>
                                     <div class="col-sm-5">
-                                        <input id="email" type="email" class="form-control" placeholder="E-MAIL" name="email" value="{{ old('email') }}" required>
+                                        <input id="email" type="email" class="form-control" placeholder="{{ trans('user.email') }} " name="email" value="{{ old('email') }}" required>
                                         @if ($errors->has('email'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('email') }}</strong>
@@ -67,9 +67,9 @@
                                 </div>
 
                                 <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label for="inputPassword3" class="col-sm-offset-2 col-sm-3 control-label">PASSWORD : </label>
+                                    <label for="inputPassword3" class="col-sm-offset-2 col-sm-3 control-label">{{ trans('user.password') }}  : </label>
                                     <div class="col-sm-5">
-                                        <input type="password" class="form-control" id="password" placeholder="PASSWORD" name="password" required>
+                                        <input type="password" class="form-control" id="password" placeholder="{{ trans('user.password') }} " name="password" required>
                                     
                                         @if ($errors->has('password'))
                                             <span class="help-block">
@@ -79,9 +79,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputPassword3" class="col-sm-offset-1 col-sm-4 control-label">RETYPE PASSWORD : </label>
+                                    <label for="inputPassword3" class="col-sm-offset-1 col-sm-4 control-label">{{ trans('user.retypepassword') }}  : </label>
                                     <div class="col-sm-5">
-                                        <input type="password" class="form-control" id="inputPassword3" placeholder="RETYPE PASSWORD" name="password_confirmation" required>
+                                        <input type="password" class="form-control" id="inputPassword3" placeholder="{{ trans('user.retypepassword') }} " name="password_confirmation" required>
                                     </div>
                                 </div>
 
@@ -161,7 +161,7 @@
 
                                 <div class="form-group">
                                     <div class="col-sm-offset-5 col-sm-5">
-                                        <button type="submit" class="btn btn-red">ตกลง</button>
+                                        <button type="submit" class="btn btn-red">{{ trans('user.btn-ok') }} </button>
                                     </div>
                                 </div>
 

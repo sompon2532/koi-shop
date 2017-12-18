@@ -13,7 +13,7 @@
                 <div class="main-content">
                     <div class="row">
                         <div class="title-box text-center">
-                            <h1>MY ODER</h1>
+                            <h1>{{ trans('user.myorder') }}</h1>
                         </div>
 
                         <div class="content-box">
@@ -25,12 +25,12 @@
                                             <div class="title-info-box">
                                                 <div class="row">
                                                     <div class="col-md-8">
-                                                        <p>ORDER NUMBER : #{{ $order->id }}</p>
-                                                        <p>DATE : {{ $order->created_at->formatLocalized('%d %B %Y') }}</p>
+                                                        <p>{{ trans('user.order-num') }} : #{{ $order->id }}</p>
+                                                        <p>{{ trans('user.date') }} : {{ $order->created_at->formatLocalized('%d %B %Y') }}</p>
                                                     </div>
                                                     <div class="col-md-4 text-right">
                                                         <br>
-                                                        <p>TOTAL : {{ number_format($order->totalPrice) }} THB</p>
+                                                        <p>{{ trans('user.total') }} : {{ number_format($order->totalPrice) }} {{ trans('user.thb') }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -44,14 +44,14 @@
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <p class="text-red">{{ $product->name }}</p>
-                                                                <p>CODE : {{ $product->id }}</p>
+                                                                <p>{{ trans('user.code') }} : {{ $product->id }}</p>
                                                             </div>
                                                         </div>
                                                     @endforeach
                                                     @if($order->status == 0)
                                                         <div class="col-md-12 text-center">
                                                             <a class="btn btn-red" href="{{ route('frontend.payment.payment', ['id' => $order->id]) }}">
-                                                                PAYMENT
+                                                                {{ trans('user.btn-payment') }}
                                                             </a>
                                                         </div>
                                                     @endif
@@ -70,103 +70,4 @@
         </div>
     </div>
 </section>
-
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-10 col-md-offset-1">
-            <div class="contact-us">
-                <div class="info-box text-center">
-
-                    <div class="title-box">
-                        <h1>CONTACT US</h1>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <form class="form-inline">
-                                <div class="form-group">
-                                    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon"> NAME </div>
-                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-addon"> E-MAIL </div>
-                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-addon"> PHONE NUMBER </div>
-                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-addon"> DETAILS </div>
-                                        <textarea type="text" class="form-control" id="exampleInputAmount" placeholder="Amount"></textarea>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Transfer cash</button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-2 col-md-offset-5">
-                            <h4 class="text-thick contact-title">เวลาให้บริการ</h4>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>รับการสั่งซื้อผ่านเว็บไซต์ 24 ชั่วโมง ตอบอีเมล์ทุกๆวันภายใน 24 ชั่วโมง
-                                โทรสอบถามและเข้าเยี่ยมชมที่ฟาร์มได้ทุกวันอังคาร - วันอาทิตย์ ในเวลา 9.00 - 18.00 น และปิดทำการทุกวันจันทร์</p>
-                        </div>
-                    </div>
-                    <br>
-
-
-                    <div class="row">
-                        <div class="col-md-4 col-md-offset-4">
-                            <h4 class="text-thick contact-title">KOIKICHI FISH FARM</h4>
-                        </div>
-                    </div>
-
-
-                    <div class="row">   
-                        <div class="col-md-12">                
-                            <p>120-122 ถ.พุทธมณฑลสาย 3 เเขวงทวีวัฒนา เขตทวีวัฒนา กรุงเทพมหานคร 10170 ประเทศไทย
-                                โทรศัพท์: 02-4315646 ต่อ 11  แฟกซ์: 02-4315646  มือถือ: 081-6427525</p>
-                        </div>
-                    </div> 
-                    <br>
-
-
-                    <div class="row">
-                        <div class="col-md-2 col-md-offset-5">
-                            <h4 class="text-thick contact-title center">MAP</h4>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-12">   
-                            <div class="map">
-                                <img class="img-responsive" src="{{ asset('assets/img/map-koikichi.png') }}" alt="...">
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 @endsection

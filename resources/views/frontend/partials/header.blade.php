@@ -42,14 +42,14 @@
                                                 {{ Auth::user()->name }} <span class="caret"></span>
                                             </a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="{{ route('frontend.user.myport') }}"><span class="glyphicon glyphicon-star text-red"></span> MY PORT</a></li>                                                
-                                                <li><a href="{{ route('frontend.user.favorite') }}"><span class="glyphicon glyphicon-star text-red"></span> MY FAVORITE</a></li>                                                
-                                                <li><a href="{{ route('frontend.event.booking') }}"><span class="glyphicon glyphicon-bookmark text-red"></span> MY BOOKING</a></li>
-                                                <li><a href="{{ route('frontend.user.myorder') }}"><span class="glyphicon glyphicon-list-alt text-red"></span> MY ORDERS</a></li>
+                                                <li><a href="{{ route('frontend.user.myport') }}"><span class="glyphicon glyphicon-star text-red"></span> {{ trans('header.myport') }}</a></li>                                                
+                                                <li><a href="{{ route('frontend.user.favorite') }}"><span class="glyphicon glyphicon-star text-red"></span> {{ trans('header.myfavorite') }}</a></li>                                                
+                                                <li><a href="{{ route('frontend.event.booking') }}"><span class="glyphicon glyphicon-bookmark text-red"></span> {{ trans('header.mybooking') }}</a></li>
+                                                <li><a href="{{ route('frontend.user.myorder') }}"><span class="glyphicon glyphicon-list-alt text-red"></span> {{ trans('header.myorders') }}</a></li>
                                                 <li role="separator" class="divider"></li>
                                                 <li>
                                                     <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                        <span class="glyphicon glyphicon-log-out text-red"></span> LOGOUT
+                                                        <span class="glyphicon glyphicon-log-out text-red"></span> {{ trans('header.logout') }}
                                                     </a>
                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                         {{ csrf_field() }}
