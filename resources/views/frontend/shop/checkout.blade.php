@@ -117,15 +117,16 @@
                                 <div class="col-xs-12 col-md-4 col-md-offset-4">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" id="name" class="form-control" required name="name">
+                                        <input type="text" id="name" class="form-control" required name="name" value="{{ count($user->name) > 0 ? $user->name : '' }}">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-4 col-md-offset-4">
                                     <div class="form-group">
                                         <label for="address">Address</label>
-                                        <input type="text" id="address" class="form-control" required name="address">
+                                        <input type="text" id="address" class="form-control" required name="address" value="{{ count($user->adresses) > 0 ? $user->adresses->first()->address : '' }}">
                                     </div>
                                 </div>
+                                
                                 <div class="col-xs-12 col-md-4 col-md-offset-4">
                                     <div class="form-group">
                                         <label for="card-name">Tel</label>

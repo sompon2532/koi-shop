@@ -44,7 +44,6 @@ class PaymentController extends Controller
         
         // $order->transaction->status = 1;
         $transaction = Transaction::where('order_id', $id)->first();
-        
         $transaction->status = 1;
         $transaction->save();
 

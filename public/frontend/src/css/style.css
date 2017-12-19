@@ -723,6 +723,10 @@ span.fc-day-number {
 |
 */
 
+.main-content input {
+    border-radius: 0;
+}
+
 
 /* .main-content input {
     border: none;

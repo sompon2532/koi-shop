@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Favorite;
 use App\Models\Transaction;
+use App\Models\Address;
 use App\User;
 use Carbon\Carbon;
 use Session;
@@ -171,12 +172,16 @@ class ProductController extends Controller
         $cart = new Cart($oldCart);
         $total = $cart->totalPrice;
         $images = Product::with('media')->get();
+        $user = User::find(Auth::user()->id);
+
+        // dd($user->adresses->first()->address);
         
         return view('frontend.shop.checkout', [
             'products' => $cart->items, 
             'totalPrice' => $cart->totalPrice,
             'images' => $images, 
-            'categories' => $categories
+            'categories' => $categories,
+            'user' => $user
         ]);
     }
 
@@ -211,28 +216,31 @@ class ProductController extends Controller
               'totalPrice'  => $cart->totalPrice,
               'tel'         => $request->input('tel'),
               'payment_id'  => '',//id การชำระเงิน            
-              'created_at' => Carbon::now()->toDateTimeString()                   
-              
+              'created_at' => Carbon::now()->toDateTimeString() 
             );
-
             $order_id = DB::table('orders')->insertGetId($insert);
-            
+
             foreach ($cart->items as $item) {
                 $insert = array(
                   'order_id'    => $order_id,
                   'product_id'  => $item['item']['id']
                 );
-
                 DB::table('order_product')->insertGetId($insert);
             }
 
             $transactions = array(
-                'order_id' => $order_id,
-                'status' => 0
-            );
-            
-            $transactions = Transaction::create($transactions);   
-        
+                'order_id'  => $order_id,
+                'status'    => 0);
+            $transactions = Transaction::create($transactions);
+
+            $user = User::find(Auth::user()->id);            
+            if($user->addresses == null) {
+                $address = array(
+                    'user_id'   =>Auth::user()->id,
+                    'address'   =>$request->input('address')
+                );
+                $addresses = Address::create($address);
+            }
         } catch (\Exception $e) {
             return redirect()->route('checkout')->with('error', $e->getMessage());
         }

@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->morphedByMany('App\Models\Koi', 'favorite');
     }
+
+    public function adresses()
+    {
+        return $this->hasMany('App\Models\Address');
+    }
 }

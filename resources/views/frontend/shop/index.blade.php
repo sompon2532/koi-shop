@@ -26,11 +26,12 @@
 				@if(Session::has('success'))
 					<div class="row">
 						<div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
-							<div id="charge-message" class="alert alert-success">
+							<div class="alert alert-success" role="alert">
 								{{ Session::get('success') }}
 							</div>
 						</div>
 					</div>
+					<div class="alert alert-danger" role="alert">...</div>
 				@endif
 
 				@if(count($products) > 0)
