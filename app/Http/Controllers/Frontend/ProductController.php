@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Favorite;
+use App\Models\Transaction;
 use App\User;
 use Carbon\Carbon;
 use Session;
@@ -213,7 +214,7 @@ class ProductController extends Controller
               'created_at' => Carbon::now()->toDateTimeString()                   
               
             );
-        // dd($insert);  
+
             $order_id = DB::table('orders')->insertGetId($insert);
             
             foreach ($cart->items as $item) {
@@ -221,17 +222,23 @@ class ProductController extends Controller
                   'order_id'    => $order_id,
                   'product_id'  => $item['item']['id']
                 );
-        // dd($insert);
+
                 DB::table('order_product')->insertGetId($insert);
-        
             }
+
+            $transactions = array(
+                'order_id' => $order_id,
+                'status' => 0
+            );
+            
+            $transactions = Transaction::create($transactions);   
         
         } catch (\Exception $e) {
             return redirect()->route('checkout')->with('error', $e->getMessage());
         }
 
         Session::forget('cart');
-        
+
         return redirect()->route('frontend.shop.index')->with('success', 'Successfully purchased products!');
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\Transaction;
 use App\User;
 use Carbon\Carbon;
 use DB;
@@ -36,11 +37,19 @@ class PaymentController extends Controller
             'total'       => $request->input('total'),    
             'datetime'    => $request->input('datetime')                  
         );
-        $payment = Payment::create($insert);
+        // $payment = Payment::create($insert);
 
-        $order = Order::find($id);
-        $order->status = 1;
-        $order->save();
+        // $order = Order::find($id);
+        // $order->status = 1;
+        
+        // $order->transaction->status = 1;
+        $transaction = Transaction::where('order_id', $id)->first();
+        
+        $transaction->status = 1;
+        $transaction->save();
+
+        // $transaction = Transaction::where('order_id', $id)->get();        
+        // dd($transaction);
 
         // DB::table('orders')->where('id', $id)->update(['status' => 1]);
 

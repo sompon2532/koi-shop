@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="content-box">
-                            @foreach($users->orders as $order)
+                            @foreach($orders as $order)
                                 <div class="info-box">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -29,7 +29,7 @@
                                                         <p>{{ trans('user.date') }} : {{ $order->created_at->formatLocalized('%d %B %Y') }}</p>
                                                     </div>
                                                     <div class="col-md-4 text-right">
-                                                        <br>
+                                                        {!! $order->transaction->status == 0 ? "<p class='text-red'>ยังไม่ชำระเงิน</p>" : "ชำระเงินแล้ว"!!}
                                                         <p>{{ trans('user.total') }} : {{ number_format($order->totalPrice) }} {{ trans('user.thb') }}</p>
                                                     </div>
                                                 </div>
@@ -48,7 +48,7 @@
                                                             </div>
                                                         </div>
                                                     @endforeach
-                                                    @if($order->status == 0)
+                                                    @if($order->transaction->status == 0)
                                                         <div class="col-md-12 text-center">
                                                             <a class="btn btn-red" href="{{ route('frontend.payment.payment', ['id' => $order->id]) }}">
                                                                 {{ trans('user.btn-payment') }}
@@ -62,8 +62,8 @@
                                     </div>
                                 </div> <!-- info-box -->
                             @endforeach
-
                         </div>
+
                     </div>
                 </div>
             </div>

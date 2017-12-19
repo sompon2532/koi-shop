@@ -447,6 +447,7 @@ class ComposerStaticInitb52e9084d3cc2fc77a3ec55a581ec448
         'CreateSizesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_05_170350_create_sizes_table.php',
         'CreateStrainsTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_05_054404_create_strains_table.php',
         'CreateTables' => __DIR__ . '/..' . '/dimsav/laravel-translatable/tests/migrations/2013_11_28_152610_create_tables.php',
+        'CreateTransactionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_12_18_105311_create_transactions_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'CreateVidoesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_06_045851_create_vidoes_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',

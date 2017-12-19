@@ -19,10 +19,18 @@ class Order extends Model
     }
 
     /**
-     * Get the phone record associated with the user.
+     * Get the payment record associated with the order.
      */
     public function payment()
     {
         return $this->hasOne('App\Models\Payment');
+    }
+
+    /**
+     * Get the transaction record associated with the order.
+     */
+    public function transaction()
+    {
+        return $this->hasOne('App\Models\Transaction');
     }
 }

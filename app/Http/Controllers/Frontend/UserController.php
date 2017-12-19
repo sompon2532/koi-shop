@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Favorite;
 use App\Models\Product;
+use App\Models\Transaction;
 use App\Models\Koi;
 use App\Models\Order;
 use Carbon\Carbon;
@@ -90,8 +91,16 @@ class UserController extends Controller
         
         $users = User::find(Auth::user()->id);
 
+        $orders = Order::where('user_id', Auth::user()->id)->get();
+        // $order = Order::find(13);
+
+        // dd($order->transaction->id);
+        // foreach ($order as $value) {
+        //     return $value->transaction->status;
+        // }
+        // dd($users->orders);
         // foreach ($users->orders as $order ) {
-        //     return $order->products;
+        //     dd( $order->transaction);
         // }
         // dd($users);
         // $orders = Auth::user()->orders;
@@ -99,7 +108,7 @@ class UserController extends Controller
         //     $order->cart = unserialize($order->cart);
         //     return $order;
         // }); 
-        return view('frontend.user.myorder', compact('categories', 'users'));
+        return view('frontend.user.myorder', compact('categories', 'users', 'orders'));
         // return view('user.profile');
     }
 
@@ -116,7 +125,6 @@ class UserController extends Controller
         $categories = Category::active()->get()->toTree();
 
         return view('frontend.user.myport-koi', compact('koi','categories'));
-        
     }
     
 }

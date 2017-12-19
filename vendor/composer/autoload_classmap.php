@@ -115,6 +115,7 @@ return array(
     'CreateSizesTable' => $baseDir . '/database/migrations/2017_08_05_170350_create_sizes_table.php',
     'CreateStrainsTable' => $baseDir . '/database/migrations/2017_08_05_054404_create_strains_table.php',
     'CreateTables' => $vendorDir . '/dimsav/laravel-translatable/tests/migrations/2013_11_28_152610_create_tables.php',
+    'CreateTransactionsTable' => $baseDir . '/database/migrations/2017_12_18_105311_create_transactions_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'CreateVidoesTable' => $baseDir . '/database/migrations/2017_08_06_045851_create_vidoes_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
