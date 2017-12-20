@@ -13,7 +13,6 @@
                         {{-- <!-- <a class="navbar-brand" href="#">Brand</a> --> --}}
                     </div>
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <!-- <div class="container">
                             <div class="row"> -->
@@ -42,7 +41,7 @@
                                                 {{ Auth::user()->name }} <span class="caret"></span>
                                             </a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="{{ route('frontend.user.myport') }}"><span class="glyphicon glyphicon-star text-red"></span> {{ trans('header.myport') }}</a></li>                                                
+                                                <li><a href="{{ route('frontend.user.myport') }}"><span class="glyphicon glyphicon-heart text-red"></span> {{ trans('header.myport') }}</a></li>                                                
                                                 <li><a href="{{ route('frontend.user.favorite') }}"><span class="glyphicon glyphicon-star text-red"></span> {{ trans('header.myfavorite') }}</a></li>                                                
                                                 <li><a href="{{ route('frontend.event.booking') }}"><span class="glyphicon glyphicon-bookmark text-red"></span> {{ trans('header.mybooking') }}</a></li>
                                                 <li><a href="{{ route('frontend.user.myorder') }}"><span class="glyphicon glyphicon-list-alt text-red"></span> {{ trans('header.myorders') }}</a></li>
@@ -58,8 +57,8 @@
                                             </ul>
                                         </li>                                                                           
                                     @endif
-                                        <li><a href="{{ URL::to('change/th') }}"><span style="margin-right:5px;"><img src="{{ asset('frontend/src/img/')}}{{ trans('header.flag-th') }}" class="center" alt="" height="15" width="15"></span>TH</a></li> 
-                                        <li><a href="{{ URL::to('change/en') }}"><span style="margin-right:5px;"><img src="{{ asset('frontend/src/img/')}}{{ trans('header.flag-en') }}" class="center" alt="" height="15" width="15"></span>EN</a></li> 
+                                        <li><a href="{{ URL::to('change/th') }}"><span class="flag-language"><img src="{{ asset('frontend/src/img/')}}{{ trans('header.flag-th') }}" class="center" alt="" height="15" width="15"></span>TH</a></li> 
+                                        <li><a href="{{ URL::to('change/en') }}"><span class="flag-language"><img src="{{ asset('frontend/src/img/')}}{{ trans('header.flag-en') }}" class="center" alt="" height="15" width="15"></span>EN</a></li> 
                                         <li>
                                             <a href="{{ route('frontend.shop.shoppingCart') }}">
                                                 <span class="glyphicon glyphicon-shopping-cart" style=""></span>

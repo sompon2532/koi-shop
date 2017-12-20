@@ -9,7 +9,7 @@
     @if(Session::has('cart'))
     <div class="row"> 
             <div class="col-md-12">
-                <div class="mycart main-content text-center">
+                <div class="main-content text-center">
                     <div class="title-box">
                         <h1>CHECKOUT</h1>
                     </div>

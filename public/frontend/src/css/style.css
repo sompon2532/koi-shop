@@ -520,6 +520,17 @@ footer a:hover {
     text-align: center;
 }
 
+.badge {
+    position: relative;
+    top: -5px;
+}
+
+.flag-language {
+    position: relative;
+    top: -4px;
+    margin-right: 3px;
+}
+
 
 /* dropdown */
 
@@ -727,6 +738,17 @@ span.fc-day-number {
     border-radius: 0;
 }
 
+.main-content .qty-item {
+    text-align: center;
+}
+
+.btn-qty-item {
+    background-color: #fff;
+    border-radius: 0;
+    border-color: #ccc;
+    color: #333;
+}
+
 
 /* .main-content input {
     border: none;
@@ -757,6 +779,13 @@ fieldset[disabled] .btn {
     background-color: #999;
     border-radius: 0;
 }
+
+
+/* .btn-favorite {
+    background-color: transparent;
+    padding: 0px;
+    border: none;
+} */
 
 .main-content .img-thumbnail {
     border-radius: 0;
@@ -873,7 +902,7 @@ table.table-none-border {
 }
 
 .form-control {
-    height: 42px;
+    height: 43px;
 }
 
 

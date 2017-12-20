@@ -58,7 +58,7 @@
                 <div class="main-content text-center">
 
                     <div class="title-box">
-                        <h1>STOCK IN JAPAN</h1>
+                        <h1>{{ $kois->name }}</h1>
                     </div>
 
                     <h3 class="text-red"> SAKAI </h3>
@@ -94,24 +94,24 @@
                                     </div>
                                 @endif
                                 <div class="text-red">
-                                    <p>TO ORDER</p>
-                                    <p>PLEASE CONTACT</p>
+                                    <p>{{ trans('koi.to-order')}}</p>
+                                    <p>{{ trans('koi.please-contact')}}</p>
                                     <img class="" src="{{ asset('frontend/src/img/line-logo.png') }}" alt="...">                                    
                                 </div>
                             </div>
 
                             <div class="col-md-6 text-left">
                                 <p class="text-red">{{-- $products->title --}}</p>
-                                <p>CODE : {{ $kois->koi_id }}</p>
-                                <p>OWNER : {{ $kois->owner }}</p>
-                                <p>PRICE : {{ $kois->price }} THB / YEN</p>
+                                <p>{{ trans('koi.code')}} : {{ $kois->koi_id }}</p>
+                                <p>{{ trans('koi.owner')}} : {{ $kois->owner }}</p>
+                                <p>{{ trans('koi.price')}} : {{ $kois->price }} {{ trans('koi.thb')}}</p>
                                 <!-- <p>SHIPPING : 9999 THB</p> -->
                                 <br>
-                                <p class="text-red">DETAIL</p>
-                                <p>BREEDER : {{ $kois->owner }}</p>
-                                <p>BORN IN : {{ $kois->born }}</p>
-                                <p>SIZE : {{ $kois->owner }}</p>
-                                <p>GENDER : {{ $kois->sex }}</p>
+                                <p class="text-red">{{ trans('koi.detail')}}</p>
+                                <p>{{ trans('koi.breeder')}} : {{ $kois->owner }}</p>
+                                <p>{{ trans('koi.born')}} : {{ $kois->born }}</p>
+                                <p>{{ trans('koi.size')}} : {{ $kois->owner }}</p>
+                                <p>{{ trans('koi.gender')}} : {{ $kois->sex }}</p>
                             </div>
 
                             @if(count($kois->media) > 1)                            

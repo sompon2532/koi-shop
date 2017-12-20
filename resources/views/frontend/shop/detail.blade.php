@@ -88,21 +88,15 @@
                                         </form>
                                     </div>
                                 @endif
-                                <br>
-                                <div class="text-red">
-                                    <p>TO ORDER<br>PLEASE CONTACT</p>
-                                    <img class="" src="{{ asset('/frontend/src/img/line-logo.png') }}" alt="..." width="40">                                    
-                                </div>
-                                <br>
                             </div>                        
                             <div class="col-md-6 text-left">
-                                <p class="text-red">TITLE : {{ $products->name }}</p>
-                                <p>CODE : {{ $products->id }}</p>
-                                <p>PRICE : {{ $products->price }} THB</p>
-                                <p>SHIPPING : {{ $products->delivery }} THB</p>
+                                <p class="text-red">{{ trans('product.title') }} : {{ $products->name }}</p>
+                                <p>{{ trans('product.code') }} : {{ $products->id }}</p>
+                                <p>{{ trans('product.price') }} : {{ $products->price }} {{ trans('product.thb') }}</p>
+                                <p>{{ trans('product.shipping') }} : {{ $products->delivery }} {{ trans('product.thb') }}</p>
                                 <div class="text-center-max992">
                                     <a class="btn btn-white text-center" href="{{ route('frontend.shop.addToCart', ['id' => $products->id]) }}">
-                                        ORDER
+                                    {{ trans('product.btn-order') }}
                                     </a>
                                 </div>
                             </div>
@@ -110,7 +104,7 @@
 
                         <div class="row">
                             <div class="col-md-2 col-md-offset-2">
-                            DETAIL :
+                            {{ trans('product.detail') }} :
                             </div>
                             <div class="col-md-7 text-left">
                                 <p>
@@ -120,6 +114,7 @@
                         </div>
                         <br>
 
+                        @if(count($products->media) > 1)
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="slider slider-nav">
@@ -129,6 +124,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
 
                         @if(count($products->videos) > 0)
                         <div class="row">

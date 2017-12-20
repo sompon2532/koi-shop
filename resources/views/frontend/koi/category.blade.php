@@ -58,7 +58,7 @@
                                             <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class=" image-responsive" style="max-height:150px;">
                                             @if($i == 0)
                                                 <div class="star-label">
-                                                    <form action="{{ route('frontend.user.favorite-add', ['id' => $koi->id]) }}" method="GET" style="">  
+                                                    <form action="{{ route('frontend.user.favorite-add', ['id' => $koi->id]) }}" method="GET">  
                                                         <input type="hidden" name="item" value="{{ $koi->id }}">
                                                         <input type="hidden" name="type" value="App\Models\Koi">
                                                         <button type="submit" class="btn btn-favorite">
@@ -69,8 +69,7 @@
                                                 </div>
                                             @else
                                                 <div class="star-label">
-                                                    <form action="{{ route('frontend.user.favorite-del', ['id' => $koi->id, 'type' => 'App\Models\Koi']) }}" method="GET" style="">  
-
+                                                    <form action="{{ route('frontend.user.favorite-del', ['id' => $koi->id, 'type' => 'App\Models\Koi']) }}" method="GET">  
                                                         <button type="submit" class="btn btn-favorite">
                                                             <img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
                                                         </button> 
@@ -81,9 +80,9 @@
                                         </div>  
 
                                         <p class="text-red">{{ $koi->name }}</p>
-                                        <p>CODE : {{ $koi->koi_id }}</p>
+                                        <p>{{ trans('koi.code')}} : {{ $koi->koi_id }}</p>
                                         <a class="btn btn-white" href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">
-                                            DETAIL
+                                            {{ trans('koi.btn-detail')}}
                                         </a>
                                     </div>
                                 </div>
@@ -95,7 +94,7 @@
 
                     <div class="row">
                         {{ $kois->links() }}
-                        <p class="text-red text-right"> TOTAL : {{ count($kois) }} </p>
+                        <p class="text-red text-right"> {{ trans('koi.total')}} : {{ count($kois) }} </p>
                     </div>
                 @else
                     <h1>No Kois</h1>
