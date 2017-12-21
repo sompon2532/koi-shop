@@ -179,7 +179,9 @@ class ProductController extends Controller
         
         return view('frontend.shop.checkout', [
             'products' => $cart->items, 
+            'totalShip' => $cart->totalShip, 
             'totalPrice' => $cart->totalPrice,
+            'total' => $cart->total, 
             'images' => $images, 
             'categories' => $categories,
             'user' => $user

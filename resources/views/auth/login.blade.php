@@ -52,7 +52,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-offset-4 col-sm-5">
                                         <a class="btn btn-link " href="{{ route('password.request') }}">
-                                            FORGOT PASSWORD?
+                                            <!-- FORGOT PASSWORD? -->
                                         </a>
                                     </div>
                                 </div>

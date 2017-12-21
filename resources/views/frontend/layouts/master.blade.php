@@ -16,7 +16,7 @@
      <!-- bootstrap -->
     <!-- <link rel="stylesheet" href="{{ asset('fontend/bootstrap/css/bootstrap.min.css') }}" > -->
     <link rel="stylesheet" href="{{ asset('frontend/bootstrap-3.3.7/css/bootstrap.min.css') }}" >
-    <link rel="stylesheet" href="{{ asset('frontend/bootstrap-3.3.7/css/bootstrap-theme.min.css') }}" media="screen" title="no title" charset="utf-8">
+    <!-- <link rel="stylesheet" href="{{ asset('frontend/bootstrap-3.3.7/css/bootstrap-theme.min.css') }}" media="screen" title="no title" charset="utf-8"> -->
     <!-- date picker -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" > -->
 
