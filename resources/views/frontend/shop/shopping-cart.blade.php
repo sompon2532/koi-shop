@@ -48,7 +48,7 @@
                                                     </p>
                                                 </td>
                                                 <td>
-                                                    <p class="text-red">{{ $product['price'] }} THB</p>
+                                                    <p class="text-red">{{ number_format($product['price']) }} THB</p>
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('frontend.shop.remove', ['id' => $product['item']['id']]) }}" class="btn"><span class="glyphicon glyphicon glyphicon-remove text-red"></span></a>
@@ -59,16 +59,16 @@
                                         <tr bgcolor="#F5F5F5">
                                             <td class="text-right text-red table-border" colspan="2" bordercolor="#ccc">SUBTOTAL</td>
                                             <td class="text-red table-border"> {{ Session::has('cart') ? Session::get('cart')->totalQty : '0'}} </td>
-                                            <td class="text-red table-border" colspan="2"> {{ $totalPrice }} THB </td>
+                                            <td class="text-red table-border" colspan="2"> {{ number_format($totalPrice) }} THB </td>
                                         </tr>
                                         <tr>
                                             <td class="text-right text-red" colspan="2">SHIPPING FEE</td>
-                                            <td class="text-red table-border">  </td>
-                                            <td class="text-red table-border" colspan="2"> xxx THB </td>
+                                            <td class="text-red table-border"></td>
+                                            <td class="text-red table-border" colspan="2"> {{ number_format($totalShip) }} THB </td>
                                         </tr>
                                         <tr bgcolor="#F5F5F5">
                                             <td class="text-right text-red table-border" colspan="3">TOTAL</td>
-                                            <td class="text-red table-border" colspan="2"> {{ $totalPrice }} THB </td>
+                                            <td class="text-red table-border" colspan="2"> {{ number_format($total) }} THB </td>
                                         </tr>
                                     </table>
 

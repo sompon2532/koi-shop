@@ -17,6 +17,7 @@ body {
 
 .btn,
 .dropdown-menu,
-.form-control {
+.form-control,
+.input-group-addon {
     font-size: 20px;
 }

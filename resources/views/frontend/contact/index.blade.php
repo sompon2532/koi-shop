@@ -13,36 +13,46 @@
                         <h1>CONTACT US</h1>
                     </div>
 
+                    @if(Session::has('success'))
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+                                <div id="charge-message" class="alert alert-success">
+                                    {{ Session::get('success') }}
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+
 
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <form class="form-inline">
+                        <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+                            <form class="form-inline" action="{{ route('frontend.contact.postContact') }}" method="post" id="contact-form">
                                 <div class="form-group form-contact">
-                                    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"> NAME </div>
-                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="NAME">
+                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="NAME" name="name">
                                     </div>
                                 </div>
                                 <div class="form-group form-contact">
                                     <div class="input-group ">
                                         <div class="input-group-addon"> E-MAIL </div>
-                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="E-MAIL">
+                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="E-MAIL" name="email">
                                     </div>
                                 </div>
                                 <div class="form-group form-contact">
                                     <div class="input-group">
-                                        <div class="input-group-addon"> PHONE NUMBER </div>
-                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="PHONE NUMBER">
+                                        <div class="input-group-addon"> TEL. </div>
+                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="TELEPHONE NUMBER" name="phone">
                                     </div>
                                 </div>
                                 <div class="form-group form-contact">
                                     <div class="input-group">
                                         <div class="input-group-addon"> DETAILS </div>
-                                        <textarea type="text" class="form-control" id="exampleInputAmount" placeholder="DETAILS"></textarea>
+                                        <textarea type="text" class="form-control" id="exampleInputAmount" placeholder="DETAILS" name="description"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-contact">
+                                    {{ csrf_field() }}
                                     <button type="submit" class="btn btn-white">SEND</button>
                                 </div>
                             </form>
@@ -97,7 +107,6 @@
                             </div>
                         </div>
                     </div>
-
 
                 </div>
             </div>

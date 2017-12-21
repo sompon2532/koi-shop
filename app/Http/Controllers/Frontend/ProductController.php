@@ -151,11 +151,12 @@ class ProductController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $images = Product::with('media')->get();
-
-        // $categories = Category::get()->toTree();  
+        // dd($cart->totalShip);
         return view('frontend.shop.shopping-cart', [
             'products' => $cart->items, 
+            'totalShip' => $cart->totalShip, 
             'totalPrice' => $cart->totalPrice, 
+            'total' => $cart->total, 
             'images' => $images, 
             'categories' => $categories
         ]);

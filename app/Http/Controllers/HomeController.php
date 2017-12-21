@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\News;
 use App\Models\Category;
+use App\Models\Contact;
 use Carbon\Carbon;
 use Calendar;
 
@@ -16,10 +17,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
 
     /**
      * Show the application dashboard.
@@ -28,15 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $events = Event::with(['media'])
-        //             // ->whereDate('start_datetime', Carbon::now()->toDateString())
-        //             ->get();
         $news = News::with(['media'])
             ->whereDate('end_datetime', '>=' ,Carbon::now()->toDateString())
             ->orderBy('end_datetime', 'desc')
             ->get();
             
-            // dd($news);
         $now = Carbon::now('Asia/Bangkok')->toTimeString();
         $categories = Category::active()->get()->toTree();
 
@@ -90,5 +83,18 @@ class HomeController extends Controller
         $categories = Category::active()->get()->toTree();
 
         return view('frontend.contact.index', compact('categories'));
+    }
+
+    public function postContactUs(Request $request)
+    {
+        $contact = array(
+            'name'   =>$request->input('name'),
+            'email'  =>$request->input('email'),
+            'phone'  =>$request->input('phone'),
+            'description'  =>$request->input('description')
+        );
+       $contact = Contact::create($contact);
+
+       return redirect()->back()->with('success', 'Successfully Send Contact!');       
     }
 }

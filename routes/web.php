@@ -302,6 +302,11 @@ Route::get('/contact', [
 	'as'   => 'frontend.contact.index'
 ]);
 
+Route::post('/contact', [
+	'uses' => 'HomeController@postContactUs',
+	'as'   => 'frontend.contact.postContact'
+]);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
