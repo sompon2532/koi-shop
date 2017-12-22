@@ -85,17 +85,17 @@ Route::group(['namespace' => 'Frontend'], function() {
 	]);
 	
 	// Product
-	Route::get('/koi-product', [
+	Route::get('/product', [
 		'uses' => 'ProductController@getIndex',
 		'as' => 'frontend.shop.index'
 	]);
 	
-	Route::get('/koi-product/category/{category}', [
+	Route::get('/product/category/{category}', [
 		'uses' => 'ProductController@getProductCategory',
 		'as' => 'frontend.shop.category'
 	]);
 
-	Route::get('/koi-product/{id}', [
+	Route::get('/product/{id}', [
 		'uses' => 'ProductController@getDetail',
 		'as' => 'frontend.shop.detail'
 	]);

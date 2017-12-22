@@ -23,6 +23,8 @@
     <!-- slick -->
     <link rel="stylesheet" href="{{ asset('frontend/slick-1.8.0/slick/slick.css') }}" media="screen" title="no title" charset="utf-8">    
     <link rel="stylesheet" href="{{ asset('frontend/slick-1.8.0/slick/slick-theme.css') }}" media="screen" title="no title" charset="utf-8">    
+    <!-- lightbox -->
+    <link rel="stylesheet" href="{{ asset('frontend/lightbox2-dev/dist/css/lightbox.min.css') }}">
     <!-- fullCalendar -->
     <link rel="stylesheet" href="{{ asset('plugins/fullcalendar/dist/fullcalendar.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/fullcalendar/dist/fullcalendar.print.min.css') }}" media="print">
@@ -65,6 +67,8 @@
 
     @yield('custom-js')
 
+    <!-- lightbox -->
+    <script src="{{ asset('frontend/lightbox2-dev/dist/js/lightbox-plus-jquery.min.js') }}"></script>
     <!-- fullCalendar -->
     <script src="{{ asset('plugins/fullcalendar/dist/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('plugins/fullcalendar/dist/locale-all.js') }}"></script>

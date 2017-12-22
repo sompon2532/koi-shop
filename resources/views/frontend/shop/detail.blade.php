@@ -53,8 +53,8 @@
                         <h1>PRODUCT</h1>
                     </div>
 
-                    <h3 class="text-red"> SAKAI </h3>
-                    <P>KOI > KOI  IN JAPAN > SAKAI > {{ $products->name }}</P>
+                    {{-- <!-- <h3 class="text-red"> SAKAI </h3>
+                    <P>KOI > KOI  IN JAPAN > SAKAI > {{ $products->name }}</P> --> --}}
 
                     <div class="content-box">
                         <div class="row">
@@ -62,7 +62,11 @@
                             <div class="col-md-3 col-md-offset-3">
                                 <div class="slider slider-for">
                                     @foreach($products->media as $media)
-                                      <div><img class="img-thumbnail" src="{{ $media->getUrl() }}" alt="..." style=""></div>
+                                        <div>
+                                            <a class="example-image-link" href="{{ $media->getUrl() }}" data-lightbox="thumb-1">
+                                                <img class="example-image img-thumbnail" src="{{ $media->getUrl() }}" alt="..." style="">
+                                            </a>
+                                        </div>
                                     @endforeach
                                 </div>
 
@@ -140,7 +144,7 @@
                         </div>
                         @endif
 
-                    </div><!-- content-box -->
+                    </div>
                 </div>
 
             </div>
@@ -163,7 +167,7 @@ $('.slider-nav').slick({
   slidesToShow: 3,
   slidesToScroll: 1,
   asNavFor: '.slider-for',
-  dots: true,
+  dots: false,
   centerMode: true,
   focusOnSelect: true
 });
@@ -171,56 +175,6 @@ $('.slider-nav').slick({
 
 <script type="text/javascript">
     $(document).on('ready', function() {
-      $(".vertical-center-4").slick({
-        dots: true,
-        vertical: true,
-        centerMode: true,
-        slidesToShow: 4,
-        slidesToScroll: 2
-      });
-      $(".vertical-center-3").slick({
-        dots: true,
-        vertical: true,
-        centerMode: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      });
-      $(".vertical-center-2").slick({
-        dots: true,
-        vertical: true,
-        centerMode: true,
-        slidesToShow: 2,
-        slidesToScroll: 2
-      });
-      $(".vertical-center").slick({
-        dots: true,
-        vertical: true,
-        centerMode: true,
-      });
-      $(".vertical").slick({
-        dots: true,
-        vertical: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      });
-      $(".regular").slick({
-        dots: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      });
-      $(".center").slick({
-        dots: true,
-        infinite: true,
-        centerMode: true,
-        slidesToShow: 5,
-        slidesToScroll: 3
-      });
-      $(".variable").slick({
-        dots: true,
-        infinite: true,
-        variableWidth: true
-      });
       $(".lazy").slick({
         lazyLoad: 'ondemand', // ondemand progressive anticipated
         infinite: true

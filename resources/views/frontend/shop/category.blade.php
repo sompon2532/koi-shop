@@ -52,10 +52,16 @@
 						@endif
 
 						<div class="col-sm-6 col-md-3">
-							<div class="product text-center">
-								<a href="{{ route('frontend.shop.detail', ['id' => $product->id]) }}">
-									<img src="{{ asset($product->media->first()->getUrl()) }}" alt="..." class="img-thumbnail img-responsive">
-								</a>
+							<div class="product text-center stock-item-box">
+								<div class="img-item-box thumbnail">
+									<a href="{{ route('frontend.shop.detail', ['id' => $product->id]) }}">
+										@if(count($product->media) > 0)
+											<img src="{{ asset($product->media->first()->getUrl()) }}" alt="..." class="img-responsive" style="max-height:150px;">
+										@else
+											<img src="{{ asset('frontend/src/img/product-defalt-img.jpg') }}" alt="..." class="image-responsive" style="max-height:150px;">                                                
+										@endif
+									</a>
+								</div>
 								@if($i == 0)
 									<div class="star-label">
 										<form action="{{ route('frontend.user.favorite-add', ['id' => $product->id]) }}" method="GET" style="">  

@@ -10,7 +10,8 @@ return [
 	'subtotal' => 'SUBTOTAL',    
 	'shipping' => 'SHIPPING FEE',
 	'total' => 'TOTAL',
-    'btn-checkout' => 'CHECKOUT',
+	'btn-checkout' => 'CHECKOUT',
+	'no-item' => 'NO ITEMS IN CART!',
     
     // CHECKOUT
     'checkout' => 'CHECKOUT',    

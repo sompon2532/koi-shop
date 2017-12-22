@@ -54,8 +54,12 @@
 
                                 <div class="col-sm-6  col-md-3">
                                     <div class="stock-item-box ">
-                                        <div class="img-item-box thumbnail">  
-                                            <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class=" image-responsive" style="max-height:150px;">
+                                        <div class="img-item-box thumbnail">
+                                            @if(count($koi->media) > 0)  
+                                                <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class=" image-responsive" style="max-height:150px;">
+                                            @else
+                                                <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                
+                                            @endif
                                             @if($i == 0)
                                                 <div class="star-label">
                                                     <form action="{{ route('frontend.user.favorite-add', ['id' => $koi->id]) }}" method="GET">  
@@ -97,7 +101,7 @@
                         <p class="text-red text-right"> {{ trans('koi.total')}} : {{ count($kois) }} </p>
                     </div>
                 @else
-                    <h1>No Kois</h1>
+                    <h1>{{ trans('koi.no-koi') }}</h1>
                 @endif
 
             </div>

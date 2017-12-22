@@ -85,7 +85,7 @@
                         <div class="main-content">
                             <div class="row">
                                 <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 text-center">
-                                    <h2>No Items in Cart!</h2>
+                                    <h2>{{ trans('cart.no-item') }}</h2>
                                 </div>
                             </div>
                         </div>

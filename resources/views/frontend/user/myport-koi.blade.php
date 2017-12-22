@@ -18,7 +18,7 @@
 }
 
 .slick-slide {
-  margin: 0px 20px;
+  margin: 0px 5px;
 }
 
 {{--/* .slick-slide img {
@@ -61,15 +61,18 @@
                         <h1>{{ trans('user.myport') }}</h1>
                     </div>
 
-                    <!-- <h3 class="text-red"> </h3> -->
-                    <!-- <P>KOI > KOI  IN JAPAN > SAKAI > {{ $koi->name }}</P> -->
+                    {{--<!-- <h3 class="text-red"> </h3> --><!-- <P>KOI > KOI  IN JAPAN > SAKAI > {{ $koi->name }}</P> -->--}}
                     <br>
                     <div class="content-box">
                         <div class="row">
                             <div class="col-md-3 col-md-offset-3">
                                 <div class="slider slider-for thumbnail">
                                     @foreach($koi->media as $media)
-                                        <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style=""> 
+                                        <div>
+                                            <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
+                                                <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="..." style="">
+                                            </a>
+                                        </div>
                                     @endforeach
                                 </div>
                             </div>
@@ -79,7 +82,6 @@
                                 <p>{{ trans('user.code-koi') }} : {{ $koi->koi_id }}</p>
                                 <p>{{ trans('user.owner') }} : {{ $koi->user->name }}</p>
                                 <p>{{ trans('user.price') }} : {{ number_format($koi->price) }} {{ trans('user.thb') }}</p>
-                                <!-- <p>SHIPPING : 9999 THB</p> -->
                                 <br>
                                 <p class="text-red" style="font-weight:bold;">DETAIL</p>
                                 <p>{{ trans('user.breeder') }} : {{ $koi->oyagoi }}</p>
@@ -92,8 +94,8 @@
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="item">
                                         <div class="slider slider-nav">
-                                            @foreach($kois->media as $media)
-                                                <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style="max-height:150px;">    
+                                            @foreach($koi->media as $media)
+                                                <img src="{{ asset($media->getUrl()) }}" class="image-responsive thumbnail" style="max-height:150px;">    
                                             @endforeach
                                         </div>
                                     </div> 
@@ -135,7 +137,7 @@ $('.slider-nav').slick({
   slidesToShow: 3,
   slidesToScroll: 1,
   asNavFor: '.slider-for',
-  dots: true,
+  dots: false,
   centerMode: true,
   focusOnSelect: true
 });
@@ -143,56 +145,6 @@ $('.slider-nav').slick({
 
 <script type="text/javascript">
     $(document).on('ready', function() {
-      $(".vertical-center-4").slick({
-        dots: true,
-        vertical: true,
-        centerMode: true,
-        slidesToShow: 4,
-        slidesToScroll: 2
-      });
-      $(".vertical-center-3").slick({
-        dots: true,
-        vertical: true,
-        centerMode: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      });
-      $(".vertical-center-2").slick({
-        dots: true,
-        vertical: true,
-        centerMode: true,
-        slidesToShow: 2,
-        slidesToScroll: 2
-      });
-      $(".vertical-center").slick({
-        dots: true,
-        vertical: true,
-        centerMode: true,
-      });
-      $(".vertical").slick({
-        dots: true,
-        vertical: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      });
-      $(".regular").slick({
-        dots: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      });
-      $(".center").slick({
-        dots: true,
-        infinite: true,
-        centerMode: true,
-        slidesToShow: 5,
-        slidesToScroll: 3
-      });
-      $(".variable").slick({
-        dots: true,
-        infinite: true,
-        variableWidth: true
-      });
       $(".lazy").slick({
         lazyLoad: 'ondemand', // ondemand progressive anticipated
         infinite: true

@@ -3,7 +3,8 @@
 return [
 	'code' => 'CODE',
     'total' => 'TOTAL',
-    'btn-detail' => 'DETAIL',
+	'btn-detail' => 'DETAIL',
+	'no-koi' => 'NO KOIS IN THIS CATEGORY!',
     
 	'owner' => 'OWNER',
 	'price' => 'PRICE',

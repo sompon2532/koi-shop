@@ -8,13 +8,13 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="main-content col-md-10 col-md-offset-1">
+        <div class="main-content col-md-12">
             <div class="title-box text-center">
                 <h1>{{ trans('user.favorite') }}</h1>
             </div>
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8 col-md-offset-2">
 
                     @if(count($favorites->koi) > 0 || count($favorites->product) > 0)
                         <div class="table-responsive">

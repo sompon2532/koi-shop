@@ -23,7 +23,7 @@
                                         <div class="event-item-box">
                                             <div class="img-item-box">
                                                 <!-- <a href="">                                                                                          -->
-                                                    <img class="img-thumbnail" src="{{ asset($koi->media->first()->getUrl()) }}" alt="...">                                
+                                                <img class="img-thumbnail" src="{{ asset($koi->media->first()->getUrl()) }}" alt="...">                                
                                                 <!-- </a> -->
                                             </div>  
                                             <p class="text-red">{{ $koi->name }}</p>
@@ -37,9 +37,6 @@
                                                 <p class="text-red">{{ trans('user.end-of-event') }}</p>
                                             @endif
 
-                                            <div class="book-fleg">
-                                                <img class="" src="{{ asset('assets/img/event-fleg.png') }}" width="20"> 
-                                            </div>
                                         </div>
                                     </div> 
                                 @endforeach
