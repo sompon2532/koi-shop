@@ -61,15 +61,18 @@
                             <br>
                             <div class="col-md-3 col-md-offset-3">
                                 <div class="slider slider-for">
-                                    @foreach($products->media as $media)
-                                        <div>
-                                            <a class="example-image-link" href="{{ $media->getUrl() }}" data-lightbox="thumb-1">
-                                                <img class="example-image img-thumbnail" src="{{ $media->getUrl() }}" alt="..." style="">
-                                            </a>
-                                        </div>
-                                    @endforeach
-                                </div>
-
+                                    @if(count($products->media)>0)
+                                        @foreach($products->media as $media)
+                                            <div>
+                                                <a class="example-image-link" href="{{ $media->getUrl() }}" data-lightbox="thumb-1">
+                                                    <img class="example-image img-thumbnail" src="{{ $media->getUrl() }}" alt="..." style="">
+                                                </a>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <img src="{{ asset('frontend/src/img/product-defalt-img.jpg') }}" alt="..." class="img-thumbnail img-responsive" style="max-height:150px;">
+                                    @endif
+                                </div>                                    
                                 @if(count($favorites) == 0)
                                     <div class="star-label">
                                         <form action="{{ route('frontend.user.favorite-add', ['id' => $products->id]) }}" method="GET" style="">  
@@ -83,8 +86,7 @@
                                     </div>
                                 @else
                                     <div class="star-label">
-                                        <form action="{{ route('frontend.user.favorite-del', ['id' => $products->id, 'type' => 'App\Models\Product']) }}" method="GET" style="">  
-
+                                        <form action="{{ route('frontend.user.favorite-del', ['id' => $products->id, 'type' => 'App\Models\Product']) }}" method="GET">
                                             <button type="submit" class="btn btn-favorite">
                                                 <img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
                                             </button> 

@@ -29,7 +29,10 @@ return [
     'born' => 'BORN',    
     'strain' => 'STRAIN',    
     'farm' => 'FARM',    
-    'gender' => 'GENDER',    
+    'gender' => 'GENDER', 
+    'certificate' => 'CERTIFICATE',      
+    'yes' => 'YES',  
+    'no' => 'NO',  
     'contest' => 'CONTEST',    
     'oyagoi' => 'OYAGOI',    
     'storage' => 'STORAGE' 

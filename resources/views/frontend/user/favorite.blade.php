@@ -32,7 +32,11 @@
                                                 <tr>
                                                     <td width="20%">
                                                         <a href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">
-                                                            <img class="img-thumbnail" src="{{ asset($koi->media()->first()->getUrl()) }}" alt="..." width="100">
+                                                            @if(count($koi->media)>0)
+                                                                <img class="img-thumbnail" src="{{ asset($koi->media()->first()->getUrl()) }}" alt="..." width="100">
+                                                            @else
+                                                                <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" img-thumbnail" style="max-height:150px;">    
+                                                            @endif
                                                         </a>                                                            
                                                     </td>
                                                     <td class="">
@@ -60,8 +64,12 @@
                                             @if($product->id == $favorite->id)
                                                 <tr>
                                                     <td width="20%">
-                                                    <a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}">
-                                                        <img class="img-thumbnail" src="{{ asset($product->media()->first()->getUrl()) }}" alt="..." width="100">
+                                                    <a href="{{ route('frontend.shop.detail', ['id' => $product->id]) }}">
+                                                        @if(count($product->media)>0)
+                                                            <img class="img-thumbnail" src="{{ asset($product->media()->first()->getUrl()) }}" alt="..." width="100">
+                                                        @else
+                                                            <img src="{{ asset('frontend/src/img/product-defalt-img.jpg') }}" alt="..." class=" img-thumbnail" style="max-height:150px;">
+                                                        @endif
                                                     </a>                                                            
                                                     </td>
                                                     <td >

@@ -13,7 +13,9 @@ return [
 	'breeder' => 'BREEDER',
 	'born' => 'BORN IN',
     'size' => 'SIZE',
-    'gender' => 'GENDER',
+	'gender' => 'GENDER',
+	'contest' => 'CONTEST',
+	'remark' => 'REMARK',
 	'to-order' => 'TO ORDER',
 	'please-contact' => 'PLEASE CONTACT',
 ];

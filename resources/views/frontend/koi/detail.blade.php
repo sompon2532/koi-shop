@@ -47,7 +47,6 @@
   opacity: 1;
 }
 </style>
-
 @endsection
 
 @section('content')
@@ -102,23 +101,50 @@
                                     </div>
                                 @endif
                                 <div class="text-red">
-                                    <p>{{ trans('koi.to-order')}}</p>
-                                    <p>{{ trans('koi.please-contact')}}</p>
+                                    <p>{{ trans('koi.to-order') }}</p>
+                                    <p>{{ trans('koi.please-contact') }}</p>
                                     <img class="" src="{{ asset('frontend/src/img/line-logo.png') }}" alt="...">                                    
                                 </div>
                             </div>
 
                             <div class="col-md-6 text-left">
                                 <p class="text-red">{{-- $products->title --}}</p>
-                                <p>{{ trans('koi.code')}} : {{ $kois->koi_id }}</p>
-                                <p>{{ trans('koi.owner')}} : {{ $kois->owner }}</p>
-                                <p>{{ trans('koi.price')}} : {{ $kois->price }} {{ trans('koi.thb')}}</p>
+                                <p>{{ trans('koi.code') }} : {{ $kois->koi_id }}</p>
+                                <!-- <p>{{ trans('koi.owner')}} : {{ $kois->owner }}</p> -->
+                                <p>{{ trans('koi.price') }} : {{ number_format($kois->price) }} {{ trans('koi.thb')}}</p>
                                 <br>
                                 <p class="text-red">{{ trans('koi.detail')}}</p>
-                                <p>{{ trans('koi.breeder')}} : {{ $kois->owner }}</p>
-                                <p>{{ trans('koi.born')}} : {{ $kois->born }}</p>
-                                <p>{{ trans('koi.size')}} : {{ $kois->owner }}</p>
+                                <p>{{ trans('koi.breeder') }} : {{ $kois->strain->name }} </p>
+                                <p>{{ trans('koi.born') }} : {{ $kois->born }}</p>
+
+                                @if(count($kois->sizes) > 0)
+                                    <p>
+                                        {{ trans('koi.size') }} : 
+                                        @foreach($kois->sizes as $sizes)
+                                            {{ $sizes->size }}
+                                        @endforeach
+                                    </p>
+                                @endif
+
                                 <p>{{ trans('koi.gender')}} : {{ $kois->sex }}</p>
+
+                                @if(count($kois->contests) > 0)
+                                    <p>
+                                        {{ trans('koi.contest') }} : 
+                                        @foreach($kois->contests as $contests)
+                                            {{ $contests->contest }}
+                                        @endforeach
+                                    </p>
+                                @endif
+
+                                @if(count($kois->remarks) > 0)
+                                    <p>
+                                        {{ trans('koi.remark') }} : 
+                                        @foreach($kois->remarks as $remarks)
+                                            {{ $remarks->remark }}
+                                        @endforeach
+                                    </p>
+                                @endif
                             </div>
 
                             @if(count($kois->media) > 1)                            

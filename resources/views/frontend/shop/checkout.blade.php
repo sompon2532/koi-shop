@@ -7,7 +7,7 @@
 @section('content')
 
     @if(Session::has('cart'))
-    <div class="row"> 
+        <div class="row"> 
             <div class="col-md-12">
                 <div class="main-content text-center">
                     <div class="title-box">
@@ -25,10 +25,11 @@
                                     @foreach($products as $product)
                                     <tr>
                                         <td>
-                                            @foreach($images as $image)
-                                                    <img src="{{ $image->media->first()->where('model_id', $product['item']['id'])->where('collection_name', 'product')->first()->getUrl() }}" alt="..." class="img-thumbnail image-responsive" style="max-height:150px;">
-                                                @break
-                                            @endforeach
+                                            @if(count($product['item']->media) > 0)
+                                                <img src="{{ $product['item']->media->first()->getUrl() }}" alt="..." class="img-thumbnail image-responsive" style="max-height:150px;">
+                                            @else
+                                                <img src="{{ asset('frontend/src/img/product-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                                                                        
+                                            @endif
                                         </td>
                                         <td class="text-left">
                                             <p class="text-red">{{ $product['item']['title'] }}</p>
@@ -114,12 +115,12 @@
                     </form>
                 </div>
             </div>
-            @else
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                        <h2>No Items in Cart!</h2>
-                    </div>
-                </div>
-            @endif	
-	</div>
+	    </div>            
+    @else
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                <h2>No Items in Cart!</h2>
+            </div>
+        </div>
+    @endif	
 @endsection

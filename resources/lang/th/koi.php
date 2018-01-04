@@ -15,6 +15,8 @@ return [
 	'born' => 'ปีเกิด',
     'size' => 'ขนาด',
     'gender' => 'เพศ',
+    'contest' => 'การประกวด',
+    'remark' => 'หมายเหตุ',
 	'to-order' => 'สั่งซื้อ',
 	'please-contact' => 'กรุณาติดต่อ',
 ];

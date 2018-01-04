@@ -40,7 +40,11 @@
                                                     @foreach($order->products as $product)
                                                     <div class="col-md-6 orders-detail">
                                                             <div class="col-md-4">
-                                                                <img class="img-thumbnail" src="{{ $product->media->first()->getUrl() }}" alt="...">
+                                                                @if(count($product->media)>0)
+                                                                    <img class="img-thumbnail" src="{{ $product->media->first()->getUrl() }}" alt="...">
+                                                                @else
+                                                                    <img class="img-thumbnail" src="{{ asset('frontend/src/img/product-defalt-img.jpg') }}" alt="..." style="max-height:150px;">
+                                                                @endif
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <p class="text-red">{{ $product->name }}</p>

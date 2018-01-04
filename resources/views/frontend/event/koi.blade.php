@@ -153,8 +153,8 @@
                                                     </form>
                                                 @else
                                                     <form action="{{ route('frontend.event.bookevent', ['koi' => $kois->id, 'event' => $events->id]) }}" method="GET" style="">  
-                                                        <!-- <input type="hidden" name="koi" value="{{ $kois->id }}">
-                                                        <input type="hidden" name="event" value="{{ $events->id }}"> -->
+                                                        {{--<!-- <input type="hidden" name="koi" value="{{ $kois->id }}">
+                                                        <input type="hidden" name="event" value="{{ $events->id }}"> -->--}}
                                                         <button type="submit" class="btn btn-white">{{ trans('event.book_now') }}</button>                                                                                          
                                                         {{ csrf_field() }}
                                                     </form>
@@ -177,8 +177,16 @@
                                                     {{ trans('event.strain') }} : {{ $kois->strain['name'] }}<br>
                                                     {{ trans('event.farm') }} : {{ $kois->farm['name'] }}<br>
                                                     {{ trans('event.gender') }} : {{ $kois->sex }}<br>
-                                                    
-                                                    @if($kois->certificate)
+                                                    {{ trans('event.certificate') }}
+                                                    @if($kois->certificate == '') 
+                                                        {{ trans('event.yes') }}
+                                                    @else
+                                                        {{ trans('event.no') }}
+                                                    @endif<br>
+
+                                                    {{ dd($kois) }}
+
+                                                    @if($kois->contest)
                                                         {{ trans('event.contest') }} :
                                                         @foreach($contests as $contest)
                                                              {{ $contest->contest }} 

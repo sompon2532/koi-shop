@@ -22,14 +22,6 @@
                             </div>
                         </div>
                     @endif
-                    <div class="row">
-                            <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
-                                <div id="charge-message" class="alert alert-success">
-                                        haloo
-                                </div>
-                            </div>
-                        </div>
-
 
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">

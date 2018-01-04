@@ -37,7 +37,7 @@ class PaymentController extends Controller
             'total'       => $request->input('total'),    
             'datetime'    => $request->input('datetime')                  
         );
-        // $payment = Payment::create($insert);
+        $payment = Payment::create($insert);
 
         // $order = Order::find($id);
         // $order->status = 1;

@@ -31,7 +31,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="alert alert-danger" role="alert">...</div>
 				@endif
 
 				@if(count($products) > 0)
@@ -51,10 +50,16 @@
 							@endif
 
 							<div class="col-sm-6 col-md-3">
-								<div class="product text-center">
-									<a href="{{ route('frontend.shop.detail', ['id' => $product->id]) }}">
-										<img src="{{ asset($product->media->first()->getUrl()) }}" alt="..." class="img-thumbnail img-responsive">
-									</a>
+								<div class="product stock-item-box text-center">
+									<div class="img-item-box thumbnail">
+										<a href="{{ route('frontend.shop.detail', ['id' => $product->id]) }}">
+											@if(count($product->media)>0)
+												<img src="{{ asset($product->media->first()->getUrl()) }}" alt="..." class="img-responsive">
+											@else
+												<img src="{{ asset('frontend/src/img/product-defalt-img.jpg') }}" alt="..." class="img-responsive" style="max-height:150px;">
+											@endif
+										</a>
+									</div>
 									@if($i == 0)
 										<div class="star-label">
 											<form action="{{ route('frontend.user.favorite-add', ['id' => $product->id]) }}" method="GET" style="">  
@@ -69,7 +74,6 @@
 									@else
 										<div class="star-label">
 											<form action="{{ route('frontend.user.favorite-del', ['id' => $product->id, 'type' => 'App\Models\Product']) }}" method="GET" style="">  
-
 												<button type="submit" class="btn btn-favorite">
 													<img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
 												</button> 

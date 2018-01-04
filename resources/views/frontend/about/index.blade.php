@@ -9,7 +9,7 @@
             <div class="about-us">
                 <div class="text-center">
                     <div class="title-box">
-                        <h1>ABOUT US</h1>
+                        <h1>{{ trans('about.about') }}</h1>
                     </div>
                     <p>KOIKICHI FISH FARM</p>
                     <p>WE ARE A MEMBER OF<br>

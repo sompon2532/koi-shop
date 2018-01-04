@@ -79,6 +79,8 @@ class KoiController extends Controller
         // ]);
 
         $kois = Koi::with(['media'])->find($id);
+        $kois->load('sizes', 'contests', 'remarks', 'strain');
+        
         // dd($favorites);
         $categories = Category::active()->get()->toTree();
 
@@ -87,6 +89,7 @@ class KoiController extends Controller
         }else{
             $favorites = Favorite::where('favorite_type', 'App\Models\Koi')->where('user_id', Auth::user()->id)->get();            
         }
+        // return $kois->strain;
 
         return view('frontend.koi.detail', compact('kois','favorites', 'categories'));
         
