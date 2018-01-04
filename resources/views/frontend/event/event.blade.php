@@ -36,11 +36,9 @@
                         <h1>{{ $events->name }}</h1>
                     </div>
 
-
                     <div class="content-box">
                         <div class="row">
                             <div class="col-md-12">
-                                <!-- <p>CHUGOKU AUCTION WEEK</p> -->
                                 <p>{{ $events->start_datetime->formatLocalized('%d %B %Y') }} to {{ $events->end_datetime->formatLocalized('%d %B %Y') }}</p>
 
                                 @if(count($kois) > 0)
@@ -50,8 +48,11 @@
                                                 <div class="event-item-box">
                                                     <div class="img-item-box">   
                                                         <a href="{{ route('frontend.event.koi', ['event' => $events->id, 'koi' => $koi->id]) }}">
-                                                            <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class="image-responsive img-thumbnail" style="max-height:150px;">                                                                                       
-                                                            <!-- <img class="img-thumbnail" src="{{ asset('assets/img/hf-2.png') }}" alt="...">-->     
+                                                            @if(count($koi->media)>0)
+                                                                <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class="image-responsive img-thumbnail" style="max-height:150px;">
+                                                            @else
+                                                                <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">
+                                                            @endif
                                                         </a>
                                                     </div>  
                                                     <p class="text-red">{{ $koi->name }}</p>
@@ -70,16 +71,12 @@
                                                             @endforeach
                                                         @endif
                                                         @if($i == 1)
-                                                            <form action="{{ route('frontend.event.bookdel', ['koi' => $koi->id, 'event' => $events->id]) }}" method="GET">  
-                                                                <!-- <input type="hidden" name="koi" value="{{ $koi->id }}">
-                                                                <input type="hidden" name="event" value="{{ $events->id }}"> -->
-                                                                <button type="submit" class="btn btn-red">{{ trans('event.cancel') }}</button>                                                                                          
+                                                            <form action="{{ route('frontend.event.bookdel', ['koi' => $koi->id, 'event' => $events->id]) }}" method="GET">
+                                                                <button type="submit" class="btn btn-red">{{ trans('event.cancel') }}</button>                                                             
                                                                 {{ csrf_field() }}
                                                             </form>
                                                         @else
-                                                            <form action="{{ route('frontend.event.bookevent', ['koi' => $koi->id, 'event' => $events->id]) }}" method="GET">  
-                                                                <!-- <input type="hidden" name="koi" value="{{ $koi->id }}">
-                                                                <input type="hidden" name="event" value="{{ $events->id }}"> -->
+                                                            <form action="{{ route('frontend.event.bookevent', ['koi' => $koi->id, 'event' => $events->id]) }}" method="GET">
                                                                 <button type="submit" class="btn btn-white">{{ trans('event.book_now') }}</button>                                                                                          
                                                                 {{ csrf_field() }}
                                                             </form>
@@ -89,7 +86,7 @@
                                             </div> 
                                         @endforeach
                                     @else
-                                        <h4 class="text-red">End of Event.</h4>
+                                        <h4 class="text-red">{{ trans('event.end-of-event') }}</h4>
                                         @if(count($events->videos) > 0)
                                             <div class="col-md-12">
                                                 <h3>{{ trans('event.lucky_draw') }}</h3>

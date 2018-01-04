@@ -17,6 +17,7 @@ return [
     'end_of_event' => 'END OF EVENT',    
     'winner_list' => 'WINNER LIST',   
     'winner' => 'WINNER',
+    'end-of-event' => 'End of Event.',
 
     //koi
     'remaining_time' => 'REMAINING TIME',    
@@ -27,6 +28,7 @@ return [
     'price' => 'PRICE',    
     'detail' => 'DETAIL',    
     'born' => 'BORN',    
+    'size' => 'SIZE',    
     'strain' => 'STRAIN',    
     'farm' => 'FARM',    
     'gender' => 'GENDER', 

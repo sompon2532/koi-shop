@@ -57,13 +57,19 @@ class UserController extends Controller
     // }
     public function postfavorite(Request $request)
     {   
-        $insert = array(    
-            'user_id' => Auth::user()->id,     
-            'favorite_id' => $request->input('item'),                    
-            'favorite_type' => $request->input('type'),
-            'created_at' => Carbon::now()->toDateTimeString()                   
-        );
-        DB::table('favorites')->insert($insert);
+        // $favorites = User::find(Auth::user()->id);
+        // $fav = $favorites->where('favorite_id', $request->input('item'));
+        // dd($fav);
+        $favorites = Favorite::where('favorite_id',$request->input('item'))->where('favorite_type', $request->input('type'))->where('user_id', Auth::user()->id)->get();
+        if(count($favorites) == 0){
+            $insert = array(    
+                'user_id' => Auth::user()->id,     
+                'favorite_id' => $request->input('item'),                    
+                'favorite_type' => $request->input('type'),
+                'created_at' => Carbon::now()->toDateTimeString()                   
+            );
+            DB::table('favorites')->insert($insert);
+        }
         // dd($insert);
         return redirect()->back()->with('success', 'Successfully Favorite Item');
           
