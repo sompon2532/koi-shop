@@ -47,5 +47,14 @@ class Payment extends Model implements HasMedia
      * @var array
      */
     public $fillable = ['order_id', 'bank', 'total', 'datetime'];
-    
+
+    /**
+     * @return \Illuminate\Contracts\Routing\UrlGenerator|null|string
+     */
+    public function getImageAttribute()
+    {
+        $media = $this->getFirstMedia('payment');
+
+        return $media ? url($media->getUrl()) : null;
+    }
 }

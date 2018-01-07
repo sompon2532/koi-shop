@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
     <!-- Sweetalert -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.5/sweetalert2.min.css">
+    <!-- Datatable -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css">
     <!-- main style -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
@@ -132,6 +134,8 @@
 <script src="{{ asset('dist/js/demo.js') }}"></script>
 <!-- Sweetalert -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.5/sweetalert2.all.min.js"></script>
+<!-- Datatable -->
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <!-- Vue -->
 <script src="{{ asset('plugins/vue/vue.js') }} "></script>
 

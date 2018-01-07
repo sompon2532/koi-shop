@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="category" class="col-sm-3 control-label">หมวดหมู่</label>
+                            <label for="category" class="col-sm-3 control-label">หมวดหมู่ (ตู้โชว์)</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="category_id" id="category">
                                     <option value="">-------- Select category --------</option>

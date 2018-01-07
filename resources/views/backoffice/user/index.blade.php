@@ -21,13 +21,13 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="example2" class="table table-bordered table-hover">
+                <table id="datatable" class="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>สมาชิก</th>
                         <th>อีเมล์</th>
-                        {{--<th>การจัดการ</th>--}}
+                        <th>การจัดการ</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,12 +36,14 @@
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        {{--<td>--}}
-                            {{--<a href="{{ route('user.edit', ['user' => $user->id]) }}"--}}
-                               {{--class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>--}}
-                            {{--<a href="{{ route('user.destroy', ['user' => $user->id]) }}"--}}
-                               {{--class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>--}}
-                        {{--</td>--}}
+                        <td>
+                            <a href="{{ route('user.koi', ['user' => $user->id]) }}" class="btn btn-warning btn-xs">
+                                <i class="fa fa-archive"></i> ข้อมูลปลา
+                            </a>
+                            <a href="{{ route('user.order', ['user' => $user->id]) }}" class="btn btn-warning btn-xs">
+                                <i class="fa fa-first-order"></i> ข้อมูลสั่งซื้อ
+                            </a>
+                        </td>
                     </tr>
                     @endforeach
                     </tbody>
@@ -50,7 +52,7 @@
                         <th>#</th>
                         <th>สมาชิก</th>
                         <th>อีเมล์</th>
-                        {{--<th>การจัดการ</th>--}}
+                        <th>การจัดการ</th>
                     </tr>
                     </tfoot>
                 </table>
