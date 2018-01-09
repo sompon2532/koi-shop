@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="content-box">
-                            @foreach($orders as $order)
+                            @foreach($orders as $order)                            
                                 <div class="info-box">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -29,7 +29,7 @@
                                                         <p>{{ trans('user.date') }} : {{ $order->created_at->formatLocalized('%d %B %Y') }}</p>
                                                     </div>
                                                     <div class="col-md-4 text-right">
-                                                        {!! $order->transaction->status == 0 ? "<p class='text-red'>ยังไม่ชำระเงิน</p>" : "ชำระเงินแล้ว"!!}
+                                                        {!! $order->transaction->status == 0 ? "<p class='text-red'>ยังไม่ชำระเงิน</p>" : "รอการตรวจสอบ"!!} 
                                                         <p>{{ trans('user.total') }} : {{ number_format($order->totalPrice) }} {{ trans('user.thb') }}</p>
                                                     </div>
                                                 </div>
@@ -37,8 +37,8 @@
 
                                             <div class="content-info-box">
                                                 <div class="row">
-                                                    @foreach($order->products as $product)
-                                                    <div class="col-md-6 orders-detail">
+                                                @foreach($order->products as $product)
+                                                        <div class="col-md-6 orders-detail">
                                                             <div class="col-md-4">
                                                                 @if(count($product->media)>0)
                                                                     <img class="img-thumbnail" src="{{ $product->media->first()->getUrl() }}" alt="...">
@@ -53,7 +53,7 @@
                                                         </div>
                                                     @endforeach
                                                     @if($order->transaction->status == 0)
-                                                        <div class="col-md-12 text-center">
+                                                      <div class="col-md-12 text-center">
                                                             <a class="btn btn-red" href="{{ route('frontend.payment.payment', ['id' => $order->id]) }}">
                                                                 {{ trans('user.btn-payment') }}
                                                             </a>

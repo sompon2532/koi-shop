@@ -11,6 +11,7 @@ return array(
     'AddEventIdToKoiTable' => $baseDir . '/database/migrations/2017_09_09_020445_add_event_id_to_koi_table.php',
     'AddFieldConfigToEventsTable' => $baseDir . '/database/migrations/2017_10_07_081952_add_field_config_to_events_table.php',
     'AddFreshSeeds' => $vendorDir . '/dimsav/laravel-translatable/tests/seeds/AddFreshSeeds.php',
+    'AddPriceToOrderProductTable' => $baseDir . '/database/migrations/2018_01_08_075306_add_price_to_order_product_table.php',
     'AddUserIdToKoisTable' => $baseDir . '/database/migrations/2017_12_03_053231_add_user_id_to_kois_table.php',
     'AdminsTableSeeder' => $baseDir . '/database/seeds/AdminsTableSeeder.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',

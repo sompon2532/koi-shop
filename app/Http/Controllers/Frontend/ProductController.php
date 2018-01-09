@@ -196,7 +196,10 @@ class ProductController extends Controller
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-
+        // dd($oldCart);
+        // foreach ($cart->items as $item) {
+        //     dd($item['qty']);
+        // }
         try {
             // $order = new Order();
             // $order->cart = serialize($cart);
@@ -209,17 +212,17 @@ class ProductController extends Controller
             // $order->payment_id = '';
 
             // Auth::user()->orders()->save($order);
-
+            
             $insert = array(
               'user_id'     => Auth::user()->id,
               'cart'        => serialize($cart),
               'address'     => $request->input('address'),
               'name'        => $request->input('name'),
-              'status'      => 0, //0=ยังไม่ได้ชำระเงิน 1=ชำระเงินแล้ว
+              'status'      => 0,
               'totalQty'    => $cart->totalQty,
               'totalPrice'  => $cart->totalPrice,
               'tel'         => $request->input('tel'),
-              'payment_id'  => '',//id การชำระเงิน            
+              'payment_id'  => '',  
               'created_at' => Carbon::now()->toDateTimeString() 
             );
             $order_id = DB::table('orders')->insertGetId($insert);
@@ -227,7 +230,9 @@ class ProductController extends Controller
             foreach ($cart->items as $item) {
                 $insert = array(
                   'order_id'    => $order_id,
-                  'product_id'  => $item['item']['id']
+                  'product_id'  => $item['item']['id'],
+                  'qty'    => $item['qty'],
+                  'total_price'   => $item['price']
                 );
                 DB::table('order_product')->insertGetId($insert);
             }

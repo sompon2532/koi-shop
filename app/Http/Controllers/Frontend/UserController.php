@@ -57,9 +57,6 @@ class UserController extends Controller
     // }
     public function postfavorite(Request $request)
     {   
-        // $favorites = User::find(Auth::user()->id);
-        // $fav = $favorites->where('favorite_id', $request->input('item'));
-        // dd($fav);
         $favorites = Favorite::where('favorite_id',$request->input('item'))->where('favorite_type', $request->input('type'))->where('user_id', Auth::user()->id)->get();
         if(count($favorites) == 0){
             $insert = array(    
@@ -98,6 +95,7 @@ class UserController extends Controller
         $users = User::find(Auth::user()->id);
 
         $orders = Order::where('user_id', Auth::user()->id)->get();
+        // dd($orders);
         // $order = Order::find(13);
 
         // dd($order->transaction->id);
