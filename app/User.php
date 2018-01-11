@@ -27,15 +27,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-//    public function kois()
-//    {
-//        return $this->belongsToMany('App\Models\Koi')->withPivot('event_id');
-//    }
+    public function kois()
+    {
+        return $this->belongsToMany('App\Models\Koi')->withPivot('event_id');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function kois()
+    public function loadKois()
     {
         return $this->hasMany(Models\Koi::class);
     }
