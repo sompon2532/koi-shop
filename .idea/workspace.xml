@@ -48,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backoffice/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="326">
-              <caret line="102" column="22" lean-forward="false" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+              <caret line="102" column="20" lean-forward="false" selection-start-line="102" selection-start-column="20" selection-end-line="102" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -483,12 +483,12 @@
       <workItem from="1512450530954" duration="4581000" />
       <workItem from="1514778045796" duration="2582000" />
       <workItem from="1515294317766" duration="10878000" />
-      <workItem from="1515654064870" duration="522000" />
+      <workItem from="1515654064870" duration="567000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251937000" />
+    <option name="totallyTimeSpent" value="251982000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -891,7 +891,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backoffice/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
-          <caret line="102" column="22" lean-forward="false" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+          <caret line="102" column="20" lean-forward="false" selection-start-line="102" selection-start-column="20" selection-end-line="102" selection-end-column="20" />
           <folding />
         </state>
       </provider>
