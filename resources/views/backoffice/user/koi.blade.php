@@ -30,7 +30,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($user->kois as $index => $koi)
+                    @foreach ($user->loadKois as $index => $koi)
                         <tr>
                             <td>{{ $koi->koi_id }}</td>
                             <td>{{ $koi->name }}</td>

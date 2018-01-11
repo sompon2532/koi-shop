@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a1de6960-8bca-4007-8145-6a78462776c3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backoffice/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backoffice/user/koi.blade.php" afterPath="$PROJECT_DIR$/resources/views/backoffice/user/koi.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,21 +45,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backoffice/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="326">
-              <caret line="102" column="20" lean-forward="false" selection-start-line="102" selection-start-column="20" selection-end-line="102" selection-end-column="20" />
+              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="koi.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="koi.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/backoffice/user/koi.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="732">
-              <caret line="40" column="107" lean-forward="false" selection-start-line="40" selection-start-column="107" selection-end-line="40" selection-end-column="107" />
+            <state relative-caret-position="134">
+              <caret line="32" column="45" lean-forward="false" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -146,7 +147,6 @@
         <option value="$PROJECT_DIR$/resources/views/backoffice/koi/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backoffice/koi/update.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backoffice/KoiController.php" />
-        <option value="$PROJECT_DIR$/resources/views/backoffice/user/koi.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backoffice/user/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/backoffice/main.blade.php" />
         <option value="$PROJECT_DIR$/public/js/main.js" />
@@ -156,6 +156,7 @@
         <option value="$PROJECT_DIR$/resources/views/backoffice/news/index.blade.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backoffice/UserController.php" />
+        <option value="$PROJECT_DIR$/resources/views/backoffice/user/koi.blade.php" />
       </list>
     </option>
   </component>
@@ -483,12 +484,12 @@
       <workItem from="1512450530954" duration="4581000" />
       <workItem from="1514778045796" duration="2582000" />
       <workItem from="1515294317766" duration="10878000" />
-      <workItem from="1515654064870" duration="567000" />
+      <workItem from="1515654064870" duration="863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251982000" />
+    <option name="totallyTimeSpent" value="252278000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -872,14 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/user/koi.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="40" column="107" lean-forward="false" selection-start-line="40" selection-start-column="107" selection-end-line="40" selection-end-column="107" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -891,7 +884,15 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backoffice/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
-          <caret line="102" column="20" lean-forward="false" selection-start-line="102" selection-start-column="20" selection-end-line="102" selection-end-column="20" />
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backoffice/user/koi.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="32" column="45" lean-forward="false" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
           <folding />
         </state>
       </provider>

@@ -100,7 +100,7 @@ class UserController extends Controller
      */
     public function getKoi(User $user) {
         $user->load('loadKois');
-        return $user;
+
         return view('backoffice.user.koi', compact('user'));
     }
 }
