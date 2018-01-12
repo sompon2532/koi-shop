@@ -56,7 +56,7 @@
                                     <br>
                                     @endif
                                 @endforeach
-                                {{-- <!-- @if ($today->toDateString() < $events->first()->end_datetime->toDateString()) --> --}}
+                                {{-- <!-- @if ($today->toDateString() < $events->first()->end_datetime->toDateString()) --> 
                                     <!-- <div class="col-md-6">
                                         <div class="item active">
                                             <a href="{{ route('frontend.event.event', ['id' => $events->first()->id]) }}">
@@ -70,8 +70,8 @@
                                             <p>{{ $events->first()->name }}</p>
                                             <p>{{ $events->first()->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $events->first()->end_datetime->formatLocalized('%d %B %Y') }}</p>  
                                         </div>
-                                    </div> -->
-                                {{-- <!-- @elseif($today->toDateString() == $events->first()->end_datetime->toDateString() && $today->toTimeString() <= $events->first()->end_datetime->toTimeString()) --> --}}
+                                    </div> -->--}}
+                                {{-- <!-- @elseif($today->toDateString() == $events->first()->end_datetime->toDateString() && $today->toTimeString() <= $events->first()->end_datetime->toTimeString()) --> }
                                     <!-- <div class="col-md-6">
                                         <div class="item active">
                                             <a href="{{ route('frontend.event.event', ['id' => $events->first()->id]) }}">
@@ -85,7 +85,7 @@
                                             <p>{{ $events->first()->name }}</p>
                                             <p>{{ $events->first()->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $events->first()->end_datetime->formatLocalized('%d %B %Y') }}</p>  
                                         </div>
-                                    </div> -->
+                                    </div> -->--}
                                 {{-- <!-- @endif --> --}}
                                 
                                 <div class="col-md-12">

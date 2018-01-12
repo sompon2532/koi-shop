@@ -25,9 +25,17 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="calendar-box">
-                    <!-- <div id="calendar"></div> -->
                     {!! $calendar->calendar() !!}
-                    
+                    <div class="text-center">
+                        @if (count($events_today) > 0)
+                            @foreach($events_today as $event)
+                                @if ($today->toDateString() <= $event->end_datetime->toDateString() && $today >= $event->start_datetime->toDateString() )
+                                    <p class="text-red">EVENT</p>
+                                    <p>{{ $event->end_datetime->format('d/m/Y') }} - {{ $event->start_datetime->format('d/m/Y') }}<br>{{ $event->name }}</p>
+                                @endif
+                            @endforeach
+                        @endif
+                    </div>
                 </div>                
             </div>
             <div class="col-md-9">
@@ -35,31 +43,59 @@
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                         {{-- dd($news) --}}
                         @if (count($news) > 0)
-                            @if (count($news) > 1)
+                            @if(count($news) == 1)
+                                <div class="carousel-inner" role="listbox">                 
+                                    @foreach($news as $index => $new)
+                                        {{-- @if($index > 0 && $now <= $new->end_datetime->toTimeString()) --}}
+                                            <div class="item active">
+                                                @if($new->media->where('collection_name', 'news-cover')->first() == null)
+                                                    <a href="{{-- route('frontend.event.event', ['id' => $new->id]) --}}">
+                                                        <img src="{{ asset('frontend/src/img/news-cover-defalt-img.jpg')}}" alt="..." class="image-responsive" style="width:100%;">
+                                                    </a>
+                                                @else
+                                                    <a href="{{-- route('frontend.event.event', ['id' => $new->id]) --}}">
+                                                        <img src="{{ asset($new->media->where('collection_name', 'news-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="width:100%;">
+                                                    </a>
+                                                @endif
+                                            </div>
+                                        {{-- @endif --}}
+                                    @endforeach
+                                </div>
+                            @elseif(count($news) > 1)
+                                {{-- dd(count($news)) --}}
                                 <!-- Indicators -->
                                 <ol class="carousel-indicators">
                                     <li data-target="#carousel-example-generic" data-slide-to="{{0}}" class="active"></li>
-                                    @foreach($news as $index => $new)
-                                        @if($index > 0 && $now <= $new->end_datetime->toTimeString())
-                                            <li data-target="#carousel-example-generic" data-slide-to="{{$index}}"></li>
-                                        @endif                                    
-                                    @endforeach
+                                    @for($i=1; $i<count($news); $i++)
+                                    {{-- @foreach($news as $index => $new) --}}
+                                        {{-- @if($index > 0 && $now <= $new->end_datetime->toTimeString()) --}}
+                                            <li data-target="#carousel-example-generic" data-slide-to="{{$i}}"></li>
+                                        {{-- @endif --}}
+                                    {{-- @endforeach --}}
+                                    @endfor
                                 </ol>
-                            @endif
-                            <div class="carousel-inner" role="listbox">
-                                {{-- @if ($now <= $news->first()->end_datetime->toTimeString()) --}}
-                                    <div class="item active">
-                                        <a href="{{-- route('frontend.event.event', ['id' => $news->first()->id]) --}}">
-                                            <img src="{{ asset($news->first()->media->where('collection_name', 'news-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="width:100%;">
-                                        </a>
-                                    </div>
-                                {{-- @endif --}}
-                                @if(count($news) > 1)                                
+                                <div class="carousel-inner" role="listbox">
+                                    {{-- @if ($now <= $news->first()->end_datetime->toTimeString()) --}}
+                                        <div class="item active">
+                                            <a href="{{-- route('frontend.event.event', ['id' => $news->first()->id]) --}}">
+                                                @if($news->first()->media->where('collection_name', 'news-cover')->first() ==  null)
+                                                    <img src="{{ asset('frontend/src/img/news-cover-defalt-img.jpg')}}" alt="..." class="image-responsive" style="width:100%;">
+                                                @else
+                                                    <img src="{{ asset($news->first()->media->where('collection_name', 'news-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="width:100%;">
+                                                @endif
+                                            </a>
+                                        </div>
+                                    {{-- @endif --}}             
                                     @foreach($news as $index => $new)
-                                        @if($index > 0 && $now <= $new->end_datetime->toTimeString()) 
+                                        @if($index > 0)
+                                        {{-- @if($index > 0 && $now <= $new->end_datetime->toTimeString()) --}}
                                             <div class="item">
                                                 <a href="{{-- route('frontend.event.event', ['id' => $new->id]) --}}">                                            
+                                                @if($new->media->where('collection_name', 'news-cover')->first() ==  null)
+                                                    <img src="{{ asset('frontend/src/img/news-cover-defalt-img.jpg')}}" alt="..." class="image-responsive" style="width:100%;">                                                    
+                                                @else
                                                     <img src="{{ asset($new->media->where('collection_name', 'news-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="width:100%;">
+                                                @endif
                                                 </a>
                                             </div>
                                         @endif
@@ -74,9 +110,9 @@
                                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
                                     </a>
-
-                                @endif                              
-                            </div>
+                  
+                                </div>
+                            @endif                            
                         @endif
 
                         <!-- {{-- @foreach($events as $index => $event) --}}
@@ -92,13 +128,12 @@
             </div>
         </div>
     </div>
-    
 @endsection
 
 @section('custom-js')
 
 <!-- jQuery 2.2.3 -->
-<script src=" {{ asset('plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+<!-- <script src=" {{ asset('plugins/jQuery/jquery-2.2.3.min.js') }}"></script> -->
 <!-- bootstrap -->
 <!-- <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script> -->
 

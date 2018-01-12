@@ -40,9 +40,9 @@
                                                         <p class="text-red">
                                                             <div class="input-group col-md-4">
                                                                 <span class="input-group-btn">
-                                                                    <a class="btn btn-qty-item" href="{{ route('frontend.shop.reduceByone', ['id' => $product['item']['id']]) }}">-</a>
+                                                                    <a class="btn btn-qty-item" href="{{ route('frontend.shop.reduceByone', ['id' => $product['item']['id']]) }}" onclick="return reduceByone({{$product['item']['id']}})">-</a>
                                                                 </span>
-                                                                <input type="text" class="form-control qty-item" placeholder="" value="{{ $product['qty'] }}">
+                                                                <input type="text" class="form-control qty-item" id="qty-item{{$product['item']['id']}}" placeholder="" value="{{ $product['qty'] }}">
                                                                 <span class="input-group-btn">
                                                                     <a class="btn btn-qty-item" href="{{ route('frontend.shop.reduceAddByone', ['id' => $product['item']['id']]) }}">+</a>
                                                                 </span>
@@ -53,7 +53,7 @@
                                                         <p class="text-red">{{ number_format($product['price']) }} {{ trans('cart.thb') }}</p>
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('frontend.shop.remove', ['id' => $product['item']['id']]) }}" class="btn"><span class="glyphicon glyphicon glyphicon-remove text-red"></span></a>
+                                                        <a href="{{ route('frontend.shop.remove', ['id' => $product['item']['id']]) }}" class="btn" onclick="return(confirm('{{trans('cart.confirm-remove-item')}}'))"><span class="glyphicon glyphicon glyphicon-remove text-red"></span></a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -104,4 +104,19 @@
                 </div>
             </div>
         </div>
+@endsection
+@section('custom-js')
+<script>
+    function reduceByone($key) {
+        var qty = document.getElementById("qty-item"+$key).value;
+        if(qty == 1){
+            // confirm("{{trans('cart.confirm-remove-item')}}");
+            if(confirm("{{trans('cart.confirm-remove-item')}}")==true){
+                return true;
+            }else{
+                return false;                
+            }
+        }
+    }
+</script>
 @endsection

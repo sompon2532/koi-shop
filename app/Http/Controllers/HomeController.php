@@ -25,12 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $news = News::with(['media'])
-            ->whereDate('end_datetime', '>=' ,Carbon::now()->toDateString())
-            ->orderBy('end_datetime', 'desc')
-            ->get();
-            
+        $news = News::with(['media'])->where('status', 1)->whereDate('end_datetime', '>=' ,Carbon::now()->toDateString())->orderBy('end_datetime', 'desc')->get();
         $now = Carbon::now('Asia/Bangkok')->toTimeString();
+        $events_today = Event::active()->with(['media'])->orderBy('end_datetime', 'desc')->get();
+        $today = Carbon::now('Asia/Bangkok');
+        // foreach ($events_today as  $event) {
+        // echo $event->end_datetime->toDateString().'<br>';
+        // }
+        // return $today->toDateString();
+
         $categories = Category::active()->get()->toTree();
 
         $events = [];
@@ -67,8 +70,8 @@ class HomeController extends Controller
             ],
             'eventLimit' => 0,
         ]);
-
-        return view('frontend.index', compact('news', 'now', 'categories', 'calendar'));
+            // dd($now_event);
+        return view('frontend.index', compact('news', 'now', 'events_today', 'today', 'categories', 'calendar'));
     }
 
     public function getAboutUs()
