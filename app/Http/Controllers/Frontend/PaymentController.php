@@ -38,19 +38,9 @@ class PaymentController extends Controller
             'datetime'    => $request->input('datetime')                  
         );
         $payment = Payment::create($insert);
-
-        // $order = Order::find($id);
-        // $order->status = 1;
-        
-        // $order->transaction->status = 1;
         $transaction = Transaction::where('order_id', $id)->first();
         $transaction->status = 1;
         $transaction->save();
-
-        // $transaction = Transaction::where('order_id', $id)->get();        
-        // dd($transaction);
-
-        // DB::table('orders')->where('id', $id)->update(['status' => 1]);
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');  

@@ -21,27 +21,6 @@ class ProductController extends Controller
 {
     public function getIndex()
     {
-        // $products = Product::all();
-        // $images = DB::table('products')
-        // ->Join('media', 'products.id', '=', 'media.model_id')
-        // ->select('products.*', 'media.*')
-        // ->where('media.collection_name', '=', 'product')
-        // // ->groupBy('media.collection_name')
-        // // ->count('products.id')
-        // ->get();
-        // // dd($images);
-        // return view('frontend.shop.index', [
-        //     'products' => $products,
-        //     'images' => $images
-        // ]);
-        // $products = Product::with('media')->get();
-        // $categories = Category::active()->get()->toTree();
-        // return view('frontend.shop.index', compact('products', 'categories'));
-        // $products = Product::with('media')->get();
-        // return view('frontend.shop.index', [
-        //         'products' => $products
-        //     ]);
-
         $products = Product::with('media')->get();       
         $categories = Category::active()->get()->toTree(); 
 
@@ -59,8 +38,6 @@ class ProductController extends Controller
         $products = Product::with('media')->where('category_id', $category)->get();
         $productCategory = Category::find($category);        
         $categories = Category::active()->get()->toTree(); 
-        // $user = User::find(Auth::user()->id);
-
 
         if(Auth::user() == null){
             $favorites = null;
@@ -74,23 +51,12 @@ class ProductController extends Controller
     public function getDetail($id)
     {   
         $products = Product::with('media')->find($id);        
-        // $products = Product::find($id);
-        // $images = DB::table('products')
-        // ->Join('media', 'products.id', '=', 'media.model_id')
-        // ->select('products.*', 'media.*')
-        // ->where('media.model_id' ,'=', $id)
-        // ->where('media.collection_name', '=', 'product')
-        // ->get();
         $categories = Category::active()->get()->toTree();          
         if(Auth::user() == null){
             $favorites = null;
         }else{
             $favorites = Favorite::where('favorite_id', $id)->where('favorite_type', 'App\Models\Product')->where('user_id', Auth::user()->id)->get();            
         }
-        // dd($images);
-        // $images = $products->getMedia('product');
-        // $images = $images[1]->getUrl();
-        // dd($images);
         return view('frontend.shop.detail', [
             'products' => $products,
             'categories' => $categories,

@@ -16,21 +16,6 @@ class KoiController extends Controller
 {
     public function getIndex()
     {
-        // $kois = Koi::all();
-        // // $images = Koi::with(['media'])->get();
-        // $images = DB::table('kois')
-        // ->Join('media', 'kois.id', '=', 'media.model_id')
-        // ->select('kois.*', 'media.*')
-        // ->where('media.collection_name', '=', 'koi')
-        // ->get();
-        // // $images = $kois->getMedia('koi');
-        // // dd($images);
-        // // return $kois;
-        // return view('frontend.koi.index', [
-        //     'kois' => $kois,
-        //     'images' => $images
-        // ]);
-
         $kois = Koi::with(['media'])->get();
         $categories = Category::active()->get()->toTree();
 
@@ -40,21 +25,6 @@ class KoiController extends Controller
 
     public function getKoiCategory($category)
     {
-        // $kois = Koi::all();
-        // // $images = Koi::with(['media'])->get();
-        // $images = DB::table('kois')
-        // ->Join('media', 'kois.id', '=', 'media.model_id')
-        // ->select('kois.*', 'media.*')
-        // ->where('media.collection_name', '=', 'koi')
-        // ->get();
-        // // $images = $kois->getMedia('koi');
-        // // dd($images);
-        // // return $kois;
-        // return view('frontend.koi.index', [
-        //     'kois' => $kois,
-        //     'images' => $images
-        // ]);
-
         $kois = Koi::with(['media'])->where('category_id', $category)->where('event_id', null)->paginate(20);
         $koiCategory = Category::find($category);
         $categories = Category::active()->get()->toTree();
@@ -65,7 +35,6 @@ class KoiController extends Controller
         }
 
         return view('frontend.koi.category', compact('kois', 'favorites', 'koiCategory', 'categories'));
-        
     }
 
     public function getDetail($id)
