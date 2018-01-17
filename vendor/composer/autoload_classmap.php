@@ -12,6 +12,8 @@ return array(
     'AddFieldConfigToEventsTable' => $baseDir . '/database/migrations/2017_10_07_081952_add_field_config_to_events_table.php',
     'AddFreshSeeds' => $vendorDir . '/dimsav/laravel-translatable/tests/seeds/AddFreshSeeds.php',
     'AddPriceToOrderProductTable' => $baseDir . '/database/migrations/2018_01_08_075306_add_price_to_order_product_table.php',
+    'AddTotalDeliveryToOrderProductTable' => $baseDir . '/database/migrations/2018_01_17_080159_add_total_delivery_to_order_product_table.php',
+    'AddTotalDeliveryToOrdersTable' => $baseDir . '/database/migrations/2018_01_17_074341_add_total_delivery_to_orders_table.php',
     'AddUserIdToKoisTable' => $baseDir . '/database/migrations/2017_12_03_053231_add_user_id_to_kois_table.php',
     'AdminsTableSeeder' => $baseDir . '/database/seeds/AdminsTableSeeder.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',

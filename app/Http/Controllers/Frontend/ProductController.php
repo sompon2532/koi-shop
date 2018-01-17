@@ -132,6 +132,16 @@ class ProductController extends Controller
         return redirect()->route('frontend.shop.shoppingCart');
     }
 
+    public function getChangeQty($id, $qty)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->changeQty($id, $qty);
+
+        Session::put('cart', $cart);
+        return redirect()->route('frontend.shop.shoppingCart');
+    }
+
     public function getRemoveItem ($id) 
     {
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
@@ -212,34 +222,39 @@ class ProductController extends Controller
             // $order->payment_id = '';
 
             // Auth::user()->orders()->save($order);
-            
             $insert = array(
-              'user_id'     => Auth::user()->id,
-              'cart'        => serialize($cart),
-              'address'     => $request->input('address'),
-              'name'        => $request->input('name'),
-              'status'      => 0,
-              'totalQty'    => $cart->totalQty,
-              'totalPrice'  => $cart->totalPrice,
-              'tel'         => $request->input('tel'),
-              'payment_id'  => '',  
-              'created_at' => Carbon::now()->toDateTimeString() 
+                'user_id'     => Auth::user()->id,
+                'cart'        => serialize($cart),
+                'address'     => $request->input('address'),
+                'name'        => $request->input('name'),
+                'status'      => 0,
+                'totalQty'    => $cart->totalQty,
+                'total_delivery'  => $cart->totalShip,
+                'totalPrice'  => $cart->totalPrice,
+                'total'       => $cart->total,
+                'tel'         => $request->input('tel'),
+                'payment_id'  => '',
+                'created_at' => Carbon::now()->toDateTimeString()
             );
-            $order_id = DB::table('orders')->insertGetId($insert);
 
+            $order_id = DB::table('orders')->insertGetId($insert);
             foreach ($cart->items as $item) {
                 $insert = array(
-                  'order_id'    => $order_id,
-                  'product_id'  => $item['item']['id'],
-                  'qty'    => $item['qty'],
-                  'total_price'   => $item['price']
+                    'order_id'    => $order_id,
+                    'product_id'  => $item['item']['id'],
+                    'qty'    => $item['qty'],
+                    'total_delivery' => $item['delivery'],
+                    'total_price'   => $item['price'],
+                    'total'   => $item['price']+$item['delivery'],
+                    'created_at' => Carbon::now()->toDateTimeString()
                 );
                 DB::table('order_product')->insertGetId($insert);
             }
 
             $transactions = array(
                 'order_id'  => $order_id,
-                'status'    => 0);
+                'status'    => 0
+            );
             $transactions = Transaction::create($transactions);
 
             $user = User::find(Auth::user()->id);            

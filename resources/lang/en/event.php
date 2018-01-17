@@ -21,7 +21,9 @@ return [
 
     //koi
     'remaining_time' => 'REMAINING TIME',    
+    'day' => 'DAY',
     'number_of_booking' => 'NUMBER OF BOOKING',
+    'winner' => 'WINNER',
     'name_list' => 'NAME LIST',    
     'code' => 'CODE',    
     'owner' => 'OWNER',    

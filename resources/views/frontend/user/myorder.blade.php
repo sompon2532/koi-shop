@@ -30,14 +30,14 @@
                                                     </div>
                                                     <div class="col-md-4 text-right">
                                                         {!! $order->transaction->status == 0 ? "<p class='text-red'>ยังไม่ชำระเงิน</p>" : "รอการตรวจสอบ"!!} 
-                                                        <p>{{ trans('user.total') }} : {{ number_format($order->totalPrice) }} {{ trans('user.thb') }}</p>
+                                                        <p>{{ trans('user.total') }} : {{ number_format($order->total) }} {{ trans('user.thb') }}</p>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="content-info-box">
                                                 <div class="row">
-                                                @foreach($order->products as $product)
+                                                    @foreach($order->products as $product)
                                                         <div class="col-md-6 orders-detail">
                                                             <div class="col-md-4">
                                                                 @if(count($product->media)>0)

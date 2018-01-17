@@ -109,8 +109,15 @@
                                             <div class="col-xs-12 col-sm-6 col-md-3">
                                                 <div class="winner-item-list">
                                                     <p class="text-red">{{ trans('event.winner') }} <br> {{ $koi->user_id != '' ? $koi->user['name'] : 'Koikichi Fish Farm' }} {{-- $koi->user['name'] --}}</p>
-                                                    <div class="img-item-box">                                                                                          
-                                                        <img class="img-thumbnail" src="{{ asset( $koi->media()->first()->getUrl() ) }}" alt="...">                                
+                                                    <div class="img-item-box">    
+                                                        <a href="{{ route('frontend.event.koi', ['event' => $events->id, 'koi' => $koi->id]) }}">
+                                                            {{-- <img class="img-thumbnail" src="{{ asset( $koi->media()->first()->getUrl() ) }}" alt="..."> --}}
+                                                            @if(count($koi->media)>0)
+                                                                <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class="img-responsive img-thumbnail" style="max-height:150px;">
+                                                            @else
+                                                                <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" img-responsive img-thumbnail" style="max-height:150px;">
+                                                            @endif                               
+                                                        </a>                                                                                      
                                                     </div>  
                                                     <p class="text-red">{{ $koi->name }}</p>
                                                 </div>

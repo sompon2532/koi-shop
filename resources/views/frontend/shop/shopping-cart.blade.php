@@ -42,7 +42,7 @@
                                                                 <span class="input-group-btn">
                                                                     <a class="btn btn-qty-item" href="{{ route('frontend.shop.reduceByone', ['id' => $product['item']['id']]) }}" onclick="return reduceByone({{$product['item']['id']}})">-</a>
                                                                 </span>
-                                                                <input type="text" class="form-control qty-item" id="qty-item{{$product['item']['id']}}" placeholder="" value="{{ $product['qty'] }}">
+                                                                <input type="text" class="form-control qty-item" id="qty-item{{$product['item']['id']}}" placeholder="" value="{{ $product['qty'] }}" onkeyup="changeQty({{$product['item']['id']}})">
                                                                 <span class="input-group-btn">
                                                                     <a class="btn btn-qty-item" href="{{ route('frontend.shop.reduceAddByone', ['id' => $product['item']['id']]) }}">+</a>
                                                                 </span>
@@ -110,12 +110,19 @@
     function reduceByone($key) {
         var qty = document.getElementById("qty-item"+$key).value;
         if(qty == 1){
-            // confirm("{{trans('cart.confirm-remove-item')}}");
             if(confirm("{{trans('cart.confirm-remove-item')}}")==true){
                 return true;
             }else{
                 return false;                
             }
+        }
+    }
+    function changeQty($key) {
+        var qty = document.getElementById("qty-item"+$key).value;
+        var id = $key;
+        var url = "{{ URL::to('/changeqty/') }}"
+        if(qty != ''){
+            return window.location.href= url+'/'+id+'/'+qty;
         }
     }
 </script>

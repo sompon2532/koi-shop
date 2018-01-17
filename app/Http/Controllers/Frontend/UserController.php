@@ -125,10 +125,10 @@ class UserController extends Controller
 
     public function getMyportKoi($id)
     {
-        $koi = Koi::with(['media'])->find($id);
+        $kois = Koi::with(['media'])->find($id);
         $categories = Category::active()->get()->toTree();
 
-        return view('frontend.user.myport-koi', compact('koi','categories'));
+        return view('frontend.user.myport-koi', compact('kois','categories'));
     }
     
 }

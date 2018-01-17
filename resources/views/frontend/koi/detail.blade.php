@@ -17,7 +17,7 @@
     margin: auto;
 }
 
-.slick-slide {
+.slider-nav img {
   margin: 0px 5px;
 }
 
@@ -103,7 +103,9 @@
                                 <div class="text-red">
                                     <p>{{ trans('koi.to-order') }}</p>
                                     <p>{{ trans('koi.please-contact') }}</p>
-                                    <img class="" src="{{ asset('frontend/src/img/line-logo.png') }}" alt="...">                                    
+                                    <a href="{{ route('frontend.contact.line') }}">
+                                        <img class="" src="{{ asset('frontend/src/img/line-logo.png') }}" alt="...">                                    
+                                    </a>
                                 </div>
                             </div>
 
@@ -114,12 +116,14 @@
                                 <p>{{ trans('koi.price') }} : {{ number_format($kois->price) }} {{ trans('koi.thb')}}</p>
                                 <br>
                                 <p class="text-red">{{ trans('koi.detail')}}</p>
-                                <p>{{ trans('koi.breeder') }} : {{ $kois->strain->name }} </p>
+                                <p>{{ trans('koi.oyagoi') }} : {{ $kois->oyagoi }} </p>
+                                <p>{{ trans('koi.strain') }} : {{ $kois->strain->name }} </p>
+                                <p>{{ trans('koi.farm') }} : {{ $kois->farm->name }}</p>
                                 <p>{{ trans('koi.born') }} : {{ $kois->born }}</p>
+                                <p>{{ trans('koi.storage') }} : {{ $kois->storage }}</p>
 
                                 @if(count($kois->sizes) > 0)
-                                    <p>
-                                        {{ trans('koi.size') }} : 
+                                    <p>{{ trans('koi.size') }} : 
                                         @foreach($kois->sizes as $sizes)
                                             {{ $sizes->size }}
                                         @endforeach
@@ -127,23 +131,18 @@
                                 @endif
 
                                 <p>{{ trans('koi.gender')}} : {{ $kois->sex }}</p>
-
+                                <p>{{ trans('koi.certificate') }} : {{ $kois->certificate ? trans('koi.yes') : trans('koi.no') }} </p>
+                                
                                 @if(count($kois->contests) > 0)
-                                    <p>
-                                        {{ trans('koi.contest') }} : 
-                                        @foreach($kois->contests as $contests)
-                                            {{ $contests->contest }}
-                                        @endforeach
-                                    </p>
+                                    @foreach($kois->contests as $index => $contests)
+                                        <p>{{ trans('koi.contest') }} {{ $index+1 }} : {{ $contests->contest }}</p>
+                                    @endforeach
                                 @endif
 
                                 @if(count($kois->remarks) > 0)
-                                    <p>
-                                        {{ trans('koi.remark') }} : 
-                                        @foreach($kois->remarks as $remarks)
-                                            {{ $remarks->remark }}
-                                        @endforeach
-                                    </p>
+                                    @foreach($kois->remarks as $index => $remarks)
+                                        <p>{{ trans('koi.remark') }}#{{ $index+1 }} : {{ $remarks->remark }}</p>
+                                    @endforeach
                                 @endif
                             </div>
 
@@ -152,7 +151,7 @@
                                     <div class="item">
                                         <div class="slider slider-nav">
                                             @foreach($kois->media as $media)
-                                                <img src="{{ asset($media->getUrl()) }}" class="image-responsive thumbnail" style="max-height:150px;">    
+                                                <img src="{{ asset($media->getUrl()) }}" class="img-responsive thumbnail">    
                                             @endforeach
                                         </div>
                                     </div> 

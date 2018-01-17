@@ -29,10 +29,6 @@ class HomeController extends Controller
         $now = Carbon::now('Asia/Bangkok')->toTimeString();
         $events_today = Event::active()->with(['media'])->orderBy('end_datetime', 'desc')->get();
         $today = Carbon::now('Asia/Bangkok');
-        // foreach ($events_today as  $event) {
-        // echo $event->end_datetime->toDateString().'<br>';
-        // }
-        // return $today->toDateString();
 
         $categories = Category::active()->get()->toTree();
 
@@ -41,13 +37,11 @@ class HomeController extends Controller
         if($data->count()) {
             foreach ($data as $key => $value) {
                 $events[] = Calendar::event(
-                    // $value->name,
                     null,
                     true,//full day event?
                     new \DateTime($value->start_datetime),
                     new \DateTime($value->end_datetime.' +1 day'),
                     null,
-                    // Add color and link on event
 	                [
 	                    'color' => '#ff0000',
 	                    'url' => '/event/'.$value->id,
@@ -70,7 +64,6 @@ class HomeController extends Controller
             ],
             'eventLimit' => 0,
         ]);
-            // dd($now_event);
         return view('frontend.index', compact('news', 'now', 'events_today', 'today', 'categories', 'calendar'));
     }
 
@@ -99,5 +92,11 @@ class HomeController extends Controller
        $contact = Contact::create($contact);
 
        return redirect()->back()->with('success', 'Successfully Send Contact!');       
+    }
+
+    public function getLineContact()
+    {
+        $categories = Category::active()->get()->toTree();
+        return view('frontend.contact.line', compact('categories'));
     }
 }

@@ -70,28 +70,24 @@ class KoiController extends Controller
 
     public function getDetail($id)
     {
-        // $kois = Koi::find($id);
-        // $images = $kois->getMedia('koi');
-        // // dd($images);
-        // return view('frontend.koi.detail', [
-        //     'kois' => $kois
-        //     // 'images' => $images
-        // ]);
-
         $kois = Koi::with(['media'])->find($id);
-        $kois->load('sizes', 'contests', 'remarks', 'strain');
-        
-        // dd($favorites);
-        $categories = Category::active()->get()->toTree();
 
+        if($kois)
+        {
+            $kois->load('sizes', 'contests', 'remarks', 'strain');
+        }else{
+            return redirect()->back();
+        }
+        
         if(Auth::user() == null){
             $favorites = null;
         }else{
             $favorites = Favorite::where('favorite_type', 'App\Models\Koi')->where('user_id', Auth::user()->id)->get();            
         }
-        // return $kois->strain;
 
-        return view('frontend.koi.detail', compact('kois','favorites', 'categories'));
+        $categories = Category::active()->get()->toTree();
+
+        return view('frontend.koi.detail', compact('kois', 'favorites', 'categories'));
         
     }
 }

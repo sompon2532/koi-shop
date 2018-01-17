@@ -47,7 +47,6 @@
   opacity: 1;
 }
 </style>
-
 @endsection
 
 @section('content')
@@ -65,47 +64,68 @@
                     <br>
                     <div class="content-box">
                         <div class="row">
-                            <div class="col-md-3 col-md-offset-3">
-                                <div class="slider slider-for thumbnail">
-                                    @foreach($koi->media as $media)
+                            <div class="col-md-5 col-md-offset-1">
+                                <div class="slider slider-for">
+                                    @foreach($kois->media as $media)
                                         <div>
                                             <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
-                                                <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="..." style="">
+                                                <img class="example-image img-thumbnail" src="{{ asset($media->getUrl()) }}" alt="..." style="">
                                             </a>
                                         </div>
                                     @endforeach
                                 </div>
-                            </div>
-
-                            <div class="col-md-6 text-left">
-                                <p class="text-red" style="font-weight:bold;">{{ $koi->name }}</p>
-                                <p>{{ trans('user.code-koi') }} : {{ $koi->koi_id }}</p>
-                                <p>{{ trans('user.owner') }} : {{ $koi->user->name }}</p>
-                                <p>{{ trans('user.price') }} : {{ number_format($koi->price) }} {{ trans('user.thb') }}</p>
-                                <br>
-                                <p class="text-red" style="font-weight:bold;">DETAIL</p>
-                                <p>{{ trans('user.breeder') }} : {{ $koi->oyagoi }}</p>
-                                <p>{{ trans('user.born') }} : {{ $koi->born }}</p>
-                                <p>{{ trans('user.size') }} : {{ $koi->size }}</p>
-                                <p>{{ trans('user.gender') }} : {{ $koi->sex }}</p>
-                            </div>
-
-                            @if(count($koi->media) > 1)                            
-                                <div class="col-md-8 col-md-offset-2">
+                                @if(count($kois->media) > 1)                            
                                     <div class="item">
                                         <div class="slider slider-nav">
-                                            @foreach($koi->media as $media)
-                                                <img src="{{ asset($media->getUrl()) }}" class="image-responsive thumbnail" style="max-height:150px;">    
+                                            @foreach($kois->media as $media)
+                                                <img src="{{ asset($media->getUrl()) }}" class="img-thumbnail">    
                                             @endforeach
                                         </div>
                                     </div> 
-                                </div>
-                            @endif
+                                @endif
+                            </div>
 
-                            @if(count($koi->videos) > 0)
+                            <div class="col-md-6 text-left">
+                                <p class="text-red" style="font-weight:bold;">{{ $kois->name }}</p>
+                                <p>{{ trans('user.code-koi') }} : {{ $kois->koi_id }}</p>
+                                <p>{{ trans('user.owner') }} : {{ $kois->user->name }}</p>
+                                <p>{{ trans('user.price') }} : {{ number_format($kois->price) }} {{ trans('user.thb') }}</p>
+                                <br>
+                                <p class="text-red" style="font-weight:bold;">DETAIL</p>
+                                <p>{{ trans('koi.oyagoi') }} : {{ $kois->oyagoi }} </p>
+                                <p>{{ trans('koi.strain') }} : {{ $kois->strain->name }} </p>
+                                <p>{{ trans('koi.farm') }} : {{ $kois->farm->name }}</p>
+                                <p>{{ trans('koi.born') }} : {{ $kois->born }}</p>
+                                <p>{{ trans('koi.storage') }} : {{ $kois->storage }}</p>
+
+                                @if(count($kois->sizes) > 0)
+                                    <p>{{ trans('koi.size') }} : 
+                                        @foreach($kois->sizes as $sizes)
+                                            {{ $sizes->size }}
+                                        @endforeach
+                                    </p>
+                                @endif
+
+                                <p>{{ trans('koi.gender')}} : {{ $kois->sex }}</p>
+                                <p>{{ trans('koi.certificate') }} : {{ $kois->certificate ? trans('koi.yes') : trans('koi.no') }} </p>
+                                
+                                @if(count($kois->contests) > 0)
+                                    @foreach($kois->contests as $index => $contests)
+                                        <p>{{ trans('koi.contest') }} {{ $index+1 }} : {{ $contests->contest }}</p>
+                                    @endforeach
+                                @endif
+
+                                @if(count($kois->remarks) > 0)
+                                    @foreach($kois->remarks as $index => $remarks)
+                                        <p>{{ trans('koi.remark') }}#{{ $index+1 }} : {{ $remarks->remark }}</p>
+                                    @endforeach
+                                @endif
+                            </div>
+
+                            @if(count($kois->videos) > 0)
                                 <div class="col-md-12">
                                     <section class="lazy slider" data-sizes="50vw">
-                                        @foreach($koi->videos as $video)
+                                        @foreach($kois->videos as $video)
                                             <div>
                                                 {!! $video->video !!}
                                             </div>
