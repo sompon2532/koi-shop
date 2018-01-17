@@ -12,12 +12,14 @@ use Carbon\Carbon;
 use DB;
 use App\Models\Payment;
 use App\Models\Koi;
+use Validator;
 
 class PaymentController extends Controller
 {   
     public function getIndex()
     {
         $categories = Category::active()->get()->toTree();
+        
         return view('frontend.payment.index', compact('categories'));
     }
 
@@ -31,6 +33,16 @@ class PaymentController extends Controller
 
     public function postPayment(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'total' => 'required|numeric',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                        ->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $insert = array(
             'order_id'    => $id,
             'bank'        => $request->input('bank'),
@@ -47,7 +59,9 @@ class PaymentController extends Controller
             $payment->addMedia($image)->toMediaCollection('payment');
         }
         
-        return redirect()->route('frontend.payment.success', ['id' => $id])->with('success', 'Successfully purchased products!');;
+        return redirect()
+                    ->route('frontend.payment.success', ['id' => $id])
+                    ->with('success', 'Successfully purchased products!');;
     }
 
     public function getSuccess($id)

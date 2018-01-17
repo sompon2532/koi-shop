@@ -16,6 +16,7 @@ use Carbon\Carbon;
 use Session;
 use Auth;
 use DB;
+use Validator;
 
 class ProductController extends Controller
 {
@@ -166,7 +167,18 @@ class ProductController extends Controller
     }
 
     public function postCheckout(Request $request)
-    {
+    {   
+        $validator = Validator::make($request->all(), [
+            'tel' => 'required|numeric|max:10',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                        ->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         if (!Session::has('cart')) {
             return view('frontend.shop.shopping-cart');
         }
