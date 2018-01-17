@@ -32,6 +32,14 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Koi')->withPivot('event_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function loadKois()
+    {
+        return $this->hasMany(Models\Koi::class);
+    }
+
     public function orders()
     {
         return $this->hasMany('App\Models\Order');

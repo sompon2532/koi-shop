@@ -1,27 +1,25 @@
 @extends('layouts.backoffice.main')
 
-@section('title', 'Admin | Koi')
+@section('title', 'Admin | User order')
 
 @section('head')
     <h1>
-        ปลา
+        ปลา ( {{ $user->name }} )
         <small>รายการ</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li class="active">ปลา</li>
+        <li><a href="{{ route('user.index') }}"><i class="fa fa-user"></i> สมาชิก</a></li>
+        <li class="active">ปลา ( {{ $user->name }} )</li>
     </ol>
 @endsection
 
 @section('content')
     <div class="col-xs-12">
         <div class="box">
-            <div class="box-header">
-                <a href="{{ route('koi.create') }}" class="pull-right btn btn-primary">สร้างปลา</a>
-            </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="datatable" class="table table-bordered table-hover">
+                <table id="example2" class="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>รหัสปลา</th>
@@ -32,7 +30,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($kois as $index => $koi)
+                    @foreach ($user->loadKois as $index => $koi)
                         <tr>
                             <td>{{ $koi->koi_id }}</td>
                             <td>{{ $koi->name }}</td>
@@ -41,9 +39,6 @@
                             <td>
                                 <a href="{{ route('koi.edit', ['koi' => $koi->id]) }}"
                                    class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                                <button data-token="{{ csrf_token() }}" data-id="{{ $koi->id }}" data-url="koi" class="btn-delete btn btn-danger btn-xs">
-                                    <i class="fa fa-trash-o"></i>
-                                </button>
                             </td>
                         </tr>
                     @endforeach
@@ -64,3 +59,6 @@
         <!-- /.box -->
     </div>
 @endsection
+
+@push('scripts')
+@endpush

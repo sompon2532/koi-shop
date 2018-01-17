@@ -42,26 +42,32 @@
 
     <li>
         <a href="{{ route('farm.index') }}">
-            <i class="fa fa-dot-circle-o"></i></i> <span>ฟาร์ม</span>
+            <i class="fa fa-dot-circle-o"></i> <span>ฟาร์ม</span>
         </a>
     </li>
 
     <li>
         <a href="{{ route('strain.index') }}">
-            <i class="fa fa-deviantart"></i></i> <span>สายพันธุ์</span>
+            <i class="fa fa-deviantart"></i> <span>สายพันธุ์</span>
         </a>
     </li>
 
     <li>
         <a href="{{ route('product.index') }}">
-            <i class="fa fa-product-hunt"></i></i> <span>สินค้า</span>
+            <i class="fa fa-product-hunt"></i> <span>สินค้า</span>
         </a>
     </li>
 
 
     <li>
         <a href="{{ route('koi.index') }}">
-            <i class="fa fa-archive"></i></i> <span>ปลา</span>
+            <i class="fa fa-archive"></i> <span>ปลา</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ route('order.index') }}">
+            <i class="fa fa-first-order"></i> <span>สั่งซื้อ</span>
         </a>
     </li>
 </ul>

@@ -1,3 +1,8 @@
+// Datatable
+$(document).ready(function() {
+    $('#datatable').DataTable();
+} );
+
 // Date picker
 $(".datepicker").datepicker({
     autoclose: true,

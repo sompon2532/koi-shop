@@ -1,0 +1,66 @@
+@extends('layouts.backoffice.main')
+
+@section('title', 'Admin | Order')
+
+@section('head')
+    <h1>
+        สั่งซื้อ
+        <small>รายการ</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+        <li class="active">สั่งซื้อ</li>
+    </ol>
+@endsection
+
+@section('content')
+    <div class="col-xs-12">
+        <div class="box">
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="datatable" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th># Order</th>
+                        <th>ชื่อ</th>
+                        <th>ราคา</th>
+                        <th>เบอร์โทร</th>
+                        <th>การจัดการ</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($orders as $index => $order)
+                        <tr>
+                            <td>{{ $order->id }}</td>
+                            <td>{{ $order->name }}</td>
+                            <td>{{ number_format($order->totalPrice, 2) }}</td>
+                            <td>{{ $order->tel }}</td>
+                            <td>
+                                <a href="{{ route('order.show', ['order' => $order->id]) }}"
+                                   class="btn btn-warning btn-xs"><i class="fa fa-list-alt"></i></a>
+                                {{--<button data-token="{{ csrf_token() }}" data-id="{{ $order->id }}" data-url="news" class="btn-delete btn btn-danger btn-xs">--}}
+                                    {{--<i class="fa fa-trash-o"></i>--}}
+                                {{--</button>--}}
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th># Order</th>
+                        <th>ชื่อ</th>
+                        <th>ราคา</th>
+                        <th>เบอร์โทร</th>
+                        <th>การจัดการ</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+@endsection
+
+@push('scripts')
+@endpush

@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Backoffice;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\Order;
 
-class UserController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::get();
+        $orders = Order::with('products.media', 'user')->get();
 
-        return view('backoffice.user.index', compact('users'));
+        return view('backoffice.order.index', compact('orders'));
     }
 
     /**
@@ -47,9 +47,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
-        //
+        $order->load('products.media', 'user', 'transaction', 'payment');
+
+        return view('backoffice.order.detail', compact('order'));
     }
 
     /**
@@ -84,23 +86,5 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /**
-     * @param User $user
-     */
-    public function getOrder(User $user) {
-        $user->load('orders');
-
-        return view('backoffice.user.order', compact('user'));
-    }
-
-    /**
-     * @param User $user
-     */
-    public function getKoi(User $user) {
-        $user->load('loadKois');
-
-        return view('backoffice.user.koi', compact('user'));
     }
 }
