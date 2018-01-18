@@ -36,10 +36,10 @@
 
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="container-fluid">
         @include('frontend.partials.header')
 
-        <div class="container">
+        <div class="">
             @yield('content')
         </div>
         

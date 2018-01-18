@@ -20,6 +20,7 @@
     background: #ffffff;
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
     border: none;
+    border-radius: 0px;
     /* height: 35px; */
 }
 
@@ -94,6 +95,7 @@
     background: #ffffff;
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
     border: none;
+    border-radius: 0px;
     /* height: 35px; */
 }
 
@@ -460,7 +462,7 @@ footer a:hover {
 }
 
 .text-red {
-    color: #ff0000;
+    color: #ff0000 !important;
 }
 
 .table>tbody>tr>th {
@@ -593,6 +595,7 @@ footer a:hover {
 
 .calendar-box {
     border: solid 1px #ff0000;
+    margin-bottom: 10px;
 }
 
 .fc-toolbar.fc-header-toolbar {
@@ -740,6 +743,7 @@ span.fc-day-number {
 
 .main-content .qty-item {
     text-align: center;
+    padding: 3px 2px;
 }
 
 .btn-qty-item {
@@ -747,6 +751,7 @@ span.fc-day-number {
     border-radius: 0;
     border-color: #ccc;
     color: #333;
+    padding: 6px 5px;
 }
 
 
@@ -879,6 +884,10 @@ table.table-none-border {
     margin-bottom: 25px;
 }
 
+.slide-show {
+    margin-bottom: 10px;
+}
+
 
 /*
 |
@@ -935,6 +944,8 @@ table.table-none-border {
         text-align: center;
     }
 }
+
+@media (min-width: 992px) {}
 
 @media (max-width: 768px) {
     .show-max-768px {

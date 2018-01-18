@@ -64,7 +64,7 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="hide-max-768px show-min-768px">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 slide-show">
                                             <div class="slider slider-for">
                                                 @if(count($kois->media) > 0)
                                                     @foreach($kois->media as $media)
@@ -79,21 +79,23 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="col-md-12 ">
-                                            <div class="item" style="margin-top:50px;">
+                                        <div class="col-md-12 slide-show">
+                                            <div class="item">
                                                 <div class="slider slider-nav">
                                                     @foreach($kois->media as $media)
-                                                        <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style="">    
+                                                        <img src="{{ asset($media->getUrl()) }}" class="img-responsive" style="">    
                                                     @endforeach
                                                 </div>
                                             </div> 
                                         </div>
                                     </div>
                                     <div class="show-max-768px hide-min-768px">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 slide-show">
                                             <section class="lazy slider" data-sizes="50vw">
                                             @foreach($kois->media as $media)
-                                                <img src="{{ asset($media->getUrl()) }}" class="image-responsive" style="">    
+                                                <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
+                                                    <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="..." style="">
+                                                </a> 
                                             @endforeach
                                             </section>                                        
                                         </div>  
@@ -236,36 +238,35 @@
                                                 <p>{{ trans('event.owner') }} : Koikichi Fish Farm</p>
                                                 <p>{{ trans('event.price') }} : {{ number_format($kois->price) }} {{trans('koi.thb')}}</p>
 
-                                                    <p class="text-red">{{ trans('event.detail') }}<br>
-                                                    <p>{{ trans('koi.oyagoi') }} : {{ $kois->oyagoi }} </p>
-                                                    <p>{{ trans('koi.strain') }} : {{ $kois->strain->name }} </p>
-                                                    <p>{{ trans('koi.farm') }} : {{ $kois->farm->name }}</p>
-                                                    <p>{{ trans('koi.born') }} : {{ $kois->born }}</p>
-                                                    <p>{{ trans('koi.storage') }} : {{ $kois->storage }}</p>
+                                                <p class="text-red">{{ trans('event.detail') }}</p>
+                                                <p>{{ trans('koi.oyagoi') }} : {{ $kois->oyagoi }} </p>
+                                                <p>{{ trans('koi.strain') }} : {{ $kois->strain->name }} </p>
+                                                <p>{{ trans('koi.farm') }} : {{ $kois->farm->name }}</p>
+                                                <p>{{ trans('koi.born') }} : {{ $kois->born }}</p>
+                                                <p>{{ trans('koi.storage') }} : {{ $kois->storage }}</p>
 
-                                                    @if(count($kois->sizes) > 0)
-                                                        <p>{{ trans('koi.size') }} : 
-                                                            @foreach($kois->sizes as $sizes)
-                                                                {{ $sizes->size }}
-                                                            @endforeach
-                                                        </p>
-                                                    @endif
-
-                                                    <p>{{ trans('koi.gender')}} : {{ $kois->sex }}</p>
-                                                    <p>{{ trans('koi.certificate') }} : {{ $kois->certificate ? trans('koi.yes') : trans('koi.no') }} </p>
-                                                    
-                                                    @if(count($kois->contests) > 0)
-                                                        @foreach($kois->contests as $index => $contests)
-                                                            <p>{{ trans('koi.contest') }} {{ $index+1 }} : {{ $contests->contest }}</p>
+                                                @if(count($kois->sizes) > 0)
+                                                    <p>{{ trans('koi.size') }} : 
+                                                        @foreach($kois->sizes as $sizes)
+                                                            {{ $sizes->size }}
                                                         @endforeach
-                                                    @endif
+                                                    </p>
+                                                @endif
 
-                                                    @if(count($kois->remarks) > 0)
-                                                        @foreach($kois->remarks as $index => $remarks)
-                                                            <p>{{ trans('koi.remark') }}#{{ $index+1 }} : {{ $remarks->remark }}</p>
-                                                        @endforeach
-                                                    @endif
-                                                </p>
+                                                <p>{{ trans('koi.gender')}} : {{ $kois->sex }}</p>
+                                                <p>{{ trans('koi.certificate') }} : {{ $kois->certificate ? trans('koi.yes') : trans('koi.no') }} </p>
+                                                
+                                                @if(count($kois->contests) > 0)
+                                                    @foreach($kois->contests as $index => $contests)
+                                                        <p>{{ trans('koi.contest') }} {{ $index+1 }} : {{ $contests->contest }}</p>
+                                                    @endforeach
+                                                @endif
+
+                                                @if(count($kois->remarks) > 0)
+                                                    @foreach($kois->remarks as $index => $remarks)
+                                                        <p>{{ trans('koi.remark') }}#{{ $index+1 }} : {{ $remarks->remark }}</p>
+                                                    @endforeach
+                                                @endif
                                             </div>
                                         </div>
                                     @endif
@@ -289,13 +290,6 @@
 
 @section('custom-js')
 <script>
-    $(document).ready(function(){
-        $('.your-class').slick({
-            
-        });
-    });
-        
-
     $('.slider-for').slick({
     slidesToShow: 1,
     slidesToScroll: 3,
@@ -311,15 +305,10 @@
     centerMode: true,
     focusOnSelect: true
     });
-</script>
 
-<!-- slick -->
-<script type="text/javascript">
-    $(document).on('ready', function() {
-      $(".lazy").slick({
-        lazyLoad: 'ondemand', // ondemand progressive anticipated
-        infinite: true
-      });
+    $(".lazy").slick({
+    lazyLoad: 'ondemand', // ondemand progressive anticipated
+    infinite: true
     });
 </script>
 
