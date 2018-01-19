@@ -116,7 +116,7 @@
                                         @if(count($category->children) > 0)         
                                         <li class="dropdown-submenu">
                                             <a class="test" tabindex="-1" href="#">{{ $category->name }}</a>
-                                            <ul class="dropdown-menu">
+                                            <ul class="dropdown-menu" >
                                                 @foreach($category->children as $category2)
                                                     @if(count($category2->children) > 0)
                                                     <li class="dropdown-submenu">
@@ -125,7 +125,7 @@
                                                             @foreach($category2->children as $category3)      
                                                                 <li class="menu-item">
                                                                     <a href="{{ route('frontend.koi.category', ['category' => $category3->id]) }}">{{ $category3->name }}</a>
-                                                                </li>
+                                                                </li>                                                             
                                                             @endforeach
                                                         </ul>
                                                     </li>
@@ -146,7 +146,6 @@
                                 </ul>  
                             </li>
                             @endif
-                            
                             @if(count($categories->where('group', 'product')) > 0)
                             <li class="dropdown">
                             <a class="{{ Request::segment(1) == 'product'  ? 'text-red' : '' }}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ trans('header.koi-products') }}<span class="caret"></a>
@@ -185,9 +184,9 @@
                                 </ul>  
                             </li>
                             @endif
-                            
+                            <!-- <li role="separator" class="divider"></li> -->
                             <li><a href="http://www.koikichi-auction.com/" target="_blank">{{ trans('header.online-auction') }}</a></li>
-                            <li><a class="{{ Request::segment(1) == 'event'  ? 'text-red' : '' }}" href="{{ url('/event') }}">{{ trans('header.events') }}</a></li>
+                            <li><a class="{{-- Request::segment(1) == 'event'  ? 'text-red' : '' --}}" href="{{ url('/event') }}">{{ trans('header.events') }}</a></li>
                             <li><a class="{{ Request::segment(1) == 'event'  ? 'text-red' : '' }}" href="{{-- url('/hallofframe') --}}">{{ trans('header.hall-of-fame') }}</a></li>
                             <li><a class="{{ Request::segment(1) == 'payment'  ? 'text-red' : '' }}" href="{{ url('/payment') }}">{{ trans('header.payment') }}</a></li>
 

@@ -60,7 +60,7 @@
                             <div class="col-md-12">
                                 <h2>{{ $events->name }}</h2>
                                 <!-- <p>16-22 SEPTEMBER 17</p> -->
-                                <p>{{ $events->start_datetime->formatLocalized('%d %B %Y') }} to {{ $events->end_datetime->formatLocalized('%d %B %Y') }}</p>
+                                <p>{{ $events->start_datetime->format('d/m/Y') }} to {{ $events->end_datetime->format('d/m/Y') }}</p>
 
                                 <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="hide-max-768px show-min-768px">
@@ -91,13 +91,17 @@
                                     </div>
                                     <div class="show-max-768px hide-min-768px">
                                         <div class="col-md-12 slide-show">
-                                            <section class="lazy slider" data-sizes="50vw">
-                                            @foreach($kois->media as $media)
-                                                <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
-                                                    <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="..." style="">
-                                                </a> 
-                                            @endforeach
-                                            </section>                                        
+                                            @if(count($kois->media) > 0)
+                                                <section class="lazy slider" data-sizes="50vw">
+                                                    @foreach($kois->media as $media)
+                                                        <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
+                                                            <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="..." style="">
+                                                        </a> 
+                                                    @endforeach
+                                                </section> 
+                                            @else
+                                                <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class="img-responsive">                                                
+                                            @endif                                       
                                         </div>  
                                     </div>
                                  
@@ -172,7 +176,7 @@
                                                 <p class="text-left"><font color="#ff0000">{{ $kois->name }}</font><br>
                                                     {{ trans('event.code') }} : {{ $kois->koi_id }} <br>
                                                     {{ trans('event.owner') }} : Koikichi Fish Farm<br>
-                                                    {{ trans('event.price') }} : {{ number_format($kois->price) }} THB / YEN<br>
+                                                    {{ trans('event.price') }} : {{ number_format($kois->price) }} {{trans('koi.thb')}}<br>
                                                 </p>
 
                                                 <p class="text-red">{{ trans('koi.detail')}}</p>

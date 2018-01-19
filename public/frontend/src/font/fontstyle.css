@@ -15,6 +15,10 @@ body {
     background-color: #fff;
 }
 
+p {
+    margin: 0 0 2px;
+}
+
 .btn,
 .dropdown-menu,
 .form-control,

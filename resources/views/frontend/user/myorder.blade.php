@@ -26,7 +26,7 @@
                                                 <div class="row">
                                                     <div class="col-md-8">
                                                         <p>{{ trans('user.order-num') }} : #{{ $order->id }}</p>
-                                                        <p>{{ trans('user.date') }} : {{ $order->created_at->formatLocalized('%d %B %Y') }}</p>
+                                                        <p>{{ trans('user.date') }} : {{ $order->created_at->format('d/m/Y') }}</p>
                                                     </div>
                                                     <div class="col-md-4 text-right">
                                                         {!! $order->transaction->status == 0 ? "<p class='text-red'>ยังไม่ชำระเงิน</p>" : "รอการตรวจสอบ"!!} 

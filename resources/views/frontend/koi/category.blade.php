@@ -52,7 +52,7 @@
                                     @endforeach
                                 @endif
 
-                                <div class="col-sm-6  col-md-3">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="stock-item-box ">
                                         <div class="img-item-box thumbnail">
                                             <a href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">                                            

@@ -65,20 +65,37 @@
 
                     <div class="content-box">
                         <div class="row">
-                            <div class="col-md-3 col-md-offset-3">
-                                <div class="slider slider-for thumbnail">
-                                    @if(count($kois->media) > 0)
-                                        @foreach($kois->media as $media)
-                                            <div>
-                                                <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
-                                                    <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="..." style="">
-                                                </a>
-                                            </div>
-                                        @endforeach
-                                    @else
-                                        <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                
-                                    @endif
+                            <div class="col-sm-6 col-md-3 col-md-offset-3">
+                                <div class="hide-max-768px show-min-768px">
+                                    <div class="slider slider-for thumbnail">
+                                        @if(count($kois->media) > 0)
+                                            @foreach($kois->media as $media)
+                                                <div>
+                                                    <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
+                                                        <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="..." style="">
+                                                    </a>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                
+                                        @endif
+                                    </div>
                                 </div>
+
+                                <div class="show-max-768px hide-min-768px">                                
+                                    <section class="lazy slider thumbnail" data-sizes="50vw">
+                                        @if(count($kois->media) > 0)
+                                            @foreach($kois->media as $media)
+                                                <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
+                                                    <img class="example-image " src="{{ asset($media->getUrl()) }}" alt="..." style="">
+                                                </a>
+                                            @endforeach
+                                        @else
+                                            <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                
+                                        @endif
+                                    </section>                                        
+                                </div>
+                                
                                 @if(count($favorites) == 0)
                                     <div class="star-label">
                                         <form action="{{ route('frontend.user.favorite-add', ['id' => $kois->id]) }}" method="GET" style="">  
@@ -109,7 +126,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 text-left">
+                            <div class="col-sm-6 col-md-6 text-left">
                                 <p class="text-red">{{-- $products->title --}}</p>
                                 <p>{{ trans('koi.code') }} : {{ $kois->koi_id }}</p>
                                 <!-- <p>{{ trans('koi.owner')}} : {{ $kois->owner }}</p> -->
@@ -147,14 +164,16 @@
                             </div>
 
                             @if(count($kois->media) > 1)                            
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="item">
-                                        <div class="slider slider-nav">
-                                            @foreach($kois->media as $media)
-                                                <img src="{{ asset($media->getUrl()) }}" class="img-responsive thumbnail">    
-                                            @endforeach
-                                        </div>
-                                    </div> 
+                                <div class="hide-max-768px show-min-768px">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <div class="item">
+                                            <div class="slider slider-nav">
+                                                @foreach($kois->media as $media)
+                                                    <img src="{{ asset($media->getUrl()) }}" class="img-responsive thumbnail">    
+                                                @endforeach
+                                            </div>
+                                        </div> 
+                                    </div>
                                 </div>
                             @endif
 
@@ -197,15 +216,11 @@ $('.slider-nav').slick({
   centerMode: true,
   focusOnSelect: true
 });
-</script>
 
-<script type="text/javascript">
-    $(document).on('ready', function() {
-      $(".lazy").slick({
-        lazyLoad: 'ondemand', // ondemand progressive anticipated
-        infinite: true
-      });
-    });
+$(".lazy").slick({
+    lazyLoad: 'ondemand', // ondemand progressive anticipated
+    infinite: true
+});
 </script>
 
 @endsection

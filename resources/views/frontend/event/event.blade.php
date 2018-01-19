@@ -39,12 +39,12 @@
                     <div class="content-box">
                         <div class="row">
                             <div class="col-md-12">
-                                <p>{{ $events->start_datetime->formatLocalized('%d %B %Y') }} to {{ $events->end_datetime->formatLocalized('%d %B %Y') }}</p>
+                                <p>{{ $events->start_datetime->format('d/m/Y') }} - {{ $events->end_datetime->format('d/m/Y') }}</p>
 
                                 @if(count($kois) > 0)
                                     @if ($today->toDateString() < $events->end_datetime->toDateString() || ($today->toDateString() == $events->end_datetime->toDateString() && $today->toTimeString() <= $events->end_datetime->toTimeString()))
                                         @foreach($kois as $index => $koi)
-                                            <div class="col-md-3">
+                                            <div class="col-sm-6 col-md-3">
                                                 <div class="event-item-box">
                                                     <div class="img-item-box">   
                                                         <a href="{{ route('frontend.event.koi', ['event' => $events->id, 'koi' => $koi->id]) }}">

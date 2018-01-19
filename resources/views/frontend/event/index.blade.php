@@ -32,7 +32,7 @@
                                             <div class="center">
                                                 <h3 class="text-red text-thick">{{ trans('event.new_events') }}!</h3>
                                                 <p>{{ $event->name }}</p>
-                                                <p>{{ $event->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $event->end_datetime->formatLocalized('%d %B %Y') }}</p>  
+                                                <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
                                             </div>
                                         </div>
                                         <br>
@@ -49,7 +49,7 @@
                                             <div class="center">
                                                 <h3 class="text-red text-thick">{{ trans('event.new_events') }}!</h3>
                                                 <p>{{ $event->name }}</p>
-                                                <p>{{ $event->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $event->end_datetime->formatLocalized('%d %B %Y') }}</p>  
+                                                <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
                                             </div>
                                         </div>
                                     <br>
@@ -102,7 +102,7 @@
                                                         </a>
                                                     </div>
                                                     <p class="text-red">{{ $event->name }}</p>
-                                                    <p>{{ $event->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $event->end_datetime->formatLocalized('%d %B %Y') }}</p>  
+                                                    <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
                                                 </div>  
                                             @endif  
                                         @elseif($today->toDateString() > $event->end_datetime->toDateString())
@@ -113,7 +113,7 @@
                                                     </a>
                                                 </div>
                                                 <p class="text-red">{{ $event->name }}</p>
-                                                <p>{{ $event->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $event->end_datetime->formatLocalized('%d %B %Y') }}</p>  
+                                                <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
                                             </div>  
                                         @endif                           
                                     @endforeach
@@ -126,7 +126,7 @@
                                                     </a>
                                                 </div>
                                                 <p class="text-red">{{ $event->name }}</p>
-                                                <p>{{ $event->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $event->end_datetime->formatLocalized('%d %B %Y') }}</p>  
+                                                <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
                                             </div>   
                                         @endif
                                     @endif
