@@ -17,7 +17,7 @@
                         <!-- <div class="container">
                             <div class="row"> -->
                                 <div class="col-md-3">
-                                     {{-- <!-- <h2>Custom search field</h2>
+                                    {{-- <!-- <h2>Custom search field</h2>
                                     <div id="custom-search-input">
                                         <div class="input-group col-md-12">
                                             <input type="text" class="form-control input-lg" placeholder="Search" />
@@ -33,8 +33,8 @@
                                 <div class="col-md-9">
                                     <ul class="nav navbar-nav navbar-right">
                                     @if (Auth::guest())
-                                        <li><a href="{{ route('login') }}">{{ trans('header.login') }}</a></li>
-                                        <li><a href="{{ route('register') }}">{{ trans('header.register') }}</a></li>                                           
+                                        <li><a class="{{ Request::segment(1) == 'login'  ? 'text-red' : '' }}" href="{{ route('login') }}">{{ trans('header.login') }}</a></li>
+                                        <li><a class="{{ Request::segment(1) == 'register'  ? 'text-red' : '' }}" href="{{ route('register') }}">{{ trans('header.register') }}</a></li>                                           
                                     @else
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -61,7 +61,7 @@
                                         <li><a href="{{ URL::to('change/en') }}"><span class="flag-language"><img src="{{ asset('frontend/src/img/')}}{{ trans('header.flag-en') }}" class="center" alt="" height="15" width="15"></span>EN</a></li> 
                                         <li>
                                             <a href="{{ route('frontend.shop.shoppingCart') }}">
-                                                <span class="glyphicon glyphicon-shopping-cart" style=""></span>
+                                                <span class="glyphicon glyphicon-shopping-cart"></span>
                                                 <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
                                             </a>
                                         </li> 
@@ -75,7 +75,7 @@
         </div>    
 
         <div class="top-logo">
-                <img src="{{ asset('frontend/src/img/LOGO-Koikichi-Auction.png') }}" class="img-responsive center" alt="" height="150" width="150">
+            <img src="{{ asset('frontend/src/img/LOGO-Koikichi-Auction.png') }}" class="img-responsive center" alt="" height="150" width="150">
         </div>
 
         <div class="menu-bar">
@@ -106,17 +106,17 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="nav navbar-nav navbar-center">
 
-                            <li><a href="{{ url('/') }}">{{ trans('header.home') }}</a></li>
+                            <li><a class="{{ Request::segment(1) == ''  ? 'text-red' : '' }}" href="{{ url('/') }}">{{ trans('header.home') }}</a></li>
                             
                             @if(count($categories->where('group', 'koi')) > 0)
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ trans('header.koi') }}<span class="caret"></a>
+                            <li class="dropdown  {{ Request::segment(0) == 'koi'  ? 'text-red' : '' }}">
+                                <a class="{{ Request::segment(1) == 'koi'  ? 'text-red' : '' }}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ trans('header.koi') }}<span class="caret"></a>
                                 <ul class="dropdown-menu">
                                     @foreach($categories->where('group', 'koi') as $category)
                                         @if(count($category->children) > 0)         
                                         <li class="dropdown-submenu">
                                             <a class="test" tabindex="-1" href="#">{{ $category->name }}</a>
-                                            <ul class="dropdown-menu">
+                                            <ul class="dropdown-menu" >
                                                 @foreach($category->children as $category2)
                                                     @if(count($category2->children) > 0)
                                                     <li class="dropdown-submenu">
@@ -125,7 +125,7 @@
                                                             @foreach($category2->children as $category3)      
                                                                 <li class="menu-item">
                                                                     <a href="{{ route('frontend.koi.category', ['category' => $category3->id]) }}">{{ $category3->name }}</a>
-                                                                </li>
+                                                                </li>                                                             
                                                             @endforeach
                                                         </ul>
                                                     </li>
@@ -146,10 +146,9 @@
                                 </ul>  
                             </li>
                             @endif
-                            
                             @if(count($categories->where('group', 'product')) > 0)
                             <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ trans('header.koi-products') }}<span class="caret"></a>
+                            <a class="{{ Request::segment(1) == 'product'  ? 'text-red' : '' }}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ trans('header.koi-products') }}<span class="caret"></a>
                                 <ul class="dropdown-menu">
                                     @foreach($categories->where('group', 'product') as $category)
                                         @if(count($category->children) > 0)         
@@ -185,11 +184,11 @@
                                 </ul>  
                             </li>
                             @endif
-                            
+                            <!-- <li role="separator" class="divider"></li> -->
                             <li><a href="http://www.koikichi-auction.com/" target="_blank">{{ trans('header.online-auction') }}</a></li>
-                            <li><a href="{{ url('/event') }}">{{ trans('header.events') }}</a></li>
-                            <li><a href="{{-- url('/hallofframe') --}}">{{ trans('header.hall-of-fame') }}</a></li>
-                            <li><a href="{{ url('/payment') }}">{{ trans('header.payment') }}</a></li>
+                            <li><a class="{{-- Request::segment(1) == 'event'  ? 'text-red' : '' --}}" href="{{ url('/event') }}">{{ trans('header.events') }}</a></li>
+                            <li><a class="{{ Request::segment(1) == 'event'  ? 'text-red' : '' }}" href="{{-- url('/hallofframe') --}}">{{ trans('header.hall-of-fame') }}</a></li>
+                            <li><a class="{{ Request::segment(1) == 'payment'  ? 'text-red' : '' }}" href="{{ url('/payment') }}">{{ trans('header.payment') }}</a></li>
 
                             {{--<!-- @if(count($categories) > 0)
                                 <li class="menu-item dropdown">

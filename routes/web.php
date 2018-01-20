@@ -127,6 +127,11 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'as' => 'frontend.shop.reduceAddByone'
 	]);
 
+	Route::get('/changeqty/{id}/{qty}', [
+		'uses' => 'ProductController@getChangeQty',
+		'as' => 'frontend.shop.changeQty'
+	]);
+
 	Route::get('/remove/{id}', [
 		'uses' => 'ProductController@getRemoveItem',
 		'as' => 'frontend.shop.remove'
@@ -316,6 +321,11 @@ Route::get('/contact', [
 Route::post('/contact', [
 	'uses' => 'HomeController@postContactUs',
 	'as'   => 'frontend.contact.postContact'
+]);
+
+Route::get('/contact/line', [
+	'uses' => 'HomeController@getLineContact',
+	'as'   => 'frontend.contact.line'
 ]);
 
 Auth::routes();

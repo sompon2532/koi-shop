@@ -52,14 +52,16 @@
                                     @endforeach
                                 @endif
 
-                                <div class="col-sm-6  col-md-3">
+                                <div class="col-xs-6 col-sm-6 col-md-3">
                                     <div class="stock-item-box ">
                                         <div class="img-item-box thumbnail">
-                                            @if(count($koi->media) > 0)  
-                                                <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class=" image-responsive" style="max-height:150px;">
-                                            @else
-                                                <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                
-                                            @endif
+                                            <a href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">                                            
+                                                @if(count($koi->media) > 0)  
+                                                    <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class=" image-responsive" style="max-height:150px;">
+                                                @else
+                                                    <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                
+                                                @endif
+                                            </a>
                                             @if($i == 0)
                                                 <div class="star-label">
                                                     <form action="{{ route('frontend.user.favorite-add', ['id' => $koi->id]) }}" method="GET">  

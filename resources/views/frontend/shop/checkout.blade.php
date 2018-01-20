@@ -13,6 +13,15 @@
                     <div class="title-box">
                         <h1>{{ trans('cart.checkout') }}</h1>
                     </div>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="content-box">
                         <div class="row">
                             <div class="col-md-12">
@@ -26,9 +35,9 @@
                                     <tr>
                                         <td>
                                             @if(count($product['item']->media) > 0)
-                                                <img src="{{ $product['item']->media->first()->getUrl() }}" alt="..." class="img-thumbnail image-responsive" style="max-height:150px;">
+                                                <img src="{{ $product['item']->media->first()->getUrl() }}" alt="..." class="img-thumbnail" style="max-height:150px;">
                                             @else
-                                                <img src="{{ asset('frontend/src/img/product-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                                                                        
+                                                <img src="{{ asset('frontend/src/img/product-defalt-img.jpg') }}" alt="..." class="img-thumbnail" style="max-height:150px;">                                                                                                        
                                             @endif
                                         </td>
                                         <td class="text-left">
@@ -40,23 +49,23 @@
 
                                         </td>
                                         <td>
-                                            <p class="text-red">{{ $product['price'] }} {{ trans('cart.thb') }}</p>
+                                            <p class="text-red">{{ number_format($product['price']) }} {{ trans('cart.thb') }}</p>
                                         </td>
                                     </tr>
                                     @endforeach
                                     <tr bgcolor="#F5F5F5">
                                         <td class="text-right text-red table-border" colspan="2" bordercolor="#ccc">{{ trans('cart.subtotal') }}</td>
                                         <td class="text-red table-border"> {{ Session::has('cart') ? Session::get('cart')->totalQty : '0'}} </td>
-                                        <td class="text-red table-border"> {{ $totalPrice }} {{ trans('cart.thb') }} </td>
+                                        <td class="text-red table-border"> {{ number_format($totalPrice) }} {{ trans('cart.thb') }} </td>
                                     </tr>
                                     <tr>
                                         <td class="text-right text-red" colspan="2">{{ trans('cart.shipping') }}</td>
                                         <td class="text-red table-border">  </td>
-                                        <td class="text-red table-border"> {{ $totalShip }} {{ trans('cart.thb') }} </td>
+                                        <td class="text-red table-border"> {{ number_format($totalShip) }} {{ trans('cart.thb') }} </td>
                                     </tr>
                                     <tr bgcolor="#F5F5F5">
                                         <td class="text-right text-red table-border" colspan="3">{{ trans('cart.total') }}</td>
-                                        <td class="text-red table-border"> {{ $total }} {{ trans('cart.thb') }} </td>
+                                        <td class="text-red table-border"> {{ number_format($total) }} {{ trans('cart.thb') }} </td>
                                     </tr>
                                 </table>
 

@@ -22,7 +22,7 @@
                                                 <th class="text-center">{{ trans('cart.quantity') }}</th>
                                                 <th class="text-center" colspan="2">{{ trans('cart.price') }}</th>
                                             </tr>
-
+                                            
                                             @foreach($products as $product)
                                                 <tr>
                                                     <td>
@@ -40,9 +40,9 @@
                                                         <p class="text-red">
                                                             <div class="input-group col-md-4">
                                                                 <span class="input-group-btn">
-                                                                    <a class="btn btn-qty-item" href="{{ route('frontend.shop.reduceByone', ['id' => $product['item']['id']]) }}">-</a>
+                                                                    <a class="btn btn-qty-item" href="{{ route('frontend.shop.reduceByone', ['id' => $product['item']['id']]) }}" onclick="return reduceByone({{$product['item']['id']}})">-</a>
                                                                 </span>
-                                                                <input type="text" class="form-control qty-item" placeholder="" value="{{ $product['qty'] }}">
+                                                                <input type="text" class="form-control qty-item" id="qty-item{{$product['item']['id']}}" placeholder="" value="{{ $product['qty'] }}" onkeyup="changeQty({{$product['item']['id']}},{{$product['qty']}})">
                                                                 <span class="input-group-btn">
                                                                     <a class="btn btn-qty-item" href="{{ route('frontend.shop.reduceAddByone', ['id' => $product['item']['id']]) }}">+</a>
                                                                 </span>
@@ -53,7 +53,7 @@
                                                         <p class="text-red">{{ number_format($product['price']) }} {{ trans('cart.thb') }}</p>
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('frontend.shop.remove', ['id' => $product['item']['id']]) }}" class="btn"><span class="glyphicon glyphicon glyphicon-remove text-red"></span></a>
+                                                        <a href="{{ route('frontend.shop.remove', ['id' => $product['item']['id']]) }}" class="btn" onclick="return(confirm('{{trans('cart.confirm-remove-item')}}'))"><span class="glyphicon glyphicon glyphicon-remove text-red"></span></a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -104,4 +104,49 @@
                 </div>
             </div>
         </div>
+@endsection
+@section('custom-js')
+<!-- <script>
+    $('#qty-item').keyup(function(){
+        var newQty = $('#qty-item').val();
+        if(!parseInt(newQty)){
+            alert('กรอกได้เฉพาะตัวเลขเท่านั้น');
+            $('#qty-item').focus().val('');
+        }
+        
+    });
+    
+</script> -->
+<script>
+    function reduceByone($key) {
+        var qty = document.getElementById("qty-item"+$key).value;
+        if(qty == 1){
+            if(confirm("{{trans('cart.confirm-remove-item')}}")==true){
+                return true;
+            }else{
+                return false;                
+            }
+        }
+    }
+    
+    function changeQty($key, $itemQty) {
+        var qty = document.getElementById("qty-item"+$key).value;
+        var itemQty = $itemQty;
+        var id = $key;
+        var regex=/^[0-9]+$/;
+        var url = "{{ URL::to('/changeqty/') }}"
+
+        if (qty != '' && !qty.match(regex)) // this is the code I need to change
+        {
+            alert("Must input numbers");
+            document.getElementById("qty-item"+$key).value = itemQty;
+            // return false;
+        }else{
+            if(qty != ''){
+                return window.location.href= url+'/'+id+'/'+qty;
+            }
+        }
+
+    }
+</script>
 @endsection

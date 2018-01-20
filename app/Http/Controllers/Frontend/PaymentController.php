@@ -12,12 +12,14 @@ use Carbon\Carbon;
 use DB;
 use App\Models\Payment;
 use App\Models\Koi;
+use Validator;
 
 class PaymentController extends Controller
 {   
     public function getIndex()
     {
         $categories = Category::active()->get()->toTree();
+        
         return view('frontend.payment.index', compact('categories'));
     }
 
@@ -31,6 +33,16 @@ class PaymentController extends Controller
 
     public function postPayment(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'total' => 'required|numeric',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                        ->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $insert = array(
             'order_id'    => $id,
             'bank'        => $request->input('bank'),
@@ -38,26 +50,18 @@ class PaymentController extends Controller
             'datetime'    => $request->input('datetime')                  
         );
         $payment = Payment::create($insert);
-
-        // $order = Order::find($id);
-        // $order->status = 1;
-        
-        // $order->transaction->status = 1;
         $transaction = Transaction::where('order_id', $id)->first();
         $transaction->status = 1;
         $transaction->save();
-
-        // $transaction = Transaction::where('order_id', $id)->get();        
-        // dd($transaction);
-
-        // DB::table('orders')->where('id', $id)->update(['status' => 1]);
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');  
             $payment->addMedia($image)->toMediaCollection('payment');
         }
         
-        return redirect()->route('frontend.payment.success', ['id' => $id])->with('success', 'Successfully purchased products!');;
+        return redirect()
+                    ->route('frontend.payment.success', ['id' => $id])
+                    ->with('success', 'Successfully purchased products!');;
     }
 
     public function getSuccess($id)
