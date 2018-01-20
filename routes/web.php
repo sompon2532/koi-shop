@@ -19,9 +19,11 @@ Route::group(['prefix' => 'admin'], function() {
 			'uses' => 'AdminController@getIndex'
 		]);
 
+		Route::resource('hall-of-fame', 'HallOfFameController');
 		Route::resource('order', 'OrderController');
 		Route::resource('koi', 'KoiController');
 		Route::resource('product', 'ProductController');
+		Route::resource('store', 'StoreController');
 		Route::resource('farm', 'FarmController');
 		Route::resource('strain', 'StrainController');
         Route::resource('category', 'CategoryController');
