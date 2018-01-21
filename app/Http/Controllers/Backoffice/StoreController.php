@@ -17,9 +17,9 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $store = Store::get();
+        $stores = Store::get();
 
-        return view('backoffice.store.index', compact('store'));
+        return view('backoffice.store.index', compact('stores'));
     }
 
     /**
@@ -55,7 +55,9 @@ class StoreController extends Controller
      */
     public function show(Store $store)
     {
-        return view('backoffice.store.detail');
+        $store->load('kois');
+
+        return view('backoffice.store.detail', compact('store'));
     }
 
     /**
@@ -82,7 +84,7 @@ class StoreController extends Controller
 
         return redirect()
             ->route('store.edit', ['store' => $store->id])
-            ->with(['success' => 'Update farm success']);
+            ->with(['success' => 'Update store success']);
     }
 
     /**

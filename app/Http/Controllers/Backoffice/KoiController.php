@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backoffice;
 
+use App\Models\HallOfFame;
 use Illuminate\Http\Request;
 use App\Http\Requests\Koi\CreateKoiRequest;
 use App\Http\Requests\Koi\UpdateKoiRequest;
@@ -12,6 +13,7 @@ use App\Models\Farm;
 use App\Models\Event;
 use App\Models\Koi;
 use App\User;
+use App\Models\Store;
 
 class KoiController extends Controller
 {
@@ -39,8 +41,10 @@ class KoiController extends Controller
         $strains = Strain::active()->get();
         $farms = Farm::active()->get();
         $users = User::get();
+        $stores = Store::active()->get();
+        $hall_of_fames = HallOfFame::active()->get();
 
-        return view('backoffice.koi.create', compact('categories', 'strains', 'events', 'farms', 'users'));
+        return view('backoffice.koi.create', compact('categories', 'strains', 'events', 'farms', 'users', 'stores', 'hall_of_fames'));
     }
 
     /**
@@ -119,8 +123,10 @@ class KoiController extends Controller
         $strains = Strain::active()->get();
         $farms = Farm::active()->get();
         $users = User::get();
+        $stores = Store::active()->get();
+        $hall_of_fames = HallOfFame::active()->get();
 
-        return view('backoffice.koi.update', compact('koi', 'categories', 'events', 'strains', 'farms', 'users'));
+        return view('backoffice.koi.update', compact('koi', 'categories', 'events', 'strains', 'farms', 'users', 'stores', 'hall_of_fames'));
     }
 
     /**

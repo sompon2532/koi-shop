@@ -107,12 +107,26 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="storage" class="col-sm-3 control-label">
-                                ที่เก็บปลา <span class="text-danger">*</span>
-                            </label>
+                            <label for="store" class="col-sm-3 control-label">ที่เก็บปลา</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="storage" value="{{ old('storage') }}" id="storage"
-                                       placeholder="Storage">
+                                <select class="form-control" name="store_id" id="store">
+                                    <option value="">-------- เลือกที่เก็บปลา --------</option>
+                                    @foreach ($stores as $store)
+                                        <option value="{{ $store->id }}">{{ $store->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hall_of_fame" class="col-sm-3 control-label">หอเกียรติยศ</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="hall_of_fame_id" id="hall_of_fame">
+                                    <option value="">-------- เลือกหอเกียรติยศ --------</option>
+                                    @foreach ($hall_of_fames as $hall_of_fame)
+                                        <option value="{{ $hall_of_fame->id }}">{{ $hall_of_fame->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
