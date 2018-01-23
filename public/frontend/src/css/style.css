@@ -881,6 +881,60 @@ border: none;
     }
     /* 
 |
+|   Payment
+|
+*/
+    
+    .collapse-halloffame {
+        box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+        margin-bottom: 7px;
+    }
+    
+    .panel-heading {
+        padding: 5px 15px;
+    }
+    
+    .list-group-item {
+        padding: 5px 15px;
+        border: unset;
+    }
+    
+    .list-group-item:first-child {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    
+    .list-group-item:last-child {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    
+    .sub-sub-item {
+        padding-left: 25px;
+    }
+    
+    .menu-ico-collapse {
+        font-size: 14px;
+    }
+    
+    .panel {
+        -webkit-box-shadow: unset;
+        box-shadow: unset;
+    }
+    
+    .halloffame-year {
+        margin-top: 2px;
+        font-weight: bold;
+    }
+    
+    .halloffame-content,
+    .halloffame-side-bar {
+        box-shadow: 0 0px 1px 1px rgba(0, 0, 0, 0.1);
+        /* margin: 2px; */
+        padding: 5px;
+    }
+    /* 
+|
 |   Responsive
 |
 */

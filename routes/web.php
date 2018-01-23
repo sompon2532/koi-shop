@@ -84,12 +84,10 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'uses' => 'KoiController@getIndex',
 		'as' => 'frontend.koi.index'
 	]);
-
 	Route::get('/koi/category/{category}', [
 		'uses' => 'KoiController@getKoiCategory',
 		'as' => 'frontend.koi.category'
 	]);
-
 	Route::get('/koi/{id}', [
 		'uses' => 'KoiController@getDetail',
 		'as' => 'frontend.koi.detail'
@@ -100,12 +98,10 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'uses' => 'ProductController@getIndex',
 		'as' => 'frontend.shop.index'
 	]);
-	
 	Route::get('/product/category/{category}', [
 		'uses' => 'ProductController@getProductCategory',
 		'as' => 'frontend.shop.category'
 	]);
-
 	Route::get('/product/{id}', [
 		'uses' => 'ProductController@getDetail',
 		'as' => 'frontend.shop.detail'
@@ -116,38 +112,31 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'uses' => 'ProductController@getAddToCart',
 		'as' => 'frontend.shop.addToCart'
 	]);
-
 	Route::get('/reduce/{id}', [
 		'uses' => 'ProductController@getReduceByOne',
 		'as' => 'frontend.shop.reduceByone'
 	]);
-
 	Route::get('/reduce-add/{id}', [
 		'uses' => 'ProductController@getReduceAddByOne',
 		'as' => 'frontend.shop.reduceAddByone'
 	]);
-
 	Route::get('/changeqty/{id}/{qty}', [
 		'uses' => 'ProductController@getChangeQty',
 		'as' => 'frontend.shop.changeQty'
 	]);
-
 	Route::get('/remove/{id}', [
 		'uses' => 'ProductController@getRemoveItem',
 		'as' => 'frontend.shop.remove'
 	]);
-
 	Route::get('/shopping-cart', [
 		'uses' => 'ProductController@getCart',
 		'as' => 'frontend.shop.shoppingCart'
 	]);
-	
 	Route::get('/checkout', [
 		'uses' => 'ProductController@getCheckout',
 		'as' => 'checkout',
 		'middleware' => 'auth'
 	]);
-	
 	Route::post('/checkout', [
 		'uses' => 'ProductController@postCheckout',
 		'as' => 'checkout',
@@ -158,27 +147,20 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('/event', [
 		'uses' => 'EventController@getIndex',
 		'as' => 'frontend.event.index'
-		// 'middleware' => 'auth'
 	]);
-
 	Route::get('/event/{id}', [
 		'uses' => 'EventController@getEvent',
 		'as' => 'frontend.event.event',
-		// 'middleware' => 'auth'
 	]);
-
 	Route::get('/event/{event}/{koi}', [
 		'uses' => 'EventController@getKoi',
 		'as' => 'frontend.event.koi',
-		// 'middleware' => 'auth'
 	]);
-
 	Route::get('/event/announcement/luckydraw/{event}', [
 		'uses' => 'EventController@getluckydraw',
 		'as' => 'frontend.event.luckydraw',
 		'middleware' => 'auth'		
 	]);
-
 	Route::get('/event/announcement/winnerlist/{event}', [
 		'uses' => 'EventController@getwinnerlist',
 		'as' => 'frontend.event.winnerlist',
@@ -220,7 +202,6 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'as' => 'frontend.user.favorite-add',
 		'middleware' => 'auth'		
 	]);
-
 	Route::get('/favorite/del/{id}/{type}', [
 		'uses' => 'UserController@getfavoriteDel',
 		'as' => 'frontend.user.favorite-del',
@@ -233,19 +214,16 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'as' => 'frontend.user.myport',
 		'middleware' => 'auth'		
 	]);
-
 	Route::get('/myport/koi/{id}', [
 		'uses' => 'UserController@getMyportKoi',
 		'as' => 'frontend.user.myport-koi',
 		'middleware' => 'auth'		
 	]);
-
 	Route::get('/myorder', [
 		'uses' => 'UserController@getMyorders',
 		'as' => 'frontend.user.myorder',
 		'middleware' => 'auth'		
 	]);
-
 	Route::get('/favorite', [
 		'uses' => 'UserController@getFavorite',
 		'as' => 'frontend.user.favorite',
@@ -257,19 +235,16 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'uses' => 'PaymentController@getIndex',
 		'as' => 'frontend.payment.index'	
 	]);
-
 	Route::get('/payment/order/{id}', [
 		'uses' => 'PaymentController@getPayment',
 		'as' => 'frontend.payment.payment',
 		'middleware' => 'auth'		
 	]);
-
 	Route::post('/payment/order/{id}', [
 		'uses' => 'PaymentController@postPayment',
 		'as' => 'frontend.payment.payment',
 		'middleware' => 'auth'		
 	]);
-
 	Route::get('/payment/success/{id}', [
 		'uses' => 'PaymentController@getSuccess',
 		'as' => 'frontend.payment.success',
@@ -280,6 +255,16 @@ Route::group(['namespace' => 'Frontend'], function() {
 	Route::get('news/{id}', [
 		'uses' => 'NewsController@getIndex',
 		'as' => 'frontend.news.index',
+	]);
+
+	//Hall of fame
+	Route::get('hall-of-fame', [
+		'uses' => 'HallOfFameController@getIndex',
+		'as' => 'frontend.hall-of-fame.index',
+	]);
+	Route::get('hall-of-fame/{id}', [
+		'uses' => 'HallOfFameController@getHallOfFame',
+		'as' => 'frontend.hall-of-fame.hall-of-fame',
 	]);
 });
 
@@ -298,15 +283,6 @@ Route::get('register', [
 	'as'   => 'auth.register',
 	'uses' => 'RegisterController@showRegistrationForm'
 ]);
-
-// Route::get('password/reset', [
-// 	'as'   => 'password.request',
-// 	'uses' => 'ForgotPasswordController@showLinkRequestForm'
-// ]);
-
-// Route::get('/', function () {
-// 	return view('frontend.index');
-// });
 
 Route::get('/about', [
 	'uses' => 'HomeController@getAboutUs',
