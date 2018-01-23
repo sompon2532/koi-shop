@@ -126,4 +126,8 @@ class Koi extends Model implements HasMedia
         return $this->belongsTo(HallOfFame::class);
     }
 
+    public function store() {
+        return $this->belongsTo(Store::class);
+    }
+
 }

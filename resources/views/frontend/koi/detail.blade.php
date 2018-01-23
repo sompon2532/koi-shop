@@ -137,7 +137,7 @@
                                 <p>{{ trans('koi.strain') }} : {{ $kois->strain->name }} </p>
                                 <p>{{ trans('koi.farm') }} : {{ $kois->farm->name }}</p>
                                 <p>{{ trans('koi.born') }} : {{ $kois->born }}</p>
-                                <p>{{ trans('koi.storage') }} : {{ $kois->storage }}</p>
+                                <p>{{ trans('koi.storage') }} : {{ $kois->store != null ? $kois->store->name : '-' }}</p>
 
                                 @if(count($kois->sizes) > 0)
                                     <p>{{ trans('koi.size') }} : 
