@@ -933,6 +933,22 @@ border: none;
         /* margin: 2px; */
         padding: 5px;
     }
+    
+    .halloffame-title {
+        border-bottom: 2px solid #ddd;
+        margin: 10px 0;
+    }
+    
+    .halloffame-title-sidebar {
+        border-bottom: 2px solid #ddd;
+        margin: 0;
+        padding: 1px 0;
+    }
+    
+    .collapse-halloffame a[aria-expanded="true"],
+    .in[aria-expanded="true"]>a {
+        color: #ff0000;
+    }
     /* 
 |
 |   Responsive

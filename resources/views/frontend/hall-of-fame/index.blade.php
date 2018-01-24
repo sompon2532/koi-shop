@@ -23,6 +23,7 @@
                                 @foreach($years as $year => $value)
                                     <div class="collapse-halloffame text-left">
                                         <a href="#menu{{$year}}" class="list-group-item panel-heading text-center" data-toggle="collapse" data-parent="#mainmenu">{{ $year }} ({{ count($value) }}) <span class="menu-ico-collapse"><i class="glyphicon glyphicon-menu-right"></i></span></a>
+                                        <div class="halloffame-title-sidebar"></div>
                                         <div class="collapse pos-absolute" id="menu{{$year}}">
                                             @foreach($value as $halloffame)
                                                 <a href="{{ route('frontend.hall-of-fame.hall-of-fame', ['id' => $halloffame->id]) }}" data-toggle="collapse" class="list-group-item sub-sub-item" data-target="#submenu2"><span class="menu-ico-collapse"><i class="glyphicon glyphicon-menu-right"></i></span> {{$halloffame->name}}</a>
