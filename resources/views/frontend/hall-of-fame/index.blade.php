@@ -14,7 +14,7 @@
                 <div class="main-content text-center">
 
                     <div class="title-box">
-                        <h1>HALL OF FAME</h1>
+                        <h1>{{ trans('hall-of-fame.hall-of-fame')}}</h1>
                     </div>
 
                     <div class="row content-box">
@@ -46,10 +46,10 @@
                                                 @endif
                                                 <div class="caption">
                                                     <h3 class="text-red">{{$koi->name}}</h3>
-                                                    <p>OWNER : {{$koi->user['name']}}</p>
-                                                    <p>BREEDER :</p>
-                                                    <p>HANDLED : </p>
-                                                    <p>{{ $koi->hallOfFame->name }}</p>
+                                                    <h4>{{ trans('hall-of-fame.owner')}} : {{$koi->user['name']}}</h4>
+                                                            <h4>{{ trans('hall-of-fame.oyagoi')}} : {{$koi->oyagoi}}</h4>
+                                                            <h4>{{ trans('hall-of-fame.storage')}} : {{$koi->store['name']}}</h4>
+                                                            <h4>{{ $koi->hallOfFame->name }}</h4>
                                                 </div>
                                             </div>
                                         </div>

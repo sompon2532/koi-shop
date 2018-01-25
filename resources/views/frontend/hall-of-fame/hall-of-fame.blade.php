@@ -26,9 +26,7 @@
                                             <a href="#menu{{$year}}" class="list-group-item panel-heading text-center" data-toggle="collapse" data-parent="#mainmenu"><div class="halloffame-title-sidebar">{{ $year }} ({{ count($value) }}) <span class="menu-ico-collapse"><i class="glyphicon glyphicon-menu-right"></i></span></div></a>
                                             <div class="collapse pos-absolute {{ $year == $halloffames->date->format('Y')  ? 'in' : '' }}" id="menu{{$year}}" >
                                                 @foreach($value as $halloffame)
-                                                    {{-- @if($value_month->date->format('Y') == $year) --}}
-                                                        <a href="{{ route('frontend.hall-of-fame.hall-of-fame', ['id' => $halloffame->id]) }}" data-toggle="collapse" class="list-group-item sub-sub-item" data-target="#submenu2"><span class="menu-ico-collapse"><i class="glyphicon glyphicon-menu-right"></i></span> {{$halloffame->name}}</a>
-                                                    {{-- @endif --}}
+                                                    <a href="{{ route('frontend.hall-of-fame.hall-of-fame', ['id' => $halloffame->id]) }}" data-toggle="collapse" class="list-group-item sub-sub-item" data-target="#submenu2"><span class="menu-ico-collapse"><i class="glyphicon glyphicon-menu-right"></i></span> {{$halloffame->name}}</a>
                                                 @endforeach
                                             </div>
                                         </div>
@@ -50,16 +48,18 @@
                                                 <div class="col-sm-6 col-md-4">
                                                     <div class="thumbnail">
                                                         @if(count($koi->media) > 0)
-                                                            <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." style="max-height:200px">
+                                                            <a class="example-image-link" href="{{ asset($koi->media->first()->getUrl()) }}" data-lightbox="thumb-1">
+                                                                <img class="example-image " src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." style="">
+                                                            </a>
                                                         @else
                                                             <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." style="max-height:200px;">                                                
                                                         @endif
                                                         <div class="caption">
                                                             <h3 class="text-red">{{$koi->name}}</h3>
-                                                            <p>OWNER : {{$koi->user['name']}}</p>
-                                                            <p>OYAGOI : {{$koi->oyagoi}}</p>
-                                                            <p>HANDLED : {{$koi->farm->name}}</p>
-                                                            <p>{{ $koi->hallOfFame->name }}</p>
+                                                            <h4>{{ trans('hall-of-fame.owner')}} : {{$koi->user['name']}}</h4>
+                                                            <h4>{{ trans('hall-of-fame.oyagoi')}} : {{$koi->oyagoi}}</h4>
+                                                            <h4>{{ trans('hall-of-fame.storage')}} : {{$koi->store->name}}</h4>
+                                                            <h4>{{ $koi->hallOfFame->name }}</h4>
                                                         </div>
                                                     </div>
                                                 </div>

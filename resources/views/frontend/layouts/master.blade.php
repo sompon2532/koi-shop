@@ -39,7 +39,7 @@
     <div id="app" class="container-fluid">
         @include('frontend.partials.header')
 
-        <div class="">
+        <div class="container">
             @yield('content')
         </div>
         
