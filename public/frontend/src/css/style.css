@@ -648,7 +648,24 @@ display:block;
         border-radius: 50%;
         display: block;
     }
-    /* end calendar */
+    /*
+    *   koi
+    */
+    
+    .koi-detail {
+        margin-bottom: 20px;
+    }
+    
+    .contact-to-order {
+        position: absolute;
+        width: 150px;
+    }
+    
+    .line-contact-to-order {
+        position: absolute;
+        right: 15px;
+        margin: 5px;
+    }
     /* 
 *myorder
 */

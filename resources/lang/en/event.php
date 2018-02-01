@@ -31,14 +31,14 @@ return [
     'detail' => 'DETAIL',    
     'born' => 'BORN',    
     'size' => 'SIZE',    
-    'strain' => 'STRAIN',    
-    'farm' => 'FARM',    
+    'strain' => 'VARIETY',  
+    'farm' => 'BREEDER',    
     'gender' => 'GENDER', 
     'certificate' => 'CERTIFICATE',      
     'yes' => 'YES',  
     'no' => 'NO',  
-    'contest' => 'CONTEST',    
+    'contest' => 'PRIZE',    
     'oyagoi' => 'OYAGOI',    
-    'storage' => 'STORAGE' 
+    'storage' => 'KEEPING AT'
     
 ];

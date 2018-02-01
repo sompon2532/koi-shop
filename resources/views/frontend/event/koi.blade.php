@@ -187,11 +187,11 @@
                                                 <p>{{ trans('koi.storage') }} : {{ $kois->store != null ? $kois->store->name : '-' }}</p>
 
                                                 @if(count($kois->sizes) > 0)
-                                                    <p>{{ trans('koi.size') }} : 
-                                                        @foreach($kois->sizes as $sizes)
-                                                            {{ $sizes->size }}
-                                                        @endforeach
-                                                    </p>
+                                                    @foreach($kois->sizes as $sizes)
+                                                        <p>{{ trans('koi.size') }} : {{ $sizes->size }} ({{($sizes->created_at->format('Y-m-d'))}})</p>
+                                                    @endforeach
+                                                @else
+                                                    <p>{{ trans('koi.size') }} : -</p>
                                                 @endif
 
                                                 <p>{{ trans('koi.gender')}} : {{ $kois->sex }}</p>
@@ -250,11 +250,11 @@
                                                 <p>{{ trans('koi.storage') }} : {{ $kois->store != null ? $kois->store->name : '-' }}</p>
 
                                                 @if(count($kois->sizes) > 0)
-                                                    <p>{{ trans('koi.size') }} : 
-                                                        @foreach($kois->sizes as $sizes)
-                                                            {{ $sizes->size }}
-                                                        @endforeach
-                                                    </p>
+                                                    @foreach($kois->sizes as $sizes)
+                                                        <p>{{ trans('koi.size') }} : {{ $sizes->size }} ({{($sizes->created_at->format('Y-m-d'))}})</p>
+                                                    @endforeach
+                                                @else
+                                                    <p>{{ trans('koi.size') }} : -</p>
                                                 @endif
 
                                                 <p>{{ trans('koi.gender')}} : {{ $kois->sex }}</p>
