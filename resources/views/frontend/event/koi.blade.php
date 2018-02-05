@@ -110,6 +110,7 @@
                                             <section class="lazy slider" data-sizes="50vw">
                                                 @foreach($kois->videos as $video)
                                                     <div>
+                                                        <h3 class="text-red">VIDEO ({{$video->created_at->format('Y-m-d')}})</h3>
                                                         {!! $video->video !!}
                                                     </div>
                                                 @endforeach
