@@ -16,32 +16,12 @@ use Carbon\Carbon;
 use Session;
 use Auth;
 use DB;
+use Validator;
 
 class ProductController extends Controller
 {
     public function getIndex()
     {
-        // $products = Product::all();
-        // $images = DB::table('products')
-        // ->Join('media', 'products.id', '=', 'media.model_id')
-        // ->select('products.*', 'media.*')
-        // ->where('media.collection_name', '=', 'product')
-        // // ->groupBy('media.collection_name')
-        // // ->count('products.id')
-        // ->get();
-        // // dd($images);
-        // return view('frontend.shop.index', [
-        //     'products' => $products,
-        //     'images' => $images
-        // ]);
-        // $products = Product::with('media')->get();
-        // $categories = Category::active()->get()->toTree();
-        // return view('frontend.shop.index', compact('products', 'categories'));
-        // $products = Product::with('media')->get();
-        // return view('frontend.shop.index', [
-        //         'products' => $products
-        //     ]);
-
         $products = Product::with('media')->get();       
         $categories = Category::active()->get()->toTree(); 
 
@@ -59,8 +39,6 @@ class ProductController extends Controller
         $products = Product::with('media')->where('category_id', $category)->get();
         $productCategory = Category::find($category);        
         $categories = Category::active()->get()->toTree(); 
-        // $user = User::find(Auth::user()->id);
-
 
         if(Auth::user() == null){
             $favorites = null;
@@ -74,23 +52,12 @@ class ProductController extends Controller
     public function getDetail($id)
     {   
         $products = Product::with('media')->find($id);        
-        // $products = Product::find($id);
-        // $images = DB::table('products')
-        // ->Join('media', 'products.id', '=', 'media.model_id')
-        // ->select('products.*', 'media.*')
-        // ->where('media.model_id' ,'=', $id)
-        // ->where('media.collection_name', '=', 'product')
-        // ->get();
         $categories = Category::active()->get()->toTree();          
         if(Auth::user() == null){
             $favorites = null;
         }else{
             $favorites = Favorite::where('favorite_id', $id)->where('favorite_type', 'App\Models\Product')->where('user_id', Auth::user()->id)->get();            
         }
-        // dd($images);
-        // $images = $products->getMedia('product');
-        // $images = $images[1]->getUrl();
-        // dd($images);
         return view('frontend.shop.detail', [
             'products' => $products,
             'categories' => $categories,
@@ -127,6 +94,16 @@ class ProductController extends Controller
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->reduceAddByOne($id);
+
+        Session::put('cart', $cart);
+        return redirect()->route('frontend.shop.shoppingCart');
+    }
+
+    public function getChangeQty($id, $qty)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->changeQty($id, $qty);
 
         Session::put('cart', $cart);
         return redirect()->route('frontend.shop.shoppingCart');
@@ -190,13 +167,27 @@ class ProductController extends Controller
     }
 
     public function postCheckout(Request $request)
-    {
+    {   
+        $validator = Validator::make($request->all(), [
+            'tel' => 'required|numeric|max:10',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                        ->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         if (!Session::has('cart')) {
             return view('frontend.shop.shopping-cart');
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-
+        // dd($oldCart);
+        // foreach ($cart->items as $item) {
+        //     dd($item['qty']);
+        // }
         try {
             // $order = new Order();
             // $order->cart = serialize($cart);
@@ -209,32 +200,39 @@ class ProductController extends Controller
             // $order->payment_id = '';
 
             // Auth::user()->orders()->save($order);
-
             $insert = array(
-              'user_id'     => Auth::user()->id,
-              'cart'        => serialize($cart),
-              'address'     => $request->input('address'),
-              'name'        => $request->input('name'),
-              'status'      => 0, //0=ยังไม่ได้ชำระเงิน 1=ชำระเงินแล้ว
-              'totalQty'    => $cart->totalQty,
-              'totalPrice'  => $cart->totalPrice,
-              'tel'         => $request->input('tel'),
-              'payment_id'  => '',//id การชำระเงิน            
-              'created_at' => Carbon::now()->toDateTimeString() 
+                'user_id'     => Auth::user()->id,
+                'cart'        => serialize($cart),
+                'address'     => $request->input('address'),
+                'name'        => $request->input('name'),
+                'status'      => 0,
+                'totalQty'    => $cart->totalQty,
+                'total_delivery'  => $cart->totalShip,
+                'totalPrice'  => $cart->totalPrice,
+                'total'       => $cart->total,
+                'tel'         => $request->input('tel'),
+                'payment_id'  => '',
+                'created_at' => Carbon::now()->toDateTimeString()
             );
-            $order_id = DB::table('orders')->insertGetId($insert);
 
+            $order_id = DB::table('orders')->insertGetId($insert);
             foreach ($cart->items as $item) {
                 $insert = array(
-                  'order_id'    => $order_id,
-                  'product_id'  => $item['item']['id']
+                    'order_id'    => $order_id,
+                    'product_id'  => $item['item']['id'],
+                    'qty'    => $item['qty'],
+                    'total_delivery' => $item['delivery'],
+                    'total_price'   => $item['price'],
+                    'total'   => $item['price']+$item['delivery'],
+                    'created_at' => Carbon::now()->toDateTimeString()
                 );
                 DB::table('order_product')->insertGetId($insert);
             }
 
             $transactions = array(
                 'order_id'  => $order_id,
-                'status'    => 0);
+                'status'    => 0
+            );
             $transactions = Transaction::create($transactions);
 
             $user = User::find(Auth::user()->id);            

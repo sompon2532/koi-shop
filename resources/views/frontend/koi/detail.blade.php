@@ -17,7 +17,7 @@
     margin: auto;
 }
 
-.slick-slide {
+.slider-nav img {
   margin: 0px 5px;
 }
 
@@ -65,20 +65,37 @@
 
                     <div class="content-box">
                         <div class="row">
-                            <div class="col-md-3 col-md-offset-3">
-                                <div class="slider slider-for thumbnail">
-                                    @if(count($kois->media) > 0)
-                                        @foreach($kois->media as $media)
-                                            <div>
-                                                <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
-                                                    <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="..." style="">
-                                                </a>
-                                            </div>
-                                        @endforeach
-                                    @else
-                                        <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                
-                                    @endif
+                            <div class="col-sm-6 col-md-3 col-md-offset-3">
+                                <div class="hide-max-768px show-min-768px">
+                                    <div class="slider slider-for thumbnail">
+                                        @if(count($kois->media) > 0)
+                                            @foreach($kois->media as $media)
+                                                <div>
+                                                    <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
+                                                        <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="..." style="">
+                                                    </a>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                
+                                        @endif
+                                    </div>
                                 </div>
+
+                                <div class="show-max-768px hide-min-768px">                                
+                                    <section class="lazy slider thumbnail" data-sizes="50vw">
+                                        @if(count($kois->media) > 0)
+                                            @foreach($kois->media as $media)
+                                                <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
+                                                    <img class="example-image " src="{{ asset($media->getUrl()) }}" alt="..." style="">
+                                                </a>
+                                            @endforeach
+                                        @else
+                                            <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                
+                                        @endif
+                                    </section>                                        
+                                </div>
+                                
                                 @if(count($favorites) == 0)
                                     <div class="star-label">
                                         <form action="{{ route('frontend.user.favorite-add', ['id' => $kois->id]) }}" method="GET" style="">  
@@ -101,61 +118,69 @@
                                     </div>
                                 @endif
                                 <div class="text-red">
-                                    <p>{{ trans('koi.to-order') }}</p>
-                                    <p>{{ trans('koi.please-contact') }}</p>
-                                    <img class="" src="{{ asset('frontend/src/img/line-logo.png') }}" alt="...">                                    
+                                    <div class="contact-to-order">{{ trans('koi.to-order') }}<br>{{ trans('koi.please-contact') }} </div>
+                                    <span class="line-contact-to-order">
+                                        <a href="{{ route('frontend.contact.line') }}">
+                                            <img src="{{ asset('frontend/src/img/line-logo.png') }}" alt="...">                                    
+                                        </a>
+                                    </span>
                                 </div>
                             </div>
 
-                            <div class="col-md-6 text-left">
-                                <p class="text-red">{{-- $products->title --}}</p>
-                                <p>{{ trans('koi.code') }} : {{ $kois->koi_id }}</p>
-                                <!-- <p>{{ trans('koi.owner')}} : {{ $kois->owner }}</p> -->
-                                <p>{{ trans('koi.price') }} : {{ number_format($kois->price) }} {{ trans('koi.thb')}}</p>
-                                <br>
-                                <p class="text-red">{{ trans('koi.detail')}}</p>
-                                <p>{{ trans('koi.breeder') }} : {{ $kois->strain->name }} </p>
-                                <p>{{ trans('koi.born') }} : {{ $kois->born }}</p>
+                            <div class="col-sm-6 col-md-6 text-left">
+                                <div class="koi-detail">
+                                    <p class="text-red">{{-- $products->title --}}</p>
+                                    <p>{{ trans('koi.code') }} : {{ $kois->koi_id }}</p>
+                                    <!-- <p>{{ trans('koi.owner')}} : {{ $kois->owner }}</p> -->
+                                    <p>{{ trans('koi.price') }} : {{ number_format($kois->price) }} {{ trans('koi.thb')}}</p>
+                                    <br>
+                                    <p class="text-red">{{ trans('koi.detail')}}</p>
+                                    <p>{{ trans('koi.oyagoi') }} : {{ $kois->oyagoi }} </p>
+                                    <p>{{ trans('koi.strain') }} : {{ $kois->strain->name }} </p>
+                                    <p>{{ trans('koi.farm') }} : {{ $kois->farm->name }}</p>
+                                    <p>{{ trans('koi.born') }} : {{ $kois->born }}</p>
+                                    <p>{{ trans('koi.storage') }} : {{ $kois->store != null ? $kois->store->name : '-' }}</p>
 
-                                @if(count($kois->sizes) > 0)
-                                    <p>
-                                        {{ trans('koi.size') }} : 
+                                    @if(count($kois->sizes) > 0)
                                         @foreach($kois->sizes as $sizes)
-                                            {{ $sizes->size }}
+                                            <p>{{ trans('koi.size') }} : {{ $sizes->size }} ({{($sizes->created_at->format('Y-m-d'))}})</p>
                                         @endforeach
-                                    </p>
-                                @endif
+                                    @else
+                                        <p>{{ trans('koi.size') }} : -</p>
+                                    @endif
 
-                                <p>{{ trans('koi.gender')}} : {{ $kois->sex }}</p>
-
-                                @if(count($kois->contests) > 0)
-                                    <p>
-                                        {{ trans('koi.contest') }} : 
-                                        @foreach($kois->contests as $contests)
-                                            {{ $contests->contest }}
+                                    <p>{{ trans('koi.gender')}} : {{ $kois->sex }}</p>
+                                    <p>{{ trans('koi.certificate') }} : {{ $kois->certificate ? trans('koi.yes') : trans('koi.no') }} </p>
+                                    
+                                    @if(count($kois->contests) > 0)
+                                        @foreach($kois->contests as $index => $contests)
+                                            <p>{{ trans('koi.contest') }} {{ $index+1 }} : {{ $contests->contest }}</p>
                                         @endforeach
-                                    </p>
-                                @endif
+                                    @else
+                                        <p>{{ trans('koi.contest') }} : -</p>                                    
+                                    @endif
 
-                                @if(count($kois->remarks) > 0)
-                                    <p>
-                                        {{ trans('koi.remark') }} : 
-                                        @foreach($kois->remarks as $remarks)
-                                            {{ $remarks->remark }}
+                                    @if(count($kois->remarks) > 0)
+                                        @foreach($kois->remarks as $index => $remarks)
+                                            <p>{{ trans('koi.remark') }}#{{ $index+1 }} : {{ $remarks->remark }}</p>
                                         @endforeach
-                                    </p>
-                                @endif
+                                    @else
+                                        <p>{{ trans('koi.remark') }} : -</p>  
+                                    @endif
+                                </div>
                             </div>
 
                             @if(count($kois->media) > 1)                            
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="item">
-                                        <div class="slider slider-nav">
-                                            @foreach($kois->media as $media)
-                                                <img src="{{ asset($media->getUrl()) }}" class="image-responsive thumbnail" style="max-height:150px;">    
-                                            @endforeach
-                                        </div>
-                                    </div> 
+                                <div class="hide-max-768px show-min-768px">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <div class="item">
+                                            <div class="slider slider-nav">
+                                                @foreach($kois->media as $media)
+                                                    <img src="{{ asset($media->getUrl()) }}" class="img-responsive thumbnail">    
+                                                @endforeach
+                                            </div>
+                                        </div> 
+                                    </div>
                                 </div>
                             @endif
 
@@ -164,6 +189,7 @@
                                     <section class="lazy slider" data-sizes="50vw">
                                         @foreach($kois->videos as $video)
                                             <div>
+                                                <h3 class="text-red">VIDEO ({{$video->created_at->format('Y-m-d')}})</h3>
                                                 {!! $video->video !!}
                                             </div>
                                         @endforeach
@@ -198,15 +224,11 @@ $('.slider-nav').slick({
   centerMode: true,
   focusOnSelect: true
 });
-</script>
 
-<script type="text/javascript">
-    $(document).on('ready', function() {
-      $(".lazy").slick({
-        lazyLoad: 'ondemand', // ondemand progressive anticipated
-        infinite: true
-      });
-    });
+$(".lazy").slick({
+    lazyLoad: 'ondemand', // ondemand progressive anticipated
+    infinite: true
+});
 </script>
 
 @endsection

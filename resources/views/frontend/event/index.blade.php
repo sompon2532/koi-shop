@@ -24,7 +24,7 @@
                                         <div class="col-md-6">
                                             <div class="item active">
                                                 <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                    <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="max-height:150px;">
+                                                    <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;">
                                                 </a>
                                             </div>
                                         </div>
@@ -32,7 +32,7 @@
                                             <div class="center">
                                                 <h3 class="text-red text-thick">{{ trans('event.new_events') }}!</h3>
                                                 <p>{{ $event->name }}</p>
-                                                <p>{{ $event->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $event->end_datetime->formatLocalized('%d %B %Y') }}</p>  
+                                                <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
                                             </div>
                                         </div>
                                         <br>
@@ -41,7 +41,7 @@
                                         <div class="col-md-6">
                                             <div class="item active">
                                                 <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                    <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="max-height:150px;">
+                                                    <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;">
                                                 </a>
                                             </div>
                                         </div>
@@ -49,14 +49,14 @@
                                             <div class="center">
                                                 <h3 class="text-red text-thick">{{ trans('event.new_events') }}!</h3>
                                                 <p>{{ $event->name }}</p>
-                                                <p>{{ $event->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $event->end_datetime->formatLocalized('%d %B %Y') }}</p>  
+                                                <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
                                             </div>
                                         </div>
                                     <br>
                                     <br>
                                     @endif
                                 @endforeach
-                                {{-- <!-- @if ($today->toDateString() < $events->first()->end_datetime->toDateString()) --> --}}
+                                {{-- <!-- @if ($today->toDateString() < $events->first()->end_datetime->toDateString()) --> 
                                     <!-- <div class="col-md-6">
                                         <div class="item active">
                                             <a href="{{ route('frontend.event.event', ['id' => $events->first()->id]) }}">
@@ -70,8 +70,8 @@
                                             <p>{{ $events->first()->name }}</p>
                                             <p>{{ $events->first()->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $events->first()->end_datetime->formatLocalized('%d %B %Y') }}</p>  
                                         </div>
-                                    </div> -->
-                                {{-- <!-- @elseif($today->toDateString() == $events->first()->end_datetime->toDateString() && $today->toTimeString() <= $events->first()->end_datetime->toTimeString()) --> --}}
+                                    </div> -->--}}
+                                {{-- <!-- @elseif($today->toDateString() == $events->first()->end_datetime->toDateString() && $today->toTimeString() <= $events->first()->end_datetime->toTimeString()) --> }
                                     <!-- <div class="col-md-6">
                                         <div class="item active">
                                             <a href="{{ route('frontend.event.event', ['id' => $events->first()->id]) }}">
@@ -85,7 +85,7 @@
                                             <p>{{ $events->first()->name }}</p>
                                             <p>{{ $events->first()->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $events->first()->end_datetime->formatLocalized('%d %B %Y') }}</p>  
                                         </div>
-                                    </div> -->
+                                    </div> -->--}
                                 {{-- <!-- @endif --> --}}
                                 
                                 <div class="col-md-12">
@@ -98,22 +98,22 @@
                                                 <div class="col-md-4">
                                                     <div class="item">
                                                         <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                            <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="max-height:150px;margin-bottom:10px;">
+                                                            <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;margin-bottom:10px;">
                                                         </a>
                                                     </div>
                                                     <p class="text-red">{{ $event->name }}</p>
-                                                    <p>{{ $event->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $event->end_datetime->formatLocalized('%d %B %Y') }}</p>  
+                                                    <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
                                                 </div>  
                                             @endif  
                                         @elseif($today->toDateString() > $event->end_datetime->toDateString())
                                             <div class="col-md-4">
                                                 <div class="item">
                                                     <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                        <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="max-height:150px;margin-bottom:10px;">
+                                                        <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;margin-bottom:10px;">
                                                     </a>
                                                 </div>
                                                 <p class="text-red">{{ $event->name }}</p>
-                                                <p>{{ $event->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $event->end_datetime->formatLocalized('%d %B %Y') }}</p>  
+                                                <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
                                             </div>  
                                         @endif                           
                                     @endforeach
@@ -122,11 +122,11 @@
                                         <div class="col-md-4">
                                                 <div class="item">
                                                     <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                        <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="max-height:150px;margin-bottom:10px;">
+                                                        <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;margin-bottom:10px;">
                                                     </a>
                                                 </div>
                                                 <p class="text-red">{{ $event->name }}</p>
-                                                <p>{{ $event->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $event->end_datetime->formatLocalized('%d %B %Y') }}</p>  
+                                                <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
                                             </div>   
                                         @endif
                                     @endif

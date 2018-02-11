@@ -28,6 +28,15 @@
                     <div class="title-box">
                         <h1>CHECKOUT</h1>
                     </div>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="content-box">
                         <div class="row">
                             <div class="col-md-12">
@@ -102,7 +111,7 @@
                                 <div class="form-group form-payment">
                                     <label class="col-md-3" for="name">IMAGE :</label>
                                     <div class="col-md-9">
-                                        <input class="col-md-12" type="file" name="image" id="image" value="">                                        
+                                        <input class="col-md-12" type="file" name="image" id="image" value="" required>                                        
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +143,7 @@
                                 <div class="form-group form-payment">
                                     <label class="col-md-3" for="name">DATE TIME :</label>
                                     <div class="col-md-9">
-                                        <input type='text' class="form-control" id='datetimepicker4' name="datetime"/>
+                                        <input type='text' class="form-control" id='datetimepicker4' required name="datetime"/>
                                     </div>
                                 </div>
                             </div>

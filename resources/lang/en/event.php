@@ -21,7 +21,9 @@ return [
 
     //koi
     'remaining_time' => 'REMAINING TIME',    
+    'day' => 'DAY',
     'number_of_booking' => 'NUMBER OF BOOKING',
+    'winner' => 'WINNER',
     'name_list' => 'NAME LIST',    
     'code' => 'CODE',    
     'owner' => 'OWNER',    
@@ -29,14 +31,14 @@ return [
     'detail' => 'DETAIL',    
     'born' => 'BORN',    
     'size' => 'SIZE',    
-    'strain' => 'STRAIN',    
-    'farm' => 'FARM',    
+    'strain' => 'VARIETY',  
+    'farm' => 'BREEDER',    
     'gender' => 'GENDER', 
     'certificate' => 'CERTIFICATE',      
     'yes' => 'YES',  
     'no' => 'NO',  
-    'contest' => 'CONTEST',    
+    'contest' => 'PRIZE',    
     'oyagoi' => 'OYAGOI',    
-    'storage' => 'STORAGE' 
+    'storage' => 'KEEPING AT'
     
 ];

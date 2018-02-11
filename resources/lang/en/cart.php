@@ -24,5 +24,6 @@ return [
 	'name' => 'NAME',
 	'address' => 'ADDRESS',
     'tel' => 'TEL',
-	'btn-buy' => 'BUY NOW',    
+	'btn-buy' => 'BUY NOW',
+	'confirm-remove-item' => 'Do you want to remove?'
 ];

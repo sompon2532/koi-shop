@@ -39,12 +39,12 @@
                     <div class="content-box">
                         <div class="row">
                             <div class="col-md-12">
-                                <p>{{ $events->start_datetime->formatLocalized('%d %B %Y') }} to {{ $events->end_datetime->formatLocalized('%d %B %Y') }}</p>
+                                <p>{{ $events->start_datetime->format('d/m/Y') }} - {{ $events->end_datetime->format('d/m/Y') }}</p>
 
                                 @if(count($kois) > 0)
                                     @if ($today->toDateString() < $events->end_datetime->toDateString() || ($today->toDateString() == $events->end_datetime->toDateString() && $today->toTimeString() <= $events->end_datetime->toTimeString()))
                                         @foreach($kois as $index => $koi)
-                                            <div class="col-md-3">
+                                            <div class="col-sm-6 col-md-3">
                                                 <div class="event-item-box">
                                                     <div class="img-item-box">   
                                                         <a href="{{ route('frontend.event.koi', ['event' => $events->id, 'koi' => $koi->id]) }}">
@@ -109,8 +109,15 @@
                                             <div class="col-xs-12 col-sm-6 col-md-3">
                                                 <div class="winner-item-list">
                                                     <p class="text-red">{{ trans('event.winner') }} <br> {{ $koi->user_id != '' ? $koi->user['name'] : 'Koikichi Fish Farm' }} {{-- $koi->user['name'] --}}</p>
-                                                    <div class="img-item-box">                                                                                          
-                                                        <img class="img-thumbnail" src="{{ asset( $koi->media()->first()->getUrl() ) }}" alt="...">                                
+                                                    <div class="img-item-box">    
+                                                        <a href="{{ route('frontend.event.koi', ['event' => $events->id, 'koi' => $koi->id]) }}">
+                                                            {{-- <img class="img-thumbnail" src="{{ asset( $koi->media()->first()->getUrl() ) }}" alt="..."> --}}
+                                                            @if(count($koi->media)>0)
+                                                                <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class="img-responsive img-thumbnail" style="max-height:150px;">
+                                                            @else
+                                                                <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" img-responsive img-thumbnail" style="max-height:150px;">
+                                                            @endif                               
+                                                        </a>                                                                                      
                                                     </div>  
                                                     <p class="text-red">{{ $koi->name }}</p>
                                                 </div>

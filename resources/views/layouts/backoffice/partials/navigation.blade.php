@@ -53,6 +53,12 @@
     </li>
 
     <li>
+        <a href="{{ route('store.index') }}">
+            <i class="fa fa-stop"></i> <span>ที่เก็บปลา</span>
+        </a>
+    </li>
+
+    <li>
         <a href="{{ route('product.index') }}">
             <i class="fa fa-product-hunt"></i> <span>สินค้า</span>
         </a>
@@ -68,6 +74,12 @@
     <li>
         <a href="{{ route('order.index') }}">
             <i class="fa fa-first-order"></i> <span>สั่งซื้อ</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ route('hall-of-fame.index') }}">
+            <i class="fa fa-trophy"></i> <span>หอเกียรติยศ</span>
         </a>
     </li>
 </ul>

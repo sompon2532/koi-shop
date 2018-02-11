@@ -94,7 +94,7 @@
 					@endforeach
 				</div>
 				<div class="row">
-					<p class="text-red text-right"> {{ trans('product.total')}} : {{ count($product) }} </p>
+					<p class="text-red text-right"> {{ trans('product.total')}} : {{ count($products) }} </p>
 				</div>
 			@else
 				<h1>No Product in Category!</h1>

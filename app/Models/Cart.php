@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Http\Request;
 
 class Cart 
 {
@@ -64,6 +65,31 @@ class Cart
 
         if ($this->items[$id]['qty'] <= 0) {
             unset($this->items[$id]);
+        }
+    }
+
+    public function changeQty($id, $qty) {
+        $this->items[$id]['delivery'] = $this->items[$id]['delivery'] - ($this->items[$id]['item']['delivery'] * $this->items[$id]['qty']);
+        $this->items[$id]['price'] = $this->items[$id]['price'] - ($this->items[$id]['item']['price'] * $this->items[$id]['qty']);
+        $this->totalQty =  $this->totalQty - $this->items[$id]['qty'];
+        $this->totalShip = $this->totalShip - ($this->items[$id]['item']['delivery'] * $this->items[$id]['qty']);
+        $this->totalPrice = $this->totalPrice - ($this->items[$id]['item']['price'] * $this->items[$id]['qty']);
+
+        $this->items[$id]['qty'] = $qty;
+        $this->items[$id]['delivery'] = $this->items[$id]['item']['delivery'] * $this->items[$id]['qty'];
+        $this->items[$id]['price'] = $this->items[$id]['item']['price'] * $this->items[$id]['qty'];
+        $this->totalQty += $this->items[$id]['qty'];
+        $this->totalShip += $this->items[$id]['delivery'];
+        $this->totalPrice += $this->items[$id]['price'];
+        $this->total = $this->totalShip + $this->totalPrice;
+
+        if ($this->items[$id]['qty'] <= 0) {
+            unset($this->items[$id]);    
+            // unset($this->items);
+            // $this->totalQty = 0;
+    		// $this->totalPrice = 0;
+            // $this->totalShip = 0;
+            // $this->total = 0;
         }
     }
 
