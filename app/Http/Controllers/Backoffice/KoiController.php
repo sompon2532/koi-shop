@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Backoffice;
 
-use App\Models\HallOfFame;
 use Illuminate\Http\Request;
 use App\Http\Requests\Koi\CreateKoiRequest;
 use App\Http\Requests\Koi\UpdateKoiRequest;
@@ -14,6 +13,8 @@ use App\Models\Event;
 use App\Models\Koi;
 use App\User;
 use App\Models\Store;
+use App\Models\HallOfFame;
+use Carbon\Carbon;
 
 class KoiController extends Controller
 {
@@ -58,30 +59,42 @@ class KoiController extends Controller
         $koi = Koi::create($request->all());
 
         // Remark
-        foreach (array_get($request->all(), 'remarks') as $remark) {
+        foreach (array_get($request->all(), 'remarks') as $index => $remark) {
             if ($remark) {
-                $koi->remarks()->create(['remark' => $remark]);
+                $koi->remarks()->create([
+                    'remark' => $remark,
+                    'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_remarks')[$index])
+                ]);
             }
         }
 
         // Size
-        foreach (array_get($request->all(), 'sizes') as $size) {
+        foreach (array_get($request->all(), 'sizes') as $index => $size) {
             if ($size) {
-                $koi->sizes()->create(['size' => $size]);
+                $koi->sizes()->create([
+                    'size' => $size,
+                    'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_sizes')[$index])
+                ]);
             }
         }
 
         // Contest
-        foreach (array_get($request->all(), 'contests') as $contest) {
+        foreach (array_get($request->all(), 'contests') as $index => $contest) {
             if ($contest) {
-                $koi->contests()->create(['contest' => $contest]);
+                $koi->contests()->create([
+                    'contest' => $contest,
+                    'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_contests')[$index])
+                ]);
             }
         }
 
         // Video
-        foreach (array_get($request->all(), 'videos') as $video) {
+        foreach (array_get($request->all(), 'videos') as $index => $video) {
             if ($video) {
-                $koi->videos()->create(['video' => $video]);
+                $koi->videos()->create([
+                    'video' => $video,
+                    'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_videos')[$index])
+                ]);
             }
         }
 
@@ -148,34 +161,38 @@ class KoiController extends Controller
 
         // Remark
         $koi->remarks()->delete();
-        foreach (array_get($request->all(), 'remarks') as $remark) {
-            if ($remark) {
-                $koi->remarks()->create(['remark' => $remark]);
-            }
+        foreach (array_get($request->all(), 'remarks') as $index => $remark) {
+            $koi->remarks()->create([
+                'remark' => $remark,
+                'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_remarks')[$index])
+            ]);
         }
 
         // Size
         $koi->sizes()->delete();
-        foreach (array_get($request->all(), 'sizes') as $size) {
-            if ($size) {
-                $koi->sizes()->create(['size' => $size]);
-            }
+        foreach (array_get($request->all(), 'sizes') as $index => $size) {
+            $koi->sizes()->create([
+                'size' => $size,
+                'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_sizes')[$index])
+            ]);
         }
 
         // Contest
         $koi->contests()->delete();
-        foreach (array_get($request->all(), 'contests') as $contest) {
-            if ($contest) {
-                $koi->contests()->create(['contest' => $contest]);
-            }
+        foreach (array_get($request->all(), 'contests') as $index => $contest) {
+            $koi->contests()->create([
+                'contest' => $contest,
+                'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_contests')[$index])
+            ]);
         }
 
         // Video
         $koi->videos()->delete();
-        foreach (array_get($request->all(), 'videos') as $video) {
-            if ($video) {
-                $koi->videos()->create(['video' => $video]);
-            }
+        foreach (array_get($request->all(), 'videos') as $index => $video) {
+            $koi->videos()->create([
+                'video' => $video,
+                'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_videos')[$index])
+            ]);
         }
 
         $remove_images = array_get($request->all(), 'remove_images', []);

@@ -228,6 +228,13 @@
                                 <input type="text" class="form-control" name="sizes[]" v-model="size.size" placeholder="Size">
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('size', index)" v-show="sizes.length > 1"></i>
                             </div>
+
+                            <label class="col-sm-3 control-label">
+                                วันที่
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control datepicker" name="date_sizes[]" placeholder="   Date" style="border-top: none; border-radius: 0">
+                            </div>
                         </div>
                         <i class="add fa fa-plus-circle" v-on:click="add('size')"></i>
                     </div>
@@ -241,6 +248,13 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="contests[]" v-model="contest.contest" placeholder="Contest">
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('contest', index)" v-show="contests.length > 1"></i>
+                            </div>
+
+                            <label class="col-sm-3 control-label">
+                                วันที่
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control datepicker" name="date_contests[]" placeholder="   Date" style="border-top: none; border-radius: 0">
                             </div>
                         </div>
                         <i class="add fa fa-plus-circle" v-on:click="add('contest')"></i>
@@ -258,6 +272,13 @@
                                 <textarea class="form-control" name="videos[]" v-model="video.video" rows="5" placeholder="Video ..."></textarea>
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('video', index)" v-show="videos.length > 1"></i>
                             </div>
+
+                            <label class="col-sm-3 control-label">
+                                วันที่
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control datepicker" name="date_videos[]" placeholder="   Date" style="border-top: none; border-radius: 0">
+                            </div>
                         </div>
                         <i class="add fa fa-plus-circle" v-on:click="add('video')"></i>
                     </div>
@@ -271,6 +292,13 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="remarks[]" v-model="remark.remark" placeholder="Remark">
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('remark', index)" v-show="remarks.length > 1"></i>
+                            </div>
+
+                            <label class="col-sm-3 control-label">
+                                วันที่
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control datepicker" name="date_remarks[]" placeholder="   Date" style="border-top: none; border-radius: 0">
                             </div>
                         </div>
                         <i class="add fa fa-plus-circle" v-on:click="add('remark')"></i>
@@ -309,7 +337,7 @@
             methods: {
                 add: function(type) {
                     if (type == 'size') {
-                        this.sizes.push({size: ''})
+                        this.sizes.push({size: '', date_size: ''})
                     }
                     else if (type == 'contest') {
                         this.contests.push({contest: ''})
@@ -320,6 +348,14 @@
                     else if (type == 'remark') {
                         this.remarks.push({remark: ''})
                     }
+
+                    setTimeout(function() {
+                        $(".datepicker").datepicker({
+                            autoclose: true,
+                            format: 'dd/mm/yyyy',
+                            todayHighlight: true,
+                        });
+                    })
                 },
                 remove: function(type, index) {
                     if (type == 'size') {
