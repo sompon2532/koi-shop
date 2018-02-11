@@ -119,18 +119,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="hall_of_fame" class="col-sm-3 control-label">หอเกียรติยศ</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" name="hall_of_fame_id" id="hall_of_fame">
-                                    <option value="">-------- เลือกหอเกียรติยศ --------</option>
-                                    @foreach ($hall_of_fames as $hall_of_fame)
-                                        <option value="{{ $hall_of_fame->id }}">{{ $hall_of_fame->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <label for="sex" class="col-sm-3 control-label">เพศ</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="sex" id="sex">

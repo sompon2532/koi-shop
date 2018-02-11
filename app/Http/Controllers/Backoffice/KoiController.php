@@ -43,9 +43,8 @@ class KoiController extends Controller
         $farms = Farm::active()->get();
         $users = User::get();
         $stores = Store::active()->get();
-        $hall_of_fames = HallOfFame::active()->get();
 
-        return view('backoffice.koi.create', compact('categories', 'strains', 'events', 'farms', 'users', 'stores', 'hall_of_fames'));
+        return view('backoffice.koi.create', compact('categories', 'strains', 'events', 'farms', 'users', 'stores'));
     }
 
     /**
@@ -137,9 +136,8 @@ class KoiController extends Controller
         $farms = Farm::active()->get();
         $users = User::get();
         $stores = Store::active()->get();
-        $hall_of_fames = HallOfFame::active()->get();
 
-        return view('backoffice.koi.update', compact('koi', 'categories', 'events', 'strains', 'farms', 'users', 'stores', 'hall_of_fames'));
+        return view('backoffice.koi.update', compact('koi', 'categories', 'events', 'strains', 'farms', 'users', 'stores'));
     }
 
     /**
