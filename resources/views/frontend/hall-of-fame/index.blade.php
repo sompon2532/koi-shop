@@ -45,11 +45,10 @@
                                                     <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." style="max-height:200px;">                                                
                                                 @endif
                                                 <div class="caption">
-                                                    <h3 class="text-red">{{$koi->name}}</h3>
+                                                    <h3 class="text-red">{{ $koi->hallOfFame->name }}</h3>
                                                     <h4>{{ trans('hall-of-fame.owner')}} : {{$koi->user['name']}}</h4>
-                                                    <h4>{{ trans('hall-of-fame.oyagoi')}} : {{$koi->oyagoi}}</h4>
+                                                    <h4>{{ trans('hall-of-fame.farm')}} : {{$koi->farm->name}}</h4>
                                                     <h4>{{ trans('hall-of-fame.storage')}} : {{$koi->store['name']}}</h4>
-                                                    <h4>{{ $koi->hallOfFame->name }}</h4>
                                                 </div>
                                             </div>
                                         </div>
