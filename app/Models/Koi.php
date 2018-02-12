@@ -122,8 +122,8 @@ class Koi extends Model implements HasMedia
         return $this->morphToMany('App\User', 'favorite');
     }
 
-    public function hallOfFame() {
-        return $this->belongsTo(HallOfFame::class);
+    public function hallOfFames() {
+        return $this->belongsToMany(HallOfFame::class);
     }
 
     public function store() {

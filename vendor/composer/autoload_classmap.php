@@ -7,6 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddDateTimeToNewsTable' => $baseDir . '/database/migrations/2017_11_12_055000_add_date_time_to_news_table.php',
+    'AddDateToContestsTable' => $baseDir . '/database/migrations/2018_02_11_060921_add_date_to_contests_table.php',
+    'AddDateToRemarksTable' => $baseDir . '/database/migrations/2018_02_11_060819_add_date_to_remarks_table.php',
+    'AddDateToSizesTable' => $baseDir . '/database/migrations/2018_02_11_060521_add_date_to_sizes_table.php',
+    'AddDateToVideosTable' => $baseDir . '/database/migrations/2018_02_11_060848_add_date_to_videos_table.php',
     'AddDatetimeToEventsTable' => $baseDir . '/database/migrations/2017_09_24_070349_add_datetime_to_events_table.php',
     'AddEventIdToKoiTable' => $baseDir . '/database/migrations/2017_09_09_020445_add_event_id_to_koi_table.php',
     'AddFieldConfigToEventsTable' => $baseDir . '/database/migrations/2017_10_07_081952_add_field_config_to_events_table.php',
@@ -49,6 +53,7 @@ return array(
     'App\\Http\\Controllers\\Frontend\\ProductController' => $baseDir . '/app/Http/Controllers/Frontend/ProductController.php',
     'App\\Http\\Controllers\\Frontend\\UserController' => $baseDir . '/app/Http/Controllers/Frontend/UserController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+    'App\\Http\\Controllers\\frontend\\HallOfFameController' => $baseDir . '/app/Http/Controllers/Frontend/HallOfFameController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\Language' => $baseDir . '/app/Http/Middleware/Language.php',
@@ -118,6 +123,7 @@ return array(
     'CreateEventsTable' => $baseDir . '/database/migrations/2017_08_24_154003_create_events_table.php',
     'CreateFarmsTable' => $baseDir . '/database/migrations/2017_08_05_034105_create_farms_table.php',
     'CreateFavoritesTable' => $baseDir . '/database/migrations/2017_11_16_084528_create_favorites_table.php',
+    'CreateHallOfFameKoiTable' => $baseDir . '/database/migrations/2018_02_11_095857_create_hall_of_fame_koi_table.php',
     'CreateHallOfFamesTable' => $baseDir . '/database/migrations/2018_01_16_072133_create_hall_of_fames_table.php',
     'CreateKoiTranslationsTable' => $baseDir . '/database/migrations/2017_08_24_154206_create_koi_translations_table.php',
     'CreateKoiUserTable' => $baseDir . '/database/migrations/2017_11_15_092937_create_koi_user_table.php',

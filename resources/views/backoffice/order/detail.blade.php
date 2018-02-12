@@ -38,7 +38,7 @@
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $product->product_id }}</td>
                                 <td>{{ $product->name }}</td>
-                                <td>1</td>
+                                <td>{{ $product->pivot->qty }}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -78,16 +78,16 @@
                 <h5>เบอร์ติดต่อ : {{ $order->tel }}</h5>
                 <h5>จำนวนสินค้า : {{ $order->totalQty }}</h5>
                 <h5>ราคารวม : {{ number_format($order->totalPrice, 2) }} บาท</h5>
-                <h5>
-                    สถานะ :
-                    @if ($order->status == 0)
-                        รอการยืนยัน
-                    @elseif ($order->status ==1)
-                        กำลังจัดส่ง
-                    @else
-                        จัดส่งเรียบร้อย
-                    @endif
-                </h5>
+                {{--<h5>--}}
+                    {{--สถานะ :--}}
+                    {{--@if ($order->status == 0)--}}
+                        {{--รอการยืนยัน--}}
+                    {{--@elseif ($order->status ==1)--}}
+                        {{--กำลังจัดส่ง--}}
+                    {{--@else--}}
+                        {{--จัดส่งเรียบร้อย--}}
+                    {{--@endif--}}
+                {{--</h5>--}}
             </div>
         </div>
     </div>

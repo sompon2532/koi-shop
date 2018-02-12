@@ -117,19 +117,7 @@
                                         <option value="{{ $store->id }}" {{ $store->id == $koi->store_id ? 'selected' : '' }}>{{ $store->name }}</option>
                                     @endforeach
                                 </select>
-                            </div>_
-                        </div>
-
-                        <div class="form-group">
-                            <label for="hall_of_fame" class="col-sm-3 control-label">หอเกียรติยศ</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" name="hall_of_fame_id" id="hall_of_fame">
-                                    <option value="">-------- เลือกหอเกียรติยศ --------</option>
-                                    @foreach ($hall_of_fames as $hall_of_fame)
-                                        <option value="{{ $hall_of_fame->id }}" {{ $hall_of_fame->id == $koi->hall_of_fame_id ? 'selected' : '' }}>{{ $hall_of_fame->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>_
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -230,6 +218,13 @@
                                 <input type="text" class="form-control" name="sizes[]" v-model="size.size" placeholder="Size">
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('size', index)" v-show="sizes.length > 1"></i>
                             </div>
+
+                            <label class="col-sm-3 control-label">
+                                วันที่
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control datepicker" name="date_sizes[]" v-model="size.date" placeholder="   Date" style="border-top: none; border-radius: 0">
+                            </div>
                         </div>
                         <i class="add fa fa-plus-circle" v-on:click="add('size')"></i>
                     </div>
@@ -243,6 +238,13 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="contests[]" v-model="contest.contest" placeholder="Contest">
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('contest', index)" v-show="contests.length > 1"></i>
+                            </div>
+
+                            <label class="col-sm-3 control-label">
+                                วันที่
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control datepicker" name="date_contests[]" v-model="contest.date" placeholder="   Date" style="border-top: none; border-radius: 0">
                             </div>
                         </div>
                         <i class="add fa fa-plus-circle" v-on:click="add('contest')"></i>
@@ -260,6 +262,13 @@
                                 <textarea class="form-control" name="videos[]" v-model="video.video" rows="5" placeholder="Video ..."></textarea>
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('video', index)" v-show="videos.length > 1"></i>
                             </div>
+
+                            <label class="col-sm-3 control-label">
+                                วันที่
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control datepicker" name="date_videos[]" v-model="video.date" placeholder="   Date" style="border-top: none; border-radius: 0">
+                            </div>
                         </div>
                         <i class="add fa fa-plus-circle" v-on:click="add('video')"></i>
                     </div>
@@ -273,6 +282,13 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="remarks[]" v-model="remark.remark" placeholder="Remark">
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('remark', index)" v-show="remarks.length > 1"></i>
+                            </div>
+
+                            <label class="col-sm-3 control-label">
+                                วันที่
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control datepicker" name="date_remarks[]" v-model="remark.date" placeholder="   Date" style="border-top: none; border-radius: 0">
                             </div>
                         </div>
                         <i class="add fa fa-plus-circle" v-on:click="add('remark')"></i>
@@ -322,6 +338,14 @@
                     else if (type == 'remark') {
                         this.remarks.push({remark: ''})
                     }
+
+                    setTimeout(function() {
+                        $(".datepicker").datepicker({
+                            autoclose: true,
+                            format: 'dd/mm/yyyy',
+                            todayHighlight: true,
+                        });
+                    })
                 },
                 remove: function(type, index) {
                     if (type == 'size') {

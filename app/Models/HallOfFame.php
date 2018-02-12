@@ -22,7 +22,7 @@ class HallOfFame extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function kois() {
-        return $this->hasMany(Koi::class);
+        return $this->belongsToMany(Koi::class);
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backoffice;
 use App\Http\Requests\HallOfFame\CreateHallOfFameRequest;
 use App\Http\Requests\HallOfFame\UpdateHallOfFameRequest;
 use App\Models\HallOfFame;
+use App\Models\Koi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -59,9 +60,12 @@ class HallOfFameController extends Controller
      */
     public function show(HallOfFame $hall_of_fame)
     {
+        $koi_id = $hall_of_fame->kois->pluck('id');
+        $kois = Koi::whereNotIn('id', $koi_id)->get();
+
         $hall_of_fame->load('kois');
 
-        return view('backoffice.hall-of-fame.detail', compact('hall_of_fame'));
+        return view('backoffice.hall-of-fame.detail', compact('hall_of_fame', 'kois'));
     }
 
     /**
@@ -105,5 +109,19 @@ class HallOfFameController extends Controller
         $hall_of_fame->delete();
 
         return;
+    }
+
+    public function addKoiToHall(Request $request) {
+        $hall_of_fame = HallOfFame::find($request->get('hall_of_fame_id'));
+
+        $hall_of_fame->kois()->attach([
+            'koi_id' => $request->get('koi_id')
+        ]);
+    }
+
+    public function dropKoiFromHall(HallOfFame $hallOfFame, Koi $koi) {
+        $hallOfFame->kois()->detach($koi->id);
+
+        return redirect()->back();
     }
 }
