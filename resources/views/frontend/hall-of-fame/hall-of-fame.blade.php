@@ -43,30 +43,6 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        {{-- @if(count($halloffames->kois)>0)
-                                            @foreach($halloffames->kois as $koi)
-                                                <div class="col-sm-6 col-md-4">
-                                                    <div class="thumbnail">
-                                                        @if(count($koi->media) > 0)
-                                                            <a class="example-image-link" href="{{ asset($koi->media->first()->getUrl()) }}" data-lightbox="thumb-1">
-                                                                <img class="example-image " src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." style="">
-                                                            </a>
-                                                        @else
-                                                            <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." style="max-height:200px;">                                                
-                                                        @endif
-                                                        <div class="caption">
-                                                            <h3 class="text-red">{{ $koi->hallOfFame->name }}</h3>
-                                                            <h4>{{ trans('hall-of-fame.owner')}} : {{$koi->user['name']}}</h4>
-                                                            <h4>{{ trans('hall-of-fame.farm')}} : {{$koi->farm->name}}</h4>
-                                                            <h4>{{ trans('hall-of-fame.storage')}} : {{$koi->store['name']}}</h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        @else
-                                            <h1 class="text-red">NO KOIS!</h1>
-                                        @endif--}}
-                                        
                                         @foreach($halloffames->kois as $koi)
                                             <div class="col-sm-6 col-md-4">
                                                 <div class="thumbnail">
@@ -80,7 +56,7 @@
                                                     <div class="caption">
                                                         <h4>{{ trans('hall-of-fame.owner')}} : {{$koi->user['name']}}</h4>
                                                         <h4>{{ trans('hall-of-fame.farm')}} : {{$koi->farm->name}}</h4>
-                                                        <h4>{{ trans('hall-of-fame.storage')}} : {{$koi->store['name']}}</h4>
+                                                        <!-- <h4>{{ trans('hall-of-fame.storage')}} : {{$koi->store['name']}}</h4> -->
                                                     </div>
                                                 </div>
                                             </div>

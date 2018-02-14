@@ -48,7 +48,7 @@
                                                 <div class="caption">
                                                     <h4>{{ trans('hall-of-fame.owner')}} : {{$koi->user['name']}}</h4>
                                                     <h4>{{ trans('hall-of-fame.farm')}} : {{$koi->farm->name}}</h4>
-                                                    <h4>{{ trans('hall-of-fame.storage')}} : {{$koi->store['name']}}</h4>
+                                                    <!-- <h4>{{ trans('hall-of-fame.storage')}} : {{$koi->store['name']}}</h4> -->
                                                 </div>
                                             </div>
                                         </div>
