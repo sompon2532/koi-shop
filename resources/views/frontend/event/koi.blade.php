@@ -58,10 +58,9 @@
                     <div class="content-box">
                         <div class="row">
                             <div class="col-md-12">
-                                <h2>{{ $events->name }}</h2>
+                                <h2 style="margin:0 auto;">{{ $events->name }}</h2>
                                 <!-- <p>16-22 SEPTEMBER 17</p> -->
-                                <p>{{ $events->start_datetime->format('d/m/Y') }} to {{ $events->end_datetime->format('d/m/Y') }}</p>
-
+                                <p style="margin-bottom:15px;">{{ $events->start_datetime->format('d/m/Y') }} to {{ $events->end_datetime->format('d/m/Y') }}</p>
                                 <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="hide-max-768px show-min-768px">
                                         <div class="col-md-12 slide-show">
@@ -141,9 +140,13 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">
-                                                            @foreach ($userbooks->users as $index => $user)
-                                                                {{ $user->name }}
-                                                            @endforeach
+                                                            @if(count($userbooks->user)>0)
+                                                                @foreach ($userbooks->users as $index => $user)
+                                                                    {{ $user->name }}
+                                                                @endforeach
+                                                            @else
+                                                                <p> - </p>
+                                                            @endif
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -189,7 +192,7 @@
 
                                                 @if(count($kois->sizes) > 0)
                                                     @foreach($kois->sizes as $sizes)
-                                                        <p>{{ trans('koi.size') }} : {{ $sizes->size }} ({{($sizes->created_at->format('Y-m-d'))}})</p>
+                                                        <p>{{ trans('koi.size') }} : {{ $sizes->size }} ({{$sizes->date}})</p>
                                                     @endforeach
                                                 @else
                                                     <p>{{ trans('koi.size') }} : -</p>
@@ -200,13 +203,13 @@
                                                 
                                                 @if(count($kois->contests) > 0)
                                                     @foreach($kois->contests as $index => $contests)
-                                                        <p>{{ trans('koi.contest') }} {{ $index+1 }} : {{ $contests->contest }}</p>
+                                                        <p>{{ trans('koi.contest') }} #{{ $index+1 }} : {{ $contests->contest }} ({{$contests->date}})</p>
                                                     @endforeach
                                                 @endif
 
                                                 @if(count($kois->remarks) > 0)
                                                     @foreach($kois->remarks as $index => $remarks)
-                                                        <p>{{ trans('koi.remark') }}#{{ $index+1 }} : {{ $remarks->remark }}</p>
+                                                        <p>{{ trans('koi.remark') }} #{{ $index+1 }} : {{ $remarks->remark }} ({{$remarks->date}})</p>
                                                     @endforeach
                                                 @endif
                                             </div>
@@ -230,7 +233,11 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">
-                                                            {{ $kois->user->name }}
+                                                            @if(count($kois->user)>0)
+                                                                {{ $kois->user->name }}
+                                                            @else
+                                                                Koikichi Fish Farm
+                                                            @endif
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -252,7 +259,7 @@
 
                                                 @if(count($kois->sizes) > 0)
                                                     @foreach($kois->sizes as $sizes)
-                                                        <p>{{ trans('koi.size') }} : {{ $sizes->size }} ({{($sizes->created_at->format('Y-m-d'))}})</p>
+                                                        <p>{{ trans('koi.size') }} : {{ $sizes->size }} ({{$sizes->date}})</p>
                                                     @endforeach
                                                 @else
                                                     <p>{{ trans('koi.size') }} : -</p>
@@ -263,14 +270,18 @@
                                                 
                                                 @if(count($kois->contests) > 0)
                                                     @foreach($kois->contests as $index => $contests)
-                                                        <p>{{ trans('koi.contest') }} {{ $index+1 }} : {{ $contests->contest }}</p>
+                                                        <p>{{ trans('koi.contest') }} #{{ $index+1 }} : {{ $contests->contest }} ({{$contests->date}})</p>
                                                     @endforeach
+                                                @else
+                                                    <p>{{ trans('koi.contest') }} : - </p>                                                    
                                                 @endif
 
                                                 @if(count($kois->remarks) > 0)
                                                     @foreach($kois->remarks as $index => $remarks)
-                                                        <p>{{ trans('koi.remark') }}#{{ $index+1 }} : {{ $remarks->remark }}</p>
+                                                        <p>{{ trans('koi.remark') }} #{{ $index+1 }} : {{ $remarks->remark }} ({{$remarks->date}})</p>
                                                     @endforeach
+                                                @else
+                                                    <p>{{ trans('koi.remark') }} : -</p>
                                                 @endif
                                             </div>
                                         </div>

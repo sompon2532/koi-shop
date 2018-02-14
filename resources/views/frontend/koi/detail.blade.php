@@ -143,7 +143,7 @@
 
                                     @if(count($kois->sizes) > 0)
                                         @foreach($kois->sizes as $sizes)
-                                            <p>{{ trans('koi.size') }} : {{ $sizes->size }} ({{($sizes->created_at->format('Y-m-d'))}})</p>
+                                            <p>{{ trans('koi.size') }} : {{ $sizes->size }} ({{$sizes->date}})</p>
                                         @endforeach
                                     @else
                                         <p>{{ trans('koi.size') }} : -</p>
@@ -154,7 +154,7 @@
                                     
                                     @if(count($kois->contests) > 0)
                                         @foreach($kois->contests as $index => $contests)
-                                            <p>{{ trans('koi.contest') }} {{ $index+1 }} : {{ $contests->contest }}</p>
+                                            <p>{{ trans('koi.contest') }} #{{ $index+1 }} : {{ $contests->contest }} ({{$contests->date}})</p>
                                         @endforeach
                                     @else
                                         <p>{{ trans('koi.contest') }} : -</p>                                    
@@ -162,7 +162,7 @@
 
                                     @if(count($kois->remarks) > 0)
                                         @foreach($kois->remarks as $index => $remarks)
-                                            <p>{{ trans('koi.remark') }}#{{ $index+1 }} : {{ $remarks->remark }}</p>
+                                            <p>{{ trans('koi.remark') }} #{{ $index+1 }} : {{ $remarks->remark }} ({{$remarks->date}})</p>
                                         @endforeach
                                     @else
                                         <p>{{ trans('koi.remark') }} : -</p>  
@@ -189,7 +189,7 @@
                                     <section class="lazy slider" data-sizes="50vw">
                                         @foreach($kois->videos as $video)
                                             <div>
-                                                <h3 class="text-red">VIDEO ({{$video->created_at->format('Y-m-d')}})</h3>
+                                                <h3 class="text-red">VIDEO ({{ $video->date }})</h3>
                                                 {!! $video->video !!}
                                             </div>
                                         @endforeach
