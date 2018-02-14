@@ -46,7 +46,7 @@
                                                     <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." style="max-height:150px;">                                                
                                                 @endif
                                                 <div class="caption">
-                                                    <h4>{{ trans('hall-of-fame.owner')}} : {{$koi->user['name']}}</h4>
+                                                    <h4>{{ trans('hall-of-fame.owner')}} : {{ $koi->user['name'] ? $koi->user['name'] : 'Koikichi Fish Farm'}}</h4>
                                                     <h4>{{ trans('hall-of-fame.farm')}} : {{$koi->farm->name}}</h4>
                                                     <!-- <h4>{{ trans('hall-of-fame.storage')}} : {{$koi->store['name']}}</h4> -->
                                                 </div>
