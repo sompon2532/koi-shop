@@ -188,7 +188,7 @@
                             <li><a href="http://www.koikichi-auction.com/" target="_blank">{{ trans('header.online-auction') }}</a></li>
                             <li><a class="{{-- Request::segment(1) == 'event'  ? 'text-red' : '' --}}" href="{{ url('/event') }}">{{ trans('header.events') }}</a></li>
                             <!-- {{-- <li><a class="{{ Request::segment(1) == 'hall-of-fame'  ? 'text-red' : '' }}" href="{{ url('/hall-of-fame') }}">{{ trans('header.hall-of-fame') }}</a></li>--}} -->
-                            <li><a class="{{ Request::segment(1) == 'hall-of-fame'  ? 'text-red' : '' }}" href="http://www.koikichi-auction.com/hall-of-fame">{{ trans('header.hall-of-fame') }}</a></li>
+                            <li><a href="http://www.koikichi-auction.com/hall-of-fame" target="_blank">{{ trans('header.hall-of-fame') }}</a></li>
                             <li><a class="{{ Request::segment(1) == 'payment'  ? 'text-red' : '' }}" href="{{ url('/payment') }}">{{ trans('header.payment') }}</a></li>
 
                             {{--<!-- @if(count($categories) > 0)
