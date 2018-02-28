@@ -138,6 +138,7 @@
                                 <section class="lazy slider" data-sizes="50vw">
                                     @foreach($products->videos as $video)
                                         <div>
+                                            <h3 class="text-red">VIDEO ({{$video->date}})</h3>
                                             {!! $video->video !!}
                                         </div>
                                     @endforeach
