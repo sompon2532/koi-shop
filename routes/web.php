@@ -23,9 +23,13 @@ Route::group(['prefix' => 'admin'], function() {
            'as' => 'hall-of-fame.drop',
            'uses' => 'HallOfFameController@dropKoiFromHall'
         ]);
-		Route::post('hall-of-fame/add-koi', 'HallOfFameController@addKoiToHall');
 
-		Route::resource('hall-of-fame', 'HallOfFameController');
+        Route::get('hall-of-fame/detail/{id}', 'HallController@getDetail');
+        Route::get('hall-of-fame', 'HallController@getIndex');
+
+//        Route::post('hall-of-fame/add-koi', 'HallOfFameController@addKoiToHall');
+//        Route::resource('hall-of-fame', 'HallOfFameControl');
+
 		Route::resource('order', 'OrderController');
 		Route::resource('koi', 'KoiController');
 		Route::resource('product', 'ProductController');
