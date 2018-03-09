@@ -43,24 +43,20 @@
                                 <div class="order-detail">
                                     <table class="table-none-border">
                                         <tr>
-                                            <td class="text-right" width="50%">ORDER : </td>
+                                            <td class="text-right text-top" width="50%">ORDER :</td>
                                             <td class="text-left"  width="50%">#{{ $order->id }}</td>
                                         </tr>  
                                         <tr>
-                                            <td class="text-right">NAME : </td>
+                                            <td class="text-right text-top">NAME :</td>
                                             <td class="text-left">{{ $order->name }}</td>
                                         </tr>
                                         <tr>
-                                            <td class="text-right">ADDRESS : </td>
+                                            <td class="text-right text-top">ADDRESS :</td>
                                             <td class="text-left">{{ $order->address }}
                                             </td>
                                         </tr>
-                                        <!-- <tr>
-                                            <td class="text-right">E-MAIL : </td>
-                                            <td class="text-left">{{ $order->email }}</td>
-                                        </tr> -->
                                         <tr>
-                                            <td class="text-right">TEL : </td>
+                                            <td class="text-right text-top">TEL :</td>
                                             <td class="text-left">{{ $order->tel }}</td>
                                         </tr>
                                     </table>

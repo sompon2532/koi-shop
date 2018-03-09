@@ -60,19 +60,22 @@
                         <h1>{{ trans('user.myport') }}</h1>
                     </div>
 
-                    {{--<!-- <h3 class="text-red"> </h3> --><!-- <P>KOI > KOI  IN JAPAN > SAKAI > {{ $koi->name }}</P> -->--}}
                     <br>
                     <div class="content-box">
                         <div class="row">
                             <div class="col-md-5 col-md-offset-1">
                                 <div class="slider slider-for">
-                                    @foreach($kois->media as $media)
-                                        <div>
-                                            <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
-                                                <img class="example-image img-thumbnail" src="{{ asset($media->getUrl()) }}" alt="..." style="">
-                                            </a>
-                                        </div>
-                                    @endforeach
+                                    @if(count($kois->media) > 0)
+                                        @foreach($kois->media as $media)
+                                            <div>
+                                                <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
+                                                    <img class="example-image img-thumbnail" src="{{ asset($media->getUrl()) }}" alt="..." style="">
+                                                </a>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class="img-responsive">                                                
+                                    @endif  
                                 </div>
                                 @if(count($kois->media) > 1)                            
                                     <div class="item">
@@ -111,14 +114,18 @@
                                 
                                 @if(count($kois->contests) > 0)
                                     @foreach($kois->contests as $index => $contests)
-                                        <p>{{ trans('koi.contest') }} {{ $index+1 }} : {{ $contests->contest }}</p>
+                                        <p>{{ trans('koi.contest') }} #{{ $index+1 }} : {{ $contests->contest }}</p>
                                     @endforeach
+                                @else
+                                    <p>{{ trans('koi.contest') }} : -</p>
                                 @endif
 
                                 @if(count($kois->remarks) > 0)
                                     @foreach($kois->remarks as $index => $remarks)
-                                        <p>{{ trans('koi.remark') }}#{{ $index+1 }} : {{ $remarks->remark }}</p>
+                                        <p>{{ trans('koi.remark') }} #{{ $index+1 }} : {{ $remarks->remark }}</p>
                                     @endforeach
+                                @else
+                                    <p>{{ trans('koi.remark') }} : -</p>                                    
                                 @endif
                             </div>
 
@@ -127,6 +134,7 @@
                                     <section class="lazy slider" data-sizes="50vw">
                                         @foreach($kois->videos as $video)
                                             <div>
+                                                <h3 class="text-red">VIDEO ({{$video->created_at->format('Y-m-d')}})</h3>
                                                 {!! $video->video !!}
                                             </div>
                                         @endforeach

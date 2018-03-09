@@ -233,7 +233,7 @@
                     <div class="col-md-6">
                         <div class="form-group" v-for="(contest, index) in contests">
                             <label class="col-sm-3 control-label">
-                                เวทีประกวด @{{ index + 1 }}
+                                รางวัล @{{ index + 1 }}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="contests[]" v-model="contest.contest" placeholder="Contest">

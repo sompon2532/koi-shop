@@ -31,6 +31,22 @@ class HallOfFameController extends Controller
                 return Carbon::parse($quotes->date)->format('Y-m'); // grouping by months
             });
 
+        // $koi = Koi::with(['media'])->get();
+        // foreach ($koi as $key => $value) {
+        //     if(count($value->hallOfFames)>0){
+        //         echo $value->name."<br>";
+        //         foreach ($value->hallOfFames as $index => $hall) {
+        //             echo $hall->name."<br>";
+        //         }
+        //     }
+        //     echo "<br>---------<br>";
+        // }
+        // $halloffame = HallOfFame::active()->get();
+        // dd($halloffame);
+        // foreach ($halloffame as $key => $value) {
+        //     echo $value->kois."<br><br>";
+        // }
+        // dd();
         // foreach ($year_months as $index => $value) {
             // foreach ($value as $key => $value2) {
             //     echo $value2->date->format('Y').'<br>';
