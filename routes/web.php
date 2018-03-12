@@ -19,14 +19,25 @@ Route::group(['prefix' => 'admin'], function() {
 			'uses' => 'AdminController@getIndex'
 		]);
 
-        Route::get('hall-of-fame/drop-koi/{hall_of_fame}/{koi}', [
-           'as' => 'hall-of-fame.drop',
-           'uses' => 'HallOfFameController@dropKoiFromHall'
+        Route::get('hall-of-fame/koi-edit/{id}', 'HallController@getKoiEdit');
+        Route::get('hall-of-fame/add-koi', 'HallController@getAddKoi');
+        Route::get('hall-of-fame/koi-detail/{id}', 'HallController@getKoiDetail');
+
+        Route::get('hall-of-fame/delete/{id}', 'HallController@getDelete');
+        Route::post('hall-of-fame/edit/{id}', 'HallController@postEdit');
+        Route::get('hall-of-fame/edit/{id}', 'HallController@getEdit');
+        Route::get('hall-of-fame/detail/{id}', 'HallController@getDetail');
+        Route::post('hall-of-fame/add-contest', 'HallController@postAddContest');
+        Route::get('hall-of-fame/add-contest', 'HallController@getAddContest');
+        Route::get('hall-of-fame', [
+            'as' => 'hall-of-fame.index',
+            'uses' => 'HallController@getIndex'
         ]);
 
-        Route::get('hall-of-fame/detail/{id}', 'HallController@getDetail');
-        Route::get('hall-of-fame', 'HallController@getIndex');
-
+//        Route::get('hall-of-fame/drop-koi/{hall_of_fame}/{koi}', [
+//            'as' => 'hall-of-fame.drop',
+//            'uses' => 'HallOfFameController@dropKoiFromHall'
+//        ]);
 //        Route::post('hall-of-fame/add-koi', 'HallOfFameController@addKoiToHall');
 //        Route::resource('hall-of-fame', 'HallOfFameControl');
 
@@ -267,14 +278,20 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'as' => 'frontend.news.index',
 	]);
 
-	//Hall of fame
-	Route::get('hall-of-fame', [
-		'uses' => 'HallOfFameController@getIndex',
+//	//Hall of fame
+//	Route::get('hall-of-fame', [
+//		'uses' => 'HallOfFameController@getIndex',
+//		'as' => 'frontend.hall-of-fame.index',
+//	]);
+//	Route::get('hall-of-fame/{id}', [
+//		'uses' => 'HallOfFameController@getHallOfFame',
+//		'as' => 'frontend.hall-of-fame.hall-of-fame',
+//	]);
+
+    Route::get('hall-of-fame/detail/{id}', 'HallController@getDetail');
+    Route::get('hall-of-fame', [
+		'uses' => 'HallController@getIndex',
 		'as' => 'frontend.hall-of-fame.index',
-	]);
-	Route::get('hall-of-fame/{id}', [
-		'uses' => 'HallOfFameController@getHallOfFame',
-		'as' => 'frontend.hall-of-fame.hall-of-fame',
 	]);
 });
 

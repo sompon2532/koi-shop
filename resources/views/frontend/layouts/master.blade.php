@@ -31,6 +31,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/src/css/style.css') }}" >
     <link rel="stylesheet" href="{{ asset('frontend/src/font/fontstyle.css') }}" >
+    <link rel="stylesheet" href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}" media="screen" title="no title" charset="utf-8">
 
     @yield('custom-css')
 
@@ -72,6 +73,7 @@
     <!-- fullCalendar -->
     <script src="{{ asset('plugins/fullcalendar/dist/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('plugins/fullcalendar/dist/locale-all.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('asset/js/script.js') }}"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">

@@ -1,0 +1,853 @@
+@import url("../font/ThaiSansNeue/stylesheet.css");
+
+/* Setting main style ---------------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: #FDFDFD;
+  font-family: 'thaisans_neuesemi_bold';
+}
+a {
+  text-decoration: none !important;
+}
+
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    outline: 0 none;
+}
+
+#loading {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  background: #EEE;
+}
+
+#img-loading {
+  display: none;
+  background: url('../images/loading.gif') no-repeat center center;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+}
+
+.full-nopadding {
+  padding: 0px;
+}
+.left-nopadding {
+  padding-left: 0px;
+}
+.right-nopadding {
+  padding-right: 0px;
+}
+.left-padding {
+  padding-left: 10px;
+  padding-right: 0px;
+}
+.full-padding {
+  padding: 0 10px 0 10px;
+}
+.right-padding {
+  padding-right: 10px;
+  padding-left: 0px;
+}
+.text-header h1 {
+  font-size: 70px;
+  color: #4A4444;
+}
+.image-video {
+    height: 92px;
+    width: 120px !important;
+    margin-left: 4px !important;
+  }
+  .image-video > img {
+    width: 170px !important;
+    display: block;
+  }
+  .draggable {
+    padding: 0 !important;
+  }
+  .image-lightbox {
+    width: 340px;
+    margin: 0 auto;
+    display: block;
+  }
+  /* Image slide --------------------*/
+
+  /* vimeo --------------------------*/
+  .embed-container {
+    position: relative;
+    /*padding-bottom: 20.25%;*/
+    height: 0;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    margin-left: -250px;
+    width: 500px;
+    display: block;
+  }
+  .embed-container p {
+    display: none;
+  }
+
+  .embed-container--s {
+    position: relative;
+  }
+  .embed-container--s iframe, .embed-container--s object, .embed-container--s embed {
+    display: block;
+    margin: 0 auto;
+  }
+  .embed-container--s p {
+    display: none;
+  }
+  /* vimeo --------------------------*/
+/* Style for multi page -------------------------------------------------------- */
+
+/* Style home page ------------------------------------------------------------- */
+  /* Multi Style --------------------------*/
+  .box--shadow {
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+  }
+    .box--shadow .header h4 {
+      color: #4A4444;
+      font-size: 40px;
+      font-family: 'thaisans_neueextra_bold';
+    }
+  /* Multi Style -------------------------*/
+
+  /* New & Event -------------------------*/
+  .box--list_event {
+    margin-top: 25px;
+    font-size: 22px;
+  }
+    .box--list_event .row {
+      padding: 5px 0;
+      font-size: 21px;
+    }
+      .box--list_event .time, .box--list_event .text-link {
+        color: #4A4444;
+      }
+      .banner {
+        margin-bottom: 20px;
+      }
+        .banner img {
+          display: block;
+          margin: 0 auto;
+          -webkit-box-shadow: 0px 25px 25px -23px rgba(0,0,0,0.5);
+          -moz-box-shadow: 0px 25px 25px -23px rgba(0,0,0,0.5);
+          box-shadow: 0px 25px 25px -23px rgba(0,0,0,0.5);
+        }
+    .container-box {
+      border: 2px solid #CC0000;
+      overflow: hidden;
+    }
+    .event-type {
+      font-family: 'thaisans_neueextra_bold';
+      color: #C3AA02;
+    }
+    .news-type {
+      font-family: 'thaisans_neueextra_bold';
+      color: #3F93D4;
+    }
+    .now-event-type {
+      display: block;
+      padding: 10px 0;
+    }
+    .now-event-open {
+      font-family: 'thaisans_neueextra_bold';
+      color: #CC0000;
+      display: block;
+      padding: 10px 0;
+    }
+    .now-event-text {
+      color: #4A4444;
+      display: block;
+      padding: 10px 0;
+    }
+    .now-event-text:hover {
+      color: #4A4444;
+    }
+    .now-event-btn {
+      display: block;
+      background: #CC0000;
+      color: #FFF;
+      text-align: center;
+      display: block;
+      padding: 10px 0;
+      font-family: 'thaisans_neueextra_bold';
+      margin-right: -1px;
+    }
+    .now-event-btn:hover {
+      color: #FFF;
+    }
+  /* New & Event -------------------------*/
+
+  /* Daily koi ---------------------------*/
+  .box--deily_koi {
+    position: relative;
+  }
+    .box--deily_koi_detail {
+      padding-top: 310px;
+    }
+    .box--deily_koi_name {
+      font-size: 23px;
+      font-family: 'thaisans_neueextra_bold';
+      color: #4A4444;
+      margin-top: 15px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .box--deily_koi_sex, .box--deily_koi_size, .box--deily_koi_winner {
+      font-size: 21px;
+      font-family: 'thaisans_neueextra_bold';
+      color: #4A4444;
+    }
+    .box--deily_koi_viewDetail > a > img {
+      border: 2px solid #B2B0B0;
+      display: block;
+      height: 60px;
+      background-color: #FFF;
+      padding-left: 36px;
+      padding-right: 36px;
+      padding-top: 5px;
+      margin-top: 11px;
+    }
+    .box--deily_koi_price {
+      font-size: 23px;
+      font-family: 'thaisans_neueextra_bold';
+      color: #CC0000;
+      margin-top: 15px;
+    }
+    .box--deily_koi_countdown {
+      font-size: 22px;
+      color: #4A4444;
+      margin-bottom: 10px;
+      font-family: 'thaisans_neueextra_bold';
+    }
+    .box--deily_koi_countdown span {
+      float: right;
+    }
+    .box--deily_koi_bid a {
+      display: block;
+      width: 237.5px;
+      float: right;
+      height:60px;
+    }
+    .box--deily_koi_bid span {
+      display: block;
+      text-align: center;
+      color: #FFF;
+    }
+    .box--deily_koi_bid .daily-textbid {
+      font-size: 25px;
+      font-family: 'thaisans_neueextra_bold';
+      line-height: 60px;
+    }
+    .daily--waiting {
+      background: #D2AE00;
+    }
+    .daily--ready {
+      background: #CC0000;
+    }
+    .daily--close {
+      background: #AAA;
+    }
+  /* Daily koi ---------------------------*/
+
+  /* Breeder -----------------------------*/
+  .box--list_breeder a {
+    display: block;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+  }
+  .box--list_breeder .img-breeder {
+    width: 60%;
+    margin: 0 auto;
+    display: block;
+  }
+  .box--list_breeder p {
+    font-size: 23px;
+    color: #4A4444;
+    font-family: 'thaisans_neueextra_bold';
+  }
+  /* Breeder -----------------------------*/
+/* Style home page ------------------------------------------------------------- */
+
+/* Style event page ------------------------------------------------------------ */
+  .cover-event img {
+    display: block;
+    margin: 30px auto 20px auto;
+    -webkit-box-shadow: 0px 25px 25px -23px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 25px 25px -23px rgba(0,0,0,0.5);
+    box-shadow: 0px 25px 25px -23px rgba(0,0,0,0.5);
+  }
+  .box-content-detail {
+
+  }
+    .event-detail {
+      font-size: 21px;
+      color: #4A4444;
+      margin: 20px 0;
+    }
+
+    .box-koi {
+      -webkit-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
+      -moz-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
+      box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
+      padding-top: 15px;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+      .box-koi .koi-cover img {
+
+      }
+      .box-koi .koi-farm-strain a {
+        font-size: 22px;
+        font-family: 'thaisans_neueextra_bold';
+        color: #4A4444;
+      }
+      .box-koi .koi-content-left span, .box-koi .koi-content-right span {
+        font-size: 21px;
+        display: block;
+        color: #4A4444;
+      }
+      .box-koi .koi-content-left span.t--e_left, .box-koi .koi-content-right span.t--e_right {
+        font-family: 'thaisans_neueextra_bold';
+        font-size: 20px;
+      }
+      .ready {
+        display: block;
+        text-align: center;
+        background: #CC0000;
+        font-size: 21px;
+        color: #FFF;
+        font-family: 'thaisans_neueextra_bold';
+        padding: 8px 0;
+        margin-top: -6px;
+      }
+      .ready:hover {
+        color: #FFF;
+      }
+      .waiting {
+        display: block;
+        text-align: center;
+        background: #D2AE00;
+        font-size: 21px;
+        color: #FFF;
+        font-family: 'thaisans_neueextra_bold';
+        padding: 8px 0;
+        margin-top: -6px;
+      }
+      .waiting:hover {
+        color: #FFF;
+      }
+      .close-time {
+        display: block;
+        text-align: center;
+        background: #AAA;
+        font-size: 21px;
+        color: #FFF;
+        font-family: 'thaisans_neueextra_bold';
+        padding: 8px 0;
+        margin-top: -6px;
+      }
+      .close-time:hover {
+        color: #FFF;
+      }
+/* Style event page ------------------------------------------------------------ */
+
+/* Style auction page ---------------------------------------------------------- */
+  /* Box controller ------------------------*/
+    /* File auction.css
+  /* Box controller ------------------------*/
+
+  .auction-header {
+    border-bottom: 1px solid #B2B0B0;
+  }
+    .auction-header h2 {
+      font-family: 'thaisans_neueextra_bold';
+      font-size: 25px;
+      color: #4A4444;
+      padding-top: 15px;
+      padding-bottom: 5px;
+    }
+  .room-auction {
+    position: relative;
+    padding-top: 50px;
+    background-color: #FFF;
+    margin-top: 290px;
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
+  }
+    .room-auction .img-sex {
+      position: absolute;
+      top: 170px;
+      left: 35px;
+      width: 300px;
+    }
+    .room-auction-main {
+
+    }
+      .room-auction-main .d--detail_top_left {
+        margin-top: 10px;
+      }
+        .d--detail_top_left .d--koi_strain {
+          font-family: 'thaisans_neueextra_bold';
+          font-size: 28px;
+          color: #CC0000;
+          line-height: 20px;
+        }
+        .d--detail_top_left .d--koi_year {
+          font-family: 'thaisans_neueextra_bold';
+          font-size: 22px;
+          color: #CC0000;
+          line-height: 20px;
+        }
+        .d--detail_top_left .d--koi_size {
+          font-size: 60px;
+          color: #CC0000;
+          line-height: 40px;
+        }
+        .d--detail_top_left .size-unit {
+          font-family: 'thaisans_neueextra_bold';
+          font-size: 22px;
+          color: #4A4444;
+        }
+        .d--detail_top_left .d--koi_born {
+          font-size: 22px;
+          color: #CC0000;
+          font-family: 'thaisans_neueextra_bold';
+          line-height: 20px;
+        }
+      .room-auction-main .d--detail_top_right {
+        margin-top: 50px;
+      }
+        .d--detail_top_right .d--koi_code {
+          font-family: 'thaisans_neueextra_bold';
+          font-size: 24px;
+          color: #CC0000;
+          margin-bottom: 0px;
+        }
+        .d--detail_top_right .d--koi_certificate {
+          font-family: 'thaisans_neueextra_bold';
+          font-size: 24px;
+          color: #CC0000;
+          margin-bottom: 10px;
+          height: 34px;
+        }
+        .d--detail_top_right .btn-watchlist {
+          cursor: pointer;
+        }
+        .d--detail_top_right .d--koi_watchlish {
+          width: 230px;
+          background-color: #CC0000;
+          padding: 10px 0px;
+        }
+        .d--detail_top_right .d--koi_watchlish img {
+          display: block;
+          float: left;
+          margin-top: 10px;
+          margin-left: 40px;
+        }
+        .d--detail_top_right .d--koi_watchlish span {
+          color: #FFF;
+          display: block;
+          font-family: 'thaisans_neueextra_bold';
+          line-height: 20px;
+          margin-left: 80px;
+        }
+
+        .d--detail_top_right .d--koi_nowatchlish {
+          width: 230px;
+          background-color: #FFF;
+          padding: 10px 0px;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+          -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+          -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        .d--detail_top_right .d--koi_nowatchlish img {
+          display: block;
+          float: left;
+          margin-top: 10px;
+          margin-left: 40px;
+        }
+        .d--detail_top_right .d--koi_nowatchlish span {
+          color: #B2B0B0;
+          display: block;
+          font-family: 'thaisans_neueextra_bold';
+          line-height: 20px;
+          margin-left: 80px;
+        }
+        .d--detail_top_right .d--no_btn_watchlish {
+          height: 60px;
+        }
+      .room-auction-second {
+        font-family: 'thaisans_neueextra_bold';
+        margin-top: 20px;
+      }
+        .room-auction-second span.h-text {
+          color: #CC0000;
+          font-size: 21px;
+          display: block;
+        }
+        .room-auction-second span.d-text {
+          color: #4A4444;
+          font-size: 21px;
+        }
+      .detail-remark .remark {
+        border-top: 1px solid #DAD0D0;
+        margin-top: 15px;
+        padding-top: 15px;
+      }
+        .detail-remark .remark p {
+          color: #B2B0B0;
+        }
+        .detail-remark .remark p i {
+          font-size: 16px;
+        }
+        .detail-remark .remark p span {
+          font-size: 21px;
+        }
+      .text-capitalize h1 {
+        font-family: 'thaisans_neueextra_bold';
+        color: #4A4444;
+        font-size: 28px;
+      }
+      .text-capitalize p {
+        color: #4A4444;
+        font-size: 21px;
+      }
+
+    .h--top_auction p {
+      font-size: 20px;
+      color: #CC0000;
+    }
+    .h--top_auction img {
+      position: absolute;
+      left: -15px;
+    }
+
+    .h--other_auction p {
+      font-size: 20px;
+      color: #4A4444;
+    }
+
+    #more {
+      border: 2px solid #4A4444;
+      padding: 5px 60px;
+      font-size: 35px;
+      line-height: 75px;
+      font-family: 'thaisans_neueextra_bold';
+      color: #4A4444;
+      cursor: pointer;
+    }
+    .history-hidden {
+      display: none;
+    }
+/* Style auction page ---------------------------------------------------------- */
+
+/* Style watchlist & history page ---------------------------------------------- */
+.watchlist, .history {
+  box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.1);
+  -moz--box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.1);
+  background: rgba(134,174,204,0.3); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(top, rgba(134,174,204,0.3) 0%, rgba(253,253,253,1) 100%);
+  background: -moz-linear-gradient(top, rgba(134,174,204,0.3) 0%, rgba(253,253,253,1) 100%);
+  background: linear-gradient(to bottom, rgba(134,174,204,0.3) 0%, rgba(253,253,253,1) 100%);
+  background: -ms-linear-gradient(top, rgba(134,174,204,0.3) 0%, rgba(253,253,253,1) 100%);
+  position: relative;
+  top: -10px;
+  padding-top: 15px;
+  padding-bottom: 70px;
+  height: auto;
+}
+  .head-watchlist, .head-history {
+    font-size: 70px;
+    margin-top: -75px;
+    color: #4A4444;
+  }
+  .watchlist-content, .history-content {
+    margin-bottom: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .watchlist-img, .history-img {
+    position: relative;
+    width: 230px;
+    z-index: 10;
+    left: 170px;
+    top: 20px;
+  }
+  .box-ele-watchlist, .box-ele-history {
+    background-color: #FFF;
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
+    margin-top: -165px;
+  }
+    .watchlist-koi-name, .history-koi-name {
+      position: absolute;
+      top: -90px;
+      left: 140px;
+    }
+    .w--koi_name, .h--koi_name {
+      font-size: 23px;
+      color: #CC0000;
+      font-family: 'thaisans_neueextra_bold';
+    }
+    .w--koi_id, .h--koi_id {
+      font-size: 19px;
+      color: #B2B0B0;
+      font-family: 'thaisans_neueextra_bold';
+    }
+    .box-ele-watchlist .r--1, .box-ele-history .r--1 {
+      margin-top: 5px;
+    }
+      .s--image {
+        width: 18px;
+        position: relative;
+        top: -3px;
+        margin-left: 5px;
+      }
+      .s--image_c {
+        margin-left: 5px;
+        width: 22px;
+        position: relative;
+        top: -3px;
+      }
+      .s--text {
+        font-family: 'thaisans_neueextra_bold';
+        color: #4A4444;
+        font-size: 23px;
+      }
+    .watchlist-event-name strong, .history-event-name strong {
+      font-family: 'thaisans_neueextra_bold';
+      color: #4A4444;
+      font-size: 20px;
+    }
+    .watchlist-event-name span, .history-event-name span {
+      color: #4A4444;
+      font-size: 21px;
+    }
+    .watchlist-koi-detail .content-price, .history-koi-detail .content-price {
+      font-size: 24px;
+      color: #CD0B00;
+      font-family: 'thaisans_neueextra_bold';
+    }
+    .watchlist-koi-detail .content-date,
+    .watchlist-koi-detail .content-time,
+    .watchlist-koi-detail .content-name,
+    .history-koi-detail .content-date,
+    .history-koi-detail .content-time,
+    .history-koi-detail .content-name {
+      font-size: 21px;
+      color: #4A4444;
+    }
+    .watchlist .watchlist-btn-detail img, .history .history-btn-detail img {
+      position: relative;
+      top: 60px;
+      border:2px solid #B2B0B0;
+      height:57px;
+      background-color: #FFF;
+    }
+    .watchlist-remark, .history-remark {
+      color: #B2B0B0;
+    }
+    .watchlist-remark i, .history-remark i {
+      font-size: 14px;
+    }
+    .watchlist-remark span, .history-remark span {
+      font-size: 20px;
+    }
+    .watchlist .content-box-bid {
+      display: none;
+      height: 60px;
+    }
+      .c--ready {
+        background: #CC0000;
+        color: #FFF;
+        text-align: center;
+        font-size: 32px;
+        line-height: 60px;
+        font-family: 'thaisans_neueextra_bold';
+      }
+      .c--waiting {
+        background: #D2AE00;
+        color: #FFF;
+        text-align: center;
+        font-size: 32px;
+        line-height: 60px;
+        font-family: 'thaisans_neueextra_bold';
+      }
+      .c--close-time {
+        background: #AAA;
+        color: #FFF;
+        text-align: center;
+        font-size: 32px;
+        line-height: 60px;
+        font-family: 'thaisans_neueextra_bold';
+      }
+/* Style watchlist & history page ---------------------------------------------- */
+
+/* Style Hall Of Fame page ----------------------------------------------------- */
+
+.main-year {
+  font-size: 25px;
+  font-family: 'thaisans_neueextra_bold';
+  color: #C00;
+}
+.sub-year {
+  margin-left: 15px;
+}
+.contest-date {
+  color: #C3AA02;
+  display: block;
+  width: 100px;
+  float: left;
+}
+.contest-title {
+  color: #4A4444;
+}
+.contest-title:hover {
+  color: #4A4444;
+}
+.award {
+  color: #C00;
+  font-size: 25px;
+  font-family: 'thaisans_neueextra_bold';
+}
+.hall-detail {
+  font-size: 23px;
+}
+.hall-detail span {
+  display: block;
+  width: 75px;
+  float: left;
+}
+.sub-action i {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Style Hall Of Fame page ----------------------------------------------------- */
+
+.other-login a {
+  font-size: 22px;
+  color: #B2B0B0;
+  font-family: 'thaisans_neueextra_bold';
+}
+.other-login a:hover {
+  font-size: 22px;
+  color: #4A4444;
+}
+
+.box-content {
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+
+.register-discription {
+  margin-top: 20px;
+}
+
+.register-discription p {
+  font-size: 22px;
+  color: #4A4444;
+}
+
+.breeder-header {
+  font-family: 'thaisans_neueextra_bold';
+  color: #4A4444;
+  margin-top: -25px;
+  font-size: 40px;
+}
+.breeder-detail table tbody td.text-topic {
+  font-family: 'thaisans_neueextra_bold';
+  display: block;
+  float: left;
+  width: 125px;
+}
+.breeder-detail table tbody td {
+  font-size: 20px;
+  line-height: 32px;
+}
+  .button-status {
+
+  }
+
+.box-auction {
+  display: none;
+}
+  .box-auction .btn-auction {
+    display: block;
+    background-color: #C00;
+    height: 70px;
+  }
+  .box-auction .text-bid {
+    display: block;
+    font-family: 'thaisans_neueextra_bold';
+    color: #FFF;
+    font-size: 28px;
+    line-height: 18px;
+    padding-top: 12px;
+  }
+  .box-auction .countdown {
+    padding-bottom: 7px;
+    padding-top: 5px;
+    display: block;
+    color: #FFF;
+    font-size: 19px;
+  }
+  .box-auction .price {
+    font-size: 28px;
+    display: block;
+  }
+
+.starting-price {
+  display: none;
+  font-size: 28px;
+  color: #B2B0B0;
+}
+
+.box-dinamic {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  -moz--box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  top: -40px;
+  padding-top: 30px;
+  padding-bottom: 70px;
+  overflow: hidden;
+}
+
+.videodetector {
+	position       : relative;
+	width          : 100%;
+	height         : 0;
+	padding-bottom : 60%;
+}
+
+.videodetector iframe {
+	position: absolute;
+	top     : 0;
+	left    : 0;
+	width   : 100%;
+	height  : 100%;
+}

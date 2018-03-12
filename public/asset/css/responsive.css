@@ -1,0 +1,302 @@
+@media (min-width: 991px) and (max-width: 1199px) {
+#h--banner img {
+    width: 944px !important;
+}
+  .room-auction .img-sex {
+    left: 20px;
+  }
+  /* Style watchlist & history page -------------------------------------------- */
+  .watchlist-img, .history-img {
+    left: 45px;
+  }
+  .watchlist-koi-name, .history-koi-name {
+    left: 145px;
+  }
+  /* Style watchlist & history page -------------------------------------------- */
+}
+
+@media screen and (max-width: 998px) {
+  nav #bottom-menu li {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+#h--banner img {
+    width: 720px !important;
+}
+  .room-auction .img-sex {
+    left: 0px;
+  }
+  .box--auction_right {
+    padding: 0px;
+  }
+  /* Style watchlist & history page -------------------------------------------- */
+  .watchlist-img, .history-img {
+    left: 0px;
+  }
+  .watchlist .watchlist-btn-detail img, .history .history-btn-detail img {
+    top: 70px;
+    height:50px;
+  }
+  .watchlist-koi-name, .history-koi-name {
+    left: 130px;
+  }
+  /* Style watchlist & history page -------------------------------------------- */
+}
+
+@media screen and (max-width: 767px) {
+  .embed-container--s iframe, .embed-container--s object, .embed-container--s embed {
+    width: 480px;
+    height: 275px;
+  }
+  /* Style daily koi page ------------------------------------------------------ */
+  .box--deily_koi_viewDetail > a {
+    display: block;
+    margin-top: 40px;
+  }
+  .box--deily_koi_countdown span {
+    float: none;
+    display: block;
+    text-align: left ;
+  }
+  .box--deily_koi_bid {
+    float: none;
+  }
+  .box--deily_koi_price {
+    text-align: left;
+    margin-top: 10px;
+  }
+  .box--deily_koi_bid a {
+    float: left;
+  }
+  /* Style daily koi page ------------------------------------------------------ */
+
+  /* Style auction page -------------------------------------------------------- */
+  .room-auction .img-sex {
+    left: -110px;
+    top: 440px;
+  }
+  .room-auction {
+    padding-top: 340px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  .d--detail_top_left .d--koi_strain {
+    font-size: 24px;
+  }
+  .d--detail_top_left .d--koi_year {
+    font-size: 21px;
+  }
+  .d--detail_top_left .d--koi_size {
+    font-size: 40px;
+    line-height: 30px;
+  }
+  .d--detail_top_left .size-unit {
+    font-size: 20px;
+  }
+  .d--detail_top_left .d--koi_born {
+    font-size: 22px;
+    color: #CC0000;
+    font-family: 'thaisans_neueextra_bold';
+    line-height: 20px;
+  }
+  .detail--content_right {
+    padding: 0px;
+  }
+  .box--auction_right {
+    padding: 0px;
+  }
+    .detail-remark .remark {
+      margin-top: 10px;
+      padding-top: 10px;
+    }
+      .detail-remark .remark p {
+        font-size: 21px;
+      }
+  /* Style auction page -------------------------------------------------------- */
+
+  /* Style watchlist & history page -------------------------------------------- */
+  .watchlist-img, .history-img {
+    z-index: 0;
+    top: 0px;
+    margin-bottom: 10px;
+  }
+  .box-ele-watchlist, .box-ele-history {
+    margin-top: 0px;
+  }
+    .watchlist-koi-name, .history-koi-name {
+      position: relative;
+      top: 0px;
+      left: 0px;
+      display: block;
+      padding-left: 15px;
+      margin-top: 10px;
+    }
+    .watchlist .watchlist-btn-detail img, .history .history-btn-detail img {
+      position: relative;
+      top: 0px;
+    }
+    .watchlist-koi-detail, .history-koi-detail {
+      padding: 0px;
+    }
+    .s--image {
+      margin-left: 0px;
+    }
+    .s--image_c {
+      margin-left: 0px;
+    }
+  /* Style watchlist & history page -------------------------------------------- */
+
+  .nav {
+    min-height: 80px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz--box-shadow: none;
+  }
+  nav {
+    display: none;
+  }
+    .menu-collapse {
+      background: url('../images/ico_nav_menu.png') no-repeat;
+      width: 40px;
+      height: 40px;
+      margin: 20px 0 0 15px;
+      cursor: pointer;
+    }
+    nav #img-logo {
+      display: none;
+    }
+    nav #action-menu #top-menu {
+      margin-left: 15px;
+    }
+    nav #action-menu #top-menu #language {
+      margin-bottom: 10px;
+    }
+    nav #action-menu #bottom-menu {
+
+    }
+    .menu-expanded {
+      display: block !important;
+    }
+    nav #action-menu #bottom-menu ul {
+      background-color: #FAFAFA;
+      margin-left: 15px;
+    }
+    nav #action-menu #bottom-menu ul li {
+      float: none;
+      line-height: 45px;
+      border-bottom: 1px solid #E5E5E5;
+      border-top: 1px solid #FFF;
+      margin-left: 20px;
+    }
+    nav #action-menu #bottom-menu ul li:last-child {
+      border-bottom: none;
+    }
+    nav #member-detail {
+      padding: 0px;
+    }
+    nav #member-detail .welcome {
+      padding: 0px;
+    }
+    nav #member-detail .log-in-out {
+      display: block;
+      position: absolute;
+      top: -35px;
+      right: 0px;
+    }
+    .big-logo {
+      display: block;
+    }
+    .big-logo a img {
+      margin: 0 auto;
+      display: block;
+      width: 327px;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 480px) {
+  .embed-container--s iframe, .embed-container--s object, .embed-container--s embed {
+    width: 380px;
+    height: 220px;
+  }
+  /* Style auction page ---------------------------------------------------------- */
+    /* Image slide --------------------*/
+    .slider-for {
+      height: 266px;
+    }
+    .image-lightbox {
+      width: 200px;
+    }
+    /* Image slide --------------------*/
+
+    /* vimeo --------------------------*/
+    .embed-container iframe {
+      position: relative;
+      margin: 0 auto;
+      width: 250px;
+      display: block;
+      border: 1px solid;
+      left: 0px;
+      top: 0px;
+    }
+    /* vimeo --------------------------*/
+    .room-auction .img-sex {
+      top: 250px;
+    }
+    .room-auction-main .d--detail_top_left {
+      padding: 0px;
+    }
+      .d--detail_top_left .d--koi_size {
+        font-size: 50px;
+      }
+      .d--detail_top_left .d--koi_born_sex {
+        font-size: 18px;
+      }
+    .room-auction-main .d--detail_top_right {
+      padding: 0px;
+      clear: both;
+      margin-left: 0px;
+      margin-top: 80px;
+    }
+      .d--detail_top_right .d--koi_certificate {
+        font-size: 24px;
+      }
+    .room-auction-second {
+      color: #4A4444;
+      font-size: 20px;
+      margin-top: 0px;
+      padding-left: 15px;
+    }
+    .d--detail_top_right .d--no_btn_watchlish {
+      height: 0px;
+    }
+      .room-auction-second span.h-text, .room-auction-second span.d-text {
+        font-size: 20px;
+      }
+    .detail-remark {
+      padding: 0px;
+    }
+      .detail-remark .remark {
+        margin-top: 10px;
+        padding-top: 10px;
+      }
+      .detail-remark .remark p {
+        font-size: 20px;
+      }
+
+    .group-box-auction {
+      padding-left: 15px;
+    }
+  /* Style auction page ---------------------------------------------------------- */
+
+  .box--deily_koi_sex {
+    width: 100%;
+  }
+
+  .big-logo a img {
+    margin: 0 auto;
+    display: block;
+    width: 227px;
+  }
+}

@@ -1,0 +1,275 @@
+@import url("../../font/ThaiSansNeue/stylesheet.css");
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  background-color: #FDFDFD;
+  font-family: 'thaisans_neuesemi_bold';
+  margin-bottom: 300px;
+}
+a {
+  text-decoration: none !important;
+}
+.full-nopadding {
+  padding: 0px;
+}
+.left-nopadding {
+  padding-left: 0px;
+}
+.right-nopadding {
+  padding-right: 0px;
+}
+.text-header h1 {
+  font-size: 80px;
+  color: #4A4444;
+}
+
+.nav {
+  background-color: #FFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  -moz--box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+  nav {
+    /*min-height: 80px;*/
+  }
+    nav #img-logo a {
+      line-height: 80px;
+    }
+    nav #action-menu {
+
+    }
+    nav #action-menu #top-menu {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    nav #action-menu #top-menu #language {
+
+    }
+    nav #bottom-menu {
+      margin-top: 10px;
+    }
+    nav #bottom-menu ul {
+      margin: 0px;
+      padding: 0px;
+      display: block;
+    }
+    nav #member-detail .log-in-out a {
+      color: #4A4444;
+    }
+    nav #bottom-menu li {
+      float: left;
+      list-style: none;
+      font-size: 20px;
+      margin-right: 3%;
+    }nav #bottom-menu li.active a{
+      color: #CC0000;
+    }
+    nav #bottom-menu li a {
+      color: #044444;
+    }
+    nav #bottom-menu li a:hover {
+      color: #CC0000;
+    }
+    .big-logo {
+      margin-top: 10px;
+      display: none;
+    }
+
+.tab-nav {
+  background-color: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz--box-shadow: none;
+  position: relative;
+  font-size: 20px;
+}
+.tab-content {
+  font-size: 20px;
+  padding-top: 20px;
+}
+.tab-content form input {
+  font-size: 20px;
+  margin-top: 5px;
+}
+.tab-content form button {
+  font-size: 20px;
+}
+.tab-content .detail-farm thead, .tab-content .detail-strain thead, .tab-content .detail-koi thead {
+  font-family: 'thaisans_neueextra_bold';
+}
+
+.box-content {
+  padding: 80px 0 0 0;
+}
+
+.page-header .button-style a {
+  font-size: 20px;
+  padding: 0px 10px;
+}
+
+.form .alert {
+  font-size: 20px;
+}
+
+.form .form-horizontal .control-label {
+  padding-top: 1px;
+}
+
+.form .form-horizontal .text-show {
+  margin-left: 5px;
+  border: none;
+  width: 70%;
+  background-color: #FDFDFD;
+}
+
+.form .form-horizontal .button-upload,
+.form .form-horizontal .add-image,
+.form .form-horizontal .add-remark {
+  font-size: 20px;
+  margin-top: -4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.form .form-horizontal .control-label,
+.form .form-horizontal .form-control,
+.form .form-horizontal .text-show,
+.form .form-horizontal button[type="submit"] {
+  font-size: 20px;
+}
+
+.form .form-horizontal input[type="file"]{
+  display: none;
+}
+
+.form .form-horizontal #image-preview {
+  margin-top: 10px;
+}
+
+#image-preview img {
+
+}
+
+.table-group table thead {
+  font-size: 22px;
+  font-family: 'thaisans_neueextra_bold';
+}
+
+.table-group table tbody {
+  font-size: 22px;
+}
+
+.header-detail {
+}
+
+.koi-detail {
+  padding: 0 15px 0 15px;
+}
+
+.event-time {
+  font-size: 20px;
+}
+
+.event-detail table tbody td, .list-koi-detail table tbody td {
+  font-size: 20px;
+  line-height: 42px;
+}
+
+.event-detail table tbody td.text-topic {
+  font-family: 'thaisans_neueextra_bold';
+  display: block;
+  float: left;
+  width: 175px;
+}
+
+.breeder-detail table tbody td, .list-koi-detail table tbody td {
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.breeder-detail table tbody td.text-topic {
+  font-family: 'thaisans_neueextra_bold';
+  display: block;
+  float: left;
+  width: 175px;
+}
+
+.list-koi-detail .text-topic {
+  font-family: 'thaisans_neuesemi_bold';
+  display: block;
+  float: left;
+  width: 150px;
+}
+.list-koi-detail .text-detail {
+  font-family: 'thaisans_neuesemi_bold';
+}
+
+.event-detail table tbody td.text-detail, .list-koi-detail .text-detail {
+  float: left;
+}
+
+.list-koi-detail {
+  margin-top: 20px;
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.embed-container iframe, .embed-container object, .embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Member Page */
+.dataTables_wrapper {
+  font-size: 22px;
+}
+select.input-sm {
+  padding-top: 0px;
+}
+.input-sm {
+  font-size: 20px;
+}
+#member {
+  font-size: 22px;
+}
+  #member thead {
+
+  }
+
+.member-topic {
+  display: block;
+  width: 120px;
+  float: left;
+  font-family: 'thaisans_neueextra_bold';
+}
+.member-description {
+
+}
+
+.btn {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bootstrap-switch-container .bootstrap-switch-primary, .bootstrap-switch-container .bootstrap-switch-default {
+  font-size: 17px;
+}
+
+.admin-page ol {
+  font-size: 21px;
+}

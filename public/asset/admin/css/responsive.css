@@ -1,0 +1,92 @@
+@media screen and (max-width: 998px) {
+  nav #bottom-menu li {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (max-width: 767px) {
+  .nav {
+    min-height: 80px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz--box-shadow: none;
+  }
+  nav {
+    display: none;
+  }
+    .menu-collapse {
+      background: url('../../images/ico_nav_menu.png') no-repeat;
+      width: 40px;
+      height: 40px;
+      margin: 20px 0 0 15px;
+    }
+    nav #img-logo {
+      display: none;
+    }
+    nav #action-menu #top-menu {
+      margin-left: 15px;
+    }
+    nav #action-menu #top-menu #language {
+      margin-bottom: 10px;
+    }
+    nav #action-menu #bottom-menu {
+
+    }
+    .menu-expanded {
+      display: block !important;
+    }
+    nav #action-menu #bottom-menu ul {
+      background-color: #FAFAFA;
+      margin-left: 15px;
+    }
+    nav #action-menu #bottom-menu ul li {
+      float: none;
+      line-height: 45px;
+      border-bottom: 1px solid #E5E5E5;
+      border-top: 1px solid #FFF;
+      margin-left: 20px;
+    }
+    nav #action-menu #bottom-menu ul li:last-child {
+      border-bottom: none;
+    }
+    nav #member-detail {
+      padding: 0px;
+    }
+    nav #member-detail .welcome {
+      padding: 0px;
+    }
+    nav #member-detail .log-in-out {
+      display: block;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+    .big-logo {
+      display: block;
+    }
+    .big-logo a img {
+      margin: 0 auto;
+      display: block;
+      width: 327px;
+    }
+
+  .box-content {
+    padding: 80px 15px 0 15px;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 480px) {
+  .big-logo a img {
+    margin: 0 auto;
+    display: block;
+    width: 227px;
+  }
+}
+
+@media (max-width: 320px) {
+
+}

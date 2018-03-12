@@ -77,9 +77,9 @@
         </a>
     </li>
 
-    {{--<li>--}}
-        {{--<a href="{{ route('hall-of-fame.index') }}">--}}
-            {{--<i class="fa fa-trophy"></i> <span>หอเกียรติยศ</span>--}}
-        {{--</a>--}}
-    {{--</li>--}}
+    <li>
+        <a href="{{ route('hall-of-fame.index') }}">
+            <i class="fa fa-trophy"></i> <span>หอเกียรติยศ</span>
+        </a>
+    </li>
 </ul>
