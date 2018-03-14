@@ -134,18 +134,11 @@ class HallController extends Controller
                 ->withInput();
         }
 
-        $award = Keyword::where('keyword', $request->award)->first();
-        if( $award == null ) {
-            Keyword::create([
-                'keyword' => $request->award
-            ]);
-        }
-
         // Manage Image
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = date('his')."_hallOfFame_".$image->getClientOriginalName();
-            $public_path = "images/upload/hallOfFame";
+            $public_path = "hallOfFame";
             $destination = base_path()."/public/".$public_path;
             $request->file('image')->move($destination, $filename);
         }
@@ -198,17 +191,10 @@ class HallController extends Controller
                 ->withInput();
         }
 
-        $award = Keyword::where('keyword', $request->award)->first();
-        if( $award == null ) {
-            Keyword::create([
-                'keyword' => $request->award
-            ]);
-        }
-
         $koi = KoiContest::find($request->id);
         // Manage Image
         if( $request->hasFile('image') ) {
-            $public_path = "images/upload/hallOfFame";
+            $public_path = "hallOfFame";
             File::Delete($public_path."/".$koi->image);
             $image = $request->file('image');
             $filename = date('his')."_hallOfFame_".$image->getClientOriginalName();
@@ -234,7 +220,7 @@ class HallController extends Controller
     public function getKoiDelete($id) {
         $koi = KoiContest::find($id);
 
-        $public_path = "images/upload/hallOfFame";
+        $public_path = "hallOfFame";
         File::Delete($public_path."/".$koi->image);
 
         $koi->delete();

@@ -26,7 +26,7 @@
         <h3 class="box-title">แกไขข้อมูลปลา</h3>
       </div>
 
-      <form class="form-horizontal" method="post" enctype="multipart/form-data">
+      <form class="form-horizontal" method="post" enctype="multipart/form-data" id="hall">
         <div class="box-body">
           @include('backoffice.hallOfFame.kois._form')
         </div>

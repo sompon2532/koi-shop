@@ -36,6 +36,8 @@
     <!-- main style -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
+    <link rel="stylesheet" href="{{ URL::asset('asset/admin/css/style.css') }}" media="screen" title="no title" charset="utf-8">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -143,5 +145,6 @@
 
 <!-- Main script -->
 <script src="{{ asset('js/main.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('asset/admin/js/script.js') }}"></script>
 </body>
 </html>

@@ -39,7 +39,7 @@
             <tr>
               <td>{{ $index + 1 }}</td>
               <td>{{ $contest->title }}</td>
-              <td>{{ $contest->contest_date }}</td>
+              <td>{{ $contest->contest_date->format('d/m/Y') }}</td>
               <td>
                 <a href="{{ URL::asset("admin/hall-of-fame/detail/$contest->id") }}" class="btn btn-primary btn-xs">
                   <i class="fa fa-clone"></i> ดูข้อมูล

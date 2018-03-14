@@ -19,7 +19,10 @@ Route::group(['prefix' => 'admin'], function() {
 			'uses' => 'AdminController@getIndex'
 		]);
 
+        Route::get('hall-of-fame/koi-delete/{id}', 'HallController@getKoiDelete');
+        Route::post('hall-of-fame/koi-edit/{id}', 'HallController@postKoiEdit');
         Route::get('hall-of-fame/koi-edit/{id}', 'HallController@getKoiEdit');
+        Route::post('hall-of-fame/add-koi', 'HallController@postAddKoi');
         Route::get('hall-of-fame/add-koi', 'HallController@getAddKoi');
         Route::get('hall-of-fame/koi-detail/{id}', 'HallController@getKoiDetail');
 

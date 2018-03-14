@@ -62,7 +62,7 @@
     @if( !empty($koi) )
       <input type="text" name="imageName" class="text-show" value="{{ $koi->image }}">
       <div id="image-preview">
-        <img src="{{ URL::asset("images/upload/hallOfFame/$koi->image") }}" alt="" width="450"/>
+        <img src="{{ URL::asset("hallOfFame/$koi->image") }}" alt="" width="450"/>
       </div>
     @else
       <input type="text" name="imageName" class="text-show" value="">

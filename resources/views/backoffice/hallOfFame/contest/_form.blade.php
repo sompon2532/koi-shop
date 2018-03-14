@@ -16,13 +16,13 @@
   <label for="" class="col-sm-2 control-label">วันที่จัดงานประกวด</label>
   <div class="col-sm-3">
     <div class='input-group'>
-      <input type="text" name="contest_date" class="form-control datepicker" id="" value="{{ !empty($contest) ? $contest->contest_date : old('contest_date') }}">
+      <input type="text" name="contest_date" class="form-control datepicker" id="" value="{{ !empty($contest) ? $contest->contest_date->format('d/m/Y') : old('contest_date') }}">
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-calendar"></span>
       </span>
     </div>
     @if( !empty($contest) )
-      <span style="font-size: 14px;">วันที่กำหนดไว้ <span class="text-info">{{ $contest->contest_date }}</span></span>
+      <span style="font-size: 14px;">วันที่กำหนดไว้ <span class="text-info">{{ $contest->contest_date->format('d/m/Y') }}</span></span>
     @endif
   </div>
 </div>
