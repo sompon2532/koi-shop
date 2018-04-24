@@ -566,9 +566,12 @@ display:block;
         background-color: #e5e5e5;
     }
     /* end dropdown */
-    /* 
-*calendar
-*/
+    
+    div.menu-sidebar {
+        border: solid 1px #ff0000;
+        margin-bottom: 10px;
+    }
+    /* calendar */
     
     .calendar-box {
         border: solid 1px #ff0000;
@@ -577,7 +580,7 @@ display:block;
     
     .fc-toolbar.fc-header-toolbar {
         margin-bottom: auto;
-        color: red;
+        color: #ff0000;
     }
     
     .fc-event {

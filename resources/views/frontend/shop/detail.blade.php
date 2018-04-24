@@ -100,6 +100,13 @@
                                 <p>{{ trans('product.code') }} : {{ $products->id }}</p>
                                 <p>{{ trans('product.price') }} : {{ $products->price }} {{ trans('product.thb') }}</p>
                                 <p>{{ trans('product.shipping') }} : {{ $products->delivery }} {{ trans('product.thb') }}</p>
+                                @if(count($products->remarks) > 0)
+                                    @foreach($products->remarks as $index => $remarks)
+                                        <p>{{ trans('koi.remark') }} #{{ $index+1 }} : {{ $remarks->remark }} ({{$remarks->date}})</p>
+                                    @endforeach
+                                @else
+                                    <p>{{ trans('koi.remark') }} : -</p>  
+                                @endif
                                 <div class="text-center-max992">
                                     <a class="btn btn-white text-center" href="{{ route('frontend.shop.addToCart', ['id' => $products->id]) }}">
                                     {{ trans('product.btn-order') }}

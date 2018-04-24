@@ -75,7 +75,9 @@
         </div>    
 
         <div class="top-logo">
-            <img src="{{ asset('frontend/src/img/LOGO-Koikichi-Auction.png') }}" class="img-responsive center" alt="" height="150" width="150">
+            <div class="container">
+                <img src="{{ asset('frontend/src/img/LOGO-header.png') }}" class="img-responsive center" alt="" >
+            </div>
         </div>
 
         <div class="menu-bar">
@@ -90,11 +92,6 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
-                        <!-- Branding Image -->
-                        <!-- <a class="navbar-brand" href="{{ url('/') }}">
-                            {{ config('app.name', 'Koikichi') }}
-                        </a> -->
                     </div>
 
                     <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -109,6 +106,23 @@
                             <li><a class="{{ Request::segment(1) == ''  ? 'text-red' : '' }}" href="{{ url('/') }}">{{ trans('header.home') }}</a></li>
                             
                             @if(count($categories->where('group', 'koi')) > 0)
+                                <li class="dropdown  {{ Request::segment(0) == 'koi'  ? 'text-red' : '' }}">
+                                    <a class="{{ Request::segment(1) == 'koi'  ? 'text-red' : '' }}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ trans('header.koi') }}</a>
+                                    @php
+                                        $traverse = function ($categories, $prefix = '') use (&$traverse) {
+                                            echo ' <ul class="dropdown-menu" >';
+                                            foreach ($categories as $category) {
+                                                if($category->group == 'koi'){
+                                                    echo $prefix . '<li class="dropdown-submenu"><a class="test" tabindex="-1" href="#">' . $category->name . '</a></li>';
+                                                    //$traverse($category->children, $prefix.'<li class="dropdown-submenu">');
+                                                }
+                                            }
+                                            echo '</ul>';
+                                        };
+                                        
+                                        $traverse($categories);
+                                    @endphp
+                                </li>
                             <li class="dropdown  {{ Request::segment(0) == 'koi'  ? 'text-red' : '' }}">
                                 <a class="{{ Request::segment(1) == 'koi'  ? 'text-red' : '' }}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ trans('header.koi') }}<span class="caret"></a>
                                 <ul class="dropdown-menu">

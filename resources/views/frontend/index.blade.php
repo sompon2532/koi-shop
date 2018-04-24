@@ -14,16 +14,46 @@
 @endsection
 
 @section('content')
-    <div class="main-content">
-        <div class="row">
+    <!-- <div class="main-content"> -->
+        <!-- <div class="row">
             <div class="col-md-12">
                 <div class="top-box">
                     <img class="img-responsive"  src="{{ asset('frontend/src/img/LOGO-header.png') }}" alt="">      
                 </div>  
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col-md-3">
+                <div class="menu-sidebar">
+                    <ul class="list-group">
+                        @php
+                            $traverse = function ($categories, $prefix = '') use (&$traverse) {
+                                foreach ($categories as $category) {
+                                    if($category->group == 'product'){
+                                        echo '<li class="list-group-item">';
+                                        echo $prefix . '<i class="fa fa-angle-right" style=""></i> ' . $category->name . '<br>';
+                                        echo '</li>';
+                                        $traverse($category->children, $prefix.'<i class="fa fa-minus" aria-hidden="true" style="color:#fff"></i> ');
+                                    }
+                                }
+                            };
+                            $traverse($categories);
+                        @endphp
+                        @php
+                            $traverse = function ($categories, $prefix = '') use (&$traverse) {
+                                foreach ($categories as $category) {
+                                    if($category->group == 'koi'){
+                                        echo '<li class="list-group-item">';
+                                        echo $prefix . '<i class="fa fa-angle-right" style=""></i> ' . $category->name . '<br>';
+                                        echo '</li>';
+                                        $traverse($category->children, $prefix.'<i class="fa fa-minus" aria-hidden="true" style="color:#fff"></i> ');
+                                    }
+                                }
+                            };
+                            $traverse($categories);
+                        @endphp
+                    </ul>
+                </div>
                 <div class="calendar-box">
                     {!! $calendar->calendar() !!}
                     <div class="text-center">
@@ -127,7 +157,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
+
+
 @endsection
 
 @section('custom-js')
