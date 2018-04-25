@@ -63,7 +63,14 @@ class HomeController extends Controller
                 'right' => 'next'
             ],
             'eventLimit' => 0,
+            // 'buttonIcons' => [ 
+            //     'prev' => 'glyphicon glyphicon-play',
+            //     'next' => 'right-single-arrow',
+            // ]
+
         ]);
+
+        
         return view('frontend.index', compact('news', 'now', 'events_today', 'today', 'categories', 'calendar'));
     }
 

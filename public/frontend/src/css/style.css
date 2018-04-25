@@ -36,12 +36,8 @@
     .center {
         margin: auto;
     }
-    /* .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-background-color: white;
-} */
     /* search */
-    
-    #custom-search-input {
+    /* #custom-search-input {
         border: solid 1px #E4E4E4;
         background-color: #fff;
         margin-top: 3px;
@@ -74,6 +70,11 @@ background-color: white;
     
     #custom-search-input .input-lg {
         font-size: 14px;
+    } */
+    
+    .top-logo img {
+        box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
     }
     /* menu bar  */
     
@@ -94,7 +95,7 @@ background-color: white;
     }
     
     .nav>li>a {
-        padding: 5px 15px;
+        padding: 5px 10px;
     }
     
     .caret {
@@ -115,10 +116,36 @@ background-color: white;
     .slide-box .carousel-control {
         opacity: .9;
     }
-    
-    .slide-box .glyphicon {
+    /* .slide-box .glyphicon {
         color: #ff0000;
-        /* opacity: unset; */
+    } */
+    
+    .slide-box .fa {
+        color: #ff0000;
+        font-size: 48px;
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .carousel-control .fa-angle-right,
+    .carousel-control .fa-angle-left {
+        position: absolute;
+        top: 50%;
+        z-index: 5;
+        display: inline-block;
+        margin-top: -10px;
+    }
+    
+    .carousel-control .fa-angle-right,
+    .carousel-control .fa-angle-left {
+        left: 50%;
+        margin-left: -10px;
     }
     /* footer */
     
@@ -567,14 +594,28 @@ display:block;
     }
     /* end dropdown */
     
-    div.menu-sidebar {
-        border: solid 1px #ff0000;
+    .menu-sidebar {
+        border: solid 2px #ff0000;
         margin-bottom: 10px;
+    }
+    
+    .menu-sidebar a {
+        color: #000000;
+        text-decoration: none;
+    }
+    
+    .menu-sidebar .list-group-item {
+        padding: 1px 15px;
+    }
+    
+    .menu-sidebar hr {
+        margin: 10px 5px;
+        border-top: 2px solid #ff0000;
     }
     /* calendar */
     
     .calendar-box {
-        border: solid 1px #ff0000;
+        border: solid 2px #ff0000;
         margin-bottom: 10px;
     }
     
@@ -650,6 +691,12 @@ display:block;
         border: 1px solid #ff0000;
         border-radius: 50%;
         display: block;
+    }
+    /* stat */
+    
+    .stat-box {
+        border: 2px solid #ff0000;
+        padding: 5px 15px;
     }
     /*
     *   koi

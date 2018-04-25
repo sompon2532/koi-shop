@@ -41,6 +41,23 @@
                             <div class="col-md-12">
                                 <p>{{ $events->start_datetime->format('d/m/Y') }} - {{ $events->end_datetime->format('d/m/Y') }}</p>
 
+                                        @if(count($events->videos) > 0)
+                                            <div class="col-md-12">
+                                                <h5>({{ trans('event.video') }})</h5>
+                                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    <section class="lazy slider" data-sizes="50vw">
+                                                        @foreach($events->videos as $video)
+                                                            <div>
+                                                                <h3 class="text-red">VIDEO ({{$video->created_at->format('Y-m-d')}})</h3>
+                                                                {!! $video->video !!}
+                                                            </div>
+                                                        @endforeach
+                                                    </section>                                        
+                                                </div>
+                                            </div>
+                                        @endif
+
+
                                 @if(count($kois) > 0)
                                     @if ($today->toDateString() < $events->end_datetime->toDateString() || ($today->toDateString() == $events->end_datetime->toDateString() && $today->toTimeString() <= $events->end_datetime->toTimeString()))
                                         @foreach($kois as $index => $koi)
@@ -142,10 +159,10 @@
 @section('custom-js')
 <script type="text/javascript">
     $(document).on('ready', function() {
-      $(".lazy").slick({
-        lazyLoad: 'ondemand', // ondemand progressive anticipated
-        infinite: true
-      });
+        $(".lazy").slick({
+            lazyLoad: 'ondemand', // ondemand progressive anticipated
+            infinite: true
+        });
     });
 </script>
 @endsection

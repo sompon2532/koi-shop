@@ -106,7 +106,7 @@
                             <li><a class="{{ Request::segment(1) == ''  ? 'text-red' : '' }}" href="{{ url('/') }}">{{ trans('header.home') }}</a></li>
                             
                             @if(count($categories->where('group', 'koi')) > 0)
-                                <li class="dropdown  {{ Request::segment(0) == 'koi'  ? 'text-red' : '' }}">
+                                {{--<li class="dropdown  {{ Request::segment(0) == 'koi'  ? 'text-red' : '' }}">
                                     <a class="{{ Request::segment(1) == 'koi'  ? 'text-red' : '' }}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ trans('header.koi') }}</a>
                                     @php
                                         $traverse = function ($categories, $prefix = '') use (&$traverse) {
@@ -122,7 +122,7 @@
                                         
                                         $traverse($categories);
                                     @endphp
-                                </li>
+                                </li>--}}
                             <li class="dropdown  {{ Request::segment(0) == 'koi'  ? 'text-red' : '' }}">
                                 <a class="{{ Request::segment(1) == 'koi'  ? 'text-red' : '' }}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ trans('header.koi') }}<span class="caret"></a>
                                 <ul class="dropdown-menu">
