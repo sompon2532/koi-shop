@@ -63,10 +63,6 @@ class HomeController extends Controller
                 'right' => 'next'
             ],
             'eventLimit' => 0,
-            // 'buttonIcons' => [ 
-            //     'prev' => 'glyphicon glyphicon-play',
-            //     'next' => 'right-single-arrow',
-            // ]
 
         ]);
 

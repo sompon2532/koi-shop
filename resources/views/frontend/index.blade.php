@@ -24,7 +24,7 @@
         </div> -->
         <div class="row">
             <div class="col-xs-4 col-md-3">
-                <div class="menu-sidebar">
+                {{--<div class="menu-sidebar">
                     <div>
                         <h1 class="text-center text-red">PRODUCT</h1>
                         <hr style="">
@@ -70,7 +70,7 @@
                             $traverse($categories);
                         @endphp
                     </ul>
-                </div>
+                </div>--}}
                 <div class="calendar-box">
                     {!! $calendar->calendar() !!}
                     <div class="text-center">
