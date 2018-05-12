@@ -44,6 +44,7 @@ Route::group(['prefix' => 'admin'], function() {
 //        Route::post('hall-of-fame/add-koi', 'HallOfFameController@addKoiToHall');
 //        Route::resource('hall-of-fame', 'HallOfFameControl');
 
+        Route::resource('banner', 'BannerController');
 		Route::resource('order', 'OrderController');
 		Route::resource('koi', 'KoiController');
 		Route::resource('product', 'ProductController');

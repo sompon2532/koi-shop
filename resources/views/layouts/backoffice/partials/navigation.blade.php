@@ -82,4 +82,10 @@
             <i class="fa fa-trophy"></i> <span>หอเกียรติยศ</span>
         </a>
     </li>
+
+    <li>
+        <a href="{{ route('banner.index') }}">
+            <i class="fa fa-users"></i> <span>Banner</span>
+        </a>
+    </li>
 </ul>
