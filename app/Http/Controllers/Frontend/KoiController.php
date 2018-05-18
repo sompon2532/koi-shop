@@ -43,7 +43,8 @@ class KoiController extends Controller
 
         if($kois)
         {
-            $kois->load('sizes', 'contests', 'remarks', 'strain');
+            // $kois->load('sizes', 'contests', 'remarks', 'strain');
+            $kois->load('sizes', 'remarks', 'strain');
         }else{
             return redirect()->back();
         }

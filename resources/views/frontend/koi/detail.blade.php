@@ -152,13 +152,13 @@
                                     <p>{{ trans('koi.gender')}} : {{ $kois->sex }}</p>
                                     <p>{{ trans('koi.certificate') }} : {{ $kois->certificate ? trans('koi.yes') : trans('koi.no') }} </p>
                                     
-                                    @if(count($kois->contests) > 0)
+                                    {{--<!-- @if(count($kois->contests) > 0)
                                         @foreach($kois->contests as $index => $contests)
                                             <p>{{ trans('koi.contest') }} #{{ $index+1 }} : {{ $contests->contest }} ({{$contests->date}})</p>
                                         @endforeach
                                     @else
                                         <p>{{ trans('koi.contest') }} : -</p>                                    
-                                    @endif
+                                    @endif -->--}}
 
                                     @if(count($kois->remarks) > 0)
                                         @foreach($kois->remarks as $index => $remarks)

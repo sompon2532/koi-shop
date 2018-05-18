@@ -716,6 +716,28 @@ display:block;
         right: 15px;
         margin: 5px;
     }
+    
+    .banner {
+        box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 20px 0;
+    }
+    
+    .banner .img-banner {
+        width: 60%;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .text-link {
+        color: #000000;
+    }
+    
+    .text-link:focus,
+    .text-link:hover {
+        text-decoration: none;
+        color: #000000;
+    }
     /* 
 *myorder
 */

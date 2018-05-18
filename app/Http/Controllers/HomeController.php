@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\News;
 use App\Models\Category;
 use App\Models\Contact;
+use App\Models\Banner;
 use Carbon\Carbon;
 use Calendar;
 
@@ -31,6 +32,7 @@ class HomeController extends Controller
         $today = Carbon::now('Asia/Bangkok');
 
         $categories = Category::active()->get()->toTree();
+        $banners = Banner::with(['media'])->active()->get();
 
         $events = [];
         $data = Event::all();
@@ -63,11 +65,9 @@ class HomeController extends Controller
                 'right' => 'next'
             ],
             'eventLimit' => 0,
-
         ]);
-
         
-        return view('frontend.index', compact('news', 'now', 'events_today', 'today', 'categories', 'calendar'));
+        return view('frontend.index', compact('news', 'now', 'events_today', 'today', 'categories', 'calendar', 'banners'));
     }
 
     public function getAboutUs()

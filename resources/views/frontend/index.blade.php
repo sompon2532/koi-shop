@@ -169,9 +169,32 @@
                 </div>
             </div>
         </div>
-    <!-- </div> -->
+@endsection
 
-
+@section('branner')
+    <!-- branner -->
+    <section class="banner">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center text-red text-thick">KOICHI</p>
+            </div>
+            @foreach($banners as $banner)
+                <div class="col-sm-3 col-md-3">
+                    <div class="text-center">
+                            @if(count($banner->media) > 0)
+                                <a href="{{ $banner->url }}" target="_blank">
+                                    <img src="{{ asset($banner->media->where('collection_name', 'banner')->first()->getUrl()) }}" alt="..." class="img-banner">
+                                </a>
+                                @endif
+                            <div class="caption">
+                                <a href="{{ $banner->url }}" target="_blank" class="text-link">{{ $banner->name }}</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
 @endsection
 
 @section('custom-js')
