@@ -59,7 +59,7 @@
                                                 @if(count($koi->media) > 0)  
                                                     <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class=" image-responsive" style="max-height:150px;">
                                                 @else
-                                                    <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                
+                                                    <img src="{{ asset('frontend/src/img/default-koi.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                
                                                 @endif
                                             </a>
                                             @if($i == 0)

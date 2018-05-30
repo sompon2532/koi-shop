@@ -27,9 +27,53 @@ class HomeController extends Controller
     public function index()
     {
         $news = News::with(['media'])->where('status', 1)->whereDate('end_datetime', '>=' ,Carbon::now()->toDateString())->orderBy('end_datetime', 'desc')->get();
-        $now = Carbon::now('Asia/Bangkok')->toTimeString();
-        $events_today = Event::active()->with(['media'])->orderBy('end_datetime', 'desc')->get();
-        $today = Carbon::now('Asia/Bangkok');
+        $nownews = array();
+
+        $now = Carbon::now('Asia/Bangkok')->toDateTimeString();
+        $nowDateTime    = explode(' ', $now);
+        
+        foreach ($news as $value) {
+            $endDateTime    = explode(' ', $value->end_datetime);
+            $startDateTime  = explode(' ', $value->start_datetime);
+
+            if($nowDateTime[0] > $startDateTime[0]){
+                if ($nowDateTime[0] < $endDateTime[0]) {
+                    array_push($nownews, $value);   
+                } 
+                elseif ($nowDateTime[0] == $endDateTime[0]) {
+                    if ($nowDateTime[1] < $endDateTime[1]) {
+                        array_push($nownews, $value);                    
+                    }
+                }
+            }
+            elseif ($nowDateTime[0] == $startDateTime[0]) {
+                if ($nowDateTime[1] > $startDateTime[1]) {
+                    if ($nowDateTime[0] < $endDateTime[0]) {
+                        array_push($nownews, $value);
+                    }
+                    elseif ($nowDateTime[0] == $endDateTime[0]) {
+                        if ($nowDateTime[1] < $endDateTime[1]) {
+                            array_push($nownews, $value);                    
+                        }
+                    }
+                }
+            }
+        }
+        
+        // $events_today = Event::active()->with(['media'])->orderBy('end_datetime', 'desc')->get();
+        $events = Event::active()->with(['media'])->orderBy('end_datetime', 'desc')->get();
+
+        $events_today = array();
+        if(count($events) > 0) {
+            foreach ($events as $event) {
+                $endDateTime    = explode(' ', $event->end_datetime);
+                $startDateTime  = explode(' ', $event->start_datetime);
+
+                if ($nowDateTime[0] <= $endDateTime[0] && $nowDateTime[0] >= $startDateTime[0]) {
+                    array_push($events_today, $event);
+                }
+            }
+        }
 
         $categories = Category::active()->get()->toTree();
         $banners = Banner::with(['media'])->active()->get();
@@ -39,14 +83,15 @@ class HomeController extends Controller
         if($data->count()) {
             foreach ($data as $key => $value) {
                 $events[] = Calendar::event(
-                    null,
+                    null,//Text
                     true,//full day event?
                     new \DateTime($value->start_datetime),
                     new \DateTime($value->end_datetime.' +1 day'),
                     null,
 	                [
-	                    'color' => '#ff0000',
-	                    'url' => '/event/'.$value->id,
+	                    'color' => '#f00',
+                        'url' => '/event/'.$value->id,
+                        'borderColor' => '#fff',
 	                ]
                 );
             }
@@ -67,7 +112,8 @@ class HomeController extends Controller
             'eventLimit' => 0,
         ]);
         
-        return view('frontend.index', compact('news', 'now', 'events_today', 'today', 'categories', 'calendar', 'banners'));
+        // dd($categories);
+        return view('frontend.index', compact('nownews', 'events_today', 'categories', 'calendar', 'banners'));
     }
 
     public function getAboutUs()

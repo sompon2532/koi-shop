@@ -74,7 +74,7 @@
                                             </div>
                                         @endforeach
                                     @else
-                                        <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class="img-responsive">                                                
+                                        <img src="{{ asset('frontend/src/img/default-koi.jpg') }}" alt="..." class="img-responsive">                                                
                                     @endif  
                                 </div>
                                 @if(count($kois->media) > 1)                            

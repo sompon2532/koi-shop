@@ -160,11 +160,13 @@
     
     .about-box {
         box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
-        margin-bottom: 8px;
+        margin-bottom: 10px;
+        padding: 10px 0;
     }
     
     .contact-box {
         box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
     }
     
     .text-thick {
@@ -595,7 +597,7 @@ display:block;
     /* end dropdown */
     
     .menu-sidebar {
-        border: solid 2px #ff0000;
+        border: solid 1px #ff0000;
         margin-bottom: 10px;
     }
     
@@ -610,12 +612,12 @@ display:block;
     
     .menu-sidebar hr {
         margin: 10px 5px;
-        border-top: 2px solid #ff0000;
+        border-top: 1px solid #ff0000;
     }
     /* calendar */
     
     .calendar-box {
-        border: solid 2px #ff0000;
+        border: solid 1px #ff0000;
         margin-bottom: 10px;
     }
     
@@ -695,7 +697,7 @@ display:block;
     /* stat */
     
     .stat-box {
-        border: 2px solid #ff0000;
+        border: 1px solid #ff0000;
         padding: 5px 15px;
     }
     /*
@@ -717,9 +719,13 @@ display:block;
         margin: 5px;
     }
     
-    .banner {
-        box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+    section.banner {
         margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+    
+    div.banner {
+        box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
         padding: 20px 0;
     }
     
@@ -1112,4 +1118,12 @@ border: none;
         .btn-qty-item {
             padding: 6px 6px;
         }
+    }
+    /* edit */
+    
+    .wrapper {
+        height: 100%;
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: auto;
     }

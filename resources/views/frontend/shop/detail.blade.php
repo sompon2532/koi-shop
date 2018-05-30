@@ -70,7 +70,7 @@
                                             </div>
                                         @endforeach
                                     @else
-                                        <img src="{{ asset('frontend/src/img/product-defalt-img.jpg') }}" alt="..." class="img-thumbnail img-responsive" style="max-height:150px;">
+                                        <img src="{{ asset('frontend/src/img/default-product.jpg') }}" alt="..." class="img-thumbnail img-responsive">
                                     @endif
                                 </div>                                    
                                 @if(count($favorites) == 0)

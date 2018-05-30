@@ -77,12 +77,12 @@
                                                 </div>
                                             @endforeach
                                         @else
-                                            <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                
+                                            <img src="{{ asset('frontend/src/img/default-koi.jpg') }}" alt="..." class=" img-responsive">                                                
                                         @endif
                                     </div>
                                 </div>
 
-                                <div class="show-max-768px hide-min-768px">                                
+                                {{--<div class="show-max-768px hide-min-768px">                                
                                     <section class="lazy slider thumbnail" data-sizes="50vw">
                                         @if(count($kois->media) > 0)
                                             @foreach($kois->media as $media)
@@ -91,10 +91,10 @@
                                                 </a>
                                             @endforeach
                                         @else
-                                            <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" image-responsive" style="max-height:150px;">                                                
+                                            <img src="{{ asset('frontend/src/img/default-koi.jpg') }}" alt="..." class=" img-responsive" style="max-height:150px;">                                                
                                         @endif
                                     </section>                                        
-                                </div>
+                                </div>--}}
                                 
                                 @if(count($favorites) == 0)
                                     <div class="star-label">

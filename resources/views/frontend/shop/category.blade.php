@@ -58,7 +58,7 @@
 										@if(count($product->media) > 0)
 											<img src="{{ asset($product->media->first()->getUrl()) }}" alt="..." class="img-responsive" style="max-height:150px;">
 										@else
-											<img src="{{ asset('frontend/src/img/product-defalt-img.jpg') }}" alt="..." class="img-responsive" style="max-height:150px;">                                                
+											<img src="{{ asset('frontend/src/img/default-product.jpg') }}" alt="..." class="img-responsive" style="max-height:150px;">                                                
 										@endif
 									</a>
 								</div>

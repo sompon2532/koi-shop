@@ -37,7 +37,7 @@
                                             @if(count($product['item']->media) > 0)
                                                 <img src="{{ $product['item']->media->first()->getUrl() }}" alt="..." class="img-thumbnail" style="max-height:150px;">
                                             @else
-                                                <img src="{{ asset('frontend/src/img/product-defalt-img.jpg') }}" alt="..." class="img-thumbnail" style="max-height:150px;">                                                                                                        
+                                                <img src="{{ asset('frontend/src/img/default-product.jpg') }}" alt="..." class="img-thumbnail" style="max-height:150px;">                                                                                                        
                                             @endif
                                         </td>
                                         <td class="text-left">

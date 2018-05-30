@@ -16,11 +16,15 @@
                 <div class="content-box">
                     <div class="row">
                         @foreach($kois as $koi)
-                            <div class="col-sm-6  col-md-4">
+                            <div class="col-sm-6  col-md-3">
                                 <div class="stock-item-box">
                                     <div class="img-item-box">  
                                         <a href="{{ route('frontend.user.myport-koi', ['id' => $koi->id]) }}">
-                                            <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class="img-thumbnail image-responsive" style="max-height:150px;">
+                                            @if(count($koi->media)>0)
+                                                <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class="img-thumbnail image-responsive" style="max-height:150px;">
+                                            @else
+                                                <img src="{{ asset('frontend/src/img/default-koi.jpg') }}" alt="..." class="img-thumbnail image-responsive" style="max-height:150px;">                                                
+                                            @endif
                                         </a>
                                     </div>  
                                     <p class="text-red">{{ $koi->name }}</p>

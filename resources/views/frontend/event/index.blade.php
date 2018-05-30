@@ -24,7 +24,11 @@
                                         <div class="col-md-6">
                                             <div class="item active">
                                                 <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                    <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;">
+                                                    @if(count($event->media)>0)
+                                                        <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;">
+                                                    @else
+                                                        <img src="{{ asset('frontend/src/img/default-event-cover.jpg') }}" alt="..." class="img-responsive center" style="max-height:150px;">
+                                                    @endif
                                                 </a>
                                             </div>
                                         </div>
@@ -41,7 +45,11 @@
                                         <div class="col-md-6">
                                             <div class="item active">
                                                 <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                    <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;">
+                                                    @if(count($event->media)>0)                                                       
+                                                        <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;">
+                                                    @else
+                                                        <img src="{{ asset('frontend/src/img/default-event-cover.jpg') }}" alt="..." class="img-responsive center" style="max-height:150px;">
+                                                    @endif
                                                 </a>
                                             </div>
                                         </div>
@@ -98,7 +106,11 @@
                                                 <div class="col-md-4">
                                                     <div class="item">
                                                         <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                            <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;margin-bottom:10px;">
+                                                            @if(count($event->media)>0)                                                                                                                       
+                                                                <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;margin-bottom:10px;">
+                                                            @else
+                                                                <img src="{{ asset('frontend/src/img/default-event-cover.jpg') }}" alt="..." class="img-responsive center" style="max-height:150px;">
+                                                            @endif
                                                         </a>
                                                     </div>
                                                     <p class="text-red">{{ $event->name }}</p>
@@ -109,7 +121,11 @@
                                             <div class="col-md-4">
                                                 <div class="item">
                                                     <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                        <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;margin-bottom:10px;">
+                                                        @if(count($event->media)>0)                                                                                                                                                                               
+                                                            <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;margin-bottom:10px;">
+                                                        @else
+                                                            <img src="{{ asset('frontend/src/img/default-event-cover.jpg') }}" alt="..." class="img-responsive center" style="max-height:150px;">
+                                                        @endif
                                                     </a>
                                                 </div>
                                                 <p class="text-red">{{ $event->name }}</p>

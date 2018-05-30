@@ -35,7 +35,7 @@
                                                             @if(count($koi->media)>0)
                                                                 <img class="img-thumbnail" src="{{ asset($koi->media()->first()->getUrl()) }}" alt="..." width="100">
                                                             @else
-                                                                <img src="{{ asset('frontend/src/img/koi-defalt-img.jpg') }}" alt="..." class=" img-thumbnail" style="max-height:150px;">    
+                                                                <img src="{{ asset('frontend/src/img/default-koi.jpg') }}" alt="..." class=" img-thumbnail" width="100">    
                                                             @endif
                                                         </a>                                                            
                                                     </td>
@@ -66,9 +66,9 @@
                                                     <td width="20%">
                                                     <a href="{{ route('frontend.shop.detail', ['id' => $product->id]) }}">
                                                         @if(count($product->media)>0)
-                                                            <img class="img-thumbnail" src="{{ asset($product->media()->first()->getUrl()) }}" alt="..." width="100">
+                                                            <img src="{{ asset($product->media()->first()->getUrl()) }}" alt="..." class="img-thumbnail" width="100">
                                                         @else
-                                                            <img src="{{ asset('frontend/src/img/product-defalt-img.jpg') }}" alt="..." class=" img-thumbnail" style="max-height:150px;">
+                                                            <img src="{{ asset('frontend/src/img/default-product.jpg') }}" alt="..." class=" img-thumbnail" width="100">
                                                         @endif
                                                     </a>                                                            
                                                     </td>
@@ -92,7 +92,7 @@
                         </div>
                     </div>
                 @else
-                    <h1>No item Favorite</h1>
+                    <h1 class="text-center">No item Favorite</h1>
                 @endif
 
             </div>
