@@ -116,9 +116,6 @@
     .slide-box .carousel-control {
         opacity: .9;
     }
-    /* .slide-box .glyphicon {
-        color: #ff0000;
-    } */
     
     .slide-box .fa {
         color: #ff0000;
@@ -178,9 +175,6 @@
         color: red;
         text-decoration: none;
     }
-    /* .footer-title {
-border-bottom: solid 2px #ff0000;
-} */
     /* About page */
     
     .about-us {
@@ -188,27 +182,24 @@ border-bottom: solid 2px #ff0000;
         padding: 20px 50px 50px 50px;
         margin-bottom: 20px;
     }
-    
-    .about-us .title-box {
+    /* .about-us .title-box {
         padding: 10px 0 20px 0;
         margin-bottom: 10px;
         background-image: url('/../frontend/src/img/Title.png');
         background-repeat: no-repeat;
         background-position: center;
-    }
-    
-    .about-us .title-box h1 {
+    } */
+    /* .about-us .title-box h1 {
         color: #fff;
         font-weight: 900;
         text-shadow: 0 0 10px #333;
         margin-top: 10px;
-    }
-    
-    .about-us img {
+    } */
+    /* .about-us img {
         margin: auto;
         margin-top: 20px;
         margin-bottom: 30px;
-    }
+    } */
     /* contact page */
     
     .form-contact {
@@ -220,25 +211,22 @@ border-bottom: solid 2px #ff0000;
         padding: 20px 50px 50px 50px;
         margin-bottom: 20px;
     }
-    
-    .contact-title {
+    /* .contact-title {
         border-bottom: solid 2px #ff0000;
-    }
-    
-    .contact-us .title-box {
+    } */
+    /* .contact-us .title-box {
         padding: 10px 0 20px 0;
         margin-bottom: 10px;
         background-image: url('/../frontend/src/img/Title.png');
         background-repeat: no-repeat;
         background-position: center;
-    }
-    
-    .contact-us .title-box h1 {
+    } */
+    /* .contact-us .title-box h1 {
         color: #fff;
         font-weight: 900;
         text-shadow: 0 0 10px #333;
         margin-top: 10px;
-    }
+    } */
     
     .contact-us .input-group .form-control:last-child {
         border-top-right-radius: 0;
@@ -367,9 +355,6 @@ border-bottom: solid 2px #ff0000;
         border: 0;
         /* border-radius: 0px !important;  */
     }
-    /* .register select {
-border-radius: 0px !important; 
-} */
     /* profile */
     
     .profile {
@@ -546,9 +531,6 @@ background-color: #be35fd;
         -moz-border-radius: 0;
         border-radius: 0;
     }
-    /* .dropdown-submenu:hover>.dropdown-menu {
-display:block;
-} */
     
     .dropdown-submenu>a:after {
         display: block;
@@ -700,6 +682,10 @@ display:block;
         border: 1px solid #ff0000;
         padding: 5px 15px;
     }
+    
+    .content {
+        margin-bottom: 15px;
+    }
     /*
     *   koi
     */
@@ -809,7 +795,6 @@ display:block;
     
     .main-content .qty-item {
         text-align: center;
-        /* padding: 3px 2px; */
     }
     
     .btn-qty-item {
@@ -817,17 +802,7 @@ display:block;
         border-radius: 0;
         border-color: #ccc;
         color: #333;
-        /* padding: 6px 10px; */
     }
-    /* .main-content input {
-border: none;
-border-radius: 0;
-outline: none;
-border-bottom: 2px solid #ff0000;
-} */
-    /*.btn {
-color: #ffffff;
-}*/
     
     .btn-red {
         background-color: #ff0000;

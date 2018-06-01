@@ -15,7 +15,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-xs-4 col-md-3">
+        <div class="col-sm-4 col-md-3">
             <div class="menu-sidebar">
                 <div>
                     <h1 class="text-center text-red">PRODUCT</h1>
@@ -79,14 +79,14 @@
 
             <div class="stat-box text-center">
                 <p class="text-red">จำนวนผู้เข้าชมทั้งหมด</p>
-                    {{--<!-- <a href="https://smallseotools.com/visitor-hit-counter/" target="_blank" title="Web Counter" class="text-center"> -->--}}
-                        <img src="https://smallseotools.com/counterDisplay?code=144479ab1d4d4565329f7d9df6eaf5fe&style=0013&pad=5&type=page&initCount=1000"  title="Web Counter" Alt="Web Counter" border="0">
-                    {{--<!-- </a> -->--}}
+                {{--<!-- <a href="https://smallseotools.com/visitor-hit-counter/" target="_blank" title="Web Counter" class="text-center"> -->--}}
+                <img src="https://smallseotools.com/counterDisplay?code=144479ab1d4d4565329f7d9df6eaf5fe&style=0013&pad=5&type=page&initCount=1000"  title="Web Counter" Alt="Web Counter" border="0">
+                {{--<!-- </a> -->--}}
             </div> 
 
         </div>
 
-        <div class="col-xs-8 col-md-9">
+        <div class="col-sm-8 col-md-9">
             <div class="slide-box">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">

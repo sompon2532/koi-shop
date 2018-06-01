@@ -43,10 +43,12 @@
         <header> 
             @include('frontend.partials.header')
         </header>
-
-        <div class="container">
-            @yield('content')
-        </div>
+        
+        <section class="content">
+            <div class="container">
+                @yield('content')
+            </div>
+        </section>
         
         <footer>
             @include('frontend.partials.footer')

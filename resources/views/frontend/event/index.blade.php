@@ -18,145 +18,64 @@
 
                     <div class="content-box">
                         <div class="row">
-                            @if (count($events) > 0)
-                                @foreach($events as $event)
-                                    @if ($today->toDateString() < $event->end_datetime->toDateString())
-                                        <div class="col-md-6">
-                                            <div class="item active">
-                                                <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                    @if(count($event->media)>0)
-                                                        <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;">
-                                                    @else
-                                                        <img src="{{ asset('frontend/src/img/default-event-cover.jpg') }}" alt="..." class="img-responsive center" style="max-height:150px;">
-                                                    @endif
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="center">
-                                                <h3 class="text-red text-thick">{{ trans('event.new_events') }}!</h3>
-                                                <p>{{ $event->name }}</p>
-                                                <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <br>
-                                    @elseif($today->toDateString() == $event->end_datetime->toDateString() && $today->toTimeString() <= $events->end_datetime->toTimeString())
-                                        <div class="col-md-6">
-                                            <div class="item active">
-                                                <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                    @if(count($event->media)>0)                                                       
-                                                        <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;">
-                                                    @else
-                                                        <img src="{{ asset('frontend/src/img/default-event-cover.jpg') }}" alt="..." class="img-responsive center" style="max-height:150px;">
-                                                    @endif
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="center">
-                                                <h3 class="text-red text-thick">{{ trans('event.new_events') }}!</h3>
-                                                <p>{{ $event->name }}</p>
-                                                <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
-                                            </div>
-                                        </div>
-                                    <br>
-                                    <br>
-                                    @endif
-                                @endforeach
-                                {{-- <!-- @if ($today->toDateString() < $events->first()->end_datetime->toDateString()) --> 
-                                    <!-- <div class="col-md-6">
-                                        <div class="item active">
-                                            <a href="{{ route('frontend.event.event', ['id' => $events->first()->id]) }}">
-                                                <img src="{{ asset($events->first()->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="max-height:150px;">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="center">
-                                            <h3 class="text-red text-thick">{{ trans('event.new_events') }}!</h3>
-                                            <p>{{ $events->first()->name }}</p>
-                                            <p>{{ $events->first()->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $events->first()->end_datetime->formatLocalized('%d %B %Y') }}</p>  
-                                        </div>
-                                    </div> -->--}}
-                                {{-- <!-- @elseif($today->toDateString() == $events->first()->end_datetime->toDateString() && $today->toTimeString() <= $events->first()->end_datetime->toTimeString()) --> }
-                                    <!-- <div class="col-md-6">
-                                        <div class="item active">
-                                            <a href="{{ route('frontend.event.event', ['id' => $events->first()->id]) }}">
-                                                <img src="{{ asset($events->first()->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="image-responsive" style="max-height:150px;">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="center">
-                                            <h3 class="text-red text-thick">{{ trans('event.new_events') }}!</h3>
-                                            <p>{{ $events->first()->name }}</p>
-                                            <p>{{ $events->first()->start_datetime->formatLocalized('%d %B %Y') }} {{ trans('event.to') }} {{ $events->first()->end_datetime->formatLocalized('%d %B %Y') }}</p>  
-                                        </div>
-                                    </div> -->--}
-                                {{-- <!-- @endif --> --}}
-                                
+                            @foreach($nowEvents as $event)
                                 <div class="col-md-12">
-                                    
-                                    <h3 class="text-red text-thick">{{ trans('event.pass_events') }}</h3>
-                                    <br>
-                                    @foreach($events as $index => $event)
-                                        @if ($index > 0 && $today->toDateString() == $event->end_datetime->toDateString())
-                                            @if ($today->toTimeString() >= $event->end_datetime->toTimeString())
-                                                <div class="col-md-4">
-                                                    <div class="item">
-                                                        <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                            @if(count($event->media)>0)                                                                                                                       
-                                                                <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;margin-bottom:10px;">
-                                                            @else
-                                                                <img src="{{ asset('frontend/src/img/default-event-cover.jpg') }}" alt="..." class="img-responsive center" style="max-height:150px;">
-                                                            @endif
-                                                        </a>
-                                                    </div>
-                                                    <p class="text-red">{{ $event->name }}</p>
-                                                    <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
-                                                </div>  
-                                            @endif  
-                                        @elseif($today->toDateString() > $event->end_datetime->toDateString())
-                                            <div class="col-md-4">
-                                                <div class="item">
-                                                    <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                        @if(count($event->media)>0)                                                                                                                                                                               
-                                                            <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;margin-bottom:10px;">
-                                                        @else
-                                                            <img src="{{ asset('frontend/src/img/default-event-cover.jpg') }}" alt="..." class="img-responsive center" style="max-height:150px;">
-                                                        @endif
-                                                    </a>
-                                                </div>
-                                                <p class="text-red">{{ $event->name }}</p>
-                                                <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
-                                            </div>  
-                                        @endif                           
-                                    @endforeach
-                                    @if (count($events) == 1 && $today->toDateString() == $event->end_datetime->toDateString())
-                                        @if ($today->toTimeString() >= $event->end_datetime->toTimeString())
-                                        <div class="col-md-4">
-                                                <div class="item">
-                                                    <a href="{{ route('frontend.event.event', ['id' => $event->id]) }}">
-                                                        <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive center" style="max-height:150px;margin-bottom:10px;">
-                                                    </a>
-                                                </div>
-                                                <p class="text-red">{{ $event->name }}</p>
-                                                <p>{{ $event->start_datetime->format('d/m/Y') }} - {{ $event->end_datetime->format('d/m/Y') }}</p>  
-                                            </div>   
-                                        @endif
-                                    @endif
-                                </div>
-                            
-                                <div class="col-md-12"> 
-                                    <p class="text-red text-right">{{ trans('event.total') }} : {{ count($events) }}</p>
-                                </div>
-                            @else
-                                <h1>Now, Don't have Event</h1>
-                            @endif
+                                    <div class="col-md-6">
+                                        <div class="card text-center">
+                                            @if(count($event->media)>0)
+                                                <a href="{{ route('frontend.event.event', ['event'=>$event->id]) }}">
+                                                    <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="{{ $event->name }}" class="img-responsive center">
+                                                </a>
+                                            @else
+                                                <a href="{{ route('frontend.event.event', ['event'=>$event->id]) }}">
+                                                    <img src="{{ asset('frontend/src/img/default-event-cover.jpg') }}" alt="{{ $event->name }}" class="img-responsive center">
+                                                </a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h1 class="text-red text-center">New Event!</h1>
+                                        <p class="text-center">{{ $event->name }}</p>
+                                    </div>
+                                </div>    
+                            @endforeach
 
+
+                            <div class="col-md-12">
+                                <div class="title text-center">
+                                    <h1 class="text-red text-thick">{{ trans('event.pass_events') }}</h1>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                @if(count($passEvents)>0)
+                                    @foreach($passEvents as $event)
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="card text-center">
+                                                <a href="{{ route('frontend.event.event', ['event'=>$event->id]) }}" class="text-link">
+                                                    @if(count($event->media)>0)
+                                                        <img src="{{ asset($event->media->where('collection_name', 'event-cover')->first()->getUrl()) }}" alt="..." class="img-responsive">
+                                                    @else
+                                                        <img src="{{ asset('frontend/src/img/default-event-cover.jpg') }}" alt="{{ $event->name }}" class="img-responsive">
+                                                    @endif
+                                                    <div class="caption">
+                                                        <h3 class="text-red">{{ $event->name }}</h3>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <h1>Now, Don't have Event</h1>
+                                @endif
+                            </div>
                         </div>
                     </div>
+
+                    <div class="col-md-12"> 
+                        <p class="text-red text-right">{{ trans('event.total') }} : {{ count($events) }}</p>
+                    </div>
+
                 </div>
             </div>
         </div>

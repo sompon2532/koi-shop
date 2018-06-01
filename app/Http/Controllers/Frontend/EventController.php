@@ -18,7 +18,56 @@ class EventController extends Controller
         $events = Event::active()->with(['media'])->orderBy('end_datetime', 'desc')->get();
         $today = Carbon::now('Asia/Bangkok');
         $categories = Category::active()->get()->toTree();
-        return view('frontend.event.index', compact('events', 'today', 'categories'));
+
+        $events = Event::with(['media'])->active()->orderBy('end_datetime', 'desc')->get();
+
+        $nowEvents   = array();
+        $passEvents  = array();
+
+        foreach ($events as $index => $event) {
+            $now = Carbon::now('Asia/Bangkok');
+            $nowDateTime    = explode(' ', $now);
+            $endDateTime    = explode(' ', $event->end_datetime);
+            $startDateTime  = explode(' ', $event->start_datetime);
+
+            if($nowDateTime[0] > $startDateTime[0]){
+                if($nowDateTime[0] > $endDateTime[0]) {
+                    array_push($passEvents, $event);
+                } 
+                elseif ($nowDateTime[0] < $endDateTime[0]) {
+                    array_push($nowEvents, $event);   
+                } 
+                elseif ($nowDateTime[0] == $endDateTime[0]) {
+                    if ($nowDateTime[1] > $endDateTime[1]) {
+                        array_push($passEvents, $event);
+                    } 
+                    else {
+                        array_push($nowEvents, $event);                    
+                    }
+                }
+            } 
+            elseif ($nowDateTime[0] == $startDateTime[0]) {
+                if ($nowDateTime[1] > $startDateTime[1]) {
+                    if($nowDateTime[0] > $endDateTime[0]) {
+                        array_push($passEvents, $event);
+                    } 
+                    elseif ($nowDateTime[0] < $endDateTime[0]) {
+                        array_push($nowEvents, $event);   
+                    } 
+                    elseif ($nowDateTime[0] == $endDateTime[0]) {
+                        if ($nowDateTime[1] > $endDateTime[1]) {
+                            array_push($passEvents, $event);
+                        } 
+                        else {
+                            array_push($nowEvents, $event);                    
+                        }
+                    }
+                }
+            }
+        }
+
+
+        return view('frontend.event.index', compact('events', 'categories', 'nowEvents', 'passEvents'));
     }
 
     public function getEvent($id) {
