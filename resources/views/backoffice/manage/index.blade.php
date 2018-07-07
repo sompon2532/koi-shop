@@ -27,7 +27,6 @@
                         <th>#</th>
                         <th>E-mail</th>
                         <th>ชื่อ</th>
-                        <th>สถานะ</th>
                         <th>การจัดการ</th>
                     </tr>
                     </thead>
@@ -37,7 +36,6 @@
                         <td>{{ $admin->id }}</td>
                         <td>{{ $admin->email }}</td>
                         <td>{{ $admin->name }}</td>
-                        <td>{{ $admin->status ? 'Active' : 'Inactive' }}</td>
                         <td>
                             <a href="{{ route('manage.edit', ['admin' => $admin->id]) }}"
                                class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
@@ -53,7 +51,6 @@
                         <th>#</th>
                         <th>E-mail</th>
                         <th>ชื่อ</th>
-                        <th>สถานะ</th>
                         <th>การจัดการ</th>
                     </tr>
                     </tfoot>
