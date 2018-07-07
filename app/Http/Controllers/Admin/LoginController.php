@@ -27,6 +27,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/admin';
+    protected $redirectAfterLogout = '/admin';
 
     /**
      * Create a new controller instance.
@@ -56,5 +57,10 @@ class LoginController extends Controller
     protected function guard()
     {
         return Auth::guard('admin');
+    }
+
+    public function logout() {
+        Auth::guard('admin')->logout();
+        return redirect('/admin');
     }
 }

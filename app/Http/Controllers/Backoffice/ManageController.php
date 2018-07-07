@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Backoffice;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
+use Hash;
 
-class AdminController extends Controller
+class ManageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $admins = Admin::all();
+
+        return view('backoffice.manage.index', compact('admins'));
     }
 
     /**
@@ -24,7 +28,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.manage.create');
     }
 
     /**
@@ -35,7 +39,14 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $input["password"] = Hash::make($request->password);
+
+        $admin = Admin::create($input);
+
+        return redirect()
+            ->route('manage.edit', ['admin' => $admin->id])
+            ->with(['success' => 'Create admin success']);
     }
 
     /**
@@ -57,7 +68,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $admin = Admin::find($id);
+
+        return view('backoffice.manage.update', compact('admin'));
     }
 
     /**
@@ -69,7 +82,17 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $admin = Admin::find($id);
+
+        $admin->update([
+            "name" => $request->name,
+            "email" => $request->email,
+            "password" => $request->password ? Hash::make($request->password) : $admin->password
+        ]);
+
+        return redirect()
+            ->route('manage.edit', ['admin' => $admin->id])
+            ->with(['success' => 'Update admin success']);
     }
 
     /**
@@ -80,6 +103,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $admin = Admin::find($id);
+        $admin->delete();
+
+        return;
     }
 }

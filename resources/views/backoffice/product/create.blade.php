@@ -8,7 +8,7 @@
         <small>สร้าง</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
         <li><a href="{{ route('product.index') }}"><i class="fa fa-product-hunt"></i> สินค้า</a></li>
         <li class="active">สร้าง</li>
     </ol>

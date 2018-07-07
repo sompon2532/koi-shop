@@ -1,5 +1,5 @@
 <!-- Logo -->
-<a href="{{ route('admin.index') }}" class="logo">
+<a href="{{ route('dashboard.index') }}" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>K</b>FF</span>
     <!-- logo for regular state and mobile devices -->

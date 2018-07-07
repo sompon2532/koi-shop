@@ -1,15 +1,15 @@
 @extends('layouts.backoffice.main')
 
-@section('title', 'Admin | Strain')
+@section('title', 'Admin | Farm')
 
 @section('head')
     <h1>
-        สายพันธุ์
+        Admin
         <small>แก้ไข</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li><a href="{{ route('strain.index') }}"><i class="fa fa-deviantart"></i> สายพันธุ์</a></li>
+        <li><a href="{{ route('manage.index') }}"><i class="fa fa-dot-circle-o"></i> Admin</a></li>
         <li class="active">แก้ไข</li>
     </ol>
 @endsection
@@ -20,11 +20,11 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">แก้ไขสายพันธุ์</h3>
+                <h3 class="box-title">แก้ไข Admin</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="{{ route('strain.update', ['strain' => $strain->id]) }}">
+            <form class="form-horizontal" method="post" action="{{ route('manage.update', ['admin' => $admin->id]) }}">
                 {{ method_field('PATCH') }}
                 {{ csrf_field() }}
 
@@ -32,23 +32,30 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">
-                                ชื่อสายพันธุ์ <span class="text-danger">*</span>
+                                ชื่อ <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="name"
-                                       value="{{ $strain->name }}" id="name" placeholder="Name">
+                                <input type="text" class="form-control" name="name" value="{{ $admin->name }}" id="name" placeholder="Name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="col-sm-3 control-label">
+                                Password
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="status" class="col-sm-3 control-label">สถานะ</label>
+                            <label for="email" class="col-sm-3 control-label">
+                                E-mail <span class="text-danger">*</span>
+                            </label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="status" id="status">
-                                    <option value="1" {{ $strain->status == true ? 'selected' : '' }}>Active</option>
-                                    <option value="0" {{ $strain->status == false ? 'selected' : '' }}>Inactive</option>
-                                </select>
+                                <input type="text" class="form-control" name="email" value="{{ $admin->email }}" id="email" placeholder="E-mail">
                             </div>
                         </div>
                     </div>

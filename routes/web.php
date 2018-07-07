@@ -15,8 +15,8 @@
 Route::group(['prefix' => 'admin'], function() {
 	Route::middleware('auth:admin')->namespace('Backoffice')->group(function() {
 		Route::get('/', [
-			'as'   => 'admin.index',
-			'uses' => 'AdminController@getIndex'
+			'as'   => 'dashboard.index',
+			'uses' => 'DashboardController@getIndex'
 		]);
 
         Route::get('hall-of-fame/koi-delete/{id}', 'HallController@getKoiDelete');
@@ -44,6 +44,7 @@ Route::group(['prefix' => 'admin'], function() {
 //        Route::post('hall-of-fame/add-koi', 'HallOfFameController@addKoiToHall');
 //        Route::resource('hall-of-fame', 'HallOfFameControl');
 
+        Route::Resource('manage', 'ManageController');
         Route::resource('banner', 'BannerController');
 		Route::resource('order', 'OrderController');
 		Route::resource('koi', 'KoiController');
@@ -84,6 +85,11 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::post('login', [
 			'uses' => 'LoginController@login'
 		]);
+
+        Route::get('logout', [
+            'as'   => 'admin.logout',
+            'uses' => 'LoginController@logout'
+        ]);
 
 		Route::get('register', [
 			'as'   => 'admin.register',

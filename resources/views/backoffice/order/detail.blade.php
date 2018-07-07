@@ -8,7 +8,7 @@
         <small>รายละเอียด</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> หน้าหลัก</a></li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าหลัก</a></li>
         <li><a href="{{ route('order.index') }}"><i class="fa fa-first-order"></i> สั่งซื้อ</a></li>
         <li class="active">รายละเอียด</li>
     </ol>

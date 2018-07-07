@@ -5,13 +5,16 @@
     </div>
     <div class="pull-left info">
         <p>{{ Auth::user()->name }}</p>
+        <p>
+            <a href="{{ route('admin.logout') }}" class="btn btn-danger btn-xs">Logout</a>
+        </p>
     </div>
 </div>
 <!-- sidebar menu: : style can be found in sidebar.less -->
 <ul class="sidebar-menu">
     <li class="header">เมนูหลัก</li>
     <li>
-        <a href="{{ route('admin.index') }}">
+        <a href="{{ route('dashboard.index') }}">
             <i class="fa fa-dashboard"></i> <span>ข้อมูลทั่วไป</span>
         </a>
     </li>
@@ -85,7 +88,13 @@
 
     <li>
         <a href="{{ route('banner.index') }}">
-            <i class="fa fa-users"></i> <span>Banner</span>
+            <i class="fa fa-buysellads"></i> <span>Banner</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ route('manage.index') }}">
+            <i class="fa fa-users"></i> <span>Admin</span>
         </a>
     </li>
 </ul>
