@@ -128,7 +128,7 @@
             </div>
         </div>
 
-        <div class="slide-box" style="margin-top:20px;">
+        <div class="slide-box" style="margin-top:20px;margin-bottom:20px;">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <div id="myCarousel2" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
