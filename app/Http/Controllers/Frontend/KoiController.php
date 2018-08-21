@@ -16,11 +16,16 @@ class KoiController extends Controller
 {
     public function getIndex()
     {
-        $kois = Koi::with(['media'])->get();
+        $kois = Koi::with(['media'])->active()->get();
         $categories = Category::active()->get()->toTree();
 
-        return view('frontend.koi.index', compact('kois','categories'));
-        
+        if(Auth::user() == null){
+            $favorites = null;
+        }else{
+            $favorites = Favorite::where('favorite_type', 'App\Models\Koi')->where('user_id', Auth::user()->id)->get();            
+        } 
+
+        return view('frontend.koi.index', compact('kois','categories', 'favorites'));
     }
 
     public function getKoiCategory($category)
@@ -28,6 +33,7 @@ class KoiController extends Controller
         $kois = Koi::with(['media'])->where('category_id', $category)->where('event_id', null)->paginate(20);
         $koiCategory = Category::find($category);
         $categories = Category::active()->get()->toTree();
+
         if(Auth::user() == null){
             $favorites = null;
         }else{
@@ -39,7 +45,7 @@ class KoiController extends Controller
 
     public function getDetail($id)
     {
-        $kois = Koi::with(['media'])->find($id);
+        $kois = Koi::with(['media'])->active()->find($id);
 
         if($kois)
         {
@@ -52,12 +58,11 @@ class KoiController extends Controller
         if(Auth::user() == null){
             $favorites = null;
         }else{
-            $favorites = Favorite::where('favorite_type', 'App\Models\Koi')->where('user_id', Auth::user()->id)->get();            
+            $favorites = Favorite::where('favorite_type', 'App\Models\Koi')->where('favorite_id', $id)->where('user_id', Auth::user()->id)->get();            
         }
 
         $categories = Category::active()->get()->toTree();
 
         return view('frontend.koi.detail', compact('kois', 'favorites', 'categories'));
-        
     }
 }

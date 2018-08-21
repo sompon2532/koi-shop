@@ -283,9 +283,14 @@ Route::group(['namespace' => 'Frontend'], function() {
 	]);
 
 	//News
-	Route::get('news/{id}', [
+	Route::get('/news', [
 		'uses' => 'NewsController@getIndex',
 		'as' => 'frontend.news.index',
+	]);
+
+	Route::get('/news/{news}', [
+		'uses' => 'NewsController@getNews',
+		'as' => 'frontend.news.news',
 	]);
 
 //	//Hall of fame

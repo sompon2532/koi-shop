@@ -238,6 +238,6 @@ class ProductController extends Controller
 
         Session::forget('cart');
 
-        return redirect()->route('frontend.shop.index')->with('success', 'Successfully purchased products!');
+        return redirect()->route('frontend.user.myorder')->with('success', 'Successfully order!');
     }
 }

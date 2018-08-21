@@ -1,4 +1,5 @@
-@extends('frontend.layouts.master')
+{{--<!-- @extends('frontend.layouts.master') -->--}}
+@extends('layouts.frontend.main')
 
 @section('page_title')
     SHOP
@@ -15,9 +16,9 @@
 @endsection
 
 @section('content')
-<div class="row"> 
-	<div class="col-md-12">
-		<div class="main-content text-center">
+<div class="content-box text-center">
+	<div class="row"> 
+		<div class="col-md-12">
 
 			@if( count($productCategory) > 0)
 				<div class="title-box">
@@ -85,7 +86,7 @@
 									</div>
 								@endif
 								<div class="caption">
-									<p class="text-red">{{ $product->name }}</P>
+									<p class="text-red item-name">{{ $product->name }}</P>
 									<p>{{ trans('product.code') }} : {{ $product->product_id }}</p>
 									<a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">{{ trans('product.btn-order') }}</a>
 								</div>

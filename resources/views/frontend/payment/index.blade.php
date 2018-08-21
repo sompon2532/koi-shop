@@ -1,4 +1,5 @@
-@extends('frontend.layouts.master')
+{{--<!-- @extends('frontend.layouts.master') -->--}}
+@extends('layouts.frontend.main')
 
 @section('page_title', 'Payment')
 
@@ -12,7 +13,7 @@
 @endsection
 
 @section('content')
-<div class="main-content">
+<div class="content-box">
     <div class="row"> 
 
         <div class="title-box text-center">

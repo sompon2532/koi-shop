@@ -92,6 +92,14 @@ class Koi extends Model implements HasMedia
         return $media ? url($media->getUrl()) : null;
     }
 
+     /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeActive($query) {
+        return $query->where('status', 1);
+    }
+
     public function users()
     {
         return $this->belongsToMany('App\User');

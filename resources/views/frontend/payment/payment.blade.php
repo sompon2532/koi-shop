@@ -1,6 +1,7 @@
-@extends('frontend.layouts.master')
+{{--<!-- @extends('frontend.layouts.master') -->--}}
+@extends('layouts.frontend.main')
 
-@section('page_title', 'Payment')
+@section('page_title', 'PAYMENT')
 
 @section('custom-css')
 <style>
@@ -23,11 +24,11 @@
 <form action="{{ route('frontend.payment.payment', ['id' => $order->id]) }}" method="post" id="checkout-form"  enctype="multipart/form-data">
     <div class="row"> 
             <div class="col-md-12">
-                
-                <div class="mycart main-content text-center">
+                <div class="content-box text-center">
                     <div class="title-box">
                         <h1>CHECKOUT</h1>
                     </div>
+
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -37,7 +38,8 @@
                             </ul>
                         </div>
                     @endif
-                    <div class="content-box">
+                    
+                    <!-- <div class="content-box"> -->
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="order-detail">
@@ -99,7 +101,7 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
+                    <!-- </div> -->
                     <!-- <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 clear-both"> -->
                         <h2 class="text-red">SHIPPING ADDRESS</h2>
                         <div class="row">
@@ -120,20 +122,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <!-- <div class="col-xs-12 col-md-6 col-md-offset-3">
-                                <div class="form-group form-payment">
-                                    <label class="col-md-3" for="name">DATE TIME :</label>
-                                    <div class="col-md-9">
-                                        <div class='input-group date' id='datetimepicker1'>
-                                            <input type='text' class="form-control" name="datetime" />
-                                            <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
 
                             <div class="col-xs-12 col-md-6 col-md-offset-3">
                                 <div class="form-group form-payment">
@@ -144,7 +132,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <p>Date: <input type="text" id="datepicker"></p> -->
+
                         {{ csrf_field() }}
                         <button type="submit" class="btn btn-red form-payment">SEND</button>
                         
