@@ -187,6 +187,16 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="unit" class="col-sm-3 control-label">
+                                Unit <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="unit" value="{{ $koi->unit }}" id="unit"
+                                       placeholder="Unit">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="status" class="col-sm-3 control-label">สถานะ</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="status" id="status">

@@ -62,7 +62,7 @@ class KoiController extends Controller
             if ($remark) {
                 $koi->remarks()->create([
                     'remark' => $remark,
-                    'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_remarks')[$index])
+                    'date' => $request->get('date_remarks')[$index] ? Carbon::createFromFormat('d/m/Y', $request->get('date_remarks')[$index]) : null
                 ]);
             }
         }
@@ -72,7 +72,7 @@ class KoiController extends Controller
             if ($size) {
                 $koi->sizes()->create([
                     'size' => $size,
-                    'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_sizes')[$index])
+                    'date' => $request->get('date_sizes')[$index] ? Carbon::createFromFormat('d/m/Y', $request->get('date_sizes')[$index]): null
                 ]);
             }
         }
@@ -82,7 +82,7 @@ class KoiController extends Controller
             if ($contest) {
                 $koi->contests()->create([
                     'contest' => $contest,
-                    'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_contests')[$index])
+                    'date' => $request->get('date_contests')[$index] ? Carbon::createFromFormat('d/m/Y', $request->get('date_contests')[$index]) : null
                 ]);
             }
         }
@@ -92,7 +92,7 @@ class KoiController extends Controller
             if ($video) {
                 $koi->videos()->create([
                     'video' => $video,
-                    'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_videos')[$index])
+                    'date' => $request->get('date_videos')[$index] ? Carbon::createFromFormat('d/m/Y', $request->get('date_videos')[$index]) : null
                 ]);
             }
         }
@@ -162,7 +162,7 @@ class KoiController extends Controller
         foreach (array_get($request->all(), 'remarks') as $index => $remark) {
             $koi->remarks()->create([
                 'remark' => $remark,
-                'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_remarks')[$index])
+                'date' => $request->get('date_remarks')[$index] ? Carbon::createFromFormat('d/m/Y', $request->get('date_remarks')[$index]) : null
             ]);
         }
 
@@ -171,7 +171,7 @@ class KoiController extends Controller
         foreach (array_get($request->all(), 'sizes') as $index => $size) {
             $koi->sizes()->create([
                 'size' => $size,
-                'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_sizes')[$index])
+                'date' => $request->get('date_sizes')[$index] ? Carbon::createFromFormat('d/m/Y', $request->get('date_sizes')[$index]) : null
             ]);
         }
 
@@ -180,7 +180,7 @@ class KoiController extends Controller
         foreach (array_get($request->all(), 'contests') as $index => $contest) {
             $koi->contests()->create([
                 'contest' => $contest,
-                'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_contests')[$index])
+                'date' => $request->get('date_contests')[$index] ? Carbon::createFromFormat('d/m/Y', $request->get('date_contests')[$index]) : null
             ]);
         }
 
@@ -189,7 +189,7 @@ class KoiController extends Controller
         foreach (array_get($request->all(), 'videos') as $index => $video) {
             $koi->videos()->create([
                 'video' => $video,
-                'date' => Carbon::createFromFormat('d/m/Y', $request->get('date_videos')[$index])
+                'date' => $request->get('date_videos')[$index] ? Carbon::createFromFormat('d/m/Y', $request->get('date_videos')[$index]) : null
             ]);
         }
 
