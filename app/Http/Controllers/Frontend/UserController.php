@@ -31,16 +31,22 @@ class UserController extends Controller
     
     public function getfavorite()
     {
-        $favorites = User::find(Auth::user()->id);
-        $products = Product::with('media')->get();
-        $kois = Koi::with('media')->get();
-        $categories = Category::active()->get()->toTree();
-        // dd(count($favorites->koi));
-        // dd($favorites->product);
-        return view('frontend.user.favorite', compact('favorites', 'products', 'kois', 'categories'));
 
-            // $user = User::find(Auth::user()->id);
-            // dd($kois->user);
+        $categories = Category::active()->get()->toTree();
+        $favorites = User::find(Auth::user()->id);
+        $products = Product::active()->get();
+        $kois = Koi::active()->get();
+
+        $user = User::find(Auth::user()->id);
+        $kois->load(['favorite' => function($query) use($user) {
+            $query->where('user_id', $user->id)->where('favorite_type', 'App\Models\Koi');
+        }]);
+
+        $products->load(['favorite' => function($query) use($user) {
+            $query->where('user_id', $user->id)->where('favorite_type', 'App\Models\Product');
+        }]);
+
+        return view('frontend.user.favorite', compact('favorites', 'products', 'kois', 'categories'));
     }
 
     //add favorite
@@ -84,7 +90,6 @@ class UserController extends Controller
         // dd($id);
         DB::table('favorites')->where('favorite_id', $id)->where('favorite_type', $type)->where('user_id', Auth::user()->id)->delete();
         return redirect()->back()->with('success', 'Successfully Cancel Koi!');
-        
     }
 
     public function getMyorders()

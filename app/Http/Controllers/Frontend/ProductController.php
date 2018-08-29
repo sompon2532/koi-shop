@@ -22,47 +22,61 @@ class ProductController extends Controller
 {
     public function getIndex()
     {
-        $products = Product::with('media')->get();       
-        $categories = Category::active()->get()->toTree(); 
+        $categories = Category::active()->get()->toTree();
+        $products = Product::active()->paginate(20);
 
-        if(Auth::user() == null){
-            $favorites = null;
-        }else{
-            $favorites = Favorite::where('favorite_type', 'App\Models\Product')->where('user_id', Auth::user()->id)->get();            
-        }      
-
-        return view('frontend.shop.index', compact('products', 'categories', 'favorites'));
-    }
-
-    public function getProductCategory($category)
-    {   
-        $products = Product::with('media')->where('category_id', $category)->get();
-        $productCategory = Category::find($category);        
-        $categories = Category::active()->get()->toTree(); 
-
-        if(Auth::user() == null){
-            $favorites = null;
-        }else{
-            $favorites = Favorite::where('favorite_type', 'App\Models\Product')->where('user_id', Auth::user()->id)->get();            
-        }      
-
-        return view('frontend.shop.category', compact('products', 'productCategory', 'categories', 'favorites'));
-    }
-
-    public function getDetail($id)
-    {   
-        $products = Product::with('media')->find($id);        
-        $categories = Category::active()->get()->toTree();          
-        if(Auth::user() == null){
-            $favorites = null;
-        }else{
-            $favorites = Favorite::where('favorite_id', $id)->where('favorite_type', 'App\Models\Product')->where('user_id', Auth::user()->id)->get();            
+        if(Auth::user()){
+            $user = User::find(Auth::user()->id);
+            $products->load(['favorite' => function($query) use($user) {
+                $query->where('user_id', $user->id)->where('favorite_type', 'App\Models\Product');
+            }]);
+        } else {
+            $products->load(['favorite' => function($query) {
+                $query->where('user_id', 0)->where('favorite_type', 'App\Models\Product');
+            }]);
         }
-        return view('frontend.shop.detail', [
-            'products' => $products,
-            'categories' => $categories,
-            'favorites' => $favorites
-        ]);
+
+        return view('frontend.shop.index', compact('products', 'categories'));
+    }
+
+    public function getProductCategory(Category $category)
+    {   
+        $categories = Category::active()->get()->toTree();
+        $products = Product::active()
+                            ->with('media')
+                            ->where('category_id', $category->id)
+                            ->paginate(20);
+
+        if(Auth::user()){
+            $user = User::find(Auth::user()->id);
+            $products->load(['favorite' => function($query) use($user) {
+                $query->where('user_id', $user->id)->where('favorite_type', 'App\Models\Product');
+            }]);
+        } else {
+            $products->load(['favorite' => function($query) {
+                $query->where('user_id', 0)->where('favorite_type', 'App\Models\Product');
+            }]);
+        }
+
+        return view('frontend.shop.category', compact('products', 'category', 'categories'));
+    }
+
+    public function getDetail(Product $product)
+    {   
+        $categories = Category::active()->get()->toTree();
+
+        if(Auth::user()){
+            $user = User::find(Auth::user()->id);
+            $product->load(['favorite' => function($query) use($user, $product) {
+                $query->where('user_id', $user->id)->where('favorite_type', 'App\Models\Product')->where('favorite_id', $product->id);
+            }]);
+        } else {
+            $product->load(['favorite' => function($query) use($product) {
+                $query->where('user_id', 0)->where('favorite_type', 'App\Models\Product')->where('favorite_id', $product->id);
+            }]);
+        }
+
+        return view('frontend.shop.detail', compact('product', 'categories'));
     }
 
     public function getAddToCart (Request $request, $id)
@@ -73,9 +87,7 @@ class ProductController extends Controller
     	$cart->add($product, $product->id);
 
     	$request->Session()->put('cart', $cart);
-        // dd($request->Session()->get('cart'));
-        
-        // return redirect()->route('frontend.shop.index');
+
         return redirect()->back();
     }
 
@@ -86,6 +98,7 @@ class ProductController extends Controller
         $cart->reduceByOne($id);
 
         Session::put('cart', $cart);
+
         return redirect()->route('frontend.shop.shoppingCart');
     }
 
@@ -96,6 +109,7 @@ class ProductController extends Controller
         $cart->reduceAddByOne($id);
 
         Session::put('cart', $cart);
+
         return redirect()->route('frontend.shop.shoppingCart');
     }
 
@@ -106,6 +120,7 @@ class ProductController extends Controller
         $cart->changeQty($id, $qty);
 
         Session::put('cart', $cart);
+
         return redirect()->route('frontend.shop.shoppingCart');
     }
 
@@ -116,6 +131,7 @@ class ProductController extends Controller
         $cart->removeItem($id);
 
         Session::put('cart', $cart);
+        
         return redirect()->route('frontend.shop.shoppingCart');
     }
 
@@ -128,8 +144,7 @@ class ProductController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $images = Product::with('media')->get();
-        // dd($cart);
-        // dd($cart->totalShip);
+
         return view('frontend.shop.shopping-cart', [
             'products' => $cart->items, 
             'totalShip' => $cart->totalShip, 
@@ -152,8 +167,6 @@ class ProductController extends Controller
         $total = $cart->totalPrice;
         $images = Product::with('media')->get();
         $user = User::find(Auth::user()->id);
-
-        // dd($user->adresses->first()->address);
         
         return view('frontend.shop.checkout', [
             'products' => $cart->items, 
@@ -173,22 +186,8 @@ class ProductController extends Controller
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        // dd($oldCart);
-        // foreach ($cart->items as $item) {
-        //     dd($item['qty']);
-        // }
-        try {
-            // $order = new Order();
-            // $order->cart = serialize($cart);
-            // $order->address = $request->input('address');
-            // $order->name = $request->input('name');
-            // $order->status = 0;
-            // $order->totalQty = 0;
-            // $order->totalPrice = 0;
-            // $order->tel = $request->input('tel');
-            // $order->payment_id = '';
 
-            // Auth::user()->orders()->save($order);
+        try {
             $insert = array(
                 'user_id'     => Auth::user()->id,
                 'cart'        => serialize($cart),

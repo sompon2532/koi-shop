@@ -138,4 +138,8 @@ class Koi extends Model implements HasMedia
         return $this->belongsTo(Store::class);
     }
 
+    public function favorite() {
+        return $this->hasMany(Favorite::class, 'favorite_id');
+    }
+
 }

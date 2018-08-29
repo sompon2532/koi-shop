@@ -44,6 +44,14 @@ class Product extends Model implements HasMedia
     protected $fillable = ['product_id', 'category_id', 'slug', 'price', 'delivery', 'status'];
 
     /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeActive($query) {
+        return $query->where('status', 1);
+    }
+
+    /**
      * Get all of the post's remarks.
      */
     public function remarks()
@@ -66,5 +74,9 @@ class Product extends Model implements HasMedia
     public function users()
     {
         return $this->morphToMany('App\User', 'favorite');
+    }
+
+    public function favorite() {
+        return $this->hasMany(Favorite::class, 'favorite_id');
     }
 }

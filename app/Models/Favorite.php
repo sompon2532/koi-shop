@@ -13,4 +13,7 @@ class Favorite extends Model
     // public function product() {
     //     return $this->belongsTo('App\Models\Product');
     // }
+
+    protected $fillable = ['user_id', 'favorite_id'];
+
 }

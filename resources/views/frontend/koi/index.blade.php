@@ -18,7 +18,7 @@
 	<div class="row"> 
 		<div class="col-md-12">
 			<div class="title-box">
-				<h1>KOIKICHI SHOP</h1>
+				<h1>KOI</h1>
 			</div>
 		</div>
 		
@@ -33,19 +33,6 @@
 		<div class="col-md-12">
 			@if(count($kois) > 0)
 				@foreach($kois as $index => $koi)
-					@php 
-						$i=0;
-					@endphp
-					@if(count($favorites) > 0)
-						@foreach($favorites as $favorite)
-							@if($favorite->favorite_id == $koi->id)
-								@php
-									$i = $favorite->id;
-								@endphp
-							@endif
-						@endforeach
-					@endif
-
 					<div class="col-sm-6 col-md-3">
 						<div class="koi stock-item-box text-center">
 							<div class="img-item-box thumbnail">
@@ -57,22 +44,22 @@
 									@endif
 								</a>
 							</div>
-							@if($i == 0)
+							@if(count($koi->favorite)>0)
 								<div class="star-label">
-									<form action="{{ route('frontend.user.favorite-add', ['id' => $koi->id]) }}" method="GET" style="">  
-										<input type="hidden" name="item" value="{{ $koi->id }}">
-										<input type="hidden" name="type" value="App\Models\koi">
+									<form action="{{ route('frontend.user.favorite-del', ['id' => $koi->id, 'type' => 'App\Models\koi']) }}" method="GET" style="">  
 										<button type="submit" class="btn btn-favorite">
-											<img class="" src="{{ asset('frontend/src/img/favorite.png') }}" alt="..." style="max-height:50px;">    
+											<img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
 										</button> 
 										{{ csrf_field() }}
 									</form>
 								</div>
 							@else
 								<div class="star-label">
-									<form action="{{ route('frontend.user.favorite-del', ['id' => $koi->id, 'type' => 'App\Models\koi']) }}" method="GET" style="">  
+									<form action="{{ route('frontend.user.favorite-add', ['id' => $koi->id]) }}" method="GET" style="">  
+										<input type="hidden" name="item" value="{{ $koi->id }}">
+										<input type="hidden" name="type" value="App\Models\koi">
 										<button type="submit" class="btn btn-favorite">
-											<img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
+											<img class="" src="{{ asset('frontend/src/img/favorite.png') }}" alt="..." style="max-height:50px;">    
 										</button> 
 										{{ csrf_field() }}
 									</form>
@@ -88,6 +75,11 @@
 						</div>
 					</div>
 				@endforeach
+
+				<div class="col-md-12">
+                    {{ $kois->links() }}
+                    <p class="text-red text-right"> {{ trans('koi.total')}} : {{ count($kois) }} </p>
+                </div>
 			@else
 				<h1>No koi in Category!</h1>
 			@endif

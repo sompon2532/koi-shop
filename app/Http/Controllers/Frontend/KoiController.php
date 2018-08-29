@@ -16,53 +16,82 @@ class KoiController extends Controller
 {
     public function getIndex()
     {
-        $kois = Koi::with(['media'])->active()->get();
         $categories = Category::active()->get()->toTree();
+        $kois = Koi::active()
+                    ->with(['media'])
+                    ->where('event_id', null)
+                    ->paginate(20);
 
-        if(Auth::user() == null){
-            $favorites = null;
-        }else{
-            $favorites = Favorite::where('favorite_type', 'App\Models\Koi')->where('user_id', Auth::user()->id)->get();            
-        } 
-
-        return view('frontend.koi.index', compact('kois','categories', 'favorites'));
-    }
-
-    public function getKoiCategory($category)
-    {
-        $kois = Koi::with(['media'])->where('category_id', $category)->where('event_id', null)->paginate(20);
-        $koiCategory = Category::find($category);
-        $categories = Category::active()->get()->toTree();
-
-        if(Auth::user() == null){
-            $favorites = null;
-        }else{
-            $favorites = Favorite::where('favorite_type', 'App\Models\Koi')->where('user_id', Auth::user()->id)->get();            
+        if(Auth::user()){
+            $user = User::find(Auth::user()->id);
+            $kois->load(['favorite' => function($query) use($user) {
+                $query->where('user_id', $user->id)->where('favorite_type', 'App\Models\Koi');
+            }]);
+        } else {
+            $kois->load(['favorite' => function($query) {
+                $query->where('user_id', 0)->where('favorite_type', 'App\Models\Koi');
+            }]);
         }
 
-        return view('frontend.koi.category', compact('kois', 'favorites', 'koiCategory', 'categories'));
+        return view('frontend.koi.index', compact('kois','categories'));
     }
 
-    public function getDetail($id)
+    public function getKoiCategory(Category $category)
     {
-        $kois = Koi::with(['media'])->active()->find($id);
+        $categories = Category::active()->get()->toTree();
+        $kois = Koi::active()
+                    ->with(['media'])
+                    ->where('category_id', $category->id)
+                    ->where('event_id', null)
+                    ->paginate(20);
 
-        if($kois)
+        if(Auth::user()){
+            $user = User::find(Auth::user()->id);
+            $kois->load(['favorite' => function($query) use($user) {
+                $query->where('user_id', $user->id)->where('favorite_type', 'App\Models\Koi');
+            }]);
+        } else {
+            $kois->load(['favorite' => function($query) {
+                $query->where('user_id', 0)->where('favorite_type', 'App\Models\Koi');
+            }]);
+        }
+
+        return view('frontend.koi.category', compact('kois', 'category', 'categories'));
+    }
+
+    public function getDetail(Koi $koi)
+    {
+        $categories = Category::active()->get()->toTree();
+
+        if(Auth::user())
         {
-            // $kois->load('sizes', 'contests', 'remarks', 'strain');
-            $kois->load('sizes', 'remarks', 'strain');
-        }else{
-            return redirect()->back();
-        }
-        
-        if(Auth::user() == null){
-            $favorites = null;
-        }else{
-            $favorites = Favorite::where('favorite_type', 'App\Models\Koi')->where('favorite_id', $id)->where('user_id', Auth::user()->id)->get();            
+            $user = User::find(Auth::user()->id);
+            $koi->load(['favorite' => function($query) use($user, $koi) {
+                $query->where('user_id', $user->id)->where('favorite_type', 'App\Models\Koi')->where('favorite_id', $koi->id);
+            }]);
+        } else {
+            $koi->load(['favorite' => function($query) use($koi) {
+                $query->where('user_id', 0)->where('favorite_type', 'App\Models\Koi')->where('favorite_id', $koi->id);
+            }]);
         }
 
-        $categories = Category::active()->get()->toTree();
+        return view('frontend.koi.detail', compact('koi', 'categories'));
+    }
 
-        return view('frontend.koi.detail', compact('kois', 'favorites', 'categories'));
+    /**
+     * @param Event $event
+     * @param Koi $koi
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showKoiDetail(User $user, Koi $koi) {
+        dd($user);
+        $user->load(['favorite' => function($query) use($user) {
+            $query->where('user_id', $user->id );
+        }]);
+
+        dd($user);
+        dd($user->favorite);
+
+        return view('backoffice.event.koi', compact('event', 'koi'));
     }
 }

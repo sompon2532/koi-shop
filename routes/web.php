@@ -106,8 +106,8 @@ Route::group(['namespace' => 'Frontend'], function() {
 	
 	Route::get('change/{lacale}', 'LanguageController@setlocale');
 
-	Route::get('/test/{id}', [
-		'uses' => 'ProductController@getItem'
+	Route::get('/test/user/{user}/koi/{koi}', [
+		'uses' => 'KoiController@showKoiDetail'
 	]);
 
 	// Koi
@@ -119,7 +119,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'uses' => 'KoiController@getKoiCategory',
 		'as' => 'frontend.koi.category'
 	]);
-	Route::get('/koi/{id}', [
+	Route::get('/koi/{koi}', [
 		'uses' => 'KoiController@getDetail',
 		'as' => 'frontend.koi.detail'
 	]);
@@ -133,7 +133,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'uses' => 'ProductController@getProductCategory',
 		'as' => 'frontend.shop.category'
 	]);
-	Route::get('/product/{id}', [
+	Route::get('/product/{product}', [
 		'uses' => 'ProductController@getDetail',
 		'as' => 'frontend.shop.detail'
 	]);
@@ -303,10 +303,16 @@ Route::group(['namespace' => 'Frontend'], function() {
 //		'as' => 'frontend.hall-of-fame.hall-of-fame',
 //	]);
 
-    Route::get('hall-of-fame/detail/{id}', 'HallController@getDetail');
+	Route::get('hall-of-fame/detail/{id}', 'HallController@getDetail');
+	
     Route::get('hall-of-fame', [
 		'uses' => 'HallController@getIndex',
 		'as' => 'frontend.hall-of-fame.index',
+	]);
+
+	Route::get('test', [
+		'uses' => 'KoiController@showKoiDetail',
+		// 'as' => 'frontend.hall-of-fame.index',
 	]);
 });
 

@@ -70,4 +70,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Address');
     }
+
+    public function favorite() {
+        // return $this->hasMany(Favorite::class);
+        return $this->hasMany('App\Models\Favorite');
+    }
 }

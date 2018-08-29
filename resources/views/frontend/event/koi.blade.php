@@ -4,11 +4,7 @@
 @section('page_title', 'EVENTS')
 
 @section('custom-css')
-<style>
-    /* .slick-slide img {
-        width: 100%;
-    } */
-</style>
+
 @endsection
 
 @section('content')
@@ -201,7 +197,7 @@
                                         @foreach($kois->remarks as $index => $remarks)
                                             <p>
                                                 <span class="heading">{{ trans('koi.remark') }} {{ $index+1 }}</span>
-                                                : {{ $remarks->remark }} ({{$remarks->date}})</p>
+                                                : {{ $remarks->remark }}</p>
                                         @endforeach
                                     @endif
                                 </div>
@@ -270,7 +266,7 @@
 
                                     @if(count($kois->remarks) > 0)
                                         @foreach($kois->remarks as $index => $remarks)
-                                            <p>{{ trans('koi.remark') }} #{{ $index+1 }} : {{ $remarks->remark }} ({{$remarks->date}})</p>
+                                            <p>{{ trans('koi.remark') }} #{{ $index+1 }} : {{ $remarks->remark }}</p>
                                         @endforeach
                                     @else
                                         <p>{{ trans('koi.remark') }} : -</p>

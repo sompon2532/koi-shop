@@ -12,6 +12,7 @@
 }
 .star-label {
     top: 0px;
+    right: 15px;
 }
 </style>
 @endsection
@@ -19,131 +20,129 @@
 @section('content')
 <div class="content-box text-center">
     <div class="row"> 
+        
         <div class="col-md-12">
-
             <div class="title-box">
                 <h1>PRODUCT</h1>
             </div>
+        </div>
 
-            {{-- <!-- <h3 class="text-red"> SAKAI </h3>
-            <P>KOI > KOI  IN JAPAN > SAKAI > {{ $products->name }}</P> --> --}}
+        {{-- <!-- <h3 class="text-red"> SAKAI </h3>
+        <P>KOI > KOI  IN JAPAN > SAKAI > {{ $products->name }}</P> --> --}}
 
-
-            <div class="row">
-                <br>
-                <div class="col-md-3 col-md-offset-3">
-                    <div class="slider slider-for">
-                        @if(count($products->media)>0)
-                            @foreach($products->media as $media)
-                                <div>
-                                    <a class="example-image-link" href="{{ $media->getUrl() }}" data-lightbox="thumb-1">
-                                        <img class="example-image img-thumbnail" src="{{ $media->getUrl() }}" alt="..." style="">
-                                    </a>
-                                </div>
-                            @endforeach
-                        @else
-                            <img src="{{ asset('frontend/src/img/default-product.jpg') }}" alt="..." class="img-responsive img-thumbnail">
-                        @endif
-                    </div>                                    
-                    @if(count($favorites) == 0)
-                        <div class="star-label">
-                            <form action="{{ route('frontend.user.favorite-add', ['id' => $products->id]) }}" method="GET" style="">  
-                                <input type="hidden" name="item" value="{{ $products->id }}">
-                                <input type="hidden" name="type" value="App\Models\Product">
-                                <button type="submit" class="btn btn-favorite">
-                                    <img class="" src="{{ asset('frontend/src/img/favorite.png') }}" alt="..." style="max-height:50px;">    
-                                </button> 
-                                {{ csrf_field() }}
-                            </form>
-                        </div>
-                    @else
-                        <div class="star-label">
-                            <form action="{{ route('frontend.user.favorite-del', ['id' => $products->id, 'type' => 'App\Models\Product']) }}" method="GET">
-                                <button type="submit" class="btn btn-favorite">
-                                    <img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
-                                </button> 
-                                {{ csrf_field() }}
-                            </form>
-                        </div>
-                    @endif
-                </div>                        
-                <div class="col-md-6 text-left">
-                    <p class="text-red">
-                        <span class="heading">{{ trans('product.title') }}</span>
-                        : {{ $products->name }}</p>
-                    <p>
-                        <span class="heading">{{ trans('product.code') }}</span>
-                        : {{ $products->id }}</p>
-
-                    <p>
-                        <span class="heading">{{ trans('product.price') }}</span>
-                        : {{ number_format($products->price) }} {{ trans('product.thb') }}</p>
-                        
-                    <p>
-                        <span class="heading">{{ trans('product.shipping') }}</span>
-                        : {{ $products->delivery }} {{ trans('product.thb') }}</p>
-
-                    @if(count($products->remarks) > 0)
-                        @foreach($products->remarks as $index => $remarks)
-                            <p>
-                                <span class="heading">{{ trans('koi.remark') }} {{ $index+1 }}</span>
-                                : {{ $remarks->remark }} ({{$remarks->date}})</p>
+        <div class="col-md-12">
+            <br>
+            <div class="col-md-3 col-md-offset-3">
+                <div class="slider slider-for">
+                    @if(count($product->media)>0)
+                        @foreach($product->media as $media)
+                            <div>
+                                <a class="example-image-link" href="{{ $media->getUrl() }}" data-lightbox="thumb-1">
+                                    <img class="example-image img-thumbnail" src="{{ $media->getUrl() }}" alt="..." style="">
+                                </a>
+                            </div>
                         @endforeach
                     @else
-                        <p>
-                            <span class="heading">{{ trans('koi.remark') }}</span>
-                            : -</p>  
+                        <img src="{{ asset('frontend/src/img/default-product.jpg') }}" alt="..." class="img-responsive img-thumbnail">
                     @endif
+                </div>                                    
+                <div class="star-label">
+                    @if(count($product->favorite) > 0)
+                        <form action="{{ route('frontend.user.favorite-del', ['id' => $product->id, 'type' => 'App\Models\Product']) }}" method="GET">
+                            <button type="submit" class="btn btn-favorite">
+                                <img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
+                            </button> 
+                            {{ csrf_field() }}
+                        </form>
+                    @else
+                        <form action="{{ route('frontend.user.favorite-add', ['id' => $product->id]) }}" method="GET" style="">  
+                            <input type="hidden" name="item" value="{{ $product->id }}">
+                            <input type="hidden" name="type" value="App\Models\Product">
+                            <button type="submit" class="btn btn-favorite">
+                                <img class="" src="{{ asset('frontend/src/img/favorite.png') }}" alt="..." style="max-height:50px;">    
+                            </button> 
+                            {{ csrf_field() }}
+                        </form>
+                    @endif
+                </div>                        
+            </div>                        
+            <div class="col-md-6 text-left">
+                <p class="text-red">
+                    <span class="heading">{{ trans('product.title') }}</span>
+                    : {{ $product->name }}</p>
+                <p>
+                    <span class="heading">{{ trans('product.code') }}</span>
+                    : {{ $product->id }}</p>
 
-                    <div class="text-center-max992">
-                        <a class="btn btn-white text-center" href="{{ route('frontend.shop.addToCart', ['id' => $products->id]) }}">
-                        {{ trans('product.btn-order') }}
-                        </a>
-                    </div>
-                </div>
-            </div>
+                <p>
+                    <span class="heading">{{ trans('product.price') }}</span>
+                    : {{ number_format($product->price) }} {{ trans('product.thb') }}</p>
+                    
+                <p>
+                    <span class="heading">{{ trans('product.shipping') }}</span>
+                    : {{ $product->delivery }} {{ trans('product.thb') }}</p>
 
-            <div class="row">
-                <div class="col-md-2 col-md-offset-2">
-                {{ trans('product.detail') }} :
-                </div>
-                <div class="col-md-7 text-left">
+                @if(count($product->remarks) > 0)
+                    @foreach($product->remarks as $index => $remarks)
+                        <p>
+                            <span class="heading">{{ trans('koi.remark') }} {{ $index+1 }}</span>
+                            : {{ $remarks->remark }} ({{$remarks->date}})</p>
+                    @endforeach
+                @else
                     <p>
-                        {{ $products->description }}
-                    </p>
+                        <span class="heading">{{ trans('koi.remark') }}</span>
+                        : -</p>  
+                @endif
+
+                <div class="text-center-max992">
+                    <a class="btn btn-white text-center" href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}">
+                    {{ trans('product.btn-order') }}
+                    </a>
                 </div>
             </div>
-            <br>
-
-            @if(count($products->media) > 1)
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="slider slider-nav">
-                            @foreach($products->media as $media)
-                                <div><img class="img-thumbnail" src="{{ $media->getUrl() }}" alt="..." style=""></div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            @endif
-
-            @if(count($products->videos) > 0)
-                <div class="row">
-                    <div class="col-md-12">
-                        <section class="lazy slider" data-sizes="50vw">
-                            @foreach($products->videos as $video)
-                                <div>
-                                    <h3 class="text-red">VIDEO ({{$video->date}})</h3>
-                                    {!! $video->video !!}
-                                </div>
-                            @endforeach
-                        </section>                                        
-                    </div>
-                </div>
-            @endif
-
-
         </div>
+
+        <div class="col-md-12">
+            <div class="col-md-2 col-md-offset-2">
+            {{ trans('product.detail') }} :
+            </div>
+            <div class="col-md-7 text-left">
+                <p>
+                    {{ $product->description }}
+                </p>
+            </div>
+        </div>
+        <br>
+
+        @if(count($product->media) > 1)
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="slider slider-nav">
+                        @foreach($product->media as $media)
+                            <div>
+                                <img class="img-thumbnail" src="{{ $media->getUrl() }}" alt="..." style="">
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        @if(count($product->videos) > 0)
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="lazy slider" data-sizes="50vw">
+                        @foreach($product->videos as $video)
+                            <div>
+                                <h3 class="text-red">VIDEO ({{$video->date}})</h3>
+                                {!! $video->video !!}
+                            </div>
+                        @endforeach
+                    </section>                                        
+                </div>
+            </div>
+        @endif
+
     </div>
 </div>
 
