@@ -27,10 +27,43 @@
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
+            <span class="info-box-icon bg-orange"><i class="fa fa-product-hunt"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">PRODUCT</span>
+                <span class="info-box-number">{{ $product }}</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-maroon"><i class="fa fa-first-order"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">ORDER</span>
+                <span class="info-box-number">{{ $order }}</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
             <span class="info-box-icon bg-red"><i class="fa fa-gamepad"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text">EVENT</span>
                 <span class="info-box-number">{{ $event }}</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="fa fa-newspaper-o"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">NEWS</span>
+                <span class="info-box-number">{{ $news }}</span>
             </div>
             <!-- /.info-box-content -->
         </div>
