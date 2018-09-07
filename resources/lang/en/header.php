@@ -6,6 +6,7 @@ return [
 	'flag-en' => '/en.png',
 	'flag-th' => '/th-wb.png',
 
+	'profile' => 'PROFILE',
 	'myport' => 'MY PORT',
 	'myfavorite' => 'MY FAVORITE',
 	'mybooking' => 'MY BOOKING',

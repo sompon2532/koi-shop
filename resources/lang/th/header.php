@@ -6,6 +6,7 @@ return [
 	'flag-en' => '/en-wb.png',
 	'flag-th' => '/th.png',
 	
+	'profile' => 'โปรไฟล์',
 	'myport' => 'ปลาของฉัน',
 	'myfavorite' => 'รายการที่ชื่นชอบ',
 	'mybooking' => 'รายการที่จอง',

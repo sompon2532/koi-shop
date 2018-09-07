@@ -163,16 +163,6 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'uses' => 'ProductController@getCart',
 		'as' => 'frontend.shop.shoppingCart'
 	]);
-	Route::get('/checkout', [
-		'uses' => 'ProductController@getCheckout',
-		'as' => 'checkout',
-		'middleware' => 'auth'
-	]);
-	Route::post('/checkout', [
-		'uses' => 'ProductController@postCheckout',
-		'as' => 'checkout',
-		'middleware' => 'auth'		
-	]);
 
 	// Events
 	Route::get('/event', [
@@ -187,40 +177,6 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'uses' => 'EventController@getKoi',
 		'as' => 'frontend.event.koi',
 	]);
-	Route::get('/event/announcement/luckydraw/{event}', [
-		'uses' => 'EventController@getluckydraw',
-		'as' => 'frontend.event.luckydraw',
-		'middleware' => 'auth'		
-	]);
-	Route::get('/event/announcement/winnerlist/{event}', [
-		'uses' => 'EventController@getwinnerlist',
-		'as' => 'frontend.event.winnerlist',
-		'middleware' => 'auth'		
-	]);
-
-	//Booking
-	// Route::post('/event/booking/add', [
-	// 	'uses' => 'EventController@postEvent',
-	// 	'as' => 'frontend.event.bookevent',
-	// 	'middleware' => 'auth'		
-	// ]);
-	Route::get('/event/booking/add/{koi}/{event}', [
-			'uses' => 'EventController@getEventAdd',
-			'as' => 'frontend.event.bookevent',
-			'middleware' => 'auth'		
-		]);
-
-	Route::get('/event/booking/del/{koi}/{event}', [
-		'uses' => 'EventController@getEventDel',
-		'as' => 'frontend.event.bookdel',
-		'middleware' => 'auth'		
-	]);
-
-	Route::get('/mybooking', [
-		'uses' => 'EventController@getMyBooking',
-		'as' => 'frontend.event.booking',
-		'middleware' => 'auth'		
-	]);
 
 	//Favorite
 	// Route::post('/favorite/add', [
@@ -228,58 +184,11 @@ Route::group(['namespace' => 'Frontend'], function() {
 	// 	'as' => 'frontend.user.favorite-add',
 	// 	'middleware' => 'auth'		
 	// ]);
-	Route::get('/favorite/add/{id}', [
-		'uses' => 'UserController@postfavorite',
-		'as' => 'frontend.user.favorite-add',
-		'middleware' => 'auth'		
-	]);
-	Route::get('/favorite/del/{id}/{type}', [
-		'uses' => 'UserController@getfavoriteDel',
-		'as' => 'frontend.user.favorite-del',
-		'middleware' => 'auth'		
-	]);
-
-	//User
-	Route::get('/myport', [
-		'uses' => 'UserController@getMyports',
-		'as' => 'frontend.user.myport',
-		'middleware' => 'auth'		
-	]);
-	Route::get('/myport/koi/{id}', [
-		'uses' => 'UserController@getMyportKoi',
-		'as' => 'frontend.user.myport-koi',
-		'middleware' => 'auth'		
-	]);
-	Route::get('/myorder', [
-		'uses' => 'UserController@getMyorders',
-		'as' => 'frontend.user.myorder',
-		'middleware' => 'auth'		
-	]);
-	Route::get('/favorite', [
-		'uses' => 'UserController@getFavorite',
-		'as' => 'frontend.user.favorite',
-		'middleware' => 'auth'		
-	]);
 
 	//Payment
 	Route::get('/payment', [
 		'uses' => 'PaymentController@getIndex',
 		'as' => 'frontend.payment.index'	
-	]);
-	Route::get('/payment/order/{id}', [
-		'uses' => 'PaymentController@getPayment',
-		'as' => 'frontend.payment.payment',
-		'middleware' => 'auth'		
-	]);
-	Route::post('/payment/order/{id}', [
-		'uses' => 'PaymentController@postPayment',
-		'as' => 'frontend.payment.payment',
-		'middleware' => 'auth'		
-	]);
-	Route::get('/payment/success/{id}', [
-		'uses' => 'PaymentController@getSuccess',
-		'as' => 'frontend.payment.success',
-		'middleware' => 'auth'	
 	]);
 
 	//News
@@ -287,7 +196,6 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'uses' => 'NewsController@getIndex',
 		'as' => 'frontend.news.index',
 	]);
-
 	Route::get('/news/{news}', [
 		'uses' => 'NewsController@getNews',
 		'as' => 'frontend.news.news',
@@ -314,29 +222,120 @@ Route::group(['namespace' => 'Frontend'], function() {
 		'uses' => 'KoiController@showKoiDetail',
 		// 'as' => 'frontend.hall-of-fame.index',
 	]);
+
+	Route::group(['middleware' => 'auth'], function() {
+		// User
+		Route::get('/profile', [
+			'uses' => 'UserController@getProfile',
+			'as' => 'frontend.user.profile',	
+		]);
+		Route::post('/profile', [
+			'uses' 	=> 'UserController@postProfile',
+			'as' 	=> 'frontend.user.profile'	
+		]);
+		Route::get('/changePassword',[
+			'uses'	=> 'UserController@getChangePasswordForm',
+			'as'	=> 'frontend.user.changepass'
+		]);
+		Route::post('/changePassword',[
+			'uses'	=> 'UserController@postChangePassword',
+			'as'	=> 'frontend.user.changepass'
+		]);
+		Route::get('/myport', [
+			'uses' => 'UserController@getMyports',
+			'as' => 'frontend.user.myport',
+		]);
+		Route::get('/myport/koi/{id}', [
+			'uses' => 'UserController@getMyportKoi',
+			'as' => 'frontend.user.myport-koi',
+		]);
+		Route::get('/myorder', [
+			'uses' => 'UserController@getMyorders',
+			'as' => 'frontend.user.myorder',	
+		]);
+		Route::get('/favorite', [
+			'uses' => 'UserController@getFavorite',
+			'as' => 'frontend.user.favorite',	
+		]);
+		// Favorite 
+		Route::get('/favorite/add/{id}', [
+			'uses' => 'UserController@postfavorite',
+			'as' => 'frontend.user.favorite-add'
+		]);
+		Route::get('/favorite/del/{id}/{type}', [
+			'uses' => 'UserController@getfavoriteDel',
+			'as' => 'frontend.user.favorite-del'
+		]);
+		// Payment
+		Route::get('/payment/order/{id}', [
+			'uses' => 'PaymentController@getPayment',
+			'as' => 'frontend.payment.payment'	
+		]);
+		Route::post('/payment/order/{id}', [
+			'uses' => 'PaymentController@postPayment',
+			'as' => 'frontend.payment.payment'		
+		]);
+		Route::get('/payment/success/{id}', [
+			'uses' => 'PaymentController@getSuccess',
+			'as' => 'frontend.payment.success'
+		]);
+		//Event
+		Route::get('/event/announcement/luckydraw/{event}', [
+			'uses' => 'EventController@getluckydraw',
+			'as' => 'frontend.event.luckydraw'	
+		]);
+		Route::get('/event/announcement/winnerlist/{event}', [
+			'uses' => 'EventController@getwinnerlist',
+			'as' => 'frontend.event.winnerlist'
+		]);
+		//Booking
+		// Route::post('/event/booking/add', [
+		// 	'uses' => 'EventController@postEvent',
+		// 	'as' => 'frontend.event.bookevent',
+		// 	'middleware' => 'auth'		
+		// ]);
+		Route::get('/event/booking/add/{koi}/{event}', [
+			'uses' => 'EventController@getEventAdd',
+			'as' => 'frontend.event.bookevent'	
+		]);
+		Route::get('/event/booking/del/{koi}/{event}', [
+			'uses' => 'EventController@getEventDel',
+			'as' => 'frontend.event.bookdel'	
+		]);
+
+		Route::get('/mybooking', [
+			'uses' => 'EventController@getMyBooking',
+			'as' => 'frontend.event.booking'	
+		]);
+		// Shop
+		Route::get('/checkout', [
+			'uses' => 'ProductController@getCheckout',
+			'as' => 'checkout'
+		]);
+		Route::post('/checkout', [
+			'uses' => 'ProductController@postCheckout',
+			'as' => 'checkout'
+		]);
+	});
 });
 
 Route::get('/', [
 	'uses' => 'HomeController@Index',
 	'as' => 'frontend.index'
 ]);
-
 Route::get('login', [
 	'as'   => 'auth.login',
 	'uses' => 'LoginController@showLoginForm',
 	'middleware' => 'auth'
 ]);
-
 Route::get('register', [
 	'as'   => 'auth.register',
 	'uses' => 'RegisterController@showRegistrationForm'
 ]);
-
 Route::get('/about', [
 	'uses' => 'HomeController@getAboutUs',
 	'as'   => 'frontend.about.index'
 ]);
-
 Route::get('/contact', [
 	'uses' => 'HomeController@getContactUs',
 	'as'   => 'frontend.contact.index'

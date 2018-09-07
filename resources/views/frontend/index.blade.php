@@ -23,7 +23,7 @@
                 <hr>
             </div>
             <ul class="list-group">
-                <li class="list-group-item text-red"><i class="fa fa-angle-right"></i> KOI</li>
+                <li class="list-group-item text-red"><i class="fa fa-angle-right"></i> {{ trans('header.koi') }}</li>
                 @php
                     $traverse = function ($categories, $prefix = '') use (&$traverse) {
                         foreach ($categories as $category) {
@@ -43,7 +43,7 @@
                     $traverse($categories);
                 @endphp
 
-                <li class="list-group-item text-red"><i class="fa fa-angle-right"></i> KOI PRODUCTS</li>
+                <li class="list-group-item text-red"><i class="fa fa-angle-right"></i> {{ trans('header.koi-products') }}</li>
                 @php
                     $traverse = function ($categories, $prefix = '') use (&$traverse) {
                         foreach ($categories as $category) {
@@ -70,7 +70,7 @@
             <div class="text-center">
                 @if (count($nowEvents) > 0)
                     @foreach($nowEvents as $event)
-                        <p class="text-red">EVENT</p>
+                        <p class="text-red">{{ trans('event.events')}}</p>
                         <p>{{ $event->end_datetime->format('d/m/Y') }} - {{ $event->start_datetime->format('d/m/Y') }}</p>
                         <p>{{ $event->name }}</p>
                     @endforeach
@@ -79,7 +79,7 @@
         </div> 
 
         <div class="stat-box text-center">
-            <p class="text-red">จำนวนผู้เข้าชมทั้งหมด</p>
+            <p class="text-red">Visitor</p>
             {{--<!-- <a href="https://smallseotools.com/visitor-hit-counter/" target="_blank" title="Web Counter" class="text-center"> -->--}}
             <img src="https://smallseotools.com/counterDisplay?code=144479ab1d4d4565329f7d9df6eaf5fe&style=0013&pad=5&type=page&initCount=1000"  title="Web Counter" Alt="Web Counter" border="0">
             {{--<!-- </a> -->--}}

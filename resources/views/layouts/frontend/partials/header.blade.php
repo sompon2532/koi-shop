@@ -23,6 +23,7 @@
                                         {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
+                                        <li><a href="{{ route('frontend.user.profile') }}"><span class="glyphicon glyphicon-user text-red"></span> {{ trans('header.profile') }}</a></li>                                                
                                         <li><a href="{{ route('frontend.user.myport') }}"><span class="glyphicon glyphicon-heart text-red"></span> {{ trans('header.myport') }}</a></li>                                                
                                         <li><a href="{{ route('frontend.user.favorite') }}"><span class="glyphicon glyphicon-star text-red"></span> {{ trans('header.myfavorite') }}</a></li>                                                
                                         <li><a href="{{ route('frontend.event.booking') }}"><span class="glyphicon glyphicon-bookmark text-red"></span> {{ trans('header.mybooking') }}</a></li>
