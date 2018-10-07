@@ -41,7 +41,7 @@ class News extends Model implements HasMedia
     /**
      * @var array
      */
-    protected $fillable = ['slug', 'status', 'start_datetime', 'end_datetime'];
+    protected $fillable = ['description', 'slug', 'status', 'start_datetime', 'end_datetime'];
 
     /**
      * Get all of the post's videos.

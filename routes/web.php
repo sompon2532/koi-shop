@@ -54,6 +54,8 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::resource('strain', 'StrainController');
         Route::resource('category', 'CategoryController');
         Route::resource('news', 'NewsController');
+        Route::resource('home', 'HomeController');
+        Route::resource('menu', 'MenuController');
 
         Route::get('event/{event}/koi/{koi}/winner/{user}', [
             'as'   => 'event.koi.winner',

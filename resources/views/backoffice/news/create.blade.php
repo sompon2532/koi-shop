@@ -66,6 +66,13 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="status" class="col-sm-3 control-label">รายละเอียด</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" rows="5" name="description"></textarea>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-md-6">

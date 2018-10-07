@@ -20,6 +20,18 @@
     </li>
 
     <li>
+        <a href="{{ route('home.index') }}">
+            <i class="fa fa-home"></i> <span>จัดการหน้าแรก</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ route('menu.index') }}">
+            <i class="fa fa-home"></i> <span>จัดการเมนู</span>
+        </a>
+    </li>
+
+    <li>
         <a href="{{ route('user.index') }}">
             <i class="fa fa-user"></i> <span>สมาชิก</span>
         </a>

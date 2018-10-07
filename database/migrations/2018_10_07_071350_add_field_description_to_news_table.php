@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUnitToKoisTable extends Migration
+class AddFieldDescriptionToNewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddUnitToKoisTable extends Migration
      */
     public function up()
     {
-        Schema::table('kois', function (Blueprint $table) {
-            $table->string('unit', 16)->nullable()->after('price');
+        Schema::table('news', function (Blueprint $table) {
+            $table->text('description')->nullable()->after('status');
         });
     }
 
@@ -25,8 +25,8 @@ class AddUnitToKoisTable extends Migration
      */
     public function down()
     {
-        Schema::table('kois', function (Blueprint $table) {
-            $table->dropColumn('unit');
+        Schema::table('news', function (Blueprint $table) {
+            $table->dropColumn('description');
         });
     }
 }
