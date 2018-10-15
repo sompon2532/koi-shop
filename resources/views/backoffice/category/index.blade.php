@@ -26,6 +26,7 @@
                     <tr>
                         <th>หมวดหมู่</th>
                         <th>กลุ่ม</th>
+                        <th>ลำดับ</th>
                         <th>สถานะ</th>
                         <th>การจัดการ</th>
                     </tr>
@@ -37,6 +38,7 @@
                             echo '<tr>';
                             echo '<td>' . $prefix . $category->name . '</td>';
                             echo '<td>' . $category->group . '</td>';
+                            echo '<td>' . $prefix . $category->seq . '</td>';
 
                             $status = ($category->status) ? 'Active' : 'Inactive';
 
@@ -60,6 +62,7 @@
                     <tr>
                         <th>หมวดหมู่</th>
                         <th>หลุ่ม</th>
+                        <th>ลำดับ</th>
                         <th>สถานะ</th>
                         <th>การจัดการ</th>
                     </tr>

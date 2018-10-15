@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Dimsav\Translatable\Translatable;
 use Kalnoy\Nestedset\NodeTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-
-class Category extends Model
+class Category extends Model implements HasMedia
 {
-	use Translatable, SoftDeletes, NodeTrait;
+	use Translatable, SoftDeletes, NodeTrait, HasMediaTrait;
 
     /**
      * The attributes that should be cast to native types.
@@ -41,7 +42,7 @@ class Category extends Model
     /**
      * @var array
      */
-    protected $fillable = ['slug', 'status', 'parent_id', 'group'];
+    protected $fillable = ['slug', 'status', 'parent_id', 'group', 'seq'];
 
     /**
      * @param $query

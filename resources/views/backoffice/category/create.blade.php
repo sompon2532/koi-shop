@@ -24,7 +24,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="{{ route('category.store') }}">
+            <form class="form-horizontal" method="post" action="{{ route('category.store') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
                 <div class="box-body">
@@ -50,12 +50,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="status" class="col-sm-3 control-label">สถานะ</label>
+                            <label for="url" class="col-sm-3 control-label">
+                                ลำดับ <span class="text-danger">*</span>
+                            </label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="status" id="status">
-                                    <option value="1">Active</option>
-                                    <option value="0">Inactive</option>
-                                </select>
+                                <input type="text" class="form-control" name="seq" value="{{ old("seq") }}" id="seq"
+                                       placeholder="Seq">
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,21 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="status" class="col-sm-3 control-label">สถานะ</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="status" id="status">
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="clearfix"></div>
+
+                    @include('backoffice.partials.cover', ['images' => []])
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">

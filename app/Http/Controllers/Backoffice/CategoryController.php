@@ -44,6 +44,11 @@ class CategoryController extends Controller
     {
         $category = Category::create($request->all());
 
+        // Cover
+        if ($request->hasFile('cover')) {
+            $category->addMedia($request->file('cover'))->toMediaCollection('category');
+        }
+
         return redirect()
                 ->route('category.edit', ['category' => $category->id])
                 ->with(['success' => 'Create category success']);
@@ -68,6 +73,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+        $category->load('media');
         $categories = Category::get()->toTree();
 
         return view('backoffice.category.update', compact('category', 'categories'));
@@ -83,6 +89,12 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         $category->update($request->all());
+
+        // Cover
+        if ($request->hasFile('cover')) {
+            $category->clearMediaCollection('category');
+            $category->addMedia($request->file('cover'))->toMediaCollection('category');
+        }
 
         return redirect()
                 ->route('category.edit', ['category' => $category->id])
