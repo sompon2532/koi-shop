@@ -23,6 +23,7 @@ class ProductController extends Controller
     public function getIndex()
     {
         $categories = Category::active()->get()->toTree();
+        $menus = Category::active()->where('group', 'product')->where('parent_id', null)->with(['media'])->get()->toTree();
         $products = Product::active()->paginate(20);
 
         if(Auth::user()){
@@ -36,16 +37,18 @@ class ProductController extends Controller
             }]);
         }
 
-        return view('frontend.shop.index', compact('products', 'categories'));
+        if (count($menus)>0) {
+            return view('frontend.shop.menu', compact('menus', 'categories'));
+        } else {
+            return view('frontend.shop.index', compact('products', 'categories'));
+        }
     }
 
     public function getProductCategory(Category $category)
     {   
         $categories = Category::active()->get()->toTree();
-        $products = Product::active()
-                            ->with('media')
-                            ->where('category_id', $category->id)
-                            ->paginate(20);
+        $menus = Category::active()->where('parent_id', $category->id)->with(['media'])->get()->toTree();
+        $products = Product::active()->with('media')->where('category_id', $category->id)->paginate(20);
 
         if(Auth::user()){
             $user = User::find(Auth::user()->id);
@@ -58,7 +61,11 @@ class ProductController extends Controller
             }]);
         }
 
-        return view('frontend.shop.category', compact('products', 'category', 'categories'));
+        if (count($menus)>0) {
+            return view('frontend.shop.menu', compact('menus', 'category', 'categories'));
+        } else {
+            return view('frontend.shop.category', compact('products', 'category', 'categories'));
+        }
     }
 
     public function getDetail(Product $product)

@@ -23,14 +23,54 @@
         
         <div class="col-md-12">
             <div class="title-box">
-                <h1>PRODUCT</h1>
+                <h1>{{ $product->name }}</h1>
             </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="menu-box">
+                <div class="thumbnail">
+                    @if(count($product->media)>0)
+                        @foreach($product->media as $media)
+                            <div>
+                                <a class="example-image-link" href="{{ $media->getUrl() }}" data-lightbox="thumb-1">
+                                    <img src="{{ asset($product->media->where('collection_name', 'product')->first()->getUrl()) }}" alt="..." class="img-responsive" style="max-height:200px;"> 
+                                </a>
+                            </div>
+                        @endforeach
+                    @else
+                        <img src="{{ asset('frontend/src/img/default-product.jpg') }}" alt="..." class="img-responsive img-thumbnail">
+                    @endif
+                    <div class="menu-title-box text-center">
+                        <p>{{$product->name}}</p>                                        
+                    </div>
+                </div>
+            </div>
+            {{--<!-- @if(count($product->media)>0)
+                @foreach($product->media as $media)
+                    <div>
+                        <a class="example-image-link" href="{{ $media->getUrl() }}" data-lightbox="thumb-1">
+                            <img class="example-image img-thumbnail" src="{{ $media->getUrl() }}" alt="..." style="">
+                        </a>
+                    </div>
+                @endforeach
+            @else
+                <img src="{{ asset('frontend/src/img/default-product.jpg') }}" alt="..." class="img-responsive img-thumbnail">
+            @endif -->--}}
+        </div>
+        <div class="col-md-9 text-left">
+            <p class="text-thick" style="color:#999;">
+                {{ trans('product.code') }}: {{ $product->id }}</p>
+            <p class="text-red text-thick">
+                {{ trans('product.price') }}: {{ number_format($product->price) }} {{ trans('product.thb') }}</p>
+            <p>
+                <span class="text-thick">{{ trans('product.detail') }}:</span> {{ $product->description }}</p>
         </div>
 
         {{-- <!-- <h3 class="text-red"> SAKAI </h3>
         <P>KOI > KOI  IN JAPAN > SAKAI > {{ $products->name }}</P> --> --}}
 
-        <div class="col-md-12">
+        {{--<!-- <div class="col-md-12">
             <br>
             <div class="col-md-3 col-md-offset-3">
                 <div class="slider slider-for">
@@ -141,7 +181,7 @@
                     </section>                                        
                 </div>
             </div>
-        @endif
+        @endif -->--}}
 
     </div>
 </div>

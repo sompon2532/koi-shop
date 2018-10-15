@@ -17,10 +17,8 @@ class KoiController extends Controller
     public function getIndex()
     {
         $categories = Category::active()->get()->toTree();
-        $kois = Koi::active()
-                    ->with(['media'])
-                    ->where('event_id', null)
-                    ->paginate(20);
+        $menus = Category::active()->where('group', 'koi')->where('parent_id', null)->with(['media'])->get()->toTree();
+        $kois = Koi::active()->with(['media'])->where('event_id', null)->paginate(20);
 
         if(Auth::user()){
             $user = User::find(Auth::user()->id);
@@ -32,13 +30,18 @@ class KoiController extends Controller
                 $query->where('user_id', 0)->where('favorite_type', 'App\Models\Koi');
             }]);
         }
-
-        return view('frontend.koi.index', compact('kois','categories'));
+        
+        if (count($menus)>0) {
+            return view('frontend.koi.menu', compact('menus', 'categories'));
+        } else {
+            return view('frontend.koi.index', compact('kois','categories'));
+        }
     }
 
     public function getKoiCategory(Category $category)
     {
         $categories = Category::active()->get()->toTree();
+        $menus = Category::active()->where('parent_id', $category->id)->with(['media'])->get()->toTree();
         $kois = Koi::active()
                     ->with(['media'])
                     ->where('category_id', $category->id)
@@ -56,7 +59,11 @@ class KoiController extends Controller
             }]);
         }
 
-        return view('frontend.koi.category', compact('kois', 'category', 'categories'));
+        if (count($menus)>0) {
+            return view('frontend.koi.menu', compact('menus', 'category', 'categories'));
+        } else {
+            return view('frontend.koi.category', compact('kois', 'category', 'categories'));
+        }
     }
 
     public function getDetail(Koi $koi)

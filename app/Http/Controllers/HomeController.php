@@ -8,6 +8,8 @@ use App\Models\News;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Banner;
+use App\Models\Home;
+use App\Models\Menu;
 use Carbon\Carbon;
 use Calendar;
 
@@ -142,8 +144,15 @@ class HomeController extends Controller
             ],
             'eventLimit' => 0,
         ]);
+
+        $home = Home::first();
+
+        $menus = Menu::with('media')
+            ->orderBy('seq')
+            ->orderBy('updated_at', 'desc')
+            ->get();
         
-        return view('frontend.index', compact('nownews', 'nowEvents', 'categories', 'calendar', 'banners'));
+        return view('frontend.index', compact('nownews', 'nowEvents', 'categories', 'calendar', 'banners', 'home', 'menus'));
     }
 
     public function getAboutUs()

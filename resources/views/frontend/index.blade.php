@@ -16,7 +16,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-sm-4 col-md-3">
+    {{--<!-- <div class="col-sm-4 col-md-3">
         <div class="menu-sidebar">
             <div>
                 <h1 class="text-center text-red">PRODUCT</h1>
@@ -80,14 +80,23 @@
 
         <div class="stat-box text-center">
             <p class="text-red">Visitor</p>
-            {{--<!-- <a href="https://smallseotools.com/visitor-hit-counter/" target="_blank" title="Web Counter" class="text-center"> -->--}}
-            <img src="https://smallseotools.com/counterDisplay?code=144479ab1d4d4565329f7d9df6eaf5fe&style=0013&pad=5&type=page&initCount=1000"  title="Web Counter" Alt="Web Counter" border="0">
-            {{--<!-- </a> -->--}}
+            <a href="https://smallseotools.com/visitor-hit-counter/" target="_blank" title="Web Counter" class="text-center">
+                <img src="https://smallseotools.com/counterDisplay?code=144479ab1d4d4565329f7d9df6eaf5fe&style=0013&pad=5&type=page&initCount=1000"  title="Web Counter" Alt="Web Counter" border="0">
+            </a>
         </div> 
 
-    </div>
+    </div> -->--}}
 
-    <div class="col-sm-8 col-md-9">
+    <!-- <div class="col-sm-8 col-md-9"> -->
+    @if($home->video)
+    <div class="col-md-12">
+        <div class="text-center" style="margin-bottom: 15px">
+            {!! $home->video !!}
+        </div>
+    </div>
+    @endif
+
+    <div class="col-md-12">
 
         @if(count($nownews)>0)
             <div class="slide-box">
@@ -178,6 +187,27 @@
         @endif
 
     </div>
+</div>
+
+<div class="row">
+    @foreach($menus as $menu)
+        <div class="col-xs-6 col-sm-3 col-md-3">
+            <div class="menu-box">
+                <a href="{{$menu->url}}">
+                    <div class="thumbnail">
+                        @if(count($menu->media)>0)
+                            <img src="{{ asset($menu->media->where('collection_name', 'menu')->first()->getUrl()) }}" alt="..." class="img-responsive" style="max-height:150px;"> 
+                        @else
+                            <img src="{{ asset('frontend/src/img/default-product.jpg') }}" alt="..." class="img-responsive" style="max-height:150px;"> 
+                        @endif
+                        <div class="menu-title-box text-center">
+                            <p>{{$menu->name}}</p>                                        
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    @endforeach
 </div>
 @endsection
 

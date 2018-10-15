@@ -5,7 +5,7 @@ return [
     'total' => 'TOTAL',
 	'btn-detail' => 'DETAIL',
 	'no-koi' => 'NO KOIS IN THIS CATEGORY!',
-    
+	
 	'owner' => 'OWNER',
 	'price' => 'PRICE',
 	'thb' => 'THB',
