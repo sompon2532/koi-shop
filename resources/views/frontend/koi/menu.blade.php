@@ -32,7 +32,7 @@
 
 		<!-- <div class="col-md-12"> -->
 			@foreach($menus as $menu)
-				<div class="col-xs-6 col-sm-3 col-md-3">
+				<div class="col-xs-12 col-sm-6 col-md-3">
 					<div class="menu-box">
 						<a href="{{ route('frontend.koi.category', ['category' => $menu->id]) }}">
 							<div class="thumbnail">
