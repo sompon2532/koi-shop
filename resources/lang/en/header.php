@@ -23,4 +23,6 @@ return [
 
 	'about' => 'ABOUT US',
 	'contact' => 'CONTACT US',
+	'news' => 'NEWS',
+
 ];
