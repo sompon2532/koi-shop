@@ -91,7 +91,10 @@
     @if($home->video)
     <div class="col-md-12">
         <div class="text-center" style="margin-bottom: 15px">
+        <!-- 16:9 aspect ratio -->
+            <div class="embed-responsive embed-responsive-16by9">
             {!! $home->video !!}
+            </div>
         </div>
     </div>
     @endif
