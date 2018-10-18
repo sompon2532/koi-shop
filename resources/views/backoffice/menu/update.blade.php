@@ -4,7 +4,7 @@
 
 @section('head')
     <h1>
-        ข่าวสาร
+        จัดการเมนู
         <small>แก้ไข</small>
     </h1>
     <ol class="breadcrumb">
