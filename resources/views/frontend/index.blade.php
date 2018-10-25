@@ -194,7 +194,7 @@
 
 <div class="row">
     @foreach($menus as $menu)
-        <div class="col-sm-6 col-md-3 zoom">
+        <div class="col-xs-6 col-sm-6 col-md-3 zoom">
             <div class="menu-box ">
                 <a href="{{$menu->url}}">
                     <div class="thumbnail">
