@@ -10,11 +10,26 @@
 @section('content')
     <div class="events content-box text-center">
         <div class="row"> 
-            <div class="col-md-12">
+            {{--<!-- <div class="col-md-12">
                 <div class="title-box">
                     <h1>{{ trans('event.events') }}</h1>
                 </div>
+            </div> -->--}}
+
+            <div class="col-md-12">
+                <div class="title-lf">
+                    <img class="img-responsive" src="{{ asset('frontend/src/img/Title-left.png') }}">
+                </div>
+                <div class="title-m">
+                    <div class="title-inm">
+                        <h1 class="text-thick">EVENT</h1>
+                    </div>
+                </div>
+                <div class="title-rg">
+                    <img class="img-responsive" src="{{ asset('frontend/src/img/Title-right.png') }}">
+                </div>
             </div>
+
 
             @if(count($kois) > 0)
                 <div class="col-md-12">
@@ -29,7 +44,7 @@
                                         @foreach($kois->media as $media)
                                             <div>
                                                 <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
-                                                    <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="..." style="">
+                                                    <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="{{$kois->name}}">
                                                 </a>
                                             </div>
                                         @endforeach
@@ -38,15 +53,17 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="col-md-12 slide-show">
-                                <div class="item">
-                                    <div class="slider slider-nav">
-                                        @foreach($kois->media as $media)
-                                            <img src="{{ asset($media->getUrl()) }}" class="img-responsive" style="">    
-                                        @endforeach
-                                    </div>
-                                </div> 
-                            </div>
+                            @if(count($kois->media)>1)
+                                <div class="col-md-12 slide-show">
+                                    <div class="item">
+                                        <div class="slider slider-nav">
+                                            @foreach($kois->media as $media)
+                                                <img src="{{ asset($media->getUrl()) }}" class="img-responsive">    
+                                            @endforeach
+                                        </div>
+                                    </div> 
+                                </div>
+                            @endif
                         </div>
 
                         <div class="show-max-768px hide-min-768px">

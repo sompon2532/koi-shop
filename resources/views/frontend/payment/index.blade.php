@@ -15,9 +15,18 @@
 @section('content')
 <div class="content-box">
     <div class="row"> 
-
-        <div class="title-box text-center">
-            <h1>{{ trans('payment.payment') }}</h1>
+        <div class="col-md-12 text-center">
+            <div class="title-lf">
+                <img class="img-responsive" src="{{ asset('frontend/src/img/Title-left.png') }}">
+            </div>
+            <div class="title-m">
+                <div class="title-inm">
+                    <h1 class="text-thick">PAYMENT</h1>
+                </div>
+            </div>
+            <div class="title-rg">
+                <img class="img-responsive" src="{{ asset('frontend/src/img/Title-right.png') }}">
+            </div>
         </div>
 
         <div class="text-left">

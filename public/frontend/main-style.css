@@ -119,6 +119,12 @@ footer a:hover {
     background-image: linear-gradient(to right, #000, #666, #000);
 }
 
+.zoom:hover {
+    transform: scale(1.25);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    z-index: 500;
+}
+
 
 /* menu box */
 
@@ -358,6 +364,41 @@ span.fc-day-number {
     font-weight: 900;
     text-shadow: 0 0 10px #333;
     margin-top: 10px;
+}
+
+.title-lf,
+.title-rg {
+    display: inline-block;
+    width: 135px;
+    height: 135px;
+}
+
+.title-m {
+    position: relative;
+    display: inline-block;
+    height: 135px;
+}
+
+.title-inm {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title-lf>img {
+    max-height: 135px;
+    float: right;
+}
+
+.title-inm>h1 {
+    display: table;
+    top: 50%;
+    margin-top: 10px;
+}
+
+.title-rg>img {
+    max-height: 135px;
 }
 
 .text-red {

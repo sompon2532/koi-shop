@@ -10,14 +10,22 @@
 <div class="content-box">
     <div class="row">
 
-        <div class="col-md-12">
-            <div class="title-box text-center">
-                <h1>{{ trans('user.favorite') }}</h1>
+        <div class="col-md-12 text-center">
+            <div class="title-lf">
+                <img class="img-responsive" src="{{ asset('frontend/src/img/Title-left.png') }}">
+            </div>
+            <div class="title-m">
+                <div class="title-inm">
+                    <h1 class="text-thick">MY FAVORITE</h1>
+                </div>
+            </div>
+            <div class="title-rg">
+                <img class="img-responsive" src="{{ asset('frontend/src/img/Title-right.png') }}">
             </div>
         </div>
 
         <div class="col-md-8 col-md-offset-2">
-            @if(count($favorites) < 0)
+            @if(count($favorites) > 0)
 
                 <div class="table-responsive">
                     <table class="table">

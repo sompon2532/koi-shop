@@ -17,8 +17,16 @@
 <div class="content-box text-center">
 	<div class="row"> 
 		<div class="col-md-12">
-			<div class="title-box">
-				<h1>KOI PRODUCT</h1>
+			<div class="title-lf">
+				<img class="img-responsive" src="{{ asset('frontend/src/img/Title-left.png') }}">
+			</div>
+			<div class="title-m">
+				<div class="title-inm">
+					<h1 class="text-thick">KOI PRODUCT</h1>
+				</div>
+			</div>
+			<div class="title-rg">
+				<img class="img-responsive" src="{{ asset('frontend/src/img/Title-right.png') }}">
 			</div>
 		</div>
 

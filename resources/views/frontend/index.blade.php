@@ -194,14 +194,14 @@
 
 <div class="row">
     @foreach($menus as $menu)
-        <div class="col-xs-12 col-sm-6 col-md-3">
-            <div class="menu-box">
+        <div class="col-sm-6 col-md-3 zoom">
+            <div class="menu-box ">
                 <a href="{{$menu->url}}">
                     <div class="thumbnail">
                         @if(count($menu->media)>0)
-                            <img src="{{ asset($menu->media->where('collection_name', 'menu')->first()->getUrl()) }}" alt="..." class="img-responsive" style="max-height:150px;"> 
+                            <img src="{{ asset($menu->media->where('collection_name', 'menu')->first()->getUrl()) }}" alt="..." class="img-responsive"> 
                         @else
-                            <img src="{{ asset('frontend/src/img/default-product.jpg') }}" alt="..." class="img-responsive" style="max-height:150px;"> 
+                            <img src="{{ asset('frontend/src/img/default-menu.jpg') }}" alt="..." class="img-responsive" style="max-height:760px;"> 
                         @endif
                         <div class="menu-title-box text-center">
                             <p>{{$menu->name}}</p>                                        

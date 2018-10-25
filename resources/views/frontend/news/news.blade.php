@@ -7,10 +7,22 @@
 <div class="content-box text-center">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="text-red">{{ $news->name }}</h2>
+            <div class="title-lf">
+                <img class="img-responsive" src="{{ asset('frontend/src/img/Title-left.png') }}">
+            </div>
+            <div class="title-m">
+                <div class="title-inm">
+                    <h1 class="text-thick">{{ $news->name }}</h1>
+                </div>
+            </div>
+            <div class="title-rg">
+                <img class="img-responsive" src="{{ asset('frontend/src/img/Title-right.png') }}">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <!-- <h2 class="text-red">{{ $news->name }}</h2> -->
             @if(count($news->media->where('collection_name', 'news')) > 0 )
                 @foreach($news->media->where('collection_name', 'news') as $image)
-                    {{--dd($news)--}}
                     <img src="{{ $image->getUrl() }}" alt="..." class="img-thumbnail img-responsive" style="width:100%;margin:10px;">
                 @endforeach
             @endif

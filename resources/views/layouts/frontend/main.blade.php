@@ -54,7 +54,7 @@
                 </div>
             </div>
         </footer>
-        @yield('branner')
+        {{--<!-- @yield('branner') -->--}}
     </div>
 
     <!-- Jquery -->

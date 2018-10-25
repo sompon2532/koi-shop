@@ -9,11 +9,21 @@
 @section('content')
 <div class="content-box">
     <div class="row"> 
-        <div class="col-md-12">
-            <div class="title-box text-center">
-                <h1>PAYMENT</h1>
+    
+        <div class="col-md-12 text-center">
+            <div class="title-lf">
+                <img class="img-responsive" src="{{ asset('frontend/src/img/Title-left.png') }}">
+            </div>
+            <div class="title-m">
+                <div class="title-inm">
+                    <h1 class="text-thick">PAYMENT</h1>
+                </div>
+            </div>
+            <div class="title-rg">
+                <img class="img-responsive" src="{{ asset('frontend/src/img/Title-right.png') }}">
             </div>
         </div>
+
         <div class="col-md-12">
             <div class="info-box-center">
                 <table class="table-none-border">
@@ -37,10 +47,6 @@
                         <td class="text-right text-top" valign="top">ADDRESS :</td>
                         <td> {{ $order->address }}</td>
                     </tr>
-                    <!-- <tr>
-                        <td class="text-right">E-MAIL : </td>
-                        <td class="text-left">XXXXXXXXX@gmail.com</td>
-                    </tr> -->
                     <tr>
                         <td class="text-right text-top">TEL : </td>
                         <td> {{ $order->tel }}</td>

@@ -174,7 +174,10 @@ class ProductController extends Controller
         $total = $cart->totalPrice;
         $images = Product::with('media')->get();
         $user = User::find(Auth::user()->id);
-        
+        $user->load(['address' => function($query)  use($user){
+            $query->where('user_id', $user->id);
+        }]);
+
         return view('frontend.shop.checkout', [
             'products' => $cart->items, 
             'totalShip' => $cart->totalShip, 

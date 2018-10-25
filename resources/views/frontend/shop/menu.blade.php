@@ -17,8 +17,16 @@
 <div class="content-box text-center">
 	<div class="row"> 
 		<div class="col-md-12">
-			<div class="title-box">
-				<h1>{{ trans('header.koi-products') }}</h1>
+			<div class="title-lf">
+				<img class="img-responsive" src="{{ asset('frontend/src/img/Title-left.png') }}">
+			</div>
+			<div class="title-m">
+				<div class="title-inm">
+					<h1 class="text-thick">KOI PRODUCT</h1>
+				</div>
+			</div>
+			<div class="title-rg">
+				<img class="img-responsive" src="{{ asset('frontend/src/img/Title-right.png') }}">
 			</div>
 		</div>
 		
@@ -30,26 +38,24 @@
 			</div>
 		@endif
 
-		<!-- <div class="col-md-12"> -->
-			@foreach($menus as $menu)
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="menu-box">
-						<a href="{{ route('frontend.shop.category', ['category' => $menu->id]) }}">
-							<div class="thumbnail">
-								@if(count($menu->media)>0)
-									<img src="{{ asset($menu->media->where('collection_name', 'category')->first()->getUrl()) }}" alt="..." class="img-responsive" style="max-height:150px;"> 
-								@else
-									<img src="{{ asset('frontend/src/img/default-product.jpg') }}" alt="..." class="img-responsive" style="max-height:150px;"> 
-								@endif
-								<div class="menu-title-box text-center">
-									<p>{{$menu->name}}</p>                                        
-								</div>
+		@foreach($menus as $menu)
+			<div class="col-xs-12 col-sm-6 col-md-3">
+				<div class="menu-box">
+					<a href="{{ route('frontend.shop.category', ['category' => $menu->id]) }}">
+						<div class="thumbnail">
+							@if(count($menu->media)>0)
+								<img src="{{ asset($menu->media->where('collection_name', 'category')->first()->getUrl()) }}" class="img-responsive"> 
+							@else
+								<img src="{{ asset('frontend/src/img/default-product.jpg') }}" class="img-responsive"> 
+							@endif
+							<div class="menu-title-box text-center">
+								<p>{{$menu->name}}</p>                                        
 							</div>
-						</a>
-					</div>
+						</div>
+					</a>
 				</div>
-			@endforeach
-		<!-- </div> -->
+			</div>
+		@endforeach
 	</div>
 </div>
 @endsection

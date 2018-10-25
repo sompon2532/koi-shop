@@ -41,17 +41,25 @@ class UserController extends Controller
 
     public function postProfile(Request $request)
     {
+        $categories = Category::active()->get()->toTree();
         $inputs = $request->all();
-        dd($inputs);
+        // dd($inputs);
         $user = User::find(Auth::user()->id);
         $address = Address::where('user_id', Auth::user()->id)->first();
 
         $user->update($inputs);
-        $address->update($inputs);
 
-        dd($address);
-        
-        return view('frontend.user.profile', compact('categories', 'user'));
+        if($address){
+            $address->update($inputs);
+        } else {
+            $inputs['user_id'] = Auth::user()->id;
+            $address = Address::create($inputs);
+        }
+        if($address){
+            return redirect()->back()->with('success', 'Successfully Edit Profile');
+        } else {
+            return redirect()->back()->with('error', 'Error can not edit profile');
+        }
     }
 
     public function getChangePasswordForm()
@@ -101,7 +109,7 @@ class UserController extends Controller
         $products->load(['favorite' => function($query) use($user) {
             $query->where('user_id', $user->id)->where('favorite_type', 'App\Models\Product');
         }]);
-
+// dd($kois);
         return view('frontend.user.favorite', compact('favorites', 'products', 'kois', 'categories'));
     }
 

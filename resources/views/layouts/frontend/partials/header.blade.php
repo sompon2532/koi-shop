@@ -57,7 +57,10 @@
         <div class="top-logo">
             <div class="container">
                 <!-- <img src="{{ asset('frontend/src/img/LOGO-header.jpg') }}" class="img-responsive center" alt="" > -->
-                <img src="{{ asset('frontend/src/img/LOGO-header.jpg') }}" class="img-responsive" alt="" >
+                <!-- <img src="{{ asset('frontend/src/img/LOGO-header.jpg') }}" class="img-responsive" alt="" > -->
+                <a class="{{ Request::segment(1) == ''  ? 'text-red' : '' }}" href="{{ url('/') }}">
+                    <img src="{{ asset('frontend/src/img/AW-KOIKICHIFISHFARM-BANNER-2682x610PX.jpg')}}" class="img-responsive" alt="KOIKICHIFISHFARM" title="KOIKICHI FISH FARM">
+                </a>
             </div>
         </div>
 
@@ -77,11 +80,11 @@
                     <div class="collapse navbar-collapse" id="app-navbar-collapse">
                         <ul class="nav navbar-nav navbar-center">
 
-                            <li><a class="{{ Request::segment(1) == ''  ? 'text-red' : '' }}" href="{{ url('/') }}">{{ trans('header.home') }}</a></li>
+                            <li><a class="{{ Request::segment(1) == ''  ? 'text-red' : '' }}" href="{{ url('/') }}">HOME</a></li>
 
                             @if(count($categories->where('group', 'koi')) > 0)
                                 <li class="dropdown  {{ Request::segment(0) == 'koi'  ? 'text-red' : '' }}">
-                                    <a class="{{ Request::segment(1) == 'koi'  ? 'text-red' : '' }}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ trans('header.koi') }}<span class="caret"></a>
+                                    <a class="{{ Request::segment(1) == 'koi'  ? 'text-red' : '' }}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KOI<span class="caret"></a>
                                     <ul class="dropdown-menu">
                                         @php
                                             $traverse = function ($categories, $prefix = '') use (&$traverse) {
@@ -104,12 +107,12 @@
                                     </ul> 
                                 </li>
                             @else
-                                <li><a class="{{ Request::segment(1) == 'koi'  ? 'text-red' : '' }}" href="{{ route('frontend.koi.index') }}">{{ trans('header.koi') }}</a></li>                                
+                                <li><a class="{{ Request::segment(1) == 'koi'  ? 'text-red' : '' }}" href="{{ route('frontend.koi.index') }}">KOI</a></li>                                
                             @endif 
 
                             @if(count($categories->where('group', 'product')) > 0)
                                 <li class="dropdown  {{ Request::segment(0) == 'koi'  ? 'text-red' : '' }}">
-                                    <a class="{{ Request::segment(1) == 'product'  ? 'text-red' : '' }}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ trans('header.koi-products') }}<span class="caret"></a>
+                                    <a class="{{ Request::segment(1) == 'product'  ? 'text-red' : '' }}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KOI PRODUCT<span class="caret"></a>
                                     <ul class="dropdown-menu">
                                         @php
                                             $traverse = function ($categories, $prefix = '') use (&$traverse) {
@@ -132,14 +135,16 @@
                                     </ul>
                                 </li>
                             @else
-                                <li><a class="{{ Request::segment(1) == 'product'  ? 'text-red' : '' }}" href="{{ route('frontend.shop.index') }}">{{ trans('header.koi-products') }}</a></li>                                
+                                <li><a href="{{ route('frontend.shop.index') }}" class="{{ Request::segment(1) == 'product'  ? 'text-red' : '' }}">KOI PRODUCT</a></li>                                
                             @endif 
 
-                            <li><a href="http://www.koikichi-auction.com/" target="_blank">{{ trans('header.online-auction') }}</a></li>
-                            <li><a class="{{-- Request::segment(1) == 'event'  ? 'text-red' : '' --}}" href="{{ url('/event') }}">{{ trans('header.events') }}</a></li>
-                            {{-- <!-- <li><a class="{{ Request::segment(1) == 'hall-of-fame'  ? 'text-red' : '' }}" href="{{ url('/hall-of-fame') }}">{{ trans('header.hall-of-fame') }}</a></li> --> --}}
-                            <li><a href="{{ route("frontend.hall-of-fame.index") }}">{{ trans('header.hall-of-fame') }}</a></li>
-                            <li><a class="{{ Request::segment(1) == 'payment'  ? 'text-red' : '' }}" href="{{ url('/payment') }}">{{ trans('header.payment') }}</a></li>
+                            <li><a href="#" target="_blank">NEWS</a></li>
+                            <li><a href="{{ url('/event') }}" class="{{ Request::segment(1) == 'event'  ? 'text-red' : ''}}">EVENT</a></li>
+                            <li><a href="http://www.koikichi-auction.com/" target="_blank">ONLINE OCTION</a></li>
+                            <li><a href="{{ route("frontend.hall-of-fame.index") }}" class="{{ Request::segment(1) == 'hall-of-fame'  ? 'text-red' : ''}}">HALL OF FAME</a></li>
+                            <li><a href="{{ url('/payment') }}" class="{{ Request::segment(1) == 'payment'  ? 'text-red' : '' }}">PAYMENT</a></li>
+                            <li><a href="{{ url('/about') }}" class="{{ Request::segment(1) == 'about'  ? 'text-red' : '' }}">ABOUT US</a></li>
+                            <li><a href="{{ url('/contact') }}" class="{{ Request::segment(1) == 'contact'  ? 'text-red' : '' }}">CONTACT US</a></li>
                             
                         </ul>
                     </div>

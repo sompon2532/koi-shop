@@ -1,21 +1,33 @@
-@section('page_title', 'MY BOOKKING')
+{{--<!-- @extends('frontend.layouts.master') -->--}}
+@extends('layouts.frontend.main')
 
-@extends('frontend.layouts.master')
+@section('page_title', 'MY BOOKKING')
 
 @section('custom-css')
 @endsection
 
 @section('content')
-<section id="main">
-    <div class="container">
+<!-- <section id="main"> -->
+    <div class="content-box text-center">
         <div class="row"> 
-            <div class="col-md-12 main-content text-center">
-                <!-- <div class=""> -->
-                <div class="title-box">
-                    <h1>{{ trans('user.mybooking') }}</h1>
+            <!-- <div class="col-md-12 main-content text-center"> -->
+
+                <div class="col-md-12">
+                    <div class="title-lf">
+                        <img class="img-responsive" src="{{ asset('frontend/src/img/Title-left.png') }}">
+                    </div>
+                    <div class="title-m">
+                        <div class="title-inm">
+                            <h1 class="text-thick">MY BOOKING</h1>
+                        </div>
+                    </div>
+                    <div class="title-rg">
+                        <img class="img-responsive" src="{{ asset('frontend/src/img/Title-right.png') }}">
+                    </div>
                 </div>
-                <div class="content-box">
-                    <div class="row">
+                
+                <!-- <div class="content-box">
+                    <div class="row"> -->
                         <div class="col-md-12">
                             @if(count($kois) > 0 )
                                 @foreach($koisActiveEvent as $koi)
@@ -48,11 +60,11 @@
                                 <h1 class="text-red">{{ trans('user.no-booking') }}</h1>
                             @endif
                         </div>
-                    </div> 
-                </div>
+                    <!-- </div> 
+                </div> -->
                 <!-- </div> -->
-            </div>
+            <!-- </div> -->
         </div>
     </div>
-</section>
+<!-- </section> -->
 @endsection
