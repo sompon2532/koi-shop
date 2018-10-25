@@ -75,9 +75,9 @@
 							@endif
 							<div class="caption">
 								<p class="text-red text-name">{{ $koi->name }}</P>
-                                <p>{{ trans('koi.code')}} : {{ $koi->koi_id }}</p>
+                                <p>CODE : {{ $koi->koi_id }}</p>
                                 <a class="btn btn-white" href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">
-                                    {{ trans('koi.btn-detail')}}
+                                    DETAIL
                                 </a>
                             </div>
 						</div>
@@ -86,7 +86,7 @@
 
 				<div class="col-md-12">
                     {{ $kois->links() }}
-                    <p class="text-red text-right"> {{ trans('koi.total')}} : {{ count($kois) }} </p>
+                    <p class="text-red text-right"> TOTAL : {{ count($kois) }} </p>
                 </div>
 			@else
 				<h1>No koi in Category!</h1>

@@ -51,18 +51,18 @@
 							<div class="img-item-box thumbnail">
 								<a href="{{ route('frontend.shop.detail', ['id' => $product->id]) }}">
 									@if(count($product->media) > 0)
-										<img src="{{ asset($product->media->first()->getUrl()) }}" alt="..." class="img-responsive" style="max-height:150px;">
+										<img src="{{ asset($product->media->first()->getUrl()) }}" alt="{{ $product->name }}" class="img-responsive" style="max-height:150px;">
 									@else
-										<img src="{{ asset('frontend/src/img/default-product.jpg') }}" alt="..." class="img-responsive" style="max-height:150px;">                                                
+										<img src="{{ asset('frontend/src/img/default-product.jpg') }}" class="img-responsive" style="max-height:150px;">                                                
 									@endif
 								</a>
 							</div>
 							@if(count($product->favorite)>0)
 								<div class="star-label">
-									<form action="{{ route('frontend.user.favorite-del', ['id' => $product->id, 'type' => 'App\Models\Product']) }}" method="GET" style="">  
+									<form action="{{ route('frontend.user.favorite-del', ['id' => $product->id, 'type' => 'App\Models\Product']) }}" method="GET">  
 
 										<button type="submit" class="btn btn-favorite">
-											<img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
+											<img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="UNFAVORITE" style="max-height:50px;">    
 										</button> 
 										{{ csrf_field() }}
 									</form>
@@ -73,7 +73,7 @@
 										<input type="hidden" name="item" value="{{ $product->id }}">
 										<input type="hidden" name="type" value="App\Models\Product">
 										<button type="submit" class="btn btn-favorite">
-											<img class="" src="{{ asset('frontend/src/img/favorite.png') }}" alt="..." style="max-height:50px;">    
+											<img class="" src="{{ asset('frontend/src/img/favorite.png') }}" alt="FAVORITE" style="max-height:50px;">    
 										</button> 
 										{{ csrf_field() }}
 									</form>
@@ -81,15 +81,15 @@
 							@endif
 							<div class="caption">
 								<p class="text-red item-name">{{ $product->name }}</P>
-								<p>{{ trans('product.code') }} : {{ $product->product_id }}</p>
-								<a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">{{ trans('product.btn-order') }}</a>
+								<p>CODE : {{ $product->product_id }}</p>
+								<a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">ORDER</a>
 							</div>
 						</div>
 					</div>
 				@endforeach
 				<div class="col-md-12">
 					{{ $products->links() }}
-					<p class="text-red text-right"> {{ trans('product.total')}} : {{ count($products) }} </p>
+					<p class="text-red text-right"> TOTAL : {{ count($products) }} </p>
 				</div>
 			@else
 				<h1>No Product in Category!</h1>

@@ -92,7 +92,7 @@
 
 
             <div class="col-md-12"> 
-                <p class="text-red text-right">{{ trans('event.total') }} : {{ count($events) }}</p>
+                <p class="text-red text-right">TOTAL : {{ count($events) }}</p>
             </div>
 
         </div>

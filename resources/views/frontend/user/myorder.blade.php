@@ -46,12 +46,12 @@
                         <div class="title-info-box">
                             <div class="row">
                                 <div class="col-md-8">
-                                    <p>{{ trans('user.order-num') }} : #{{ $order->id }}</p>
-                                    <p>{{ trans('user.date') }} : {{ $order->created_at->format('d/m/Y') }}</p>
+                                    <p>ORDER NO. : #{{ $order->id }}</p>
+                                    <p>DATE : {{ $order->created_at->format('d/m/Y') }}</p>
                                 </div>
                                 <div class="col-md-4 text-right">
-                                    {!! $order->transaction->status == 0 ? "<p class='text-red'>ยังไม่ชำระเงิน</p>" : "รอการตรวจสอบ"!!} 
-                                    <p>{{ trans('user.total') }} : {{ number_format($order->total) }} {{ trans('user.thb') }}</p>
+                                    {!! $order->transaction->status == 0 ? "<p class='text-red'>NOT PAID</p>" : "WAITING FOR INSPECTION"!!} 
+                                    <p>TOTAL : {{ number_format($order->total) }} THB</p>
                                 </div>
                             </div>
                         </div>
@@ -64,21 +64,21 @@
                                     <div class="col-md-6 orders-detail">
                                         <div class="col-md-4">
                                             @if(count($product->media)>0)
-                                                <img class="img-thumbnail" src="{{ $product->media->first()->getUrl() }}" alt="...">
+                                                <img class="img-thumbnail" src="{{ $product->media->first()->getUrl() }}" alt="{{ $product->name }}">
                                             @else
-                                                <img class="img-thumbnail" src="{{ asset('frontend/src/img/default-koi.jpg') }}" alt="..." style="max-height:150px;">
+                                                <img class="img-thumbnail" src="{{ asset('frontend/src/img/default-koi.jpg') }}" style="max-height:150px;">
                                             @endif
                                         </div>
                                         <div class="col-md-8">
                                             <p class="text-red">{{ $product->name }}</p>
-                                            <p>{{ trans('user.code') }} : {{ $product->id }}</p>
+                                            <p>CODE : {{ $product->id }}</p>
                                         </div>
                                     </div>
                                 @endforeach
                                 @if($order->transaction->status == 0)
                                     <div class="col-md-12 text-center">
                                         <a class="btn btn-red" href="{{ route('frontend.payment.payment', ['id' => $order->id]) }}">
-                                            {{ trans('user.btn-payment') }}
+                                            PAYMENT
                                         </a>
                                     </div>
                                 @endif

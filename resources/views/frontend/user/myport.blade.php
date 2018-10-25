@@ -35,7 +35,7 @@
                         </div>  
                         <p class="text-red">{{ $koi->name }}</p>
                         <a class="btn btn-white" href="{{ route('frontend.user.myport-koi', ['id' => $koi->id]) }}">
-                            {{ trans('user.btn-detail') }}
+                            DETAIL
                         </a>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="col-md-12">
-                <p class="text-red text-right"> {{ trans('user.total') }} : {{ count($kois) }} </p>
+                <p class="text-red text-right"> TOTAL : {{ count($kois) }} </p>
         </div>                
     </div>
 </div>

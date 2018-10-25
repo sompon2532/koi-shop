@@ -19,12 +19,7 @@
 @section('content')
 
     <div class="content-box text-center">
-        <div class="row"> 
-            {{--<!-- <div class="col-md-12">
-                <div class="title-box">
-                    <h1>{{ $events->name }}</h1>
-                </div>
-            </div> -->--}}
+        <div class="row">
 
             <div class="col-md-12">
                 <div class="title-lf">
@@ -83,7 +78,7 @@
                                     </a>
 
                                     <p class="text-red">{{ $koi->name }}</p>
-                                    <p> {{ trans('event.owner') }} : Koikichi fish farm</p>
+                                    <p> OWNER : Koikichi fish farm</p>
                                     @if($events->config == 1)
                                         @php 
                                             $i=0;
@@ -99,12 +94,12 @@
                                         @endif
                                         @if($i == 1)
                                             <form action="{{ route('frontend.event.bookdel', ['koi' => $koi->id, 'event' => $events->id]) }}" method="GET">
-                                                <button type="submit" class="btn btn-red">{{ trans('event.cancel') }}</button>                                                             
+                                                <button type="submit" class="btn btn-red">CANCEL</button>                                                             
                                                 {{ csrf_field() }}
                                             </form>
                                         @else
                                             <form action="{{ route('frontend.event.bookevent', ['koi' => $koi->id, 'event' => $events->id]) }}" method="GET">
-                                                <button type="submit" class="btn btn-white">{{ trans('event.book_now') }}</button>                                                                                          
+                                                <button type="submit" class="btn btn-white">BOOK NOW</button>                                                                                          
                                                 {{ csrf_field() }}
                                             </form>
                                         @endif

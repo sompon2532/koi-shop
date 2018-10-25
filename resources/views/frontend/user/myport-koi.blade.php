@@ -55,68 +55,68 @@
             <p class="text-red" style="font-weight:bold;">{{ $kois->name }}</p>
             <p class="text-red">{{-- $products->title --}}</p>
             <p>
-                <span class="heading">{{ trans('koi.code') }}</span>
+                <span class="heading">CODE</span>
                 : {{ $kois->koi_id }}</p>
             <p>
-                <span class="heading">{{ trans('koi.price') }}</span>
-                : {{ number_format($kois->price) }} {{ trans('koi.thb')}}</p>
+                <span class="heading">PRICE</span>
+                : {{ number_format($kois->price) }} THB</p>
             <br>
 
-            <p class="text-red">{{ trans('koi.detail')}}</p>
+            <p class="text-red">DETAIL</p>
             <p>
-                <span class="heading">{{ trans('koi.oyagoi') }} </span>
+                <span class="heading">OYAGOI</span>
                 : {{ $kois->oyagoi }} </p>
             <p>
-                <span class="heading">{{ trans('koi.strain') }}</span>
+                <span class="heading">VARIETY</span>
                 : {{ $kois->strain->name }} </p>
             <p>
-                <span class="heading">{{ trans('koi.farm') }}</span>
+                <span class="heading">BREEDER</span>
                 : {{ $kois->farm->name }}</p>
             <p>
-                <span class="heading">{{ trans('koi.born') }} </span>
+                <span class="heading">BORN IN </span>
                 : {{ $kois->born }}</p>
             <p>
-                <span class="heading">{{ trans('koi.storage') }}</span>
+                <span class="heading">KEEPING AT</span>
                 : {{ $kois->store != null ? $kois->store->name : '-' }}</p>
 
             @if(count($kois->sizes) > 0)
                 @foreach($kois->sizes as $sizes)
                     <p>
-                        <span class="heading">{{ trans('koi.size') }}</span>
+                        <span class="heading">SIZE</span>
                         : {{ $sizes->size }} ({{$sizes->date}})</p>
                 @endforeach
             @else
-                <p>{{ trans('koi.size') }} : -</p>
+                <p>SIZE : -</p>
             @endif
 
             <p>
-                <span class="heading">{{ trans('koi.gender')}}</span>
+                <span class="heading">GENDER</span>
                 : {{ $kois->sex }}</p>
             <p>
-                <span class="heading">{{ trans('koi.certificate') }}</span>
-                : {{ $kois->certificate ? trans('koi.yes') : trans('koi.no') }} </p>
+                <span class="heading">CERTIFICATE</span>
+                : {{ $kois->certificate ? 'YES' : 'NO' }} </p>
             
             @if(count($kois->contests) > 0)
                 @foreach($kois->contests as $index => $contests)
                     <p>
-                        <span class="heading">{{ trans('koi.contest') }} {{ $index+1 }}</span>
+                        <span class="heading">PRIZE {{ $index+1 }}</span>
                         : {{ $contests->contest }} ({{$contests->date}})</p>
                 @endforeach
             @else
                 <p>
-                    <span class="heading">{{ trans('koi.contest') }}</span>
+                    <span class="heading">PRIZE</span>
                     : - </p>                                    
             @endif
 
             @if(count($kois->remarks) > 0)
                 @foreach($kois->remarks as $index => $remarks)
                     <p>
-                        <span class="heading">{{ trans('koi.remark') }} {{ $index+1 }}</span>
+                        <span class="heading">REMARK {{ $index+1 }}</span>
                         : {{ $remarks->remark }}</p>
                 @endforeach
             @else
                 <p>
-                    <span class="heading">{{ trans('koi.remark') }}</span>
+                    <span class="heading">REMARK</span>
                     : - </p>  
             @endif
         </div>

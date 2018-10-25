@@ -27,7 +27,7 @@
                             <div class="card text-center" style="margin-bottom:15px">
                                 <a href="{{ route('frontend.news.news', ['value'=>$value->id]) }}" class="text-link">
                                     @if(count($value->media)>0)
-                                        <img src="{{ asset($value->media->where('collection_name', 'news-cover')->first()->getUrl()) }}" alt="..." class="img-responsive">
+                                        <img src="{{ asset($value->media->where('collection_name', 'news-cover')->first()->getUrl()) }}" alt="{{ $value->name }}" class="img-responsive">
                                     @else
                                         <img src="{{ asset('frontend/src/img/default-event-cover.jpg') }}" alt="{{ $value->name }}" class="img-responsive">
                                     @endif

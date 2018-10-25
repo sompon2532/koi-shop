@@ -50,14 +50,14 @@
                                                     {{ csrf_field() }}
                                                 </form>
                                             @else
-                                                <p class="text-red">{{ trans('user.end-of-event') }}</p>
+                                                <p class="text-red">END OF EVENT</p>
                                             @endif
 
                                         </div>
                                     </div> 
                                 @endforeach
                             @else
-                                <h1 class="text-red">{{ trans('user.no-booking') }}</h1>
+                                <h1 class="text-red">NO BOOKING!</h1>
                             @endif
                         </div>
                     <!-- </div> 

@@ -39,7 +39,7 @@
 
                 <div class="text-center">
                     <a class="btn btn-red" href="{{ route('frontend.user.myorder') }}">
-                        {{ trans('payment.btn-my-orders') }}
+                        MY ORDER
                     </a>
                 </div>
             </div>

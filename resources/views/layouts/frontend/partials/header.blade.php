@@ -15,23 +15,23 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             @if (Auth::guest())
-                                <li><a class="{{ Request::segment(1) == 'login'  ? 'text-red' : '' }}" href="{{ route('login') }}">{{ trans('header.login') }}</a></li>
-                                <li><a class="{{ Request::segment(1) == 'register'  ? 'text-red' : '' }}" href="{{ route('register') }}">{{ trans('header.register') }}</a></li>                                           
+                                <li><a class="{{ Request::segment(1) == 'login'  ? 'text-red' : '' }}" href="{{ route('login') }}">LOGIN</a></li>
+                                <li><a class="{{ Request::segment(1) == 'register'  ? 'text-red' : '' }}" href="{{ route('register') }}">REGISTER</a></li>                                           
                             @else
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                         {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{ route('frontend.user.profile') }}"><span class="glyphicon glyphicon-user text-red"></span> {{ trans('header.profile') }}</a></li>                                                
-                                        <li><a href="{{ route('frontend.user.myport') }}"><span class="glyphicon glyphicon-heart text-red"></span> {{ trans('header.myport') }}</a></li>                                                
-                                        <li><a href="{{ route('frontend.user.favorite') }}"><span class="glyphicon glyphicon-star text-red"></span> {{ trans('header.myfavorite') }}</a></li>                                                
-                                        <li><a href="{{ route('frontend.event.booking') }}"><span class="glyphicon glyphicon-bookmark text-red"></span> {{ trans('header.mybooking') }}</a></li>
-                                        <li><a href="{{ route('frontend.user.myorder') }}"><span class="glyphicon glyphicon-list-alt text-red"></span> {{ trans('header.myorders') }}</a></li>
+                                        <li><a href="{{ route('frontend.user.profile') }}"><span class="glyphicon glyphicon-user text-red"></span> PROFILE</a></li>                                                
+                                        <li><a href="{{ route('frontend.user.myport') }}"><span class="glyphicon glyphicon-heart text-red"></span> MY PORT</a></li>                                                
+                                        <li><a href="{{ route('frontend.user.favorite') }}"><span class="glyphicon glyphicon-star text-red"></span> MY FAVORITE</a></li>                                                
+                                        <li><a href="{{ route('frontend.event.booking') }}"><span class="glyphicon glyphicon-bookmark text-red"></span> MY BOOKING</a></li>
+                                        <li><a href="{{ route('frontend.user.myorder') }}"><span class="glyphicon glyphicon-list-alt text-red"></span> MY ORDER</a></li>
                                         <li role="separator" class="divider"></li>
                                         <li>
                                             <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                <span class="glyphicon glyphicon-log-out text-red"></span> {{ trans('header.logout') }}
+                                                <span class="glyphicon glyphicon-log-out text-red"></span> LOGOUT
                                             </a>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                 {{ csrf_field() }}
@@ -138,7 +138,7 @@
                                 <li><a href="{{ route('frontend.shop.index') }}" class="{{ Request::segment(1) == 'product'  ? 'text-red' : '' }}">KOI PRODUCT</a></li>                                
                             @endif 
 
-                            <li><a href="#" target="_blank">NEWS</a></li>
+                            <li><a href="{{ url('/news')}}" class="{{ Request::segment(1) == 'news'  ? 'text-red' : ''}}">NEWS</a></li>
                             <li><a href="{{ url('/event') }}" class="{{ Request::segment(1) == 'event'  ? 'text-red' : ''}}">EVENT</a></li>
                             <li><a href="http://www.koikichi-auction.com/" target="_blank">ONLINE OCTION</a></li>
                             <li><a href="{{ route("frontend.hall-of-fame.index") }}" class="{{ Request::segment(1) == 'hall-of-fame'  ? 'text-red' : ''}}">HALL OF FAME</a></li>

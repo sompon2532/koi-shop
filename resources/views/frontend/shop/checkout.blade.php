@@ -37,9 +37,9 @@
                 <div class="col-md-12">
                     <table class="table ">
                         <tr>
-                            <th class="text-center" colspan="2">{{ trans('cart.item') }}</th>
-                            <th class="text-center">{{ trans('cart.quantity') }}</th>
-                            <th class="text-center">{{ trans('cart.price') }}</th>
+                            <th class="text-center" colspan="2">ITEM</th>
+                            <th class="text-center">QUANTITY</th>
+                            <th class="text-center">PRICE</th>
                         </tr>
                         @foreach($products as $product)
                             <tr>
@@ -52,40 +52,40 @@
                                 </td>
                                 <td class="text-left">
                                     <p class="text-red">{{ $product['item']['title'] }}</p>
-                                    <p>{{ trans('cart.code') }} : {{ $product['item']['id'] }}</p>
+                                    <p>CODE : {{ $product['item']['id'] }}</p>
                                 </td>
                                 <td>
                                     <p class="text-red">{{ $product['qty'] }}</p>
 
                                 </td>
                                 <td>
-                                    <p class="text-red">{{ number_format($product['price']) }} {{ trans('cart.thb') }}</p>
+                                    <p class="text-red">{{ number_format($product['price']) }} THB</p>
                                 </td>
                             </tr>
                         @endforeach
                         <tr bgcolor="#F5F5F5">
-                            <td class="text-right text-red table-border" colspan="2" bordercolor="#ccc">{{ trans('cart.subtotal') }}</td>
+                            <td class="text-right text-red table-border" colspan="2" bordercolor="#ccc">SUBTOTAL</td>
                             <td class="text-red table-border"> {{ Session::has('cart') ? Session::get('cart')->totalQty : '0'}} </td>
-                            <td class="text-red table-border"> {{ number_format($totalPrice) }} {{ trans('cart.thb') }} </td>
+                            <td class="text-red table-border"> {{ number_format($totalPrice) }} THB </td>
                         </tr>
                         <tr>
-                            <td class="text-right text-red" colspan="2">{{ trans('cart.shipping') }}</td>
+                            <td class="text-right text-red" colspan="2">SHIPPING FEE</td>
                             <td class="text-red table-border">  </td>
-                            <td class="text-red table-border"> {{ number_format($totalShip) }} {{ trans('cart.thb') }} </td>
+                            <td class="text-red table-border"> {{ number_format($totalShip) }} THB </td>
                         </tr>
                         <tr bgcolor="#F5F5F5">
-                            <td class="text-right text-red table-border" colspan="3">{{ trans('cart.total') }}</td>
-                            <td class="text-red table-border"> {{ number_format($total) }} {{ trans('cart.thb') }} </td>
+                            <td class="text-right text-red table-border" colspan="3">TOTAL</td>
+                            <td class="text-red table-border"> {{ number_format($total) }} THB </td>
                         </tr>
                     </table>
 
                     <table class="table table-bordered text-center">
                         <tr>
-                            <th class="text-center">{{ trans('cart.bank') }}</th>
-                            <th class="text-center">{{ trans('cart.account-name') }}</th>
-                            <th class="text-center">{{ trans('cart.account-type') }}</th>
-                            <th class="text-center">{{ trans('cart.branch') }}</th>
-                            <th class="text-center">{{ trans('cart.account-no') }}</th>
+                            <th class="text-center">BANK</th>
+                            <th class="text-center">ACCOUNT NAME</th>
+                            <th class="text-center">ACCOUNT TYPE</th>
+                            <th class="text-center">BRANCH</th>
+                            <th class="text-center">ACCOUNT NO.</th>
                         </tr>
                         <tr>
                             <td >ธนาคารกสิกรไทย</td>
@@ -104,32 +104,32 @@
                     </table>
                 </div>
                     
-                <h2 class="text-red">{{ trans('cart.shipping-add') }}</h2>
+                <h2 class="text-red">SHIPPING ADDRESS</h2>
                 <form action="{{ route('checkout') }}" method="post" id="checkout-form">
                     <div class="row">
                         <div class="col-xs-12 col-md-4 col-md-offset-4">
                             <div class="form-group">
-                                <label for="name">{{ trans('cart.name') }}</label>
+                                <label for="name">NAME</label>
                                 <input type="text" id="name" class="form-control" required name="name" value="{{ count($user->name) > 0 ? $user->name : '' }}">
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-md-4 col-md-offset-4">
                             <div class="form-group">
-                                <label for="address">{{ trans('cart.address') }}</label>
+                                <label for="address">ADDRESS</label>
                                 <input type="text" id="address" class="form-control" required name="address" value="{{ count($user->address) > 0 ? $user->address->first()->address : '' }}">
                             </div>
                         </div>
                         
                         <div class="col-xs-12 col-md-4 col-md-offset-4">
                             <div class="form-group">
-                                <label for="card-name">{{ trans('cart.tel') }}</label>
+                                <label for="card-name">TEL.</label>
                                 <input type="text" id="Tel" class="form-control" name="tel" required value="{{ count($user->address) > 0 ? $user->address->first()->tel : '' }}">
                             </div>
                         </div>
                     </div>
                     {{ csrf_field() }}
-                    <button type="submit" class="btn btn-red">{{ trans('cart.btn-buy') }}</button>
+                    <button type="submit" class="btn btn-red">BUY NOW</button>
                 </form>
             </div>         
         </div>         

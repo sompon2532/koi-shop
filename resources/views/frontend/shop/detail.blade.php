@@ -42,13 +42,32 @@
                         @foreach($product->media as $media)
                             <div>
                                 <a class="example-image-link" href="{{ $media->getUrl() }}" data-lightbox="thumb-1">
-                                    <img src="{{ asset($product->media->where('collection_name', 'product')->first()->getUrl()) }}" alt="..." class="img-responsive" style="max-height:200px;"> 
+                                    <img src="{{ asset($product->media->where('collection_name', 'product')->first()->getUrl()) }}" alt="{{$product->name}}" class="img-responsive"> 
                                 </a>
                             </div>
                         @endforeach
                     @else
-                        <img src="{{ asset('frontend/src/img/default-product.jpg') }}" alt="..." class="img-responsive img-thumbnail">
+                        <img src="{{ asset('frontend/src/img/default-product.jpg') }}" class="img-responsive img-thumbnail">
                     @endif
+                    <div class="star-label">
+                        @if(count($product->favorite) > 0)
+                            <form action="{{ route('frontend.user.favorite-del', ['id' => $product->id, 'type' => 'App\Models\Product']) }}" method="GET">
+                                <button type="submit" class="btn btn-favorite">
+                                    <img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="favorite" style="max-height:50px;">    
+                                </button> 
+                                {{ csrf_field() }}
+                            </form>
+                        @else
+                            <form action="{{ route('frontend.user.favorite-add', ['id' => $product->id]) }}" method="GET">  
+                                <input type="hidden" name="item" value="{{ $product->id }}">
+                                <input type="hidden" name="type" value="App\Models\Product">
+                                <button type="submit" class="btn btn-favorite">
+                                    <img class="" src="{{ asset('frontend/src/img/favorite.png') }}" alt="unfavorite" style="max-height:50px;">    
+                                </button> 
+                                {{ csrf_field() }}
+                            </form>
+                        @endif
+                    </div>     
                     <div class="menu-title-box text-center">
                         <p>{{$product->name}}</p>                                        
                     </div>
@@ -68,11 +87,15 @@
         </div>
         <div class="col-md-9 text-left">
             <p class="text-thick" style="color:#999;">
-                {{ trans('product.code') }}: {{ $product->id }}</p>
+                CODE : {{ $product->id }}</p>
             <p class="text-red text-thick">
-                {{ trans('product.price') }}: {{ number_format($product->price) }} {{ trans('product.thb') }}</p>
+                PRICE : {{ number_format($product->price) }} THB</p>
             <p>
-                <span class="text-thick">{{ trans('product.detail') }}:</span> {{ $product->description }}</p>
+                <span class="text-thick">DETAIL :</span> {{ $product->description }}</p>
+                
+            <a class="btn btn-white text-center" href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}">
+                ORDER
+            </a>
         </div>
 
         {{-- <!-- <h3 class="text-red"> SAKAI </h3>

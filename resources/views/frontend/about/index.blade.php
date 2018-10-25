@@ -20,9 +20,9 @@
             </div>
         </div>
         <div class="col-md-12">
-            <!-- <div class="title-box">
+            {{--<!-- <div class="title-box">
                 <h1>{{ trans('about.about') }}</h1>
-            </div> -->
+            </div> -->--}}
             <p>KOIKICHI FISH FARM</p>
             <p>WE ARE A MEMBER OF<br>
                 ALL JAPAN NISHIKIGOI PROMOTION ASSOCIATION</p>

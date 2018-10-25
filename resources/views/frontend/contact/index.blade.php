@@ -20,12 +20,6 @@
             </div>
         </div>
         <div class="col-md-10 col-md-10 col-md-offset-1">
-            <div class="col-md-12">
-                <div class="title-box">
-                    <h1>{{ trans('contact.contact-us') }}</h1>
-                </div>
-            </div>
-
             @if(Session::has('success'))
                 <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
                     <div id="charge-message" class="alert alert-success">
@@ -38,37 +32,37 @@
                 <form class="form-inline" action="{{ route('frontend.contact.postContact') }}" method="post" id="contact-form">
                     <div class="form-group form-contact">
                         <div class="input-group">
-                            <div class="input-group-addon"> {{ trans('contact.name') }} </div>
+                            <div class="input-group-addon"> NAME</div>
                             <input type="text" class="form-control" id="exampleInputAmount" placeholder="NAME" name="name" required>
                         </div>
                     </div>
                     <div class="form-group form-contact">
                         <div class="input-group ">
-                            <div class="input-group-addon"> {{ trans('contact.email') }} </div>
+                            <div class="input-group-addon"> E-MAIL </div>
                             <input type="email" class="form-control" id="exampleInputAmount" placeholder="E-MAIL" name="email" required>
                         </div>
                     </div>
                     <div class="form-group form-contact">
                         <div class="input-group">
-                            <div class="input-group-addon"> {{ trans('contact.tel') }} </div>
+                            <div class="input-group-addon"> TEL. </div>
                             <input type="text" class="form-control" id="exampleInputAmount" placeholder="TELEPHONE NUMBER" name="phone" required>
                         </div>
                     </div>
                     <div class="form-group form-contact">
                         <div class="input-group">
-                            <div class="input-group-addon"> {{ trans('contact.detail') }} </div>
+                            <div class="input-group-addon"> DETAIL </div>
                             <textarea type="text" class="form-control" id="exampleInputAmount" placeholder="DETAILS" name="description" required></textarea>
                         </div>
                     </div>
                     <div class="form-contact">
                         {{ csrf_field() }}
-                        <button type="submit" class="btn btn-white">{{ trans('contact.btn-send') }}</button>
+                        <button type="submit" class="btn btn-white">SEND</button>
                     </div>
                 </form>
             </div>
 
             <div class="col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5" style="margin-top:10px;">
-                <h4 class="text-thick text-red">{{ trans('contact.service-time') }}</h4>
+                <h4 class="text-thick text-red">SERVICE TIME</h4>
             </div>
 
             <div class="col-md-12" style="margin-bottom:20px;">
@@ -87,7 +81,7 @@
             </div>
 
             <div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5">
-                <h4 class="text-thick text-red">{{ trans('contact.map') }}</h4>
+                <h4 class="text-thick text-red">MAP</h4>
             </div>
 
             <div class="col-md-12">   
