@@ -61,7 +61,7 @@
                 </form>
             </div>
 
-            <div class="col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5" style="margin-top:10px;">
+            <div class="col-md-12 text-center" style="margin-top:10px;">
                 <h4 class="text-thick text-red">SERVICE TIME</h4>
             </div>
 
@@ -71,7 +71,7 @@
             </div>
             <br>
 
-            <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+            <div class="col-md-12 text-center">
                 <h4 class="text-thick text-red">KOIKICHI FISH FARM</h4>
             </div>
   

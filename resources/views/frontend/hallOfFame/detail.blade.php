@@ -1,4 +1,5 @@
-@extends('frontend.layouts.master')
+{{--<!-- @extends('frontend.layouts.master') -->--}}
+@extends('layouts.frontend.main')
 
 @section('page_title', 'HALL OF FAME')
 

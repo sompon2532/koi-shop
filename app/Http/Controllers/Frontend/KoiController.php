@@ -17,7 +17,13 @@ class KoiController extends Controller
     public function getIndex()
     {
         $categories = Category::active()->get()->toTree();
-        $menus = Category::active()->where('group', 'koi')->where('parent_id', null)->with(['media'])->get()->toTree();
+        $menus = Category::active()
+            ->where('group', 'koi')
+            ->where('parent_id', null)
+            ->with(['media'])
+            ->orderBy('seq')
+            ->get()
+            ->toTree();
         $kois = Koi::active()->with(['media'])->where('event_id', null)->paginate(20);
 
         if(Auth::user()){
@@ -41,12 +47,17 @@ class KoiController extends Controller
     public function getKoiCategory(Category $category)
     {
         $categories = Category::active()->get()->toTree();
-        $menus = Category::active()->where('parent_id', $category->id)->with(['media'])->get()->toTree();
+        $menus = Category::active()
+            ->where('parent_id', $category->id)
+            ->with(['media'])
+            ->orderBy('seq')
+            ->get()
+            ->toTree();
         $kois = Koi::active()
-                    ->with(['media'])
-                    ->where('category_id', $category->id)
-                    ->where('event_id', null)
-                    ->paginate(20);
+            ->with(['media'])
+            ->where('category_id', $category->id)
+            ->where('event_id', null)
+            ->paginate(20);
 
         if(Auth::user()){
             $user = User::find(Auth::user()->id);

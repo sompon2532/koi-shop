@@ -20,6 +20,9 @@
             </div>
         </div>
         <div class="col-md-12">
+            {{ $news->description }}
+        </div>
+        <div class="col-md-12">
             <!-- <h2 class="text-red">{{ $news->name }}</h2> -->
             @if(count($news->media->where('collection_name', 'news')) > 0 )
                 @foreach($news->media->where('collection_name', 'news') as $image)

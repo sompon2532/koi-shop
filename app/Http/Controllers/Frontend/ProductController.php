@@ -23,7 +23,14 @@ class ProductController extends Controller
     public function getIndex()
     {
         $categories = Category::active()->get()->toTree();
-        $menus = Category::active()->where('group', 'product')->where('parent_id', null)->with(['media'])->get()->toTree();
+        $menus = Category::active()
+            ->where('group', 'product')
+            ->where('parent_id', null)
+            ->with(['media'])
+            ->orderBy('seq')
+            ->get()
+            ->toTree();
+
         $products = Product::active()->paginate(20);
 
         if(Auth::user()){
@@ -47,8 +54,17 @@ class ProductController extends Controller
     public function getProductCategory(Category $category)
     {   
         $categories = Category::active()->get()->toTree();
-        $menus = Category::active()->where('parent_id', $category->id)->with(['media'])->get()->toTree();
-        $products = Product::active()->with('media')->where('category_id', $category->id)->paginate(20);
+        $menus = Category::active()
+            ->where('parent_id', $category->id)
+            ->with(['media'])
+            ->orderBy('seq')
+            ->get()
+            ->toTree();
+
+        $products = Product::active()
+            ->with('media')
+            ->where('category_id', $category->id)
+            ->paginate(20);
 
         if(Auth::user()){
             $user = User::find(Auth::user()->id);
