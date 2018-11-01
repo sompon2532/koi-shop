@@ -4,13 +4,13 @@
 
 @section('head')
     <h1>
-        จัดการเมนู
-        <small>แก้ไข</small>
+        Manage Menu
+        <small>Edit</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li><a href="{{ route('menu.index') }}"><i class="fa fa-newspaper-o"></i> จัดการเมนู</a></li>
-        <li class="active">แก้ไข</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('menu.index') }}"><i class="fa fa-newspaper-o"></i> Manage Menu</a></li>
+        <li class="active">Edit</li>
     </ol>
 @endsection
 
@@ -20,7 +20,7 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">แก้ไขเมนู</h3>
+                <h3 class="box-title">Edit เมนู</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -32,7 +32,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">
-                                ชื่อ <span class="text-danger">*</span>
+                                Name <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="name" value="{{ $menu->name }}" id="name"
@@ -42,7 +42,7 @@
 
                         <div class="form-group">
                             <label for="url" class="col-sm-3 control-label">
-                                ลำดับ <span class="text-danger">*</span>
+                                Seq <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="seq" value="{{ $menu->seq }}" id="seq"
@@ -71,7 +71,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right">แก้ไข</button>
+                        <button type="submit" class="btn btn-primary pull-right">Edit</button>
                     </div>
                 </div>
                 <!-- /.box-footer -->

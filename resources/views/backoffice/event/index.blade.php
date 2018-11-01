@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        อีเว้นท์
-        <small>รายการ</small>
+        Event
+        <small>Listing</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li class="active">อีเว้นท์</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Event</li>
     </ol>
 @endsection
 
@@ -17,7 +17,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('event.create') }}" class="pull-right btn btn-primary">สร้างอีเว้นท์</a>
+                <a href="{{ route('event.create') }}" class="pull-right btn btn-primary">Create Event</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -25,9 +25,9 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>อีเวนท์</th>
-                        <th>สถานะ</th>
-                        <th>การจัดการ</th>
+                        <th>Event</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -51,9 +51,9 @@
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>อีเวนท์</th>
-                        <th>สถานะ</th>
-                        <th>การจัดการ</th>
+                        <th>Event</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </tfoot>
                 </table>

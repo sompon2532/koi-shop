@@ -4,13 +4,13 @@
 
 @section('head')
     <h1>
-        สั่งซื้อ
-        <small>รายละเอียด</small>
+        Order
+        <small>Detail</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าหลัก</a></li>
-        <li><a href="{{ route('order.index') }}"><i class="fa fa-first-order"></i> สั่งซื้อ</a></li>
-        <li class="active">รายละเอียด</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('order.index') }}"><i class="fa fa-first-order"></i> Order</a></li>
+        <li class="active">Description</li>
     </ol>
 @endsection
 
@@ -19,17 +19,17 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">รายการสินค้า</h3>
+                <h3 class="box-title">Product</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <td># ลำดับ</td>
-                        <td>รหัสสินค้า</td>
-                        <td>ชื่อสินค้า</td>
-                        <td>จำนวน</td>
+                        <td># Seq</td>
+                        <td>Product ID</td>
+                        <td>Product Name</td>
+                        <td>Amount</td>
                     </tr>
                     </thead>
                     <tbody>
@@ -44,9 +44,9 @@
                     </tbody>
                     <tfood>
                     <tr>
-                        <td># ลำดับ</td>
-                        <td>รหัสสินค้า</td>
-                        <td>ชื่อสินค้า</td>
+                        <td># Seq</td>
+                        <td>Product ID</td>
+                        <td>Product Name</td>
                         <td>จำนวน</td>
                     </tr>
                     </tfood>
@@ -55,31 +55,31 @@
 
             @if ($order->payment)
                 <div class="box-header">
-                    <h3 class="box-title">สถานะการชำระเงิน</h3>
+                    <h3 class="box-title">Payment Status</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <h5>ธนาคาร : {{ $order->payment->bank }}</h5>
-                    <h5>จำนวนเงิน : {{ number_format($order->payment->total, 2) }} บาท</h5>
+                    <h5>Band : {{ $order->payment->bank }}</h5>
+                    <h5>Price : {{ number_format($order->payment->total, 2) }} Bath</h5>
                     <h5>
-                        หลักฐานการโอนเงิน :
+                        Slip :
                         <img src="{{ $order->payment->image }}" alt="" width="150" class="img-thumbnail">
                     </h5>
                 </div>
             @endif
 
             <div class="box-header">
-                <h3 class="box-title">รายละเอียดผู้สั่งซื้อ</h3>
+                <h3 class="box-title">Customer Detail</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <h5>ชื่อผู้ซื้อ : {{ $order->name }}</h5>
-                <h5>ที่อยู่ : {{ $order->address }}</h5>
-                <h5>เบอร์ติดต่อ : {{ $order->tel }}</h5>
-                <h5>จำนวนสินค้า : {{ $order->totalQty }}</h5>
-                <h5>ราคารวม : {{ number_format($order->totalPrice, 2) }} บาท</h5>
+                <h5>Name : {{ $order->name }}</h5>
+                <h5>Address : {{ $order->address }}</h5>
+                <h5>Phone : {{ $order->tel }}</h5>
+                <h5>Amount : {{ $order->totalQty }}</h5>
+                <h5>Total : {{ number_format($order->totalPrice, 2) }} Bath</h5>
                 {{--<h5>--}}
-                    {{--สถานะ :--}}
+                    {{--Status :--}}
                     {{--@if ($order->status == 0)--}}
                         {{--รอการยืนยัน--}}
                     {{--@elseif ($order->status ==1)--}}

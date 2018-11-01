@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        ข่าวสาร
-        <small>รายการ</small>
+        News
+        <small>Listing</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li class="active">ข่าวสาร</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">News</li>
     </ol>
 @endsection
 
@@ -17,7 +17,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('news.create') }}" class="pull-right btn btn-primary">สร้างข่าวสาร</a>
+                <a href="{{ route('news.create') }}" class="pull-right btn btn-primary">Create News</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -25,9 +25,9 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>ข่าวสาร</th>
-                        <th>สถานะ</th>
-                        <th>การจัดการ</th>
+                        <th>News</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -49,9 +49,9 @@
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>ข่าวสาร</th>
-                        <th>สถานะ</th>
-                        <th>การจัดการ</th>
+                        <th>News</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </tfoot>
                 </table>

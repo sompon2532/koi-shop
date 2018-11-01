@@ -4,17 +4,17 @@
 
 @section('head')
   <h1>
-    หอเกียรติยศ
-    <small>รายการ</small>
+    Hall Of Fame
+    <small>Listing</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+    <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
     <li>
       <a href="{{ route('hall-of-fame.index') }}">
-        <i class="fa fa-trophy"></i> <span>หอเกียรติยศ</span>
+        <i class="fa fa-trophy"></i> <span>Hall Of Fame</span>
       </a>
     </li>
-    <li class="active">เพิ่มปลาเข้างานประกวด</li>
+    <li class="active">Add Koi To Contest</li>
   </ol>
 @endsection
 
@@ -23,7 +23,7 @@
     <!-- Horizontal Form -->
     <div class="box box-info">
       <div class="box-header with-border">
-        <h3 class="box-title">เพิ่มปลาเข้างานประกวด</h3>
+        <h3 class="box-title">Add Koi To Contest</h3>
       </div>
 
       <form class="form-horizontal" method="post" enctype="multipart/form-data" id="hall">
@@ -34,7 +34,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <button type="submit" class="btn btn-primary pull-right">เพิ่มปลา</button>
+              <button type="submit" class="btn btn-primary pull-right">Add Koi</button>
             </div>
           </div>
         </div>

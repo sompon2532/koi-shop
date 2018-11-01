@@ -4,12 +4,12 @@
 
 @section('head')
   <h1>
-    หอเกียรติยศ
-    <small>รายการ</small>
+    Hall Of Fame
+    <small>Listing</small>
   </h1>
   <ol class="breadcrumb">
-      <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-      <li class="active">หอเกียรติยศ</li>
+      <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Hall Of Fame</li>
   </ol>
 @endsection
 
@@ -18,20 +18,20 @@
     <div class="box">
       <div class="box-header">
         <span class="pull-right button-style">
-            <a href="{{ URL::asset('admin/hall-of-fame/add-koi') }}" class="btn btn-primary btn-xs" style="margin-left: 10px;">เพิ่มปลา</a>
+            <a href="{{ URL::asset('admin/hall-of-fame/add-koi') }}" class="btn btn-primary btn-xs" style="margin-left: 10px;">Add Koi</a>
           </span>
           <span class="pull-right button-style">
-            <a href="{{ URL::asset('admin/hall-of-fame/add-contest') }}" class="btn btn-warning btn-xs">เพิ่มงานประกวด</a>
+            <a href="{{ URL::asset('admin/hall-of-fame/add-contest') }}" class="btn btn-warning btn-xs">Create Contest</a>
           </span>
       </div>
       <div class="box-body">
         <table id="datatable" class="table table-bordered table-hover">
           <thead>
           <tr>
-            <th>ลำดับ</th>
-            <th>งานประกวด</th>
-            <th>วันที่จัดงาน</th>
-            <th>จัดการข้อมูล</th>
+            <th>Seq</th>
+            <th>Contest</th>
+            <th>Contest Date</th>
+            <th>Manage</th>
           </tr>
           </thead>
           <tbody>
@@ -42,10 +42,10 @@
               <td>{{ $contest->contest_date->format('d/m/Y') }}</td>
               <td>
                 <a href="{{ URL::asset("admin/hall-of-fame/detail/$contest->id") }}" class="btn btn-primary btn-xs">
-                  <i class="fa fa-clone"></i> ดูข้อมูล
+                  <i class="fa fa-clone"></i> View
                 </a>
                 <a href="{{ URL::asset("admin/hall-of-fame/edit/$contest->id") }}" class="btn btn-warning btn-xs">
-                  <i class="fa fa-pencil-square-o"></i> แก้ไข
+                  <i class="fa fa-pencil-square-o"></i> Edit
                 </a>
                 @if( $contest->koi == 0 )
                   <a href="{{ URL::asset("admin/hall-of-fame/delete/$contest->id") }}" class="btn btn-danger btn-xs delete">

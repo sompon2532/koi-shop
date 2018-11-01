@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        ปลา
-        <small>รายการ</small>
+        KOI
+        <small>Listing</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li class="active">ปลา</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">KOI</li>
     </ol>
 @endsection
 
@@ -17,18 +17,18 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('koi.create') }}" class="pull-right btn btn-primary">สร้างปลา</a>
+                <a href="{{ route('koi.create') }}" class="pull-right btn btn-primary">Create KOI</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
                 <table id="datatable" class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>รหัสปลา</th>
-                        <th>ปลา</th>
-                        <th>เจ้าของปลา</th>
-                        <th>สถานะ</th>
-                        <th>การจัดการ</th>
+                        <th>KOI ID</th>
+                        <th>KOI</th>
+                        <th>Owner</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -50,11 +50,11 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th>รหัสปลา</th>
-                        <th>ปลา</th>
-                        <th>เจ้าของปลา</th>
-                        <th>สถานะ</th>
-                        <th>การจัดการ</th>
+                        <th>KOI ID</th>
+                        <th>KOI</th>
+                        <th>Owner</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </tfoot>
                 </table>

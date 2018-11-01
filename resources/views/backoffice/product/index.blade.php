@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        สินค้า
-        <small>รายการ</small>
+        Product
+        <small>Listing</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li class="active">สินค้า</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Product</li>
     </ol>
 @endsection
 
@@ -17,17 +17,17 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('product.create') }}" class="pull-right btn btn-primary">สร้างสินค้า</a>
+                <a href="{{ route('product.create') }}" class="pull-right btn btn-primary">Create Product</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
                 <table id="example2" class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>รหัสสินค้า</th>
-                        <th>สินค้า</th>
-                        <th>สถานะ</th>
-                        <th>การจัดการ</th>
+                        <th>Product ID</th>
+                        <th>Product</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -48,10 +48,10 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th>รหัสสินค้า</th>
-                        <th>สินค้า</th>
-                        <th>สถานะ</th>
-                        <th>การจัดการ</th>
+                        <th>Product ID</th>
+                        <th>Product</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </tfoot>
                 </table>

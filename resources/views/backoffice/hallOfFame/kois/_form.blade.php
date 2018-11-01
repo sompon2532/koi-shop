@@ -1,5 +1,5 @@
 <div class="form-group">
-  <label for="" class="col-sm-2 control-label">อีเว้นท์</label>
+  <label for="" class="col-sm-2 control-label">Event</label>
   <div class="col-sm-8">
     <select class="form-control" name="contest" style="padding: 0 0 0 10px;">
       @if( !empty($koi) )
@@ -20,9 +20,9 @@
 </div>
 
 <div class="form-group">
-  <label for="" class="col-sm-2 control-label">รางวัล</label>
+  <label for="" class="col-sm-2 control-label">Award</label>
   <div class="col-sm-8">
-    <input type="text" name="award" class="form-control" id="award" placeholder="รางวัล" value="{{ !empty($koi) ? $koi->award : old('award') }}">
+    <input type="text" name="award" class="form-control" id="award" placeholder="Award" value="{{ !empty($koi) ? $koi->award : old('award') }}">
   </div>
 </div>
 
@@ -55,10 +55,10 @@
 </div>
 
 <div class="form-group">
-  <label for="" class="col-sm-2 control-label">รูปปลา</label>
+  <label for="" class="col-sm-2 control-label">Image</label>
   <div class="col-sm-10">
     <input type="file" name="image" class="form-control choose_file" id="" placeholder="">
-    <button type="button" class="btn btn-warning button-upload">เลือกไฟล์รูปภาพ</button>
+    <button type="button" class="btn btn-warning button-upload">Choose Image</button>
     @if( !empty($koi) )
       <input type="text" name="imageName" class="text-show" value="{{ $koi->image }}">
       <div id="image-preview">

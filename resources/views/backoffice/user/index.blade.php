@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        สมาชิก
-        <small>รายการ</small>
+        Member
+        <small>Listing</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li class="active">สมาชิก</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Member</li>
     </ol>
 @endsection
 
@@ -25,9 +25,9 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>สมาชิก</th>
-                        <th>อีเมล์</th>
-                        <th>การจัดการ</th>
+                        <th>Member</th>
+                        <th>E-mail</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -38,10 +38,10 @@
                         <td>{{ $user->email }}</td>
                         <td>
                             <a href="{{ route('user.koi', ['user' => $user->id]) }}" class="btn btn-warning btn-xs">
-                                <i class="fa fa-archive"></i> ข้อมูลปลา
+                                <i class="fa fa-archive"></i> Koi Detail
                             </a>
                             <a href="{{ route('user.order', ['user' => $user->id]) }}" class="btn btn-warning btn-xs">
-                                <i class="fa fa-first-order"></i> ข้อมูลสั่งซื้อ
+                                <i class="fa fa-first-order"></i> Order Detail
                             </a>
                         </td>
                     </tr>
@@ -50,9 +50,9 @@
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>สมาชิก</th>
-                        <th>อีเมล์</th>
-                        <th>การจัดการ</th>
+                        <th>Member</th>
+                        <th>E-mail</th>
+                        <th>Action</th>
                     </tr>
                     </tfoot>
                 </table>

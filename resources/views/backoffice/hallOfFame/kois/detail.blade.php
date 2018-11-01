@@ -4,17 +4,17 @@
 
 @section('head')
   <h1>
-    หอเกียรติยศ
-    <small>รายการ</small>
+    Hall Of Fame
+    <small>Listing</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+    <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
     <li>
       <a href="{{ route('hall-of-fame.index') }}">
-        <i class="fa fa-trophy"></i> <span>หอเกียรติยศ</span>
+        <i class="fa fa-trophy"></i> <span>Hall Of Fame</span>
       </a>
     </li>
-    <li class="active">รายละเอียดปลา</li>
+    <li class="active">Koi Detail</li>
   </ol>
 @endsection
 
@@ -32,7 +32,7 @@
         </div>
       </div>
         <div class="panel-body">
-            <div class=""><strong>รายละเอียดปลา</div>
+            <div class=""><strong>Koi Detail</div>
             <br>
             <span class="text-topic">Award</span>
           <span class="text-detail">: {{ $koi->award }}</span>

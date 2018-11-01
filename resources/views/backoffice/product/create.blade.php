@@ -4,13 +4,13 @@
 
 @section('head')
     <h1>
-        สินค้า
-        <small>สร้าง</small>
+        Product
+        <small>Create</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li><a href="{{ route('product.index') }}"><i class="fa fa-product-hunt"></i> สินค้า</a></li>
-        <li class="active">สร้าง</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('product.index') }}"><i class="fa fa-product-hunt"></i> Product</a></li>
+        <li class="active">Create</li>
     </ol>
 @endsection
 
@@ -20,7 +20,7 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">สร้างสินค้า</h3>
+                <h3 class="box-title">Create Product</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -31,7 +31,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameTh" class="col-sm-3 control-label">
-                                ชื่อ (TH) <span class="text-danger">*</span>
+                                Name (TH) <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="th[name]" value="{{ old('th.name') }}" id="nameTh"
@@ -41,7 +41,7 @@
 
                         <div class="form-group">
                             <label for="descriptionTh" class="col-sm-3 control-label">
-                                รายละเอียด (TH)
+                                Description (TH)
                             </label>
                             <div class="col-sm-9">
                                 <textarea class="form-control" rows="4" name="th[description]" id="descriptionTh" placeholder="Description TH ...">{{ old('th.description') }}</textarea>
@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="category" class="col-sm-3 control-label">หมวดหมู่</label>
+                            <label for="category" class="col-sm-3 control-label">Category</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="category_id" id="category">
                                     <option value="">-------- Select category --------</option>
@@ -70,7 +70,7 @@
 
                         <div class="form-group">
                             <label for="productId" class="col-sm-3 control-label">
-                                รหัสสินค้า <span class="text-danger">*</span>
+                                Product ID <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="product_id" value="{{ old('product_id') }}" id="productId"
@@ -80,7 +80,7 @@
 
                         <div class="form-group">
                             <label for="delivery" class="col-sm-3 control-label">
-                                จัดส่ง <span class="text-danger">*</span>
+                                Delivery <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="delivery" value="{{ old('delivery') }}" id="delivery"
@@ -92,7 +92,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameEn" class="col-sm-3 control-label">
-                                ชื่อ (EN) <span class="text-danger">*</span>
+                                Name (EN) <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="en[name]" value="{{ old('en.name') }}" id="nameEn"
@@ -102,7 +102,7 @@
 
                         <div class="form-group">
                             <label for="descriptionEn" class="col-sm-3 control-label">
-                                รายละเอียด (EN)
+                                Description (EN)
                             </label>
                             <div class="col-sm-9">
                                 <textarea class="form-control" rows="4" name="en[description]" id="descriptionEn" placeholder="Description EN ...">{{ old('en.description') }}</textarea>
@@ -111,7 +111,7 @@
 
                         <div class="form-group">
                             <label for="price" class="col-sm-3 control-label">
-                                ราคา <span class="text-danger">*</span>
+                                Price <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="price" value="{{ old('price') }}" id="price"
@@ -120,7 +120,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="status" class="col-sm-3 control-label">สถานะ</label>
+                            <label for="status" class="col-sm-3 control-label">Status</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="status" id="status">
                                     <option value="1">Active</option>
@@ -136,7 +136,7 @@
                     <div class="col-md-6">
                         <div class="form-group" v-for="(video, index) in videos">
                             <label class="col-sm-3 control-label">
-                                วีดีโอี @{{ index + 1 }}
+                                Videoี @{{ index + 1 }}
                             </label>
                             <div class="col-sm-9">
                                 <textarea class="form-control" name="videos[]" v-model="video.video" rows="5" placeholder="Video ..."></textarea>
@@ -150,7 +150,7 @@
                     <div class="col-md-6">
                         <div class="form-group" v-for="(remark, index) in remarks">
                             <label class="col-sm-3 control-label">
-                                หมายเหตุ @{{ index + 1 }}
+                                Remark @{{ index + 1 }}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="remarks[]" v-model="remark.remark" placeholder="Remark">
@@ -168,7 +168,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right">สร้าง</button>
+                        <button type="submit" class="btn btn-primary pull-right">Create</button>
                     </div>
                 </div>
                 <!-- /.box-footer -->
