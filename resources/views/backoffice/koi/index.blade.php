@@ -26,6 +26,15 @@
                     <tr>
                         <th>KOI ID</th>
                         <th>KOI</th>
+                        <th>Farm</th>
+                        <th>Variety</th>
+                        <th>Store</th>
+                        <th>Born</th>
+                        <th>Oyagoi</th>
+                        <th>Size</th>
+                        <th>Price</th>
+                        <th>Sex</th>
+                        <th>Unit</th>
                         <th>Owner</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -36,6 +45,15 @@
                         <tr>
                             <td>{{ $koi->koi_id }}</td>
                             <td>{{ $koi->name }}</td>
+                            <td>{{ $koi->farm ? $koi->farm->name : "" }}</td>
+                            <td>{{ $koi->strain ? $koi->strain->name : "" }}</td>
+                            <td>{{ $koi->store ? $koi->store->name : "" }}</td>
+                            <td>{{ $koi->born }}</td>
+                            <td>{{ $koi->oyagoi }}</td>
+                            <td>{{ count($koi->sizes) > 0 ? $koi->sizes->last()->size : "" }}</td>
+                            <td>{{ $koi->price }}</td>
+                            <td>{{ $koi->sex }}</td>
+                            <td>{{ $koi->unit }}</td>
                             <td>{{ $koi->user ? $koi->user->name : 'Koikichi Farm'  }}</td>
                             <td>{{ $koi->status ? 'Active' : 'Inactive' }}</td>
                             <td>
@@ -52,7 +70,16 @@
                     <tr>
                         <th>KOI ID</th>
                         <th>KOI</th>
+                        <th>Farm</th>
+                        <th>Variety</th>
+                        <th>Store</th>
+                        <th>Born</th>
+                        <th>Oyagoi</th>
+                        <th>Size</th>
                         <th>Owner</th>
+                        <th>Price</th>
+                        <th>Sex</th>
+                        <th>Unit</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
