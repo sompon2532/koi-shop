@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        จัดการข้อมูลหน้าแรก
-        <small>รายละเอียด</small>
+        Manage Home
+        <small>Detail</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li class="active">จัดการข้อมูลหน้าแรก</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Manage Home</li>
     </ol>
 @endsection
 
@@ -17,7 +17,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('home.edit', ['home' => $home->id]) }}" class="pull-right btn btn-primary">จัดการข้อมูล</a>
+                <a href="{{ route('home.edit', ['home' => $home->id]) }}" class="pull-right btn btn-primary">Manage</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

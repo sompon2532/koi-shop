@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        ฟาร์ม
-        <small>รายการ</small>
+        Farm
+        <small>Listing</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li class="active">ฟาร์ม</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Farm</li>
     </ol>
 @endsection
 
@@ -17,7 +17,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('farm.create') }}" class="pull-right btn btn-primary">สร้างฟาร์ม</a>
+                <a href="{{ route('farm.create') }}" class="pull-right btn btn-primary">Create Farm</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -25,9 +25,9 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>ฟาร์ม</th>
-                        <th>สถานะ</th>
-                        <th>การจัดการ</th>
+                        <th>Farm</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -49,9 +49,9 @@
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>ฟาร์ม</th>
-                        <th>สถานะ</th>
-                        <th>การจัดการ</th>
+                        <th>Farm</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </tfoot>
                 </table>

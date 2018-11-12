@@ -17,10 +17,10 @@
 <div class="col-md-9">
     <div class="form-group">
         <label class="col-sm-2 control-label">
-            รูปภาพ
+            Image
         </label>
         <div class="col-sm-10">
-            <button type="button" class="add-file btn btn-warning btn-sm">เลือกรูปภาพ</button>
+            <button type="button" class="add-file btn btn-warning btn-sm">Choose Image</button>
             <div id="group"></div>
             <div id="images">
                 @foreach ($images as $index => $image)

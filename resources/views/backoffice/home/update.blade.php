@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        จัดการข้อมูลหน้าแรก
+        Manage Home
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li><a href="{{ route('home.index') }}"><i class="fa fa-home"></i> จัดการข้อมูลหน้าแรก</a></li>
-        <li class="active">จัดการข้อมูล</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('home.index') }}"><i class="fa fa-home"></i> Manage Home</a></li>
+        <li class="active">Manage</li>
     </ol>
 @endsection
 
@@ -19,7 +19,7 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">จัดการข้อมูล</h3>
+                <h3 class="box-title">Manage</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -40,7 +40,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right">แก้ไข</button>
+                        <button type="submit" class="btn btn-primary pull-right">Edit</button>
                     </div>
                 </div>
                 <!-- /.box-footer -->

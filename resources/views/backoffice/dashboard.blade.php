@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        ข้อมูลทั่วไป
-        <small>รายละเอียด</small>
+        Dashboard
+        <small>Detail</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li class="active">ข้อมูลทั่วไป</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
     </ol>
 @endsection
 

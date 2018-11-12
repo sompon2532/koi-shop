@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        จัดการเมนู
-        <small>รายการ</small>
+        Manage Menu
+        <small>Listing</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li class="active">จัดการเมนู</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Manage Menu</li>
     </ol>
 @endsection
 
@@ -22,10 +22,10 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>ชื่อเมนู</th>
-                        <th class="text-center">ลำดับ</th>
-                        <th class="text-center">แก้ไขล่าสุด</th>
-                        <th>การจัดการ</th>
+                        <th>Menu</th>
+                        <th class="text-center">Seq</th>
+                        <th class="text-center">Last Updated</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -45,10 +45,10 @@
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>ชื่อเมนู</th>
-                        <th class="text-center">ลำดับ</th>
-                        <th class="text-center">แก้ไขล่าสุด</th>
-                        <th>การจัดการ</th>
+                        <th>Menu</th>
+                        <th class="text-center">Seq</th>
+                        <th class="text-center">Last Updated</th>
+                        <th>Action</th>
                     </tr>
                     </tfoot>
                 </table>

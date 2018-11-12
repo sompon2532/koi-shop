@@ -5,10 +5,10 @@
 @section('head')
     <h1>
         Admin
-        <small>รายการ</small>
+        <small>Listing</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Admin</li>
     </ol>
 @endsection
@@ -17,7 +17,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('manage.create') }}" class="pull-right btn btn-primary">สร้าง Admin</a>
+                <a href="{{ route('manage.create') }}" class="pull-right btn btn-primary">Create Admin</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -26,8 +26,8 @@
                     <tr>
                         <th>#</th>
                         <th>E-mail</th>
-                        <th>ชื่อ</th>
-                        <th>การจัดการ</th>
+                        <th>Name</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -50,8 +50,8 @@
                     <tr>
                         <th>#</th>
                         <th>E-mail</th>
-                        <th>ชื่อ</th>
-                        <th>การจัดการ</th>
+                        <th>Name</th>
+                        <th>Action</th>
                     </tr>
                     </tfoot>
                 </table>

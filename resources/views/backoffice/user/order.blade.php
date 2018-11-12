@@ -4,13 +4,13 @@
 
 @section('head')
     <h1>
-        สั่งซื้อ ( {{ $user->name }} )
-        <small>รายการ</small>
+        Order ( {{ $user->name }} )
+        <small>Listing</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li><a href="{{ route('user.index') }}"><i class="fa fa-user"></i> สมาชิก</a></li>
-        <li class="active">สั่งซื้อ ( {{ $user->name }} )</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('user.index') }}"><i class="fa fa-user"></i> Member</a></li>
+        <li class="active">Order ( {{ $user->name }} )</li>
     </ol>
 @endsection
 
@@ -23,10 +23,10 @@
                     <thead>
                     <tr>
                         <th># Order</th>
-                        <th>ชื่อ</th>
-                        <th>ราคา</th>
-                        <th>เบอร์โทร</th>
-                        <th>การจัดการ</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Phone</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -49,10 +49,10 @@
                     <tfoot>
                     <tr>
                         <th># Order</th>
-                        <th>ชื่อ</th>
-                        <th>ราคา</th>
-                        <th>เบอร์โทร</th>
-                        <th>การจัดการ</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Phone</th>
+                        <th>Action</th>
                     </tr>
                     </tfoot>
                 </table>

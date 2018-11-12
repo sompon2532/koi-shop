@@ -4,12 +4,12 @@
 
 @section('head')
     <h1>
-        หอเกียรติยศ
-        <small>รายการ</small>
+        Hall Of Fame
+        <small>Listing</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li class="active">หอเกียรติยศ</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Hall Of Fame</li>
     </ol>
 @endsection
 
@@ -17,7 +17,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="{{ route('hall-of-fame.create') }}" class="pull-right btn btn-primary">สร้างหอเกียรติยศ</a>
+                <a href="{{ route('hall-of-fame.create') }}" class="pull-right btn btn-primary">Create Hall Of Fame</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -25,9 +25,9 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>หอเกียรติยศ</th>
-                        <th>สถานะ</th>
-                        <th>การจัดการ</th>
+                        <th>Hall Of Fame</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -51,9 +51,9 @@
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>หอเกียรติยศ</th>
-                        <th>สถานะ</th>
-                        <th>การจัดการ</th>
+                        <th>Hall Of Fame</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </tfoot>
                 </table>

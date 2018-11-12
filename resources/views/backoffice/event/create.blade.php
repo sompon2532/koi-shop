@@ -4,13 +4,13 @@
 
 @section('head')
     <h1>
-        อีเว้นท์
-        <small>สร้าง</small>
+        Event
+        <small>Create</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-        <li><a href="{{ route('event.index') }}"><i class="fa fa-gamepad"></i> อีเว้นท์</a></li>
-        <li class="active">สร้าง</li>
+        <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ route('event.index') }}"><i class="fa fa-gamepad"></i> Event</a></li>
+        <li class="active">Create</li>
     </ol>
 @endsection
 
@@ -20,7 +20,7 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">สร้างอีเว้นท์</h3>
+                <h3 class="box-title">Create Event</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -32,7 +32,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameTh" class="col-sm-3 control-label">
-                                ชื่อ (TH) <span class="text-danger">*</span>
+                                Name (TH) <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="th[name]" value="{{ old('th.name') }}"
@@ -43,7 +43,7 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">
-                                วันที่เริ่ม <span class="text-danger">*</span>
+                                Start Date <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control datepicker" name="start_date">
@@ -52,7 +52,7 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">
-                                วันที่สิ้นสุด <span class="text-danger">*</span>
+                                End Date <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control datepicker" name="end_date">
@@ -61,7 +61,7 @@
 
                         <div class="form-group">
                             <label for="config" class="col-sm-3 control-label">
-                                ตั้งค่าการลงชื่อ
+                                Register
                             </label>
                             <div class="col-sm-9" style="margin-top: 5px;">
                                 <input type="checkbox" class="minimal-red" name="config" value="1" id="config">
@@ -73,7 +73,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameEn" class="col-sm-3 control-label">
-                                ชื่อ (EN) <span class="text-danger">*</span>
+                                Name (EN) <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="en[name]" value="{{ old('en.name') }}"
@@ -84,7 +84,7 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">
-                                เวลาเริ่มต้น <span class="text-danger">*</span>
+                                Start Time <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <div class="bootstrap-timepicker">
@@ -95,7 +95,7 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">
-                                เวลาสิ้นสุด <span class="text-danger">*</span>
+                                End Time <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <div class="bootstrap-timepicker">
@@ -105,7 +105,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="status" class="col-sm-3 control-label">สถานะ</label>
+                            <label for="status" class="col-sm-3 control-label">Status</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="status" id="status">
                                     <option value="1">Active</option>
@@ -121,7 +121,7 @@
                     <div class="col-md-6">
                         <div class="form-group" v-for="(video, index) in videos">
                             <label class="col-sm-3 control-label">
-                                วีดีโอ @{{ index + 1 }}
+                                Video @{{ index + 1 }}
                             </label>
                             <div class="col-sm-9">
                                 <textarea class="form-control" name="videos[]" v-model="video.video" rows="5" placeholder="Video ..."></textarea>
@@ -143,7 +143,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right">สร้าง</button>
+                        <button type="submit" class="btn btn-primary pull-right">Create</button>
                     </div>
                 </div>
                 <!-- /.box-footer -->
