@@ -57,7 +57,7 @@
             </div> -->--}}
             <div class="col-md-12">
                 <div class="title-lf">
-                    <img class="img-responsive" src="{{ asset('frontend/src/img/Title-left.png') }}">
+                    <img class="img-responsive" src="{{ asset('frontend/src/img/Sub-Title-left.png') }}">
                 </div>
                 <div class="title-m">
                     <div class="title-inm">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="title-rg">
-                    <img class="img-responsive" src="{{ asset('frontend/src/img/Title-right.png') }}">
+                    <img class="img-responsive" src="{{ asset('frontend/src/img/Sub-Title-right.png') }}">
                 </div>
             </div>
 
