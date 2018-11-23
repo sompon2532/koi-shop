@@ -140,7 +140,7 @@
 
                             <li><a href="{{ url('/news')}}" class="{{ Request::segment(1) == 'news'  ? 'text-red' : ''}}">NEWS</a></li>
                             <li><a href="{{ url('/event') }}" class="{{ Request::segment(1) == 'event'  ? 'text-red' : ''}}">EVENT</a></li>
-                            <li><a href="http://www.koikichi-auction.com/" target="_blank">ONLINE OCTION</a></li>
+                            <li><a href="http://www.koikichi-auction.com/" target="_blank">ONLINE AUCTION</a></li>
                             <li><a href="{{ route("frontend.hall-of-fame.index") }}" class="{{ Request::segment(1) == 'hall-of-fame'  ? 'text-red' : ''}}">HALL OF FAME</a></li>
                             <li><a href="{{ url('/payment') }}" class="{{ Request::segment(1) == 'payment'  ? 'text-red' : '' }}">PAYMENT</a></li>
                             <li><a href="{{ url('/about') }}" class="{{ Request::segment(1) == 'about'  ? 'text-red' : '' }}">ABOUT US</a></li>
