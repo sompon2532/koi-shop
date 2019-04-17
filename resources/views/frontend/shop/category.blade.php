@@ -81,18 +81,18 @@
 							@endif
 							<div class="caption">
 								<p class="text-red item-name">{{ $product->name }}</P>
-								<p>CODE : {{ $product->product_id }}</p>
-								<a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">ORDER</a>
+								<p>{{trans('product.code')}} : {{ $product->product_id }}</p>
+								<a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">{{trans('product.btn-order')}}</a>
 							</div>
 						</div>
 					</div>
 				@endforeach
 				<div class="col-md-12">
 					{{ $products->links() }}
-					<p class="text-red text-right"> TOTAL : {{ count($products) }} </p>
+					<p class="text-red text-right"> {{trans('product.total')}} : {{ count($products) }} </p>
 				</div>
 			@else
-				<h1>No Product in Category!</h1>
+				<h1>{{trans('product.no-product')}}</h1>
 			@endif
 		</div>
 	</div>

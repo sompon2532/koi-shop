@@ -22,13 +22,22 @@
                 </div>
                 <div class="title-m">
                     <div class="title-inm">
-                        <h1 class="text-thick">EVENT</h1>
+                        <h1 class="text-thick">{{trans('event.events')}}</h1>
                     </div>
                 </div>
                 <div class="title-rg">
                     <img class="img-responsive" src="{{ asset('frontend/src/img/Title-right.png') }}">
                 </div>
             </div>
+            @if(Session::has('success'))
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+                        <div id="charge-message" class="alert alert-success">
+                            {{ Session::get('success') }}
+                        </div>
+                    </div>
+                </div>
+            @endif
 
 
             @if(count($kois) > 0)
@@ -87,7 +96,7 @@
                                 <section class="lazy slider" data-sizes="50vw">
                                     @foreach($kois->videos as $video)
                                         <div>
-                                            <h3 class="text-red">VIDEO ({{$video->created_at->format('Y-m-d')}})</h3>
+                                            <h3 class="text-red">{{trans('event.video')}} ({{$video->created_at->format('Y-m-d')}})</h3>
                                             {!! $video->video !!}
                                         </div>
                                     @endforeach
@@ -293,13 +302,16 @@
                         @endif
 
                     @else
-                        <h1 class="text-red">No Koi in Event!</h1>
+                        <div class="col-md-12">
+                            <h1 class="text-red">{{trans('event.no-koi')}}</h1>
+                        </div>
                     @endif
-                            </div>
+                    </div>
 
                     @else
-                        <br>
-                        <h1 class="text-red">This koi is not in Event!</h1>
+                        <div class="col-md-12">
+                            <h1 class="text-red">{{trans('event.no-koi-in-event')}}</h1>
+                        </div>
                     @endif
                 </div>
             </div>

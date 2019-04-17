@@ -21,7 +21,7 @@
             </div>
             <div class="title-m">
                 <div class="title-inm">
-                    <h1 class="text-thick">PAYMENT</h1>
+                    <h1 class="text-thick">{{trans('payment.payment')}}</h1>
                 </div>
             </div>
             <div class="title-rg">
@@ -39,7 +39,7 @@
 
                 <div class="text-center">
                     <a class="btn btn-red" href="{{ route('frontend.user.myorder') }}">
-                        MY ORDER
+                        {{trans('payment.btn-my-orders')}}
                     </a>
                 </div>
             </div>

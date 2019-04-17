@@ -18,7 +18,7 @@
                     </div>
                     <div class="title-m">
                         <div class="title-inm">
-                            <h1 class="text-thick">MY BOOKING</h1>
+                            <h1 class="text-thick">{{trans('user.mybooking')}}</h1>
                         </div>
                     </div>
                     <div class="title-rg">
@@ -50,14 +50,14 @@
                                                     {{ csrf_field() }}
                                                 </form>
                                             @else
-                                                <p class="text-red">END OF EVENT</p>
+                                                <p class="text-red">{{trans('user.end-of-event')}}</p>
                                             @endif
 
                                         </div>
                                     </div> 
                                 @endforeach
                             @else
-                                <h1 class="text-red">NO BOOKING!</h1>
+                                <h1 class="text-red">{{trans('user.no-booking')}}</h1>
                             @endif
                         </div>
                     <!-- </div> 

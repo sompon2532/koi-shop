@@ -55,7 +55,7 @@
                             <section class="lazy slider" data-sizes="50vw">
                                 @foreach($events->videos as $video)
                                     <div>
-                                        <h3 class="text-red">VIDEO ({{$video->created_at->format('Y-m-d')}})</h3>
+                                        <h3 class="text-red">{{trans('event.video')}} ({{$video->created_at->format('Y-m-d')}})</h3>
                                         {!! $video->video !!}
                                     </div>
                                 @endforeach
@@ -78,7 +78,7 @@
                                     </a>
 
                                     <p class="text-red">{{ $koi->name }}</p>
-                                    <p> OWNER : Koikichi fish farm</p>
+                                    <p> {{trans('event.owner')}} : Koikichi fish farm</p>
                                     @if($events->config == 1)
                                         @php 
                                             $i=0;
@@ -94,12 +94,12 @@
                                         @endif
                                         @if($i == 1)
                                             <form action="{{ route('frontend.event.bookdel', ['koi' => $koi->id, 'event' => $events->id]) }}" method="GET">
-                                                <button type="submit" class="btn btn-red">CANCEL</button>                                                             
+                                                <button type="submit" class="btn btn-red">{{trans('event.cancel')}}</button>                                                             
                                                 {{ csrf_field() }}
                                             </form>
                                         @else
                                             <form action="{{ route('frontend.event.bookevent', ['koi' => $koi->id, 'event' => $events->id]) }}" method="GET">
-                                                <button type="submit" class="btn btn-white">BOOK NOW</button>                                                                                          
+                                                <button type="submit" class="btn btn-white">{{trans('event.book_now')}}</button>                                                                                          
                                                 {{ csrf_field() }}
                                             </form>
                                         @endif
@@ -131,17 +131,15 @@
                         @foreach($kois as $koi)
                             <div class="col-xs-12 col-sm-6 col-md-3">
                                 <div class="winner-item-list">
-                                    <p class="text-red">
-                                        {{ trans('event.winner') }} <br/>
-                                        {{ $koi->user_id != '' ? $koi->user['name'] : 'Koikichi Fish Farm' }}
-                                    </p>
-                                    <div class="img-item-box">    
+                                    <p class="text-red">{{ trans('event.winner') }}</p>
+                                    <p>{{ $koi->user_id != '' ? $koi->user['name'] : 'Koikichi Fish Farm' }}</p>
+                                    <div class="img-item-box">
                                         <a href="{{ route('frontend.event.koi', ['event' => $events->id, 'koi' => $koi->id]) }}">
                                             @if(count($koi->media)>0)
                                                 <img src="{{ asset($koi->media->first()->getUrl()) }}" alt="..." class="img-responsive img-thumbnail" style="max-height:150px;">
                                             @else
                                                 <img src="{{ asset('frontend/src/img/default-koi.jpg') }}" alt="..." class=" img-responsive img-thumbnail" style="max-height:150px;">
-                                            @endif                               
+                                            @endif
                                         </a>                                                                                      
                                     </div>  
                                     <p class="text-red">{{ $koi->name }}</p>
@@ -150,7 +148,9 @@
                         @endforeach
                     @endif      
                 @else
-                    <h1 class="text-red">No Koi in Event!</h1>
+                    <div class="col-md-12">
+                        <h1 class="text-red">{{trans('event.no-koi')}}</h1>
+                    </div>
                 @endif
             </div>
 

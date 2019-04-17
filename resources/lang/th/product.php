@@ -1,6 +1,7 @@
 <?php
 
 return [
+	'koi-product' => 'สินค้า',
 	'code' => 'รหัส',
     'btn-order' => 'สั่งซื้อ',
     'total' => 'รวม',
@@ -9,5 +10,6 @@ return [
     'price' => 'ราคา',
     'shipping' => 'ค่าจัดส่ง',
     'detail' => 'รายละเอียด',    
-    'thb' => 'บาท',    
+    'thb' => 'บาท',   
+    'no-product' => 'ไม่พบสินค้า!',
 ];

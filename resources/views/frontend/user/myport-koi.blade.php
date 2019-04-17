@@ -17,7 +17,7 @@
             </div>
             <div class="title-m">
                 <div class="title-inm">
-                    <h1 class="text-thick">MY PORT</h1>
+                    <h1 class="text-thick">{{trans('user.myport')}}</h1>
                 </div>
             </div>
             <div class="title-rg">
@@ -53,36 +53,35 @@
 
         <div class="col-md-6 text-left">
             <p class="text-red" style="font-weight:bold;">{{ $kois->name }}</p>
-            <p class="text-red">{{-- $products->title --}}</p>
             <p>
-                <span class="heading">CODE</span>
+                <span class="heading">{{trans('user.code-koi')}}</span>
                 : {{ $kois->koi_id }}</p>
             <p>
-                <span class="heading">PRICE</span>
-                : {{ number_format($kois->price) }} THB</p>
+                <span class="heading">{{trans('user.price')}}</span>
+                : {{ number_format($kois->price) }} {{trans('user.thb')}}</p>
             <br>
 
-            <p class="text-red">DETAIL</p>
+            <p class="text-red">{{trans('user.detail')}}</p>
             <p>
                 <span class="heading">OYAGOI</span>
                 : {{ $kois->oyagoi }} </p>
             <p>
-                <span class="heading">VARIETY</span>
+                <span class="heading">{{trans('user.variety')}}</span>
                 : {{ $kois->strain->name }} </p>
             <p>
-                <span class="heading">BREEDER</span>
+                <span class="heading">{{trans('user.breeder')}}</span>
                 : {{ $kois->farm->name }}</p>
             <p>
-                <span class="heading">BORN IN </span>
+                <span class="heading">{{trans('user.born')}}</span>
                 : {{ $kois->born }}</p>
             <p>
-                <span class="heading">KEEPING AT</span>
+                <span class="heading">{{trans('user.keeping-at')}}</span>
                 : {{ $kois->store != null ? $kois->store->name : '-' }}</p>
 
             @if(count($kois->sizes) > 0)
                 @foreach($kois->sizes as $sizes)
                     <p>
-                        <span class="heading">SIZE</span>
+                        <span class="heading">{{trans('user.size')}}</span>
                         : {{ $sizes->size }} ({{$sizes->date}})</p>
                 @endforeach
             @else
@@ -90,33 +89,33 @@
             @endif
 
             <p>
-                <span class="heading">GENDER</span>
+                <span class="heading">{{trans('user.gender')}}</span>
                 : {{ $kois->sex }}</p>
             <p>
-                <span class="heading">CERTIFICATE</span>
-                : {{ $kois->certificate ? 'YES' : 'NO' }} </p>
+                <span class="heading">{{trans('user.certificate')}}</span>
+                : {{ $kois->certificate ? trans('user.yes') : trans('user.no') }} </p>
             
             @if(count($kois->contests) > 0)
                 @foreach($kois->contests as $index => $contests)
                     <p>
-                        <span class="heading">PRIZE {{ $index+1 }}</span>
+                        <span class="heading">{{trans('user.prize')}} #{{ $index+1 }}</span>
                         : {{ $contests->contest }} ({{$contests->date}})</p>
                 @endforeach
             @else
                 <p>
-                    <span class="heading">PRIZE</span>
+                    <span class="heading">{{trans('user.prize')}}</span>
                     : - </p>                                    
             @endif
 
             @if(count($kois->remarks) > 0)
                 @foreach($kois->remarks as $index => $remarks)
                     <p>
-                        <span class="heading">REMARK {{ $index+1 }}</span>
+                        <span class="heading">{{trans('user.remark')}} #{{ $index+1 }}</span>
                         : {{ $remarks->remark }}</p>
                 @endforeach
             @else
                 <p>
-                    <span class="heading">REMARK</span>
+                    <span class="heading">{{trans('user.remark')}}</span>
                     : - </p>  
             @endif
         </div>
@@ -126,7 +125,7 @@
                 <section class="lazy slider" data-sizes="50vw">
                     @foreach($kois->videos as $video)
                         <div>
-                            <h3 class="text-red">VIDEO ({{$video->created_at->format('Y-m-d')}})</h3>
+                            <h3 class="text-red">{{trans('user.video')}} ({{$video->created_at->format('Y-m-d')}})</h3>
                             {!! $video->video !!}
                         </div>
                     @endforeach

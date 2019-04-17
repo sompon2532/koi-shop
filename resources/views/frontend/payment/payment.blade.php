@@ -32,7 +32,7 @@
                     </div>
                     <div class="title-m">
                         <div class="title-inm">
-                            <h1 class="text-thick">CHECKOUT</h1>
+                            <h1 class="text-thick">{{trans('payment.checkout')}}</h1>
                         </div>
                     </div>
                     <div class="title-rg">
@@ -54,7 +54,7 @@
                     <div class="col-md-12">
                         <div class="col-md-12">
                             <div class="col-xs-6 col-sm-6 col-md-6 text-right">
-                                <p>ORDER :</p>
+                                <p>{{trans('payment.order-no')}} :</p>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 text-left">
                                 <p>#{{ $order->id }}</p>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="col-xs-6 col-sm-6 col-md-6 text-right">
-                                <p>NAME :</p>
+                                <p>{{trans('payment.name')}} :</p>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 text-left">
                                 <p>{{ $order->name }}</p>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="col-xs-6 col-sm-6 col-md-6 text-right">
-                                <p>ADDRESS :</p>
+                                <p>{{trans('payment.address')}} :</p>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 text-left">
                                 <p>{{ $order->address }}</p>
@@ -78,7 +78,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="col-xs-6 col-sm-6 col-md-6 text-right">
-                                <p>TEL. :</p>
+                                <p>{{trans('payment.tel')}} :</p>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 text-left">
                                 <p>{{ $order->tel }}</p>
@@ -112,13 +112,13 @@
                         </div>
                     </div> -->--}}
                     <div class="col-md-12">
-                        <table class="table table-bordered text-center">
+                        <table class="table table-bordered text-center" style="margin-top:30px;">
                             <tr>
-                                <th class="text-center">BANK</th>
-                                <th class="text-center">ACCOUNT NAME</th>
-                                <th class="text-center">ACCOUNT TYPE</th>
-                                <th class="text-center">BRANCH</th>
-                                <th class="text-center">ACCOUNT NO.</th>
+                                <th class="text-center">{{trans('payment.bank')}}</th>
+                                <th class="text-center">{{trans('payment.acc-name')}}</th>
+                                <th class="text-center">{{trans('payment.acc-type')}}</th>
+                                <th class="text-center">{{trans('payment.branch')}}</th>
+                                <th class="text-center">{{trans('payment.acc-no')}}</th>
                             </tr>
                             <tr>
                                 <td>
@@ -148,11 +148,11 @@
                     </div>
                 </div>
 
-                    <h2 class="text-red">SHIPPING ADDRESS</h2>
+                    <h2 class="text-red">{{trans('payment.transfer')}}</h2>
                     <div class="row">
                         <div class="col-xs-12 col-md-6 col-md-offset-3">
                             <div class="form-group form-payment">
-                                <label class="col-md-3" for="name">IMAGE :</label>
+                                <label class="col-md-3" for="name">{{trans('payment.image')}} :</label>
                                 <div class="col-md-9">
                                     <input class="col-md-12" type="file" name="image" id="image" value="" required>                                        
                                 </div>
@@ -161,7 +161,7 @@
 
                         <div class="col-xs-12 col-md-6 col-md-offset-3">
                             <div class="form-group form-payment">
-                                <label class="col-md-3" for="address">TOTAL : </label>
+                                <label class="col-md-3" for="address">{{trans('payment.total')}} : </label>
                                 <div class="col-md-9">
                                     <input type="text" id="total" class="form-control" required name="total">
                                 </div>
@@ -170,7 +170,7 @@
 
                         <div class="col-xs-12 col-md-6 col-md-offset-3">
                             <div class="form-group form-payment">
-                                <label class="col-md-3" for="name">DATE TIME :</label>
+                                <label class="col-md-3" for="name">{{trans('payment.date-time')}} :</label>
                                 <div class="col-md-9">
                                     <input type='text' class="form-control" id='datetimepicker4' required name="datetime"/>
                                 </div>
@@ -179,7 +179,7 @@
                     </div>
 
                     {{ csrf_field() }}
-                    <button type="submit" class="btn btn-red form-payment">SEND</button>
+                    <button type="submit" class="btn btn-red form-payment">{{trans('payment.send')}}</button>
                 </div>
             </div>
     </div>

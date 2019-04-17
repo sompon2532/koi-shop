@@ -12,7 +12,7 @@
             </div>
             <div class="title-m">
                 <div class="title-inm">
-                    <h1 class="text-thick">CONTACT US</h1>
+                    <h1 class="text-thick">{{trans('contact.contact-us')}}</h1>
                 </div>
             </div>
             <div class="title-rg">
@@ -32,37 +32,37 @@
                 <form class="form-inline" action="{{ route('frontend.contact.postContact') }}" method="post" id="contact-form">
                     <div class="form-group form-contact">
                         <div class="input-group">
-                            <div class="input-group-addon"> NAME</div>
-                            <input type="text" class="form-control" id="exampleInputAmount" placeholder="NAME" name="name" required>
+                            <div class="input-group-addon"> {{trans('contact.name')}}</div>
+                            <input type="text" class="form-control" id="exampleInputAmount" placeholder="" name="name" required>
                         </div>
                     </div>
                     <div class="form-group form-contact">
                         <div class="input-group ">
-                            <div class="input-group-addon"> E-MAIL </div>
-                            <input type="email" class="form-control" id="exampleInputAmount" placeholder="E-MAIL" name="email" required>
+                            <div class="input-group-addon"> {{trans('contact.email')}} </div>
+                            <input type="email" class="form-control" id="exampleInputAmount" placeholder="" name="email" required>
                         </div>
                     </div>
                     <div class="form-group form-contact">
                         <div class="input-group">
-                            <div class="input-group-addon"> TEL. </div>
-                            <input type="text" class="form-control" id="exampleInputAmount" placeholder="TELEPHONE NUMBER" name="phone" required>
+                            <div class="input-group-addon"> {{trans('contact.tel')}} </div>
+                            <input type="text" class="form-control" id="exampleInputAmount" placeholder="" name="phone" required>
                         </div>
                     </div>
                     <div class="form-group form-contact">
                         <div class="input-group">
-                            <div class="input-group-addon"> DETAIL </div>
-                            <textarea type="text" class="form-control" id="exampleInputAmount" placeholder="DETAILS" name="description" required></textarea>
+                            <div class="input-group-addon"> {{trans('contact.detail')}} </div>
+                            <textarea type="text" class="form-control" id="exampleInputAmount" placeholder="" name="description" required></textarea>
                         </div>
                     </div>
                     <div class="form-contact">
                         {{ csrf_field() }}
-                        <button type="submit" class="btn btn-white">SEND</button>
+                        <button type="submit" class="btn btn-white">{{trans('contact.btn-send')}}</button>
                     </div>
                 </form>
             </div>
 
             <div class="col-md-12 text-center" style="margin-top:10px;">
-                <h4 class="text-thick text-red">SERVICE TIME</h4>
+                <h4 class="text-thick text-red">{{trans('contact.service-time')}}</h4>
             </div>
 
             <div class="col-md-12" style="margin-bottom:20px;">
@@ -77,11 +77,11 @@
   
             <div class="col-md-12" style="margin-bottom:20px;">                
                 <p>120-122 ถ.พุทธมณฑลสาย 3 เเขวงทวีวัฒนา เขตทวีวัฒนา กรุงเทพมหานคร 10170 ประเทศไทย
-                    โทรศัพท์: 02-4315646 ต่อ 11  แฟกซ์: 02-4315646  มือถือ: 081-6427525</p>
+                    <br>โทรศัพท์: 02-4315646 ต่อ 11  แฟกซ์: 02-4315646  มือถือ: 081-6427525</p>
             </div>
 
             <div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5">
-                <h4 class="text-thick text-red">MAP</h4>
+                <h4 class="text-thick text-red">{{trans('contact.map')}}</h4>
             </div>
 
             <div class="col-md-12">   

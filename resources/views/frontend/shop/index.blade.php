@@ -22,7 +22,7 @@
 			</div>
 			<div class="title-m">
 				<div class="title-inm">
-					<h1 class="text-thick">KOI PRODUCT</h1>
+					<h2 class="text-thick">{{trans('product.koi-product')}}</h2>
 				</div>
 			</div>
 			<div class="title-rg">
@@ -76,7 +76,7 @@
 							@endif
 							<div class="caption">
 								<p class="text-red text-name">{{ $product->name }}</P>
-								<p>CODE : {{ $product->product_id }}</p>
+								<p>{{trans('product.code')}} : {{ $product->product_id }}</p>
 								<p><a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">ORDER</a></p>
 							</div>
 						</div>

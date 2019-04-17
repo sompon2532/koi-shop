@@ -13,7 +13,7 @@
                 </div>
                 <div class="title-m">
                     <div class="title-inm">
-                        <h1 class="text-thick">NEWS</h1>
+                        <h1 class="text-thick">{{trans('news.news')}}</h1>
                     </div>
                 </div>
                 <div class="title-rg">
@@ -32,14 +32,14 @@
                                         <img src="{{ asset('frontend/src/img/default-event-cover.jpg') }}" alt="{{ $value->name }}" class="img-responsive">
                                     @endif
                                     <div class="caption">
-                                        <h3 class="text-red">{{ $value->name }}</h3>
+                                        <h4 class="text-red">{{ $value->name }}</h4>
                                     </div>
                                 </a>
                             </div>
                         </div>
                     @endforeach
                 @else
-                    <h1>Now, Don't have Event</h1>
+                    <h1>{{trans('news.no-news')}}</h1>
                 @endif
             </div>
         </div>

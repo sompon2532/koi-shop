@@ -173,7 +173,7 @@
                     <section class="lazy slider" data-sizes="50vw">
                         @foreach($koi->videos as $video)
                             <div>
-                                <h3 class="text-red">VIDEO ({{ $video->date }})</h3>
+                                <h4 class="text-red">{{trans('koi.video')}} ({{ $video->date }})</h4>
                                 {!! $video->video !!}
                             </div>
                         @endforeach

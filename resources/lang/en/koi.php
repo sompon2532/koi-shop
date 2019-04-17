@@ -1,6 +1,7 @@
 <?php
 
 return [
+	'koi' => 'KOI',
 	'code' => 'CODE',
     'total' => 'TOTAL',
 	'btn-detail' => 'DETAIL',
@@ -25,4 +26,5 @@ return [
 	'please-contact' => 'PLEASE CONTACT',
 	'yes' => 'YES',
 	'no' => 'NO',
+	'video' => 'VIDEO',
 ];

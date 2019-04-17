@@ -27,7 +27,7 @@
             </div>
             <div class="title-m">
                 <div class="title-inm">
-                    <h1 class="text-thick">{{ $product->name }}</h1>
+                    <h3 class="text-thick">{{ $product->name }}</h3>
                 </div>
             </div>
             <div class="title-rg">
@@ -87,14 +87,14 @@
         </div>
         <div class="col-md-9 text-left">
             <p class="text-thick" style="color:#999;">
-                CODE : {{ $product->id }}</p>
+                {{trans('product.code')}} : {{ $product->id }}</p>
             <p class="text-red text-thick">
-                PRICE : {{ number_format($product->price) }} THB</p>
+                {{trans('product.price')}} : {{ number_format($product->price) }} {{trans('product.thb')}}</p>
             <p>
-                <span class="text-thick">DETAIL :</span> {{ $product->description }}</p>
+                <span class="text-thick">{{trans('product.detail')}} :</span> {{ $product->description }}</p>
                 
             <a class="btn btn-white text-center" href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}">
-                ORDER
+                {{trans('product.btn-order')}}
             </a>
         </div>
 

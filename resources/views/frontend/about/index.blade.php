@@ -12,7 +12,7 @@
             </div>
             <div class="title-m">
                 <div class="title-inm">
-                    <h1 class="text-thick">ABOUT US</h1>
+                    <h1 class="text-thick">{{trans('about.about')}}</h1>
                 </div>
             </div>
             <div class="title-rg">

@@ -86,7 +86,7 @@
 
 				<div class="col-md-12">
                     {{ $kois->links() }}
-                    <p class="text-red text-right"> TOTAL : {{ count($kois) }} </p>
+                    <p class="text-red text-right"> {{trans('koi.total')}} : {{ count($kois) }} </p>
                 </div>
 			@else
 				<h1>No koi in Category!</h1>

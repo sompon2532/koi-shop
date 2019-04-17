@@ -37,7 +37,7 @@ return [
     | Change Password
     |--------------------------------------------------------------------------
     */
-    'change-pass' => 'CHANGE PASS',
+    'change-pass' => 'CHANGE PASSWORD',
     'current-pass' => 'CURRENT PASSWORD',
     'new-pass' => 'NEW PASSWORD',
     'confirm-pass' => 'CONFIRM NEW PASSWORD',
@@ -64,17 +64,26 @@ return [
     'gender' => 'GENDER',
     'price' => 'PRICE',//favorite
     'thb' => 'THB',//order, favorite
-    'detail' => 'DETAIL',        
+    'detail' => 'DETAIL',    
+    'variety' => 'VARIETY',    
+    'keeping-at' => 'KEEPING AT',    
+    'certificate' => 'CERTIFICATE',    
+    'yes' => 'YES',    
+    'no' => 'NO',
+    'prize' => 'PRIZE',
+    'remark' => 'REMARK',
+    'video' => 'VIDEO',
 
     /*
     |--------------------------------------------------------------------------
     | My Favorite
     |--------------------------------------------------------------------------
     */
-    'favorite' => 'FAVORITE',    
+    'favorite' => 'MY FAVORITE',    
     'item' => 'ITEM',
     'code' => 'CODE',//order
     'btn-order' => 'ORDER',
+    'no-favorite' => 'No favorite item.',
     
     /*
     |--------------------------------------------------------------------------
@@ -92,7 +101,9 @@ return [
     |--------------------------------------------------------------------------
     */
     'myorder' => 'MY ORDER',
-    'order-num' => 'ORDER NUMBER',
+    'order-no' => 'ORDER NO.',
     'date' => 'DATE', 
     'btn-payment' => 'PAYMENT',    
+    'not-paid' => 'NOT PAID',    
+    'wait' => 'WAITING FOR INSPECTION',    
 ];

@@ -12,7 +12,7 @@
             </div>
             <div class="title-m">
                 <div class="title-inm">
-                    <h1 class="text-thick">PROFILE</h1>
+                    <h1 class="text-thick">{{trans('user.profile')}}</h1>
                 </div>
             </div>
             <div class="title-rg">
@@ -40,9 +40,9 @@
             <form class="form-horizontal" method="POST" action="{{ route('frontend.user.profile') }}">
                 {{ csrf_field() }}
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                    <label for="name" class="col-sm-offset-2 col-sm-3 control-label">NAME  :</label>
+                    <label for="name" class="col-sm-offset-2 col-sm-3 control-label">{{trans('user.name')}} :</label>
                     <div class="col-sm-5">
-                        <input id="name" type="text" class="form-control" name="name" placeholder="NAME" value="{{ $user->name }}" required autofocus>
+                        <input id="name" type="text" class="form-control" name="name" placeholder="{{trans('user.name')}}" value="{{ $user->name }}" required autofocus>
                         @if ($errors->has('name'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('name') }}</strong>
@@ -51,9 +51,9 @@
                     </div>
                 </div>
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <label for="inputEmail3" class="col-sm-offset-2 col-sm-3 control-label">E-MAIL : </label>
+                    <label for="inputEmail3" class="col-sm-offset-2 col-sm-3 control-label">{{trans('user.email')}} : </label>
                     <div class="col-sm-5">
-                        <input id="email" type="email" class="form-control" placeholder="E-MAIL" name="email" value="{{ $user->email }}" required>
+                        <input id="email" type="email" class="form-control" placeholder="{{trans('user.email')}}" name="email" value="{{ $user->email }}" required>
                         @if ($errors->has('email'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('email') }}</strong>
@@ -62,9 +62,9 @@
                     </div>
                 </div>
                 <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                    <label for="address" class="col-sm-offset-2 col-sm-3 control-label">ADDRESS : </label>
+                    <label for="address" class="col-sm-offset-2 col-sm-3 control-label">{{trans('user.address')}} : </label>
                     <div class="col-sm-5">
-                        <input id="address" type="text" class="form-control" placeholder="ADDRESS" name="address" value="{{ count($user->address) > 0 ? $user->address->first()->address : '' }}" required>
+                        <input id="address" type="text" class="form-control" placeholder="{{trans('user.address')}}" name="address" value="{{ count($user->address) > 0 ? $user->address->first()->address : '' }}" required>
                         @if ($errors->has('adddress'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('address') }}</strong>
@@ -74,9 +74,9 @@
                 </div>
 
                 <div class="form-group{{ $errors->has('tel') ? ' has-error' : '' }}">
-                    <label for="inputEmail3" class="col-sm-offset-2 col-sm-3 control-label">TEL. : </label>
+                    <label for="inputEmail3" class="col-sm-offset-2 col-sm-3 control-label">{{trans('user.tel')}} : </label>
                     <div class="col-sm-5">
-                        <input id="tel" type="text" class="form-control" placeholder="TEL." name="tel" value="{{ count($user->address)>0 ? $user->address->first()->tel : '' }}" required>
+                        <input id="tel" type="text" class="form-control" placeholder="{{trans('user.tel')}}" name="tel" value="{{ count($user->address)>0 ? $user->address->first()->tel : '' }}" required>
                         @if ($errors->has('tel'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('tel') }}</strong>
@@ -86,11 +86,11 @@
                 </div>
 
                 <a class="btn btn-link" href="{{route('frontend.user.changepass')}}">
-                    CHANGE PASSWORD
+                    {{trans('user.change-pass')}}
                 </a>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-red">EDIT</button>
+                    <button type="submit" class="btn btn-red">{{trans('user.edit')}}</button>
                 </div>
 
             </form>

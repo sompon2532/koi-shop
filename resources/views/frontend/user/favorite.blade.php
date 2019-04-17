@@ -16,7 +16,7 @@
             </div>
             <div class="title-m">
                 <div class="title-inm">
-                    <h1 class="text-thick">MY FAVORITE</h1>
+                    <h1 class="text-thick">{{trans('user.favorite')}}</h1>
                 </div>
             </div>
             <div class="title-rg">
@@ -30,9 +30,9 @@
                 <div class="table-responsive">
                     <table class="table">
                         <tr>
-                            <th class="text-center"  colspan="2">ITEM</th>
+                            <th class="text-center"  colspan="2">{{trans('user.item')}}</th>
                             <!-- <th class="text-center">AVAILABILITY</th> -->
-                            <th class="text-center">PRICE</th>
+                            <th class="text-center">{{trans('user.price')}}</th>
                             <th class="text-center"></th>
                         </tr>
 
@@ -51,15 +51,16 @@
                                         </td>
                                         <td>
                                             <p class="text-red ">{{ $koi->name }}</p>
-                                            <p >CODE : {{ $koi->koi_id }}</p>
+                                            <p >{{trans('user.code')}} : {{ $koi->koi_id }}</p>
                                         </td>
                                         <td>
                                             <p class="text-red text-center">{{ number_format($koi->price) }} THB</p>
                                         </td>
                                         <td class="text-center">
-                                            <a class="btn btn-white" href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">DETAIL</a>
+                                            <a class="btn btn-white" href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">{{trans('user.detail')}}</a>
                                         </td>
                                     </tr>
+                                    
                                 @endif
                             @endforeach
                         @endif
@@ -79,13 +80,13 @@
                                         </td>
                                         <td >
                                             <p class="text-red ">{{ $product->name }}</p>
-                                            <p >CODE : {{ $product->product_id }}</p>
+                                            <p >{{trans('user.code')}} : {{ $product->product_id }}</p>
                                         </td>
                                         <td>
                                             <p class="text-red text-center">{{ number_format($product->price) }} THB</p>
                                         </td>
                                         <td class="text-center">
-                                            <a class="btn btn-red" href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}">ORDER</a>
+                                            <a class="btn btn-red" href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}">{{trans('user.btn-order')}}</a>
                                         </td>
                                     </tr>
                                 @endif
@@ -95,7 +96,7 @@
                     </table>
                 </div>
             @else
-                <h1 class="text-center text-red">No favorite item.</h1>
+                <h1 class="text-center text-red">{{trans('user.no-favorite')}}</h1>
             @endif
         </div>
         

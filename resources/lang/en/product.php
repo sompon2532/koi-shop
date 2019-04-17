@@ -1,6 +1,7 @@
 <?php
 
 return [
+	'koi-product' => 'KOI PRODUCT',
 	'code' => 'CODE',
     'btn-order' => 'ORDER',
     'total' => 'TOTAL',
@@ -10,4 +11,5 @@ return [
     'shipping' => 'SHIPPING',
     'detail' => 'DETAIL',    
     'thb' => 'THB',        
+    'no-product' => 'No Product in Category!',
 ];

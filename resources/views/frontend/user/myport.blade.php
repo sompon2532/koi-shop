@@ -12,7 +12,7 @@
             </div>
             <div class="title-m">
                 <div class="title-inm">
-                    <h1 class="text-thick">MY PORT</h1>
+                    <h1 class="text-thick">{{trans('user.myport')}}</h1>
                 </div>
             </div>
             <div class="title-rg">
@@ -35,7 +35,7 @@
                         </div>  
                         <p class="text-red">{{ $koi->name }}</p>
                         <a class="btn btn-white" href="{{ route('frontend.user.myport-koi', ['id' => $koi->id]) }}">
-                            DETAIL
+                            {{trans('user.btn-detail')}}
                         </a>
                     </div>
                 </div>

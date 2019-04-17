@@ -7,6 +7,7 @@ return [
     'pass_events' => 'PAST EVENTS',
     'to' => 'to',
     'total' => 'TOTAL',
+    'no_event' => 'Now, Don\'t have Event',
     
     //event
     'book_now' => 'BOOK NOW',    
@@ -18,6 +19,8 @@ return [
     'winner_list' => 'WINNER LIST',   
     'winner' => 'WINNER',
     'end-of-event' => 'End of Event.',
+    'no-koi' => 'No Koi in Event!',
+    
 
     //koi
     'remaining_time' => 'REMAINING TIME',    
@@ -39,6 +42,7 @@ return [
     'no' => 'NO',  
     'contest' => 'PRIZE',    
     'oyagoi' => 'OYAGOI',    
-    'storage' => 'KEEPING AT'
+    'storage' => 'KEEPING AT',
+    'no-koi-in-event' => 'This koi is not in Event!',
     
 ];

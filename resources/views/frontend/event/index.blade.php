@@ -14,21 +14,20 @@
                     <h1>{{ trans('event.events') }}</h1>
                 </div>
             </div> -->--}}
-            @if(count($nowEvents)>0)
                 <div class="col-md-12">
                     <div class="title-lf">
                         <img class="img-responsive" src="{{ asset('frontend/src/img/Title-left.png') }}">
                     </div>
                     <div class="title-m">
                         <div class="title-inm">
-                            <h1 class="text-thick">EVENT</h1>
+                            <h1 class="text-thick">{{trans('event.events')}}</h1>
                         </div>
                     </div>
                     <div class="title-rg">
                         <img class="img-responsive" src="{{ asset('frontend/src/img/Title-right.png') }}">
                     </div>
                 </div>
-
+            @if(count($nowEvents)>0)
                 @foreach($nowEvents as $event)
                 <div class="col-md-12" style="margin-bottom:15px">
                     <div class="col-md-6">
@@ -45,11 +44,15 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h1 class="text-red text-center">New Event!</h1>
+                        <h1 class="text-red text-center">{{trans('event.new_events')}}</h1>
                         <p class="text-center">{{ $event->name }}</p>
                     </div>
                 </div>
                 @endforeach
+            @else
+            <div class="col-md-12">
+                <h1 class="text-red" style="margin:30px auto;">{{trans('event.no_event')}}</h1>
+            </div>
             @endif
 
             {{--<!-- <div class="col-md-12" style="margin:20px">
@@ -57,7 +60,7 @@
                     <h1>{{ trans('event.pass_events') }}</h1>
                 </div>
             </div> -->--}}
-            <div class="col-md-12">
+            {{--<!-- <div class="col-md-12">
                 <div class="title-lf">
                     <img class="img-responsive" src="{{ asset('frontend/src/img/Sub-Title-left.png') }}">
                 </div>
@@ -90,11 +93,11 @@
                 @endforeach
             @else
                 <h1>Now, Don't have Event</h1>
-            @endif
+            @endif -->--}}
 
 
             <div class="col-md-12"> 
-                <p class="text-red text-right">TOTAL : {{ count($events) }}</p>
+                <p class="text-red text-right">{{trans('event.total')}} : {{ count($nowEvents) }}</p>
             </div>
 
         </div>

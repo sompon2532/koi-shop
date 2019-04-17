@@ -1,6 +1,7 @@
 <?php
 
 return [
+	'koi' => 'ปลา',
 	'code' => 'รหัส',
     'total' => 'รวม',
 	'btn-detail' => 'รายละเอียด',
@@ -25,4 +26,5 @@ return [
 	'please-contact' => 'กรุณาติดต่อ',
 	'yes' => 'มี',
 	'no' => 'ไม่มี',
+	'video' => 'วิดีโอ',
 ];

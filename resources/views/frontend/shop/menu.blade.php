@@ -22,7 +22,7 @@
 			</div>
 			<div class="title-m">
 				<div class="title-inm">
-					<h1 class="text-thick">KOI PRODUCT</h1>
+					<h1 class="text-thick">{{trans('product.koi-product')}}</h1>
 				</div>
 			</div>
 			<div class="title-rg">

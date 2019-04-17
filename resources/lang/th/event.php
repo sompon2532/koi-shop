@@ -3,10 +3,11 @@
 return [
     //index
     'events' => 'กิจกรรม',
-    'new_events' => 'กิจกรรมใหม่',
+    'new_events' => 'กิจกรรมใหม่!',
     'pass_events' => 'กิจกรรมที่ผ่านมา',
     'to' => 'ถึง',
     'total' => 'รวม',
+    'no_event' => 'ไม่พบกิจกรรม!',
     
     //event
     'book_now' => 'จอง',    
@@ -18,6 +19,7 @@ return [
     'winner_list' => 'รายชื่อผู้ชนะ',   
     'winner' => 'ผู้ชนะ',
     'end-of-event' => 'กิจกรรมสิ้นสุดแล้ว',
+    'no-koi' => 'ไม่พบปลา!',
 
     //koi
     'remaining_time' => 'นับเวลาถอยหลัง',    
@@ -40,5 +42,6 @@ return [
     'contest' => 'การประกวด',    
     'oyagoi' => 'พ่อพันธุ์',    
     'storage' => 'ที่เก็บปลา',    
+    'no-koi-in-event' => 'ปลาไม่ได้อยู่ในกิจกรรมนี้!',
     
 ];

@@ -4,15 +4,15 @@
 @section('page_title', 'NEWS')
 
 @section('content')
-<div class="content-box text-center">
-    <div class="row">
+<div class="text-center">
+    <div class="row content-box">
         <div class="col-md-12">
             <div class="title-lf">
                 <img class="img-responsive" src="{{ asset('frontend/src/img/Title-left.png') }}">
             </div>
             <div class="title-m">
                 <div class="title-inm">
-                    <h1 class="text-thick">{{ $news->name }}</h1>
+                    <h2 class="text-thick">{{ $news->name }}</h2>
                 </div>
             </div>
             <div class="title-rg">
@@ -35,7 +35,7 @@
                     <section class="lazy slider" data-sizes="50vw">
                         @foreach($news->videos as $video)
                             <div>
-                                <h3 class="text-red">VIDEO ({{ $video->date }})</h3>
+                                <h4 class="text-red">{{trans('news.video')}} ({{ $video->date }})</h4>
                                 {!! $video->video !!}
                             </div>
                         @endforeach
