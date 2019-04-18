@@ -118,7 +118,8 @@ footer a:hover {
     background-color: #333;
     background-image: linear-gradient(to right, #000, #666, #000);
 }
-.menu-title-box>p{
+
+.menu-title-box>p {
     margin: 2px 0;
 }
 
@@ -353,6 +354,7 @@ span.fc-day-number {
     /* padding: 20px 50px 50px 50px; */
     padding: 20px;
     margin-bottom: 20px;
+    min-height: 900px;
 }
 
 .title-box {
@@ -396,7 +398,7 @@ span.fc-day-number {
 }
 
 .title-inm>h1,
-.title-inm>h2, 
+.title-inm>h2,
 .title-inm>h3 {
     display: table;
     top: 50%;
@@ -636,7 +638,6 @@ table {
     .hide-max-768px {
         display: none;
     }
-    
 }
 
 @media (min-width: 768px) {
@@ -649,7 +650,8 @@ table {
 }
 
 @media (max-width: 992px) {
-    .title-lf, .title-rg {
+    .title-lf,
+    .title-rg {
         display: none;
     }
 }

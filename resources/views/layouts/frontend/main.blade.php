@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>KOIKICHI | @yield('page_title')</title>
+    <link rel="shortcut icon" href="{{ asset('frontend/src/img/favicon-32x32.png') }}" type="image/x-icon" >
     
     <!-- bootstrap -->
     <link rel="stylesheet" href="{{ asset('frontend/bootstrap-3.3.7/css/bootstrap.min.css') }}" >

@@ -64,9 +64,15 @@
                 <!-- branner -->
                 {{--<!-- @foreach($banners as $banner) -->--}}
                     @if($banner)
-                        <a href="{{ $banner->url }}" target="_blank">
-                            <img src="{{ asset($banner->media->where('collection_name', 'banner')->first()->getUrl()) }}" class="img-responsive" alt="KOIKICHIFISHFARM" title="KOIKICHI FISH FARM" style="width:100%;">
-                        </a>
+                        @if(count($banner->media)>0)
+                            <a href="{{ $banner->url }}" target="_blank">
+                                <img src="{{ asset($banner->media->where('collection_name', 'banner')->first()->getUrl()) }}" class="img-responsive" alt="KOIKICHIFISHFARM" title="KOIKICHI FISH FARM" style="width:100%;">
+                            </a>
+                        @else
+                            <a class="{{ Request::segment(1) == ''  ? 'text-red' : '' }}" href="{{ url('/') }}">
+                                <img src="{{ asset('frontend/src/img/AW-KOIKICHIFISHFARM-BANNER-2682x610PX.jpg')}}" class="img-responsive" alt="KOIKICHIFISHFARM" title="KOIKICHI FISH FARM" style="width:100%;">
+                            </a>
+                        @endif
                     @else
                         <a class="{{ Request::segment(1) == ''  ? 'text-red' : '' }}" href="{{ url('/') }}">
                             <img src="{{ asset('frontend/src/img/AW-KOIKICHIFISHFARM-BANNER-2682x610PX.jpg')}}" class="img-responsive" alt="KOIKICHIFISHFARM" title="KOIKICHI FISH FARM" style="width:100%;">
