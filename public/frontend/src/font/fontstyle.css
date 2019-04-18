@@ -8,7 +8,7 @@
 
 html,
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, Prompt;
+    font-family: "Helvetica Neue", Helvetica, "thaisans_neueregular", Arial, sans-serif, Prompt;
     font-size: 14px;
     line-height: 1.42857143;
     color: #333333;
@@ -25,6 +25,8 @@ p {
 .input-group-addon {
     font-size: 14px;
 }
+
+
 /* @font-face {
     font-family: 'thaisans_neueregular';
     src: url('thaisansneue-regular-webfont.eot');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\Category;
+use App\Models\Banner;
 use App\Models\HallOfFame;
 use DB;
 use Carbon\Carbon;
@@ -15,7 +16,9 @@ class HallOfFameController extends Controller
 {
     public function getIndex()
     {
-        $categories = Category::active()->get()->toTree();    
+        $categories = Category::active()->get()->toTree();  
+        $banner = Banner::with(['media'])->active()->first();
+
         // $halloffame = HallOfFame::active()->get();
         $quotes = DB::table('hall_of_fames');
 
@@ -60,12 +63,13 @@ class HallOfFameController extends Controller
         // }
         // dd($year_months);
         
-        return view('frontend.hall-of-fame.index', compact('categories', 'years', 'kois'));
+        return view('frontend.hall-of-fame.index', compact('categories', 'banner', 'years', 'kois'));
     }
 
     public function getHallOfFame($id)
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
         $halloffames = HallOfFame::find($id);
         $years = HallOfFame::active()
             ->get()
@@ -76,7 +80,7 @@ class HallOfFameController extends Controller
             return redirect()->back();
         }
         
-        return view('frontend.hall-of-fame.hall-of-fame', compact('categories', 'halloffames', 'years'));
+        return view('frontend.hall-of-fame.hall-of-fame', compact('categories', 'banner', 'halloffames', 'years'));
         
     }
 }

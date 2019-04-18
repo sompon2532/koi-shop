@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Category;
+use App\Models\Banner;
 use App\Models\KoiContest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,6 +14,7 @@ class HallController extends Controller
 {
     public function getIndex() {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
 
         $years = DB::table('halls')
             ->select(DB::raw('YEAR(contest_date) as year'))
@@ -24,7 +26,8 @@ class HallController extends Controller
         return view('frontend.hallOfFame.index')->with([
             'years' => $years,
             'contests' => $contests,
-            'categories' => $categories
+            'categories' => $categories,
+            'banner' => $banner
         ]);
     }
 
@@ -51,13 +54,15 @@ class HallController extends Controller
 
     public function getDetail($id) {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
         $kois = KoiContest::where('contest_id', $id)->get();
         $contest = Hall::find($id);
 
         return view('frontend.hallOfFame.detail')->with([
             'kois' => $kois,
             'contest' => $contest,
-            'categories' => $categories
+            'categories' => $categories,
+            'banner' => $banner
         ]);
     }
 

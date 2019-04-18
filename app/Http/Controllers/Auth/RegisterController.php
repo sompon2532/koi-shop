@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 use App\Models\Category;
+use App\Models\Banner;
 
 class RegisterController extends Controller
 {
@@ -49,7 +50,8 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         $categories = Category::get()->toTree();                
-        return view('auth.register', compact('categories'));
+        $banner = Banner::with(['media'])->active()->first();
+        return view('auth.register', compact('categories', 'banner'));
     }
 
     /**

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Koi;
 use App\Models\Category;
+use App\Models\Banner;
 use App\Models\Favorite;
 use App\Models\Product;
 use App\User;
@@ -17,6 +18,7 @@ class KoiController extends Controller
     public function getIndex()
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
         $menus = Category::active()
             ->where('group', 'koi')
             ->where('parent_id', null)
@@ -38,15 +40,16 @@ class KoiController extends Controller
         }
         
         if (count($menus)>0) {
-            return view('frontend.koi.menu', compact('menus', 'categories'));
+            return view('frontend.koi.menu', compact('menus', 'categories', 'banner'));
         } else {
-            return view('frontend.koi.index', compact('kois','categories'));
+            return view('frontend.koi.index', compact('kois','categories', 'banner'));
         }
     }
 
     public function getKoiCategory(Category $category)
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
         $menus = Category::active()
             ->where('parent_id', $category->id)
             ->with(['media'])
@@ -71,15 +74,16 @@ class KoiController extends Controller
         }
 
         if (count($menus)>0) {
-            return view('frontend.koi.menu', compact('menus', 'category', 'categories'));
+            return view('frontend.koi.menu', compact('menus', 'category', 'categories', 'banner'));
         } else {
-            return view('frontend.koi.category', compact('kois', 'category', 'categories'));
+            return view('frontend.koi.category', compact('kois', 'category', 'categories', 'banner'));
         }
     }
 
     public function getDetail(Koi $koi)
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
 
         if(Auth::user())
         {
@@ -93,7 +97,7 @@ class KoiController extends Controller
             }]);
         }
 
-        return view('frontend.koi.detail', compact('koi', 'categories'));
+        return view('frontend.koi.detail', compact('koi', 'categories', 'banner'));
     }
 
     /**

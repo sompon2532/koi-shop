@@ -27,7 +27,7 @@
     <!-- Custom CSS -->
     <!-- <link rel="stylesheet" href="{{ asset('frontend/src/css/style.css') }}" media="screen" title="no title" charset="utf-8" > -->
     <link rel="stylesheet" href="{{ asset('frontend/main-style.css') }}" media="screen" title="no title" charset="utf-8" >
-    <link rel="stylesheet" href="{{ asset('frontend/src/font/fontstyle.css') }}" media="screen" title="no title" charset="utf-8" >
+    {{--<!-- <link rel="stylesheet" href="{{ asset('frontend/src/font/fontstyle.css') }}" media="screen" title="no title" charset="utf-8" > -->--}}
 
     @yield('custom-css')
 

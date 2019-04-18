@@ -107,7 +107,7 @@ class HomeController extends Controller
         }
 
         $categories = Category::active()->get()->toTree();
-        $banners = Banner::with(['media'])->active()->get();
+        $banner = Banner::with(['media'])->active()->first();
 
         // calendar
         $events = [];
@@ -152,21 +152,23 @@ class HomeController extends Controller
             ->orderBy('updated_at', 'desc')
             ->get();
         
-        return view('frontend.index', compact('nownews', 'nowEvents', 'categories', 'calendar', 'banners', 'home', 'menus'));
+        return view('frontend.index', compact('nownews', 'nowEvents', 'categories', 'calendar', 'banner', 'home', 'menus'));
     }
 
     public function getAboutUs()
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
 
-        return view('frontend.about.index', compact('categories'));
+        return view('frontend.about.index', compact('categories', 'banner'));
     }
 
     public function getContactUs()
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
 
-        return view('frontend.contact.index', compact('categories'));
+        return view('frontend.contact.index', compact('categories', 'banner'));
     }
 
     public function postContactUs(Request $request)
@@ -185,6 +187,8 @@ class HomeController extends Controller
     public function getLineContact()
     {
         $categories = Category::active()->get()->toTree();
-        return view('frontend.contact.line', compact('categories'));
+        $banner = Banner::with(['media'])->active()->first();
+
+        return view('frontend.contact.line', compact('categories', 'banner'));
     }
 }

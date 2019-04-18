@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use App\Models\Category;
+use App\Models\Banner;
 
 
 class LoginController extends Controller
@@ -48,6 +49,7 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         $categories = Category::get()->toTree();        
-        return view('auth.login', compact('categories'));
+        $banner = Banner::with(['media'])->active()->first();
+        return view('auth.login', compact('categories', 'banner'));
     }
 }

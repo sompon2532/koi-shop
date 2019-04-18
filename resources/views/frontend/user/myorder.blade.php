@@ -40,7 +40,7 @@
 		@endif
 
         @foreach($orders as $order)                            
-            <div class="info-box">
+            <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="title-info-box">

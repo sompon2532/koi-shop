@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Banner;
 use App\Models\Favorite;
 use App\Models\Product;
 use App\Models\Transaction;
@@ -33,10 +34,11 @@ class UserController extends Controller
     public function getProfile()
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
         $user = User::find(Auth::user()->id);
         $user->load(['address']);
         
-        return view('frontend.user.profile', compact('categories', 'user'));
+        return view('frontend.user.profile', compact('categories', 'banner', 'user'));
     }
 
     public function postProfile(Request $request)
@@ -65,8 +67,9 @@ class UserController extends Controller
     public function getChangePasswordForm()
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
 
-        return view('frontend.user.changepass', compact('categories'));
+        return view('frontend.user.changepass', compact('categories', 'banner'));
     }
 
     public function postChangePassword(Request $request)
@@ -97,6 +100,7 @@ class UserController extends Controller
     public function getfavorite()
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
         $favorites = User::find(Auth::user()->id);
         $products = Product::active()->get();
         $kois = Koi::active()->get();
@@ -110,7 +114,7 @@ class UserController extends Controller
             $query->where('user_id', $user->id)->where('favorite_type', 'App\Models\Product');
         }]);
 // dd($kois);
-        return view('frontend.user.favorite', compact('favorites', 'products', 'kois', 'categories'));
+        return view('frontend.user.favorite', compact('favorites', 'products', 'kois', 'categories', 'banner'));
     }
 
     //add favorite
@@ -160,44 +164,28 @@ class UserController extends Controller
     {
 
         $categories = Category::active()->get()->toTree();
-        
+        $banner = Banner::with(['media'])->active()->first();        
         $users = User::find(Auth::user()->id);
-
         $orders = Order::where('user_id', Auth::user()->id)->get();
-        // dd($orders);
-        // $order = Order::find(13);
 
-        // dd($order->transaction->id);
-        // foreach ($order as $value) {
-        //     return $value->transaction->status;
-        // }
-        // dd($users->orders);
-        // foreach ($users->orders as $order ) {
-        //     dd( $order->transaction);
-        // }
-        // dd($users);
-        // $orders = Auth::user()->orders;
-        // $orders->transform(function($order, $key) {
-        //     $order->cart = unserialize($order->cart);
-        //     return $order;
-        // }); 
-        return view('frontend.user.myorder', compact('categories', 'users', 'orders'));
-        // return view('user.profile');
+        return view('frontend.user.myorder', compact('categories', 'banner', 'users', 'orders'));
     }
 
     public function getMyports()
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
         $kois = Koi::with('media')->where('user_id', Auth::user()->id)->get();
-        return view('frontend.user.myport', compact('categories', 'kois'));
+        return view('frontend.user.myport', compact('categories', 'banner', 'kois'));
     }
 
     public function getMyportKoi($id)
     {
         $kois = Koi::with(['media'])->find($id);
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
 
-        return view('frontend.user.myport-koi', compact('kois','categories'));
+        return view('frontend.user.myport-koi', compact('kois','categories', 'banner'));
     }
     
 }

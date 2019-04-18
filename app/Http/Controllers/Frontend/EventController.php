@@ -8,6 +8,7 @@ use App\Models\Koi;
 use App\Models\Event;
 use App\Models\Contest;
 use App\Models\Category;
+use App\Models\Banner;
 use Carbon\Carbon;
 use Auth;
 use DB;
@@ -18,6 +19,7 @@ class EventController extends Controller
         $events = Event::active()->with(['media'])->orderBy('end_datetime', 'desc')->get();
         $today = Carbon::now('Asia/Bangkok');
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
 
         $events = Event::with(['media'])->active()->orderBy('end_datetime', 'desc')->get();
 
@@ -67,7 +69,7 @@ class EventController extends Controller
         }
 
 
-        return view('frontend.event.index', compact('events', 'categories', 'nowEvents', 'passEvents'));
+        return view('frontend.event.index', compact('events', 'categories', 'banner', 'nowEvents', 'passEvents'));
     }
 
     public function getEvent($id) {
@@ -75,6 +77,7 @@ class EventController extends Controller
         $kois = Koi::with(['media'])->where('event_id', $id)->get();
         $today = Carbon::now('Asia/Bangkok');
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
 
         // foreach ($kois as $koi) {
         //     dd($koi->user);
@@ -92,7 +95,7 @@ class EventController extends Controller
         // return $books;
         // dd($events->end_datetime);
         // if($events->end_start
-        return view('frontend.event.event', compact('events', 'kois', 'books', 'today', 'categories'));        
+        return view('frontend.event.event', compact('events', 'kois', 'books', 'today', 'categories', 'banner'));        
     }
 
     public function getKoi($event, $koi) {
@@ -102,6 +105,7 @@ class EventController extends Controller
         $contests = Contest::where('contesttable_id', $koi)->get();          
         $userbooks = Koi::with(['users'])->find($koi);
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
 
         if(Auth::user() == null){
             $books = null;
@@ -113,7 +117,7 @@ class EventController extends Controller
             $events->config = 0;
         }
         
-        return view('frontend.event.koi', compact('events', 'kois', 'today', 'contests', 'books', 'userbooks', 'categories'));
+        return view('frontend.event.koi', compact('events', 'kois', 'today', 'contests', 'books', 'userbooks', 'categories', 'banner'));
     }
 
     // public function postEvent(Request $request) {
@@ -165,15 +169,9 @@ class EventController extends Controller
         $now = Carbon::now('Asia/Bangkok');     
         
         $categories = Category::active()->get()->toTree();    
+        $banner = Banner::with(['media'])->active()->first();
 
-        // foreach ($koisActiveEvent as $koi) {
-        //     echo $koi->event->name."<br>";
-        //     echo $koi->event->start_datetime."<br>";
-        //     echo $koi->event->end_datetime."<br>";
-        // }
-        // dd();
-        // return $bookKois;
-        return view('frontend.event.booking', compact('kois', 'categories', 'koisActiveEvent', 'now'));
+        return view('frontend.event.booking', compact('kois', 'categories', 'banner', 'koisActiveEvent', 'now'));
     }
 
     // public function getLuckydraw($event)

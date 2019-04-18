@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Banner;
 use App\Models\Order;
 use App\Models\Transaction;
 use App\User;
@@ -19,16 +20,18 @@ class PaymentController extends Controller
     public function getIndex()
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
         
-        return view('frontend.payment.index', compact('categories'));
+        return view('frontend.payment.index', compact('categories', 'banner'));
     }
 
     public function getPayment($id)
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
         $order = Order::find($id);
 
-        return view('frontend.payment.payment', compact('categories', 'order'));
+        return view('frontend.payment.payment', compact('categories', 'banner', 'order'));
     }
 
     public function postPayment(Request $request, $id)
@@ -67,11 +70,12 @@ class PaymentController extends Controller
     public function getSuccess($id)
     {
         $categories = Category::active()->get()->toTree();        
+        $banner = Banner::with(['media'])->active()->first();
         $order = Order::find($id);
 
         if(!$order->payment){
             return redirect()->back();
         }
-        return view('frontend.payment.success', compact('categories', 'order'));            
+        return view('frontend.payment.success', compact('categories', 'banner', 'order'));            
     }
 }

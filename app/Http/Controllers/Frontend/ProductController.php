@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\Category;
+use App\Models\Banner;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Favorite;
@@ -23,6 +24,7 @@ class ProductController extends Controller
     public function getIndex()
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
         $menus = Category::active()
             ->where('group', 'product')
             ->where('parent_id', null)
@@ -45,15 +47,16 @@ class ProductController extends Controller
         }
 
         if (count($menus)>0) {
-            return view('frontend.shop.menu', compact('menus', 'categories'));
+            return view('frontend.shop.menu', compact('menus', 'categories', 'banner'));
         } else {
-            return view('frontend.shop.index', compact('products', 'categories'));
+            return view('frontend.shop.index', compact('products', 'categories', 'banner'));
         }
     }
 
     public function getProductCategory(Category $category)
     {   
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
         $menus = Category::active()
             ->where('parent_id', $category->id)
             ->with(['media'])
@@ -78,15 +81,16 @@ class ProductController extends Controller
         }
 
         if (count($menus)>0) {
-            return view('frontend.shop.menu', compact('menus', 'category', 'categories'));
+            return view('frontend.shop.menu', compact('menus', 'category', 'categories', 'banner'));
         } else {
-            return view('frontend.shop.category', compact('products', 'category', 'categories'));
+            return view('frontend.shop.category', compact('products', 'category', 'categories', 'banner'));
         }
     }
 
     public function getDetail(Product $product)
     {   
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
 
         if(Auth::user()){
             $user = User::find(Auth::user()->id);
@@ -99,7 +103,7 @@ class ProductController extends Controller
             }]);
         }
 
-        return view('frontend.shop.detail', compact('product', 'categories'));
+        return view('frontend.shop.detail', compact('product', 'categories', 'banner'));
     }
 
     public function getAddToCart (Request $request, $id)
@@ -161,8 +165,9 @@ class ProductController extends Controller
     public function getCart()
     {
         $categories = Category::active()->get()->toTree();
+        $banner = Banner::with(['media'])->active()->first();
         if (!Session::has('cart')) {
-            return view('frontend.shop.shopping-cart', compact('categories'));
+            return view('frontend.shop.shopping-cart', compact('categories', 'banner'));
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
@@ -181,8 +186,9 @@ class ProductController extends Controller
     public function getCheckout()
     {   
         $categories = Category::active()->get()->toTree();        
+        $banner = Banner::with(['media'])->active()->first();
     	if (!Session::has('cart')) {
-            return view('frontend.shop.shopping-cart', compact('categories'));
+            return view('frontend.shop.shopping-cart', compact('categories', 'banner'));
         }
 
         $oldCart = Session::get('cart');
@@ -201,6 +207,7 @@ class ProductController extends Controller
             'total' => $cart->total, 
             'images' => $images, 
             'categories' => $categories,
+            'banner' => $banner,
             'user' => $user
         ]);
     }
