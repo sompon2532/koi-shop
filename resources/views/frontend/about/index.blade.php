@@ -20,14 +20,15 @@
             </div>
         </div>
         <div class="col-md-12">
-            {{--<!-- <div class="title-box">
-                <h1>{{ trans('about.about') }}</h1>
-            </div> -->--}}
             <p>KOIKICHI FISH FARM</p>
-            <p>WE ARE A MEMBER OF<br>
-                ALL JAPAN NISHIKIGOI PROMOTION ASSOCIATION</p>
-            <iframe src="https://player.vimeo.com/video/125912833?autoplay=1&color=fc0328&title=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="margin: 30px 0"></iframe>
-            
+            <p>WE ARE A MEMBER OF<br>ALL JAPAN NISHIKIGOI PROMOTION ASSOCIATION</p>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="embed-responsive embed-responsive-16by9" style="margin-bottom:20px;">
+                <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/125912833?autoplay=1&color=fc0328&title=0&portrait=0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-md-12">
             <p>ผมผูกพันกับปลาคาร์พมาตั้งแต่เด็กๆ เพราะคุณพ่อชอบเลี้ยงและพาไปเลือกซื้อปลาด้วยหลายครั้ง เรียกได้ว่าตั้งแต่จำความได้ปลาคาร์พก็เป็นส่วนหนึ่งในชีวิตไปแล้ว
                 พอโตมาช่วงเข้ามหาลัยก็เริ่มฝันว่าซักวัน จะมีฟาร์มปลาคาร์พนำเข้าเป็นของตัวเองให้ได้</p>
             <p>เมื่อประมาณปี 1998 ตอนผมอายุประมาณ 20 วงการปลาคาร์พเมืองไทยเริ่มมีเวปไซด์สังคมปลาคาร์พเวบแรกชื่อ www.fancycarp.com ซึ่งผมได้มีโอกาสเข้าเป็นทีมทำงานของเวป

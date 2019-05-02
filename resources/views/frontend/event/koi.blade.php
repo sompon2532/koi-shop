@@ -92,7 +92,7 @@
                         </div>
                         
                         @if(count($kois->videos) > 0)
-                            <div class="col-md-12">
+                            <div class="col-md-12" style="margin-bottom:10px;">
                                 <section class="lazy slider" data-sizes="50vw">
                                     @foreach($kois->videos as $video)
                                         <div>
@@ -214,7 +214,7 @@
                                     @if(count($kois->contests) > 0)
                                         @foreach($kois->contests as $index => $contests)
                                             <p>
-                                                <span class="heading">{{ trans('koi.contest') }} {{ $index+1 }}</span>
+                                                <span class="heading">{{ trans('koi.contest') }} #{{ $index+1 }}</span>
                                                 : {{ $contests->contest }} ({{$contests->date}})</p>
                                         @endforeach
                                     @endif
@@ -222,7 +222,7 @@
                                     @if(count($kois->remarks) > 0)
                                         @foreach($kois->remarks as $index => $remarks)
                                             <p>
-                                                <span class="heading">{{ trans('koi.remark') }} {{ $index+1 }}</span>
+                                                <span class="heading">{{ trans('koi.remark') }} #{{ $index+1 }}</span>
                                                 : {{ $remarks->remark }}</p>
                                         @endforeach
                                     @endif
