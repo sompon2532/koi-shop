@@ -91,8 +91,8 @@
 					{{ $products->links() }}
 					<p class="text-red text-right"> {{trans('product.total')}} : {{ count($products) }} </p>
 				</div>
-			@else
-				<h1>{{trans('product.no-product')}}</h1>
+			{{--<!-- @else
+				<h1>{{trans('product.no-product')}}</h1> -->--}}
 			@endif
 		</div>
 	</div>

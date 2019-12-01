@@ -49,10 +49,10 @@
                     </div>
                 </div>
                 @endforeach
-            @else
+            {{--<!-- @else
             <div class="col-md-12">
                 <h1 class="text-red" style="margin:30px auto;">{{trans('event.no_event')}}</h1>
-            </div>
+            </div> -->--}}
             @endif
 
             {{--<!-- <div class="col-md-12" style="margin:20px">

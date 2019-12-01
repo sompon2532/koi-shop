@@ -38,8 +38,8 @@
                             </div>
                         </div>
                     @endforeach
-                @else
-                    <h1>{{trans('news.no-news')}}</h1>
+                {{--<!-- @else
+                    <h1>{{trans('news.no-news')}}</h1> -->--}}
                 @endif
             </div>
         </div>

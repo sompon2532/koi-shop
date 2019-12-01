@@ -1,3 +1,20 @@
+/* @import url("../font/ThaiSansNeue/stylesheet.css"); */
+@import url("src/font/fontstyle.css");
+/* /Applications/Code/koi-shop/public/frontend/src/font/fontstyle.css */
+/* @font-face {
+    font-family: 'thaisans_neueregular';
+    src: url('thaisansneue-regular-webfont.eot');
+    src: url('thaisansneue-regular-webfont.eot?#iefix') format('embedded-opentype'), url('thaisansneue-regular-webfont.woff2') format('woff2'), url('thaisansneue-regular-webfont.woff') format('woff'), url('thaisansneue-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+
+/* body {
+    background-color: #FDFDFD;
+    font-family: 'thaisans_neuesemi_bold';
+} */
+
 /* header */
 
 .navbar-default {

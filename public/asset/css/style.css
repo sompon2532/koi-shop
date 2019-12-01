@@ -6,10 +6,10 @@ html {
   min-height: 100%;
 }
 
-body {
+/* body {
   background-color: #FDFDFD;
   font-family: 'thaisans_neuesemi_bold';
-}
+} */
 a {
   text-decoration: none !important;
 }
