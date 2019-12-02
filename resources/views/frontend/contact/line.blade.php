@@ -25,7 +25,7 @@
             <p>PHONE NUMBER : 098-765-4321</p>
             <p>OR</p>
             <p>LINE ID : KOIKICHI</p>
-            <img class="img-responsive img-thumbnail" src=" {{ asset('frontend/src/img/qr_code.jpg') }}" alt="koikichi-fish-farm" style="max-height:200px;">
+            <img class="img-responsive img-thumbnail" src=" {{ asset('/frontend/src/img/line-qr-code.jpg') }}" alt="koikichi-fish-farm" style="max-height:200px;">
         </div>
 
     </div>
