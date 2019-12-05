@@ -79,7 +79,8 @@
 
                         <div class="form-group">
                             <label for="koiId" class="col-sm-3 control-label">
-                                KOI ID <span class="text-danger">*</span>
+                                KOI ID 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="koi_id" value="{{ $koi->koi_id }}" id="koiId"
@@ -100,7 +101,8 @@
 
                         <div class="form-group">
                             <label for="born" class="col-sm-3 control-label">
-                                Year <span class="text-danger">*</span>
+                                Year 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="born" value="{{ $koi->born }}" id="born"
@@ -168,7 +170,8 @@
 
                         <div class="form-group">
                             <label for="oyagoi" class="col-sm-3 control-label">
-                                Oyagoi <span class="text-danger">*</span>
+                                Oyagoi 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="oyagoi" value="{{ $koi->oyagoi }}" id="oyagoi"
@@ -178,7 +181,8 @@
 
                         <div class="form-group">
                             <label for="price" class="col-sm-3 control-label">
-                                Price <span class="text-danger">*</span>
+                                Price 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="price" value="{{ $koi->price }}" id="price"
@@ -188,7 +192,8 @@
 
                         <div class="form-group">
                             <label for="unit" class="col-sm-3 control-label">
-                                Unit <span class="text-danger">*</span>
+                                Unit 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="unit" value="{{ $koi->unit }}" id="unit"

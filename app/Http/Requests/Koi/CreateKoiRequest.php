@@ -26,10 +26,18 @@ class CreateKoiRequest extends FormRequest
         return [
             'th.name' => 'required',
             'en.name' => 'required',
-            'koi_id' => 'required',
-            'oyagoi' => 'required',
-            'born' => 'required',
-            'price' => 'required'
+            // 'koi_id' => 'required',
+            // 'oyagoi' => 'required',
+            // 'born' => 'required',
+            // 'price' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'th.name.required' => 'กรุณาระบุชื่อปลา (ภาษาไทย)',
+            'en.name.required' => 'กรุณาระบุชื่่อปลา (ภาษาอังกฤษ)'
         ];
     }
 }

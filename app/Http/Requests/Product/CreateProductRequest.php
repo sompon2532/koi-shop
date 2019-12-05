@@ -26,9 +26,17 @@ class CreateProductRequest extends FormRequest
         return [
             'th.name' => 'required',
             'en.name' => 'required',
-            'product_id' => 'required',
-            'delivery' => 'required',
-            'price' => 'required',
+            // 'product_id' => 'required',
+            // 'delivery' => 'required',
+            // 'price' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'th.name.required' => 'กรุณาชื่อสินค้า (ภาษาไทย)',
+            'en.name.required' => 'กรุณาชื่อสินค้า (ภาษาอังกฤษ)'
         ];
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Koi\CreateKoiRequest;
 use App\Http\Requests\Koi\UpdateKoiRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\Category;
 use App\Models\Strain;
 use App\Models\Farm;
@@ -43,7 +44,7 @@ class KoiController extends Controller
         $events = Event::active()->get();
         $strains = Strain::active()->get();
         $farms = Farm::active()->get();
-        $users = User::get();
+        $users = Admin::get();
         $stores = Store::active()->get();
 
         return view('backoffice.koi.create', compact('categories', 'strains', 'events', 'farms', 'users', 'stores'));
@@ -136,7 +137,7 @@ class KoiController extends Controller
         $events = Event::active()->get();
         $strains = Strain::active()->get();
         $farms = Farm::active()->get();
-        $users = User::get();
+        $users = Admin::get();
         $stores = Store::active()->get();
 
         return view('backoffice.koi.update', compact('koi', 'categories', 'events', 'strains', 'farms', 'users', 'stores'));

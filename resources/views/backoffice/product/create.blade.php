@@ -31,7 +31,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameTh" class="col-sm-3 control-label">
-                                Name (TH) <span class="text-danger">*</span>
+                                Name (TH) 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="th[name]" value="{{ old('th.name') }}" id="nameTh"
@@ -70,7 +71,8 @@
 
                         <div class="form-group">
                             <label for="productId" class="col-sm-3 control-label">
-                                Product ID <span class="text-danger">*</span>
+                                Product ID 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="product_id" value="{{ old('product_id') }}" id="productId"
@@ -80,7 +82,8 @@
 
                         <div class="form-group">
                             <label for="delivery" class="col-sm-3 control-label">
-                                Delivery <span class="text-danger">*</span>
+                                Delivery 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="delivery" value="{{ old('delivery') }}" id="delivery"
@@ -92,7 +95,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameEn" class="col-sm-3 control-label">
-                                Name (EN) <span class="text-danger">*</span>
+                                Name (EN) 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="en[name]" value="{{ old('en.name') }}" id="nameEn"
@@ -111,11 +115,18 @@
 
                         <div class="form-group">
                             <label for="price" class="col-sm-3 control-label">
-                                Price <span class="text-danger">*</span>
+                                Price 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
+                                @if(empty(old('price')))
+                                    <input type="text" class="form-control" name="price" value="0" id="price"
+                                       placeholder="Price">
+                                @else
                                 <input type="text" class="form-control" name="price" value="{{ old('price') }}" id="price"
                                        placeholder="Price">
+                                @endif
+                                
                             </div>
                         </div>
 
@@ -136,7 +147,7 @@
                     <div class="col-md-6">
                         <div class="form-group" v-for="(video, index) in videos">
                             <label class="col-sm-3 control-label">
-                                Videoี @{{ index + 1 }}
+                                Video @{{ index + 1 }}
                             </label>
                             <div class="col-sm-9">
                                 <textarea class="form-control" name="videos[]" v-model="video.video" rows="5" placeholder="Video ..."></textarea>
@@ -200,9 +211,9 @@
                     if (type == 'video') {
                         this.videos.splice(index, 1)
                     }
-                    else if (type == 'remark') {
-                        this.remarks.splice(index, 1)
-                    }
+                    // else if (type == 'remark') {
+                    //     this.remarks.splice(index, 1)
+                    // }
                 }
             }
         })

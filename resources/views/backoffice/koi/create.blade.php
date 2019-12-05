@@ -47,7 +47,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameTh" class="col-sm-3 control-label">
-                                Name (TH) <span class="text-danger">*</span>
+                                Name (TH) 
+                                <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="th[name]" value="{{ old('th.name') }}" id="nameTh"
@@ -77,7 +78,8 @@
 
                         <div class="form-group">
                             <label for="koiId" class="col-sm-3 control-label">
-                                KOI ID <span class="text-danger">*</span>
+                                KOI ID 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="koi_id" value="{{ old('koi_id') }}" id="koiId"
@@ -98,7 +100,8 @@
 
                         <div class="form-group">
                             <label for="born" class="col-sm-3 control-label">
-                                Year <span class="text-danger">*</span>
+                                Year 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="born" value="{{ old('born') }}" id="born"
@@ -133,7 +136,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nameEn" class="col-sm-3 control-label">
-                                Name (EN) <span class="text-danger">*</span>
+                                Name (EN) 
+                                <span class="text-danger">*</span>
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="en[name]" value="{{ old('en.name') }}" id="nameEn"
@@ -166,7 +170,8 @@
 
                         <div class="form-group">
                             <label for="oyagoi" class="col-sm-3 control-label">
-                                Oyagoi <span class="text-danger">*</span>
+                                Oyagoi 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="oyagoi" value="{{ old('oyagoi') }}" id="oyagoi"
@@ -176,21 +181,26 @@
 
                         <div class="form-group">
                             <label for="price" class="col-sm-3 control-label">
-                                Price <span class="text-danger">*</span>
+                                Price 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="price" value="{{ old('price') }}" id="price"
-                                       placeholder="Price">
+                                @if(empty(old('price')))
+                                <input type="text" class="form-control" name="price" value="0" id="price" placeholder="Price">
+                                @else
+                                <input type="text" class="form-control" name="price" value="{{ old('price') }}" id="price" placeholder="Price">
+                                @endif
+                                
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="unit" class="col-sm-3 control-label">
-                                Unit <span class="text-danger">*</span>
+                                Unit 
+                                {{-- <span class="text-danger">*</span> --}}
                             </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="unit" value="{{ old('unit') }}" id="unit"
-                                       placeholder="Unit">
+                                <input type="text" class="form-control" name="unit" value="{{ old('unit') }}" id="unit" placeholder="Unit">
                             </div>
                         </div>
 

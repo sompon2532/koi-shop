@@ -24,11 +24,19 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'th.name' => 'required',
-            'en.name' => 'required',
-            'product_id' => 'required',
-            'delivery' => 'required',
-            'price' => 'required',
+             'th.name' => 'required',
+             'en.name' => 'required',
+            // 'product_id' => 'required',
+            // 'delivery' => 'required',
+            // 'price' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'th.name.required' => 'กรุณากรอกชื่อปลา (ภาษาไทย)',
+            'en.name.required' => 'กรุณากรอกชื่อปลา (ภาษาอังกฤษ)'
         ];
     }
 }
