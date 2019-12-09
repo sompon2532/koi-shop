@@ -16,11 +16,9 @@ class CreateTableCompany extends Migration
         //
         Schema::create('company',function(Blueprint $table){
             $table->increments('cp_id');
-            $table->string('company_name_th')->nullable();
-            $table->string('company_name_en')->nullable();
-            $table->string('company_desc_th')->nullable();
-            $table->string('company_desc_en')->nullable();
-            $table->string('video')->nullable();
+            $table->boolean('status')->default(true);
+            $table->timestamps();
+            
         });
     }
 

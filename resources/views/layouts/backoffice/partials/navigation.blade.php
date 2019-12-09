@@ -31,6 +31,13 @@
         </a>
     </li>
 
+
+    {{-- <li>
+        <a href="{{ route('company.index') }}">
+            <i class="fa fa-copyright"></i> <span>Manage Company</span>
+        </a>
+    </li> --}}
+
     <li>
         <a href="{{ route('user.index') }}">
             <i class="fa fa-user"></i> <span>Member</span>
