@@ -29,20 +29,22 @@
             </div>
         </div>
 
-        <div class="text-left">
-            <div class="payment-info">
-                <p>1. เลือกโอนชำระเข้ามาทางบัญชีธนาคารกสิกรไทย หรือ ธนาคารกรุงเทพฯ ตามข้อมูลด้านล่าง</p>
-                <p>2. หลังจากโอนแล้ว กรุณายืนยันการชำระเงินได้ 3 วิธีตาม 2.1 - 2.3</p>
-                <p style="margin-left:30px;">1. ส่ง SMS ผ่านบริการของธนาคารมาที่ 081-6427525</p>
-                <p style="margin-left:30px;">2. แจ้งการชำระเงินโดยการกรอกข้อมูลในช่องแจ้งการชำระเงินด้านล่าง</p>
-                <p style="margin-left:30px;">3. โทรศัพท์เข้ามาแจ้งการชำระเงินที่ 081-6427525</p>
-
-                <div class="text-center">
-                    <a class="btn btn-red" href="{{ route('frontend.user.myorder') }}">
-                        {{trans('payment.btn-my-orders')}}
-                    </a>
-                </div>
-            </div>
+        <div class="col-md-12 text-center" style="margin:20px auto">
+            <!-- <div class="payment-info "> -->
+            <p>รับชำระด้วยเงินสด บัตรเครดิต และโอนผ่านบัญชีธนาคาร</p>
+            <p>We accept Payments in cash, credit card and bank transfer</p>
+            {{--
+                <!-- <p>1. เลือกโอนชำระเข้ามาทางบัญชีธนาคารกสิกรไทย หรือ ธนาคารกรุงเทพฯ ตามข้อมูลด้านล่าง</p>
+            <p>2. หลังจากโอนแล้ว กรุณายืนยันการชำระเงินได้ 3 วิธีตาม 2.1 - 2.3</p>
+            <p style="margin-left:30px;">1. ส่ง SMS ผ่านบริการของธนาคารมาที่ 081-6427525</p>
+            <p style="margin-left:30px;">2. แจ้งการชำระเงินโดยการกรอกข้อมูลในช่องแจ้งการชำระเงินด้านล่าง</p>
+            <p style="margin-left:30px;">3. โทรศัพท์เข้ามาแจ้งการชำระเงินที่ 081-6427525</p> -->
+            --}}
+        </div>
+        <div class="col-md-12 text-center">
+            <a class="btn btn-red" href="{{ route('frontend.user.myorder') }}">
+                {{trans('payment.btn-my-orders')}}
+            </a>
         </div>
     </div>
 </div>

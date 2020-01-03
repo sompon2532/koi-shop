@@ -55,7 +55,7 @@
 							</div>
 							@if(count($product->favorite)>0)
 								<div class="star-label">
-									<form action="{{ route('frontend.user.favorite-del', ['id' => $product->id, 'type' => 'App\Models\Product']) }}" method="GET" style="">  
+									<form action="{{ route('frontend.user.favorite-del', ['id' => $product->id, 'type' => 'App\Models\Product']) }}" method="GET">  
 										<button type="submit" class="btn btn-favorite">
 											<img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
 										</button> 
@@ -64,7 +64,7 @@
 								</div>
 							@else
 								<div class="star-label">
-									<form action="{{ route('frontend.user.favorite-add', ['id' => $product->id]) }}" method="GET" style="">  
+									<form action="{{ route('frontend.user.favorite-add', ['id' => $product->id]) }}" method="GET">  
 										<input type="hidden" name="item" value="{{ $product->id }}">
 										<input type="hidden" name="type" value="App\Models\Product">
 										<button type="submit" class="btn btn-favorite">
@@ -77,7 +77,7 @@
 							<div class="caption">
 								<p class="text-red text-name">{{ $product->name }}</P>
 								<p>{{trans('product.code')}} : {{ $product->product_id }}</p>
-								<p><a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">ORDER</a></p>
+								{{--<!-- <p><a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">ORDER</a></p> -->--}}
 							</div>
 						</div>
 					</div>
