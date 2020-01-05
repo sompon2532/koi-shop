@@ -130,7 +130,7 @@
                                 <div class="col-xs-12 col-sm-6 col-md-3">
                                     <div class="winner-item-list">
                                         <p class="text-red">{{ trans('event.winner') }}</p>
-                                        <p>{{ $koi->user_id != '' ? $koi->user['name'] : 'Koikichi Fish Farm' }}</p>
+                                        <p>{{ $koi->user_id != '' ? $koi->user['name'] : 'KOIKICHI FISH FARM' }}</p>
                                         <div class="img-item-box">
                                             <a href="{{ route('frontend.event.koi', ['event' => $events->id, 'koi' => $koi->id]) }}">
                                                 @if(count($koi->media)>0)
@@ -145,10 +145,10 @@
                                 </div> 
                             @endforeach
                         @endif      
-                    @else
+                    {{--<!-- @else
                         <div class="col-md-12">
                             <h1 class="text-red">{{trans('event.no-koi')}}</h1>
-                        </div>
+                        </div> -->--}}
                     @endif
                 </div>
             </div>

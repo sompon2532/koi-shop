@@ -81,7 +81,7 @@
                                     <section class="lazy slider" data-sizes="50vw">
                                         @foreach($kois->media as $media)
                                             <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
-                                                <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="..." style="">
+                                                <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="...">
                                             </a> 
                                         @endforeach
                                     </section> 
@@ -150,12 +150,12 @@
                                         @endif
                                     @endif
                                     @if($i == 1)
-                                        <form action="{{ route('frontend.event.bookdel', ['koi' => $kois->id, 'event' => $events->id]) }}" method="GET" style="">  
+                                        <form action="{{ route('frontend.event.bookdel', ['koi' => $kois->id, 'event' => $events->id]) }}" method="GET">  
                                             <button type="submit" class="btn btn-red">{{ trans('event.cancel') }}</button>                                                                                          
                                             {{ csrf_field() }}
                                         </form>
                                     @else
-                                        <form action="{{ route('frontend.event.bookevent', ['koi' => $kois->id, 'event' => $events->id]) }}" method="GET" style="">
+                                        <form action="{{ route('frontend.event.bookevent', ['koi' => $kois->id, 'event' => $events->id]) }}" method="GET">
                                             <button type="submit" class="btn btn-white">{{ trans('event.book_now') }}</button>                                                                                          
                                             {{ csrf_field() }}
                                         </form>
@@ -170,7 +170,7 @@
                                         : {{ $kois->koi_id }}</p>
                                     <p>
                                         <span class="heading">{{ trans('event.owner') }}</span>
-                                        : Koikichi Fish Farm</p>
+                                        : KOIKICHI FISH FARM</p>
                                     <p>
                                         <span class="heading">{{ trans('event.price') }}</span>
                                         : {{ number_format($kois->price) }} {{trans('koi.thb')}}</p>
@@ -301,17 +301,17 @@
                             </div>
                         @endif
 
-                    @else
+                    <!-- @else
                         <div class="col-md-12">
                             <h1 class="text-red">{{trans('event.no-koi')}}</h1>
-                        </div>
+                        </div> -->
                     @endif
                     </div>
 
-                    @else
+                    {{--<!-- @else
                         <div class="col-md-12">
                             <h1 class="text-red">{{trans('event.no-koi-in-event')}}</h1>
-                        </div>
+                        </div> -->--}}
                     @endif
                 </div>
             </div>

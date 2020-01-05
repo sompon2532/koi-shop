@@ -25,7 +25,7 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
             <div class="embed-responsive embed-responsive-16by9" style="margin-bottom:20px;">
-                <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/125912833?autoplay=1&color=fc0328&title=0&portrait=0" allowfullscreen></iframe>
+                {{--<!-- <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/125912833?autoplay=1&color=fc0328&title=0&portrait=0" allowfullscreen></iframe> -->--}}
             </div>
         </div>
         {{--<!-- <div class="col-md-12">

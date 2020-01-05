@@ -88,30 +88,30 @@
 
             <div class="col-sm-6 col-md-6 text-left">
                 <div class="koi-detail">
-                    <p>
+                    {{--<!-- <p>
                         <span class="heading">{{ trans('koi.code') }}</span>
                         : {{ $koi->koi_id }}</p>
-                    <p>
-                        <span class="heading">{{ trans('koi.price') }}</span>
+                    <p> -->--}}
+                    {{--<!-- <span class="heading">{{ trans('koi.price') }}</span>
                         : {{ number_format($koi->price) }} {{ trans('koi.thb')}}</p>
-                    <br>
+                    <br> -->--}}
 
                     <p class="text-red">{{ trans('koi.detail')}}</p>
                     <p>
                         <span class="heading">{{ trans('koi.oyagoi') }} </span>
-                        : {{ $koi->oyagoi }} </p>
+                        : {{ strtoupper($koi->oyagoi) }} </p>
                     <p>
                         <span class="heading">{{ trans('koi.strain') }}</span>
-                        : {{ $koi->strain->name }} </p>
+                        : {{ strtoupper($koi->strain->name) }} </p>
                     <p>
                         <span class="heading">{{ trans('koi.farm') }}</span>
-                        : {{ $koi->farm->name }}</p>
+                        : {{ strtoupper($koi->farm->name) }}</p>
                     <p>
                         <span class="heading">{{ trans('koi.born') }} </span>
-                        : {{ $koi->born }}</p>
+                        : {{ strtoupper($koi->born) }}</p>
                     <p>
                         <span class="heading">{{ trans('koi.storage') }}</span>
-                        : {{ $koi->store != null ? $koi->store->name : '-' }}</p>
+                        : {{ $koi->store != null ? strtoupper($koi->store->name) : '-' }}</p>
 
                     @if(count($koi->sizes) > 0)
                         @foreach($koi->sizes as $index => $sizes)
@@ -127,7 +127,7 @@
 
                     <p>
                         <span class="heading">{{ trans('koi.gender')}}</span>
-                        : {{ $koi->sex }}</p>
+                        : {{ strtoupper($koi->sex) }}</p>
                     <p>
                         <span class="heading">{{ trans('koi.certificate') }}</span>
                         : {{ $koi->certificate ? trans('koi.yes') : trans('koi.no') }} </p>
@@ -144,7 +144,7 @@
                         @foreach($koi->remarks as $index => $remarks)
                             <p>
                                 <span class="heading">{{ trans('koi.remark') }} {{ $index+1 }}</span>
-                                : {{ $remarks->remark }}</p>
+                                : {{ strtoupper($remarks->remark) }}</p>
                         @endforeach
                     @else
                         <p>
