@@ -40,7 +40,8 @@
 
                 <!-- <div class="row"> -->
             <div class="col-sm-6 col-md-3 col-md-offset-3" style="margin-bottom:15px">
-                <div class="hide-max-768px show-min-768px">
+                {{--<!-- <div class="hide-max-768px show-min-768px"> -->--}}
+                <div class="col">
                     <div class="slider slider-for thumbnail">
                         @if(count($koi->media) > 0)
                             @foreach($koi->media as $media)
