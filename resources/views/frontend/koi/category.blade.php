@@ -82,7 +82,7 @@
                     </div>
                 @endforeach
 
-                <div class="col-md-12">
+                <div class="col-xs-12">
                     {{ $kois->links() }}
                     <p class="text-red text-right"> {{trans('koi.total')}}: {{ count($kois) }} </p>
                 </div>

@@ -155,7 +155,8 @@
             </div>
 
             @if(count($koi->media) > 1)                            
-                <div class="hide-max-768px show-min-768px">
+                {{--<!-- <div class="hide-max-768px show-min-768px"> -->--}}
+                <div class="col">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="item">
                             <div class="slider slider-nav">
