@@ -29,7 +29,7 @@ return [
     'winner' => 'WINNER',
     'name_list' => 'NAME LIST',    
     'code' => 'CODE',    
-    'owner' => 'Owner',    
+    'owner' => 'OWNER',    
     'price' => 'PRICE',    
     'detail' => 'DETAIL',    
     'born' => 'BORN',    
