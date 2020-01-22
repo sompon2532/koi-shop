@@ -81,7 +81,7 @@
                                     <section class="lazy slider" data-sizes="50vw">
                                         @foreach($kois->media as $media)
                                             <a class="example-image-link" href="{{ asset($media->getUrl()) }}" data-lightbox="thumb-1">
-                                                <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="..." style="">
+                                                <img class="example-image" src="{{ asset($media->getUrl()) }}" alt="...">
                                             </a> 
                                         @endforeach
                                     </section> 
@@ -108,7 +108,7 @@
                     @if(count($kois) > 0)
                         @if ($today->toDateString() < $events->end_datetime->toDateString() || ($today->toDateString() == $events->end_datetime->toDateString() && $today->toTimeString() <= $events->end_datetime->toTimeString()))
                             <div class="col-xs-12 col-sm-12 col-md-6">
-                                <div class="col-md-12">
+                                {{--<!-- <div class="col-md-12">
                                     <table class="table text-red">
                                         <tr>
                                             <th class="table-border text-center" width="50%">{{ trans('event.remaining_time') }}</th>
@@ -137,7 +137,7 @@
                                             </td>
                                         </tr>
                                     </table>
-                                </div>
+                                </div> -->--}}
                                 @if($events->config)
                                     @php 
                                         $i=0;
@@ -150,12 +150,12 @@
                                         @endif
                                     @endif
                                     @if($i == 1)
-                                        <form action="{{ route('frontend.event.bookdel', ['koi' => $kois->id, 'event' => $events->id]) }}" method="GET" style="">  
+                                        <form action="{{ route('frontend.event.bookdel', ['koi' => $kois->id, 'event' => $events->id]) }}" method="GET">  
                                             <button type="submit" class="btn btn-red">{{ trans('event.cancel') }}</button>                                                                                          
                                             {{ csrf_field() }}
                                         </form>
                                     @else
-                                        <form action="{{ route('frontend.event.bookevent', ['koi' => $kois->id, 'event' => $events->id]) }}" method="GET" style="">
+                                        <form action="{{ route('frontend.event.bookevent', ['koi' => $kois->id, 'event' => $events->id]) }}" method="GET">
                                             <button type="submit" class="btn btn-white">{{ trans('event.book_now') }}</button>                                                                                          
                                             {{ csrf_field() }}
                                         </form>
@@ -165,57 +165,92 @@
                                 <div class="col-md-12 text-left">
                                     <br>
                                     <p class="text-left text-red">{{ $kois->name }}</p>
-                                    <p>
-                                        <span class="heading">{{ trans('event.code') }}</span>
-                                        : {{ $kois->koi_id }}</p>
+                                    @if($kois->koi_id)
+                                        <p>
+                                            <span class="heading">{{ trans('event.code') }}</span>
+                                            : {{ $kois->koi_id }}
+                                        </p>
+                                    @endif
+                                    
                                     <p>
                                         <span class="heading">{{ trans('event.owner') }}</span>
-                                        : Koikichi Fish Farm</p>
-                                    <p>
-                                        <span class="heading">{{ trans('event.price') }}</span>
-                                        : {{ number_format($kois->price) }} {{trans('koi.thb')}}</p>
+                                        : KOIKICHI FISH FARM
+                                    </p>
+
+                                    @if($kois->price)
+                                        <p>
+                                            <span class="heading">{{ trans('event.price') }}</span>
+                                            : {{ number_format($kois->price) }} {{trans('koi.thb')}}
+                                        </p>
+                                    @endif
 
                                     <p class="text-red">{{ trans('koi.detail')}}</p>
-                                    <p>
-                                        <span class="heading">{{ trans('koi.oyagoi') }}</span>
-                                        : {{ $kois->oyagoi }} </p>
-                                    <p>
-                                        <span class="heading">{{ trans('koi.strain') }}</span>
-                                        : {{ $kois->strain->name }} </p>
-                                    <p>
-                                        <span class="heading">{{ trans('koi.farm') }}</span>
-                                        : {{ $kois->farm->name }}</p>
-                                    <p>
-                                        <span class="heading">{{ trans('koi.born') }}</span>
-                                        : {{ $kois->born }}</p>
-                                    <p>
-                                        <span class="heading">{{ trans('koi.storage') }}</span>
-                                        : {{ $kois->store != null ? $kois->store->name : '-' }}</p>
+                                    
+                                    @if($kois->oyagoi)
+                                        <p>
+                                            <span class="heading">{{ trans('koi.oyagoi') }}</span>
+                                            : {{ strtoupper($kois->oyagoi) }} 
+                                        </p>
+                                    @endif
+
+                                    @if($kois->strain)
+                                        <p>
+                                            <span class="heading">{{ trans('koi.strain') }}</span>
+                                            : {{ strtoupper($kois->strain->name) }}
+                                        </p>
+                                    @endif
+                                    
+                                    @if($kois->farm->name)
+                                        <p>
+                                            <span class="heading">{{ trans('koi.farm') }}</span>
+                                            : {{ strtoupper($kois->farm->name) }}
+                                        </p>
+                                    @endif
+
+                                    @if($kois->born)
+                                        <p>
+                                            <span class="heading">{{ trans('koi.born') }}</span>
+                                            : {{ strtoupper($kois->born) }}
+                                        </p>
+                                    @endif
+
+                                    @if($kois->store)
+                                        <p>
+                                            <span class="heading">{{ trans('koi.storage') }}</span>
+                                            : {{ $kois->store != null ? strtoupper($kois->store->name) : '-' }}
+                                        </p>
+                                    @endif
 
                                     @if(count($kois->sizes) > 0)
                                         @foreach($kois->sizes as $sizes)
                                             <p>
                                                 <span class="heading">{{ trans('koi.size') }}</span>
-                                                : {{ $sizes->size }} ({{$sizes->date}})</p>
+                                                : {{ strtoupper($sizes->size) }} ({{$sizes->date}})</p>
                                         @endforeach
-                                    @else
+                                    {{--<!-- @else
                                         <p>
                                             span class="heading">{{ trans('koi.size') }} </span>
-                                            : -</p>
+                                            : -</p> -->--}}
                                     @endif
 
-                                    <p>
-                                        <span class="heading">{{ trans('koi.gender')}}</span>
-                                        : {{ $kois->sex }}</p>
+                                    
+                                    @if($kois->sex)
+                                        <p>
+                                            <span class="heading">{{ trans('koi.gender')}}</span>
+                                            : {{ strtoupper($kois->sex) }}
+                                        </p>
+                                    @endif
+                                    
                                     <p>
                                         <span class="heading">{{ trans('koi.certificate') }}</span>
-                                        : {{ $kois->certificate ? trans('koi.yes') : trans('koi.no') }} </p>
+                                        : {{ $kois->certificate ? trans('koi.yes') : trans('koi.no') }} 
+                                    </p>
                                     
                                     @if(count($kois->contests) > 0)
                                         @foreach($kois->contests as $index => $contests)
                                             <p>
                                                 <span class="heading">{{ trans('koi.contest') }} #{{ $index+1 }}</span>
-                                                : {{ $contests->contest }} ({{$contests->date}})</p>
+                                                : {{ strtoupper($contests->contest) }} ({{$contests->date}})</p>
                                         @endforeach
                                     @endif
 
@@ -223,7 +258,7 @@
                                         @foreach($kois->remarks as $index => $remarks)
                                             <p>
                                                 <span class="heading">{{ trans('koi.remark') }} #{{ $index+1 }}</span>
-                                                : {{ $remarks->remark }}</p>
+                                                : {{ strtoupper($remarks->remark) }}</p>
                                         @endforeach
                                     @endif
                                 </div>
@@ -301,17 +336,17 @@
                             </div>
                         @endif
 
-                    @else
+                    <!-- @else
                         <div class="col-md-12">
                             <h1 class="text-red">{{trans('event.no-koi')}}</h1>
-                        </div>
+                        </div> -->
                     @endif
                     </div>
 
-                    @else
+                    {{--<!-- @else
                         <div class="col-md-12">
                             <h1 class="text-red">{{trans('event.no-koi-in-event')}}</h1>
-                        </div>
+                        </div> -->--}}
                     @endif
                 </div>
             </div>

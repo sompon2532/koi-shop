@@ -93,9 +93,9 @@
             <p>
                 <span class="text-thick">{{trans('product.detail')}} :</span> {{ $product->description }}</p>
                 
-            <a class="btn btn-white text-center" href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}">
+            {{--<!-- <a class="btn btn-white text-center" href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}">
                 {{trans('product.btn-order')}}
-            </a>
+            </a> -->--}}
         </div>
 
         {{-- <!-- <h3 class="text-red"> SAKAI </h3>

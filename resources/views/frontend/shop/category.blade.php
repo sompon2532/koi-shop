@@ -69,7 +69,7 @@
 								</div>
 							@else
 								<div class="star-label">
-									<form action="{{ route('frontend.user.favorite-add', ['id' => $product->id]) }}" method="GET" style="">  
+									<form action="{{ route('frontend.user.favorite-add', ['id' => $product->id]) }}" method="GET">  
 										<input type="hidden" name="item" value="{{ $product->id }}">
 										<input type="hidden" name="type" value="App\Models\Product">
 										<button type="submit" class="btn btn-favorite">
@@ -81,8 +81,8 @@
 							@endif
 							<div class="caption">
 								<p class="text-red item-name">{{ $product->name }}</P>
-								<p>{{trans('product.code')}} : {{ $product->product_id }}</p>
-								<a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">{{trans('product.btn-order')}}</a>
+								{{--<!-- <p>{{trans('product.code')}} : {{ $product->product_id }}</p> -->--}}
+								{{--<!-- <a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">{{trans('product.btn-order')}}</a> -->--}}
 							</div>
 						</div>
 					</div>
@@ -91,8 +91,8 @@
 					{{ $products->links() }}
 					<p class="text-red text-right"> {{trans('product.total')}} : {{ count($products) }} </p>
 				</div>
-			{{--<!-- @else
-				<h1>{{trans('product.no-product')}}</h1> -->--}}
+				{{--<!-- @else
+					<h1>{{trans('product.no-product')}}</h1> -->--}}
 			@endif
 		</div>
 	</div>

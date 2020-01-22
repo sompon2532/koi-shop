@@ -94,10 +94,10 @@
                             </div>
                         </div>
                     @endif
-                @else
+                {{--<!-- @else
                     <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 text-center">
                         <h2>NO ITEM IN CART.</h2>
-                    </div>
+                    </div> -->--}}
                 @endif
             </div>
         </div>

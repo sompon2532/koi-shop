@@ -73,8 +73,8 @@
                                 </div>
                             </div>  
 
-                            <p class="text-red">{{ $koi->name }}</p>
-                            <p>{{trans('koi.code')}} : {{ $koi->koi_id }}</p>
+                            <p class="text-red item-name">{{ $koi->name }}</p>
+                            <!-- <p>{{trans('koi.code')}} : {{ $koi->koi_id }}</p> -->
                             <a class="btn btn-white" href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">
                                 {{trans('koi.btn-detail')}}
                             </a>
@@ -82,12 +82,12 @@
                     </div>
                 @endforeach
 
-                <div class="col-md-12">
+                <div class="col-xs-12">
                     {{ $kois->links() }}
                     <p class="text-red text-right"> {{trans('koi.total')}}: {{ count($kois) }} </p>
                 </div>
-            @else
-                <h1>{{ trans('koi.no-koi') }}</h1>
+            {{--<!-- @else
+                <h1>{{ trans('koi.no-koi') }}</h1> -->--}}
             @endif
         </div>
     </div>

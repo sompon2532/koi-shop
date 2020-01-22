@@ -42,12 +42,12 @@
                             @endif
                             <li><a href="{{ URL::to('change/th') }}"><span class="flag-language"><img src="{{ asset('frontend/src/img/')}}{{ trans('header.flag-th') }}" class="center" alt="" height="15" width="15"></span>TH</a></li> 
                             <li><a href="{{ URL::to('change/en') }}"><span class="flag-language"><img src="{{ asset('frontend/src/img/')}}{{ trans('header.flag-en') }}" class="center" alt="" height="15" width="15"></span>EN</a></li> 
-                            <li>
+                            {{--<!-- <li>
                                 <a href="{{ route('frontend.shop.shoppingCart') }}">
                                     <span class="glyphicon glyphicon-shopping-cart"></span>
                                     <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
                                 </a>
-                            </li> 
+                            </li>  -->--}}
                         </ul>
                     </div>
                 </div>
@@ -79,9 +79,9 @@
                         </a>
                     @endif
                 {{--<!-- @endforeach -->--}}
-                <!-- <a class="{{ Request::segment(1) == ''  ? 'text-red' : '' }}" href="{{ url('/') }}">
+                {{--<!-- <a class="{{ Request::segment(1) == ''  ? 'text-red' : '' }}" href="{{ url('/') }}">
                     <img src="{{ asset('frontend/src/img/AW-KOIKICHIFISHFARM-BANNER-2682x610PX.jpg')}}" class="img-responsive" alt="KOIKICHIFISHFARM" title="KOIKICHI FISH FARM" style="width:100%;">
-                </a> -->
+                </a> -->--}}
             </div>
         </div>
 

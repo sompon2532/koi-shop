@@ -54,7 +54,7 @@
 							</div>
 							@if(count($koi->favorite)>0)
 								<div class="star-label">
-									<form action="{{ route('frontend.user.favorite-del', ['id' => $koi->id, 'type' => 'App\Models\koi']) }}" method="GET" style="">  
+									<form action="{{ route('frontend.user.favorite-del', ['id' => $koi->id, 'type' => 'App\Models\koi']) }}" method="GET">  
 										<button type="submit" class="btn btn-favorite">
 											<img class="" src="{{ asset('frontend/src/img/unfavorite.png') }}" alt="..." style="max-height:50px;">    
 										</button> 
@@ -63,7 +63,7 @@
 								</div>
 							@else
 								<div class="star-label">
-									<form action="{{ route('frontend.user.favorite-add', ['id' => $koi->id]) }}" method="GET" style="">  
+									<form action="{{ route('frontend.user.favorite-add', ['id' => $koi->id]) }}" method="GET">  
 										<input type="hidden" name="item" value="{{ $koi->id }}">
 										<input type="hidden" name="type" value="App\Models\koi">
 										<button type="submit" class="btn btn-favorite">
