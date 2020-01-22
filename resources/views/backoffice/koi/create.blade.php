@@ -237,12 +237,12 @@
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('size', index)" v-show="sizes.length > 1"></i>
                             </div>
 
-                            <label class="col-sm-3 control-label">
+                            {{-- <label class="col-sm-3 control-label">
                                 Date
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control datepicker" name="date_sizes[]" placeholder="   Date" style="border-top: none; border-radius: 0">
-                            </div>
+                            </div> --}}
                         </div>
                         <i class="add fa fa-plus-circle" v-on:click="add('size')"></i>
                     </div>
@@ -258,12 +258,12 @@
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('contest', index)" v-show="contests.length > 1"></i>
                             </div>
 
-                            <label class="col-sm-3 control-label">
+                            {{-- <label class="col-sm-3 control-label">
                                 Date
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control datepicker" name="date_contests[]" placeholder="   Date" style="border-top: none; border-radius: 0">
-                            </div>
+                            </div> --}}
                         </div>
                         <i class="add fa fa-plus-circle" v-on:click="add('contest')"></i>
                     </div>
@@ -281,12 +281,12 @@
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('video', index)" v-show="videos.length > 1"></i>
                             </div>
 
-                            <label class="col-sm-3 control-label">
+                            {{-- <label class="col-sm-3 control-label">
                                 Date
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control datepicker" name="date_videos[]" placeholder="   Date" style="border-top: none; border-radius: 0">
-                            </div>
+                            </div> --}}
                         </div>
                         <i class="add fa fa-plus-circle" v-on:click="add('video')"></i>
                     </div>
@@ -302,12 +302,12 @@
                                 <i class="minus fa fa-minus-circle" v-on:click="remove('remark', index)" v-show="remarks.length > 1"></i>
                             </div>
 
-                            <label class="col-sm-3 control-label">
+                            {{-- <label class="col-sm-3 control-label">
                                 Date
                             </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control datepicker" name="date_remarks[]" placeholder="   Date" style="border-top: none; border-radius: 0">
-                            </div>
+                            </div> --}}
                         </div>
                         <i class="add fa fa-plus-circle" v-on:click="add('remark')"></i>
                     </div>
