@@ -621,6 +621,10 @@ table {
     display: inline-block;
 }
 
+.contact-to-order{
+    margin: 10px auto;
+}
+
 .pagination>li>a,
 .pagination>li>span {
     color: #ff0000;

@@ -80,7 +80,7 @@
 								</div>
 							@endif
 							<div class="caption">
-								<p class="text-red item-name">{{ $product->name }}</P>
+								<p class="text-thick item-name">{{ $product->name }}</P>
 								{{--<!-- <p>{{trans('product.code')}} : {{ $product->product_id }}</p> -->--}}
 								{{--<!-- <a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">{{trans('product.btn-order')}}</a> -->--}}
 							</div>

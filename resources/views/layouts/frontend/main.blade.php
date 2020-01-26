@@ -75,6 +75,8 @@
     <!-- fullCalendar -->
     <script src="{{ asset('plugins/fullcalendar/dist/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('plugins/fullcalendar/dist/locale-all.js') }}"></script>
+    <!-- reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Script -->
     <script src="{{ asset('asset/js/script.js') }}"></script>
     

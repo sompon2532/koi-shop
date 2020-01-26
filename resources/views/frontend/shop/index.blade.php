@@ -75,7 +75,7 @@
 								</div>
 							@endif
 							<div class="caption">
-								<p class="text-red text-name">{{ $product->name }}</P>
+								<p class="text-bold text-name">{{ $product->name }}</P>
 								<p>{{trans('product.code')}} : {{ $product->product_id }}</p>
 								{{--<!-- <p><a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">ORDER</a></p> -->--}}
 							</div>

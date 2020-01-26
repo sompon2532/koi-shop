@@ -164,6 +164,7 @@
                                     <input type="text" class="form-control" id="inputEmail3" placeholder="PHONE NUMBER">
                                 </div>
                             </div> -->--}}
+                            <div class="g-recaptcha" data-sitekey="your_site_key"></div>
 
                             <div class="form-group">
                                 <div class="col-sm-offset-5 col-sm-5">

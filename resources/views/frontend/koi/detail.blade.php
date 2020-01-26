@@ -78,12 +78,14 @@
                 </div>
 
                 <div class="text-red">
-                    <div class="contact-to-order">{{ trans('koi.to-order') }}<br>{{ trans('koi.please-contact') }} </div>
-                    <span class="line-contact-to-order">
-                        <a href="{{ route('frontend.contact.line') }}">
-                            <img src="{{ asset('frontend/src/img/line-logo.png') }}" alt="...">                                    
-                        </a>
-                    </span>
+                    <div class="contact-to-order">
+                        {{ trans('koi.to-order') }}{{ trans('koi.please-contact') }} 
+                        <span class="line-contact-to-order">
+                            <a href="{{ route('frontend.contact.line') }}">
+                                <img src="{{ asset('frontend/src/img/LINE@_APP_typeA.png') }}" alt="LOGO LINE @" style="max-height:30px">                                    
+                            </a>
+                        </span>
+                    </div>
                 </div>
             </div>
 
