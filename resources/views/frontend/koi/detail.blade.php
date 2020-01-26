@@ -122,10 +122,10 @@
                                 <span class="heading">{{ trans('koi.size') }} {{ $index+1 }}</span>
                                 : {{ $sizes->size }} ({{$sizes->date}})</p>
                         @endforeach
-                    @else
+                    {{--<!-- @else
                         <p>
                             <span class="heading">{{ trans('koi.size') }}</span>
-                            : -</p>
+                            : -</p> -->--}}
                     @endif
 
                     <p>
@@ -149,10 +149,10 @@
                                 <span class="heading">{{ trans('koi.remark') }} {{ $index+1 }}</span>
                                 : {{ strtoupper($remarks->remark) }}</p>
                         @endforeach
-                    @else
+                    {{--<!-- @else
                         <p>
                             <span class="heading">{{ trans('koi.remark') }}</span>
-                            : -</p>  
+                            : -</p>   -->--}}
                     @endif
                 </div>
             </div>
