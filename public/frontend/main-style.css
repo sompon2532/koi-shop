@@ -546,6 +546,11 @@ span.heading {
     overflow: hidden;
 }
 
+.item-name-koi {
+    height: 30px;
+    overflow: hidden;
+}
+
 .events .table-border {
     border: solid 1px #ccc;
 }

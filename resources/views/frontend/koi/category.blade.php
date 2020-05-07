@@ -38,7 +38,6 @@
             </div>
         @endif
 
-                <!-- <h3 class="text-red"> SAKAI </h3> -->
         <div class="col-md-12">
             @if(count($kois) > 0)
                 @foreach($kois as $index => $koi)
@@ -72,12 +71,14 @@
                                     @endif
                                 </div>
                             </div>  
-
-                            <p class="text-red item-name">{{ $koi->name }}</p>
-                            <!-- <p>{{trans('koi.code')}} : {{ $koi->koi_id }}</p> -->
-                            <a class="btn btn-white" href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">
-                                {{trans('koi.btn-detail')}}
+                            <a href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">
+                                <p class="text-red item-name-koi text-thick">{{ $koi->name }}</p>
+                                <p class="text-red">{{trans('koi.price')}} : {{ number_format($koi->price) }} {{trans('koi.thb')}}</p>
                             </a>
+                            {{--<!-- <p>{{trans('koi.code')}} : {{ $koi->koi_id }}</p> -->--}}
+                            {{--<!-- <a class="btn btn-white" href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">
+                                {{trans('koi.btn-detail')}}
+                            </a> -->--}}
                         </div>
                     </div>
                 @endforeach
