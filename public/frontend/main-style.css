@@ -518,6 +518,13 @@ a:hover {
     margin-right: -2px;
 }
 
+.btn-fav {
+    border: none;
+}
+
+.btn-fav:focus {
+    outline: none;
+}
 
 /* end button */
 
@@ -655,6 +662,28 @@ table {
 .pagination>.active>span:hover {
     background-color: #ff0000;
     border-color: #ff0000;
+}
+
+.light-box-code {
+    border: #ff0000 1px solid;
+    border-radius: 3px;
+    padding: 0 2px;
+}
+
+.red-box-code {
+    border: #ff0000 1px solid;
+    color: #ffffff;
+    background-color: #ff0000;
+    border-radius: 3px;
+    padding: 0 2px;
+}
+
+.favorite-form {
+    display: inline-block;
+}
+
+.no-border {
+    border: none;
 }
 
 @media (max-width: 768px) {
