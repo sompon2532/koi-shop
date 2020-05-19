@@ -43,11 +43,14 @@
                 @foreach($kois as $index => $koi)
                     <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:15px">
                         <div class="stock-item-box">
-
-                            @if(count($koi->favorite))
-                                <span class="red-box-code">{{ $koi->koi_id }}</span>
+                            @if($koi->koi_id != "")
+                                @if(count($koi->favorite))
+                                    <span class="red-box-code">{{ $koi->koi_id }}</span>
+                                @else
+                                    <span class="light-box-code">{{ $koi->koi_id }}</span>
+                                @endif
                             @else
-                                <span class="light-box-code">{{ $koi->koi_id }}</span>
+                                <span class="light-box-code no-border">{{ $koi->koi_id }}</span>
                             @endif
 
                             <div class="thumbnail no-border">
