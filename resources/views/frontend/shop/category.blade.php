@@ -48,16 +48,25 @@
 				@foreach($products as $index => $product)
 					<div class="col-sm-6 col-md-3">
 						<div class="product text-center stock-item-box">
-							<div class="img-item-box thumbnail">
+							@if($product->product_id != "")
+                                @if(count($product->favorite))
+                                    <span class="red-box-code">{{ $product->product_id }}</span>
+                                @else
+                                    <span class="light-box-code">{{ $product->product_id }}</span>
+                                @endif
+                            @else
+                                <span class="light-box-code no-border">{{ $product->product_id }}</span>
+                            @endif
+							<div class="img-item-box thumbnail no-border">
 								<a href="{{ route('frontend.shop.detail', ['id' => $product->id]) }}">
 									@if(count($product->media) > 0)
-										<img src="{{ asset($product->media->first()->getUrl()) }}" alt="{{ $product->name }}" class="img-responsive" style="max-height:150px;">
+										<img src="{{ asset($product->media->first()->getUrl()) }}" alt="{{ $product->name }}" class="img-responsive" style="max-height:200px;">
 									@else
 										<img src="{{ asset('frontend/src/img/default-product.jpg') }}" class="img-responsive" style="max-height:150px;">                                                
 									@endif
 								</a>
 							</div>
-							@if(count($product->favorite)>0)
+							{{--<!-- @if(count($product->favorite)>0)
 								<div class="star-label">
 									<form action="{{ route('frontend.user.favorite-del', ['id' => $product->id, 'type' => 'App\Models\Product']) }}" method="GET">  
 
@@ -78,9 +87,29 @@
 										{{ csrf_field() }}
 									</form>
 								</div>
-							@endif
+							@endif -->--}}
 							<div class="caption">
-								<p class="text-thick item-name">{{ $product->name }}</P>
+									@if(count($product->favorite)>0)
+										<span class="text-thick item-name text-red">{{ $product->name }}</span>
+										<form action="{{ route('frontend.user.favorite-del', ['id' => $product->id, 'type' => 'App\Models\Product']) }}" method="GET" class="favorite-form">  
+											<button type="submit" class="btn-fav text-red"><i class="fa fa-star" aria-hidden="true"></i></button>
+
+											{{ csrf_field() }}
+										</form>
+									@else
+										<span class="text-thick item-name">{{ $product->name }}</span>
+										<form action="{{ route('frontend.user.favorite-add', ['id' => $product->id]) }}" method="GET" class="favorite-form">  
+											<input type="hidden" name="item" value="{{ $product->id }}">
+											<input type="hidden" name="type" value="App\Models\Product">
+											<button type="submit" class="btn-fav"><i class="fa fa-star-o" aria-hidden="true""></i></button>
+
+											{{ csrf_field() }}
+										</form>
+									@endif
+									<!-- </br> -->
+								<p>
+									<span style="color:#4A4A4A;">{{trans('product.price')}} : {{ number_format($product->price) }} {{trans('product.thb')}}</span>
+								</p>
 								{{--<!-- <p>{{trans('product.code')}} : {{ $product->product_id }}</p> -->--}}
 								{{--<!-- <a href="{{ route('frontend.shop.addToCart', ['id' => $product->id]) }}" class="btn btn-white" role="button">{{trans('product.btn-order')}}</a> -->--}}
 							</div>
