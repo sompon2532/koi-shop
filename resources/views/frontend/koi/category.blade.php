@@ -88,11 +88,15 @@
                             <a href="{{ route('frontend.koi.detail', ['id' => $koi->id]) }}">
                                 <p style="color:#979797;font-size:18px">
                                     <span>{{ trans('koi.born') }} : {{ strtoupper($koi->born) }}</span>
-                                    @if($koi->sex = "Male")
+                                    @if($koi->sex == "male")
+                                    {{$koi->sex}}
                                         <span><i class="fa fa-mars" aria-hidden="true"></i></span>
-                                    @elseif($koi->sex = "Female")
+                                    @elseif($koi->sex == "female")
+                                    {{$koi->sex}}
                                         <span><i class="fa fa-venus" aria-hidden="true"></i></span>
                                     @else
+                                    {{$koi->sex}}
+
                                         <span><i class="fa fa-transgender" aria-hidden="true"></i></span>
                                     @endif
                                     <span>{{ strtoupper($koi->sizes->last()->size) }}</span></br>
