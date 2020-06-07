@@ -205,8 +205,8 @@
                             <label for="status" class="col-sm-3 control-label">Status</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="status" id="status">
-                                    <option value="1">Active</option>
-                                    <option value="0">Inactive</option>
+                                    <option value="1" {{$koi->status == 1 ? 'selected' : '' }}>Active</option>
+                                    <option value="0" {{$koi->status == 0 ? 'selected' : '' }}>Inactive</option>
                                 </select>
                             </div>
                         </div>

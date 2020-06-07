@@ -48,7 +48,7 @@ class Koi extends Model implements HasMedia
     /**
      * @var array
      */
-    public $fillable = ['koi_id', 'farm_id', 'strain_id', 'store_id', 'hall_of_fame_id', 'certificate', 'born', 'oyagoi', 'sex', 'user_id', 'storage', 'price', 'unit', 'category_id', 'slug', 'event_id'];
+    public $fillable = ['koi_id', 'farm_id', 'strain_id', 'store_id', 'hall_of_fame_id', 'certificate', 'born', 'oyagoi', 'sex', 'user_id', 'storage', 'price', 'unit', 'category_id', 'slug', 'event_id', 'status'];
 
     /**
      * Get all of the post's remarks.
