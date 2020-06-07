@@ -120,7 +120,7 @@
                         @foreach($koi->sizes as $index => $sizes)
                             <p>
                                 <span class="heading">{{ trans('koi.size') }} {{ $index+1 }}</span>
-                                : {{ $sizes->size }} ({{$sizes->date}})</p>
+                                : {{ $sizes->size }} {{--({{$sizes->date}})--}}</p>
                         @endforeach
                     {{--<!-- @else
                         <p>
