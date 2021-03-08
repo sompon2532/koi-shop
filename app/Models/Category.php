@@ -60,4 +60,12 @@ class Category extends Model implements HasMedia
     public function scopeGroup($query, $type) {
         return $query->where('group', $type);
     }
+
+    /**
+     * Get all of the post's videos.
+     */
+    public function videos()
+    {
+        return $this->morphMany(Video::class, 'videotable');
+    }
 }

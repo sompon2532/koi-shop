@@ -7,6 +7,7 @@ use App\Http\Requests\Category\CreateCategoryRequest;
 use App\Http\Requests\Category\UpdateCategoryRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Carbon\Carbon;
 
 class CategoryController extends Controller
 {
@@ -43,10 +44,22 @@ class CategoryController extends Controller
     public function store(CreateCategoryRequest $request)
     {
         $category = Category::create($request->all());
-
+        // dd($category);
         // Cover
         if ($request->hasFile('cover')) {
             $category->addMedia($request->file('cover'))->toMediaCollection('category');
+        }
+
+        // dd(array_get($request->all(), 'videos'));
+        // Video
+        foreach (array_get($request->all(), 'videos') as $index => $video) {
+            if ($video) {
+                // dd($video);
+                $category->videos()->create([
+                    'video' => $video,
+                    'date' => $request->get('date_videos')[$index] ? Carbon::createFromFormat('d/m/Y', $request->get('date_videos')[$index]) : null
+                ]);
+            }
         }
 
         return redirect()

@@ -44,6 +44,22 @@
 		@endif
 
 		<div class="col-md-12">
+			@if(count($category->videos) > 0)
+				<div class="col-md-6 col-md-offset-3" style="margin-top: 20px;margin-bottom: 20px;">
+					<section class="lazy slider" data-sizes="50vw">
+						@foreach($category->videos as $video)
+							<div>
+								<div class="embed-responsive embed-responsive-16by9">
+									{!! $video->video !!}
+								</div>
+							</div>
+						@endforeach
+					</section>
+				</div>
+			@endif
+		</div>
+
+		<div class="col-md-12">
 			@if(count($products) > 0)
 				@foreach($products as $index => $product)
 					<div class="col-sm-6 col-md-3">
