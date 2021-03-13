@@ -61,7 +61,7 @@
 
 		<div class="col-md-12">
 			@if(count($products) > 0)
-				<!-- @foreach($products as $index => $product) -->
+				{{--<!-- @foreach($products as $index => $product) -->--}}
 				@foreach($products->chunk(4) as $items)
 					<div class="row">
 					@foreach($items as $index => $product)
