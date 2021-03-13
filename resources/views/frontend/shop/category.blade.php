@@ -61,7 +61,10 @@
 
 		<div class="col-md-12">
 			@if(count($products) > 0)
-				@foreach($products as $index => $product)
+				<!-- @foreach($products as $index => $product) -->
+				@foreach($products->chunk(4) as $items)
+					<div class="row">
+					@foreach($items as $index => $product)
 					<div class="col-sm-6 col-md-3">
 						<div class="product text-center stock-item-box">
 							@if($product->product_id != "")
@@ -131,10 +134,20 @@
 							</div>
 						</div>
 					</div>
+					@endforeach
+					{{--<!-- <div class="col-md-12">
+						{{ $products->links() }}
+						<p class="text-red text-right"> {{trans('product.total')}} : {{ count($products) }} </p> -->--}}
+				</div>
 				@endforeach
-				<div class="col-md-12">
-					{{ $products->links() }}
-					<p class="text-red text-right"> {{trans('product.total')}} : {{ count($products) }} </p>
+
+				<div class="row">
+					<div class="col-md-12">
+					@if(count($products) > 0)
+						{{ $products->links() }}
+						<p class="text-red text-right"> {{trans('product.total')}} : {{ count($products) }} </p>
+					@endif
+					</div>
 				</div>
 				{{--<!-- @else
 					<h1>{{trans('product.no-product')}}</h1> -->--}}
