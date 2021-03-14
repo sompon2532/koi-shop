@@ -86,7 +86,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        $category->load('media');
+        $category->load(['media', 'videos']);
         $categories = Category::get()->toTree();
 
         return view('backoffice.category.update', compact('category', 'categories'));
@@ -102,6 +102,15 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         $category->update($request->all());
+
+        // Video
+        $category->videos()->delete();
+        foreach (array_get($request->all(), 'videos') as $index => $video) {
+            $category->videos()->create([
+                'video' => $video,
+                'date' => $request->get('date_videos')[$index] ? Carbon::createFromFormat('d/m/Y', $request->get('date_videos')[$index]) : null
+            ]);
+        }
 
         // Cover
         if ($request->hasFile('cover')) {

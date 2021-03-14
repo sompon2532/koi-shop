@@ -51,6 +51,27 @@
                             </div>
                         </div>
 
+                        <!-- Video -->
+                        <!-- <div class="col-md-6"> -->
+                        <div class="form-group" v-for="(video, index) in videos">
+                                <label class="col-sm-3 control-label">
+                                    Video @{{ index + 1 }}
+                                </label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" name="videos[]" v-model="video.video" rows="5" placeholder="Video ..."></textarea>
+                                    <!-- {{-- <i class="minus fa fa-minus-circle" v-on:click="remove('video', index)" v-show="videos.length > 1"></i> --}} -->
+                                </div>
+
+                                <!-- {{-- <label class="col-sm-3 control-label">
+                                    Date
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control datepicker" name="date_videos[]" placeholder="   Date" style="border-top: none; border-radius: 0">
+                                </div> --}} -->
+                            </div>
+                            <!-- {{-- <i class="add fa fa-plus-circle" v-on:click="add('video')"></i> --}} -->
+                        <!-- </div> -->
+
                         <div class="form-group">
                             <label for="url" class="col-sm-3 control-label">
                                 Seq <span class="text-danger">*</span>
@@ -152,7 +173,8 @@
         var app = new Vue({
             el: '#app',
             data: {
-                group: '{!! $category->group !!}'
+                group: '{!! $category->group !!}',
+                videos: {!! $category->videos->count() ? $category->videos : json_encode([['video' => '']]) !!},
             }
         })
     </script>
