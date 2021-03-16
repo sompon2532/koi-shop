@@ -44,13 +44,12 @@ class CategoryController extends Controller
     public function store(CreateCategoryRequest $request)
     {
         $category = Category::create($request->all());
-        // dd($category);
+
         // Cover
         if ($request->hasFile('cover')) {
             $category->addMedia($request->file('cover'))->toMediaCollection('category');
         }
 
-        // dd(array_get($request->all(), 'videos'));
         // Video
         foreach (array_get($request->all(), 'videos') as $index => $video) {
             if ($video) {
@@ -106,12 +105,12 @@ class CategoryController extends Controller
         // Video
         $category->videos()->delete();
         foreach (array_get($request->all(), 'videos') as $index => $video) {
-            $category->videos()->create([
+            if($video != null)
+                $category->videos()->create([
                 'video' => $video,
                 'date' => $request->get('date_videos')[$index] ? Carbon::createFromFormat('d/m/Y', $request->get('date_videos')[$index]) : null
             ]);
         }
-
         // Cover
         if ($request->hasFile('cover')) {
             $category->clearMediaCollection('category');
