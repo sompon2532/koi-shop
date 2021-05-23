@@ -88,13 +88,15 @@
                 <p>SIZE : -</p>
             @endif
 
+            @if($kois->certificate == 1)
             <p>
                 <span class="heading">{{trans('user.gender')}}</span>
                 : {{ $kois->sex }}</p>
             <p>
                 <span class="heading">{{trans('user.certificate')}}</span>
-                : {{ $kois->certificate ? trans('user.yes') : trans('user.no') }} </p>
-            
+                : {{ trans('user.yes') }} </p>
+            @endif
+
             @if(count($kois->contests) > 0)
                 @foreach($kois->contests as $index => $contests)
                     <p>

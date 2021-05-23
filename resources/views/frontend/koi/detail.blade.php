@@ -128,13 +128,15 @@
                             : -</p> -->--}}
                     @endif
 
+                    @if($koi->certificate == 1)
                     <p>
                         <span class="heading">{{ trans('koi.gender')}}</span>
                         : {{ strtoupper($koi->sex) }}</p>
                     <p>
                         <span class="heading">{{ trans('koi.certificate') }}</span>
-                        : {{ $koi->certificate ? trans('koi.yes') : trans('koi.no') }} </p>
-                    
+                        : {{ trans('koi.yes') }} </p>
+                    @endif
+
                     {{--<!-- @if(count($koi->contests) > 0)
                         @foreach($koi->contests as $index => $contests)
                             <p>{{ trans('koi.contest') }} #{{ $index+1 }} : {{ $contests->contest }} ({{$contests->date}})</p>

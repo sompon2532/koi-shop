@@ -241,10 +241,12 @@
                                         </p>
                                     @endif
                                     
+                                    @if($kois->certificate == 1)
                                     <p>
                                         <span class="heading">{{ trans('koi.certificate') }}</span>
-                                        : {{ $kois->certificate ? trans('koi.yes') : trans('koi.no') }} 
+                                        : {{ trans('koi.yes') }} 
                                     </p>
+                                    @endif
                                     
                                     @if(count($kois->contests) > 0)
                                         @foreach($kois->contests as $index => $contests)

@@ -58,6 +58,10 @@ class KoiController extends Controller
      */
     public function store(CreateKoiRequest $request)
     {
+        if (! $request->certificate) {
+            $request['certificate'] = 0;
+        }
+
         $koi = Koi::create($request->all());
 
         // Remark
