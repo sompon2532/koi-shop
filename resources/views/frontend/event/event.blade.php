@@ -71,7 +71,7 @@
                     @if(count($kois) > 0)
                         @if ($today->toDateString() < $events->end_datetime->toDateString() || ($today->toDateString() == $events->end_datetime->toDateString() && $today->toTimeString() <= $events->end_datetime->toTimeString()))
                             @foreach($kois as $index => $koi)
-                                <div class="col-sm-6 col-md-3" style="margin-bottom:15px">
+                                <div class="col-xs-6 col-sm-6 col-md-3" style="margin-bottom:15px">
                                     <div class="event-item-box">
                                         <a href="{{ route('frontend.event.koi', ['event' => $events->id, 'koi' => $koi->id]) }}">
                                             @if(count($koi->media)>0)
