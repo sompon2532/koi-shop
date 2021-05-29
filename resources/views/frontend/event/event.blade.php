@@ -58,7 +58,13 @@
                                         {!! $video->video !!}
                                     </div>
                                 @endforeach
-                            </section>                                        
+                            </section>
+                        </div>
+                    @endif
+
+                    @if(count($events->media) > 0)
+                        <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:20px">
+                            <img src="{{ asset($events->media->where('collection_name', 'event')->first()->getUrl()) }}" alt="{{ $events->name }}" class="img-responsive center">
                         </div>
                     @endif
 
@@ -107,23 +113,6 @@
                                 </div> 
                             @endforeach
                         @else
-                            {{--<!-- <h4 class="text-red">{{ trans('event.end-of-event') }}</h4>
-                            @if(count($events->videos) > 0)
-                                <div class="col-md-12">
-                                    <h3>{{ trans('event.lucky_draw') }}</h3>
-                                    <h5>({{ trans('event.video') }})</h5>
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <section class="lazy slider" data-sizes="50vw">
-                                            @foreach($events->videos as $video)
-                                                <div>
-                                                    <h3 class="text-red">VIDEO ({{$video->created_at->format('Y-m-d')}})</h3>
-                                                    {!! $video->video !!}
-                                                </div>
-                                            @endforeach
-                                        </section>                                        
-                                    </div>
-                                </div>
-                            @endif -->--}}
                             <div class="col-md-12">
                                 <h3 class="text-red" style="margin:30px 0;">{{ trans('event.winner_list') }}</h3>
                             </div>
@@ -147,10 +136,7 @@
                                 </div> 
                             @endforeach
                         @endif      
-                    {{--<!-- @else
-                        <div class="col-md-12">
-                            <h1 class="text-red">{{trans('event.no-koi')}}</h1>
-                        </div> -->--}}
+
                     @endif
                 </div>
             </div>
