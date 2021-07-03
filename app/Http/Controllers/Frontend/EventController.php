@@ -74,7 +74,7 @@ class EventController extends Controller
 
     public function getEvent($id) {
         $events = Event::with(['media'])->find($id);
-        $kois = Koi::with(['media'])->where('event_id', $id)->get();
+        $kois = Koi::active()->with(['media'])->where('event_id', $id)->get();
         $today = Carbon::now('Asia/Bangkok');
         $categories = Category::active()->get()->toTree();
         $banner = Banner::with(['media'])->active()->first();
