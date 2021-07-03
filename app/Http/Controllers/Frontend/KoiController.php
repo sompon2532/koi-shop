@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Koi;
+use App\Models\Event;
 use App\Models\Category;
 use App\Models\Banner;
 use App\Models\Favorite;
@@ -48,6 +49,11 @@ class KoiController extends Controller
 
     public function getKoiCategory(Category $category)
     {
+        $eventID = array(null);
+        $events = Event::InActiveNow()->get();
+        foreach($events as $ev){
+            array_push($eventID, $ev->id);
+        }
         $categories = Category::active()->get()->toTree();
         $banner = Banner::with(['media'])->active()->first();
         $menus = Category::active()
@@ -59,8 +65,10 @@ class KoiController extends Controller
         $kois = Koi::active()
             ->with(['media'])
             ->where('category_id', $category->id)
-            ->where('event_id', null)
+            // ->where('event_id', null)
+            ->whereIn('event_id', $eventID)
             ->paginate(20);
+        dd($kois);
 
         if(Auth::user()){
             $user = User::find(Auth::user()->id);

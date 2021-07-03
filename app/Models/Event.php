@@ -7,6 +7,7 @@ use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use Carbon\Carbon;
 
 class Event extends Model implements HasMedia
 {
@@ -50,6 +51,14 @@ class Event extends Model implements HasMedia
      */
     public function scopeActive($query) {
         return $query->where('status', 1);
+    }
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeInActiveNow($query) {
+        return $query->where('start_datetime', '>', Carbon::now())->orWhere('end_datetime', '<', Carbon::now());
     }
 
     /**
