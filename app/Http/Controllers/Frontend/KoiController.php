@@ -68,7 +68,7 @@ class KoiController extends Controller
             // ->where('event_id', null)
             ->whereIn('event_id', $eventID)
             ->paginate(20);
-        dd($kois);
+        // dd($kois);
 
         if(Auth::user()){
             $user = User::find(Auth::user()->id);
