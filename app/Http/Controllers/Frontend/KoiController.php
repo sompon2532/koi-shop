@@ -49,11 +49,12 @@ class KoiController extends Controller
 
     public function getKoiCategory(Category $category)
     {
-        $eventID = array(null);
+        $eventID = array(NULL);
         $events = Event::InActiveNow()->get();
         foreach($events as $ev){
             array_push($eventID, $ev->id);
         }
+        // dd($eventID);
         $categories = Category::active()->get()->toTree();
         $banner = Banner::with(['media'])->active()->first();
         $menus = Category::active()
