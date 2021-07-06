@@ -49,7 +49,7 @@ class KoiController extends Controller
 
     public function getKoiCategory(Category $category)
     {
-        $eventID = array(NULL);
+        $eventID = array();
         $events = Event::InActiveNow()->get();
         foreach($events as $ev){
             array_push($eventID, $ev->id);
@@ -63,11 +63,12 @@ class KoiController extends Controller
             ->orderBy('seq')
             ->get()
             ->toTree();
+
         $kois = Koi::active()
             ->with(['media'])
             ->where('category_id', $category->id)
-            // ->where('event_id', null)
-            ->whereIn('event_id', $eventID)
+            ->where('event_id', null)
+            // ->whereIn('event_id', $eventID)
             ->paginate(20);
         // dd($kois);
 
